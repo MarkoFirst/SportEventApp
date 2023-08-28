@@ -83,6 +83,7 @@
 		776BABA32A9CE04B00BBC20D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		776BABA52A9CE06400BBC20D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		776BABA72A9CE09B00BBC20D /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
+		776BABA92A9CEACD00BBC20D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 				8195CCBC2A98FA5E000A917F /* AppDelegate.swift */,
 				8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */,
 				8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */,
+				776BABA92A9CEACD00BBC20D /* Info.plist */,
 				8195CCC52A98FA60000A917F /* Resources */,
 			);
 			path = SportEventApp;
