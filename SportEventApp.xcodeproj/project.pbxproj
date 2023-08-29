@@ -7,6 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		776BAB682A9CD4B600BBC20D /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB672A9CD4B600BBC20D /* EquipmentList.swift */; };
+		776BAB6A2A9CD4CD00BBC20D /* PushList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB692A9CD4CD00BBC20D /* PushList.swift */; };
+		776BAB6C2A9CD50200BBC20D /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB6B2A9CD50200BBC20D /* Themes.swift */; };
+		776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB6D2A9CD51800BBC20D /* CurrencyList.swift */; };
+		776BAB702A9CD53D00BBC20D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB6F2A9CD53D00BBC20D /* Language.swift */; };
+		776BAB722A9CD55900BBC20D /* PlacesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB712A9CD55900BBC20D /* PlacesType.swift */; };
+		776BAB742A9CD57200BBC20D /* TypeOfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB732A9CD57200BBC20D /* TypeOfGame.swift */; };
+		776BAB762A9CD58400BBC20D /* TypeOfSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB752A9CD58400BBC20D /* TypeOfSport.swift */; };
+		776BAB782A9CD59700BBC20D /* GenderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB772A9CD59700BBC20D /* GenderList.swift */; };
+		776BAB7A2A9CD5D300BBC20D /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB792A9CD5D300BBC20D /* CountryList.swift */; };
+		776BAB7C2A9CD5FE00BBC20D /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB7B2A9CD5FE00BBC20D /* Athlete.swift */; };
+		776BAB7E2A9CD62400BBC20D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB7D2A9CD62400BBC20D /* Team.swift */; };
+		776BAB802A9CD67700BBC20D /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB7F2A9CD67700BBC20D /* Sport.swift */; };
+		776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB812A9CD69800BBC20D /* SingleSport.swift */; };
+		776BAB842A9CD6B500BBC20D /* Tennis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB832A9CD6B500BBC20D /* Tennis.swift */; };
+		776BAB862A9CD6C900BBC20D /* PingPong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB852A9CD6C900BBC20D /* PingPong.swift */; };
+		776BAB882A9CD6DC00BBC20D /* Chess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB872A9CD6DC00BBC20D /* Chess.swift */; };
+		776BAB8A2A9CD6EE00BBC20D /* Fencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB892A9CD6EE00BBC20D /* Fencing.swift */; };
+		776BAB8C2A9CDF1800BBC20D /* Poker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB8B2A9CDF1800BBC20D /* Poker.swift */; };
+		776BAB8E2A9CDF2B00BBC20D /* TeamSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB8D2A9CDF2B00BBC20D /* TeamSport.swift */; };
+		776BAB902A9CDF4200BBC20D /* Basketball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB8F2A9CDF4200BBC20D /* Basketball.swift */; };
+		776BAB922A9CDF5300BBC20D /* Football.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB912A9CDF5300BBC20D /* Football.swift */; };
+		776BAB942A9CDF6400BBC20D /* Volleyball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB932A9CDF6400BBC20D /* Volleyball.swift */; };
+		776BAB962A9CDF9200BBC20D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB952A9CDF9200BBC20D /* Place.swift */; };
+		776BAB982A9CDFAF00BBC20D /* OfflinePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB972A9CDFAF00BBC20D /* OfflinePlace.swift */; };
+		776BAB9A2A9CDFD000BBC20D /* OnlinePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB992A9CDFD000BBC20D /* OnlinePlace.swift */; };
+		776BAB9C2A9CDFEF00BBC20D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB9B2A9CDFEF00BBC20D /* Event.swift */; };
+		776BAB9E2A9CE00000BBC20D /* SportEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB9D2A9CE00000BBC20D /* SportEvent.swift */; };
+		776BABA02A9CE01700BBC20D /* DoublesSportEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB9F2A9CE01700BBC20D /* DoublesSportEvent.swift */; };
+		776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA12A9CE02900BBC20D /* TeamSportEvent.swift */; };
+		776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA32A9CE04B00BBC20D /* Settings.swift */; };
+		776BABA62A9CE06400BBC20D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA52A9CE06400BBC20D /* User.swift */; };
+		776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA72A9CE09B00BBC20D /* Fan.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -17,6 +50,39 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		776BAB672A9CD4B600BBC20D /* EquipmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
+		776BAB692A9CD4CD00BBC20D /* PushList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushList.swift; sourceTree = "<group>"; };
+		776BAB6B2A9CD50200BBC20D /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		776BAB6D2A9CD51800BBC20D /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
+		776BAB6F2A9CD53D00BBC20D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		776BAB712A9CD55900BBC20D /* PlacesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesType.swift; sourceTree = "<group>"; };
+		776BAB732A9CD57200BBC20D /* TypeOfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfGame.swift; sourceTree = "<group>"; };
+		776BAB752A9CD58400BBC20D /* TypeOfSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfSport.swift; sourceTree = "<group>"; };
+		776BAB772A9CD59700BBC20D /* GenderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderList.swift; sourceTree = "<group>"; };
+		776BAB792A9CD5D300BBC20D /* CountryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
+		776BAB7B2A9CD5FE00BBC20D /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		776BAB7D2A9CD62400BBC20D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		776BAB7F2A9CD67700BBC20D /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		776BAB812A9CD69800BBC20D /* SingleSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSport.swift; sourceTree = "<group>"; };
+		776BAB832A9CD6B500BBC20D /* Tennis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tennis.swift; sourceTree = "<group>"; };
+		776BAB852A9CD6C900BBC20D /* PingPong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPong.swift; sourceTree = "<group>"; };
+		776BAB872A9CD6DC00BBC20D /* Chess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess.swift; sourceTree = "<group>"; };
+		776BAB892A9CD6EE00BBC20D /* Fencing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fencing.swift; sourceTree = "<group>"; };
+		776BAB8B2A9CDF1800BBC20D /* Poker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poker.swift; sourceTree = "<group>"; };
+		776BAB8D2A9CDF2B00BBC20D /* TeamSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSport.swift; sourceTree = "<group>"; };
+		776BAB8F2A9CDF4200BBC20D /* Basketball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basketball.swift; sourceTree = "<group>"; };
+		776BAB912A9CDF5300BBC20D /* Football.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Football.swift; sourceTree = "<group>"; };
+		776BAB932A9CDF6400BBC20D /* Volleyball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volleyball.swift; sourceTree = "<group>"; };
+		776BAB952A9CDF9200BBC20D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		776BAB972A9CDFAF00BBC20D /* OfflinePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflinePlace.swift; sourceTree = "<group>"; };
+		776BAB992A9CDFD000BBC20D /* OnlinePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlace.swift; sourceTree = "<group>"; };
+		776BAB9B2A9CDFEF00BBC20D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		776BAB9D2A9CE00000BBC20D /* SportEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportEvent.swift; sourceTree = "<group>"; };
+		776BAB9F2A9CE01700BBC20D /* DoublesSportEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublesSportEvent.swift; sourceTree = "<group>"; };
+		776BABA12A9CE02900BBC20D /* TeamSportEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSportEvent.swift; sourceTree = "<group>"; };
+		776BABA32A9CE04B00BBC20D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		776BABA52A9CE06400BBC20D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		776BABA72A9CE09B00BBC20D /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +104,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		776BAB662A9CD3D900BBC20D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				776BAB672A9CD4B600BBC20D /* EquipmentList.swift */,
+				776BAB692A9CD4CD00BBC20D /* PushList.swift */,
+				776BAB6B2A9CD50200BBC20D /* Themes.swift */,
+				776BAB6D2A9CD51800BBC20D /* CurrencyList.swift */,
+				776BAB6F2A9CD53D00BBC20D /* Language.swift */,
+				776BAB712A9CD55900BBC20D /* PlacesType.swift */,
+				776BAB732A9CD57200BBC20D /* TypeOfGame.swift */,
+				776BAB752A9CD58400BBC20D /* TypeOfSport.swift */,
+				776BAB772A9CD59700BBC20D /* GenderList.swift */,
+				776BAB792A9CD5D300BBC20D /* CountryList.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		8195CCB02A98FA5E000A917F = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +153,31 @@
 		8195CCD02A98FAB5000A917F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				776BAB662A9CD3D900BBC20D /* Enums */,
 				8195CCD52A9CB492000A917F /* ClassExample.swift */,
+				776BAB7B2A9CD5FE00BBC20D /* Athlete.swift */,
+				776BAB7D2A9CD62400BBC20D /* Team.swift */,
+				776BAB7F2A9CD67700BBC20D /* Sport.swift */,
+				776BAB812A9CD69800BBC20D /* SingleSport.swift */,
+				776BAB832A9CD6B500BBC20D /* Tennis.swift */,
+				776BAB852A9CD6C900BBC20D /* PingPong.swift */,
+				776BAB872A9CD6DC00BBC20D /* Chess.swift */,
+				776BAB892A9CD6EE00BBC20D /* Fencing.swift */,
+				776BAB8B2A9CDF1800BBC20D /* Poker.swift */,
+				776BAB8D2A9CDF2B00BBC20D /* TeamSport.swift */,
+				776BAB8F2A9CDF4200BBC20D /* Basketball.swift */,
+				776BAB912A9CDF5300BBC20D /* Football.swift */,
+				776BAB932A9CDF6400BBC20D /* Volleyball.swift */,
+				776BAB952A9CDF9200BBC20D /* Place.swift */,
+				776BAB972A9CDFAF00BBC20D /* OfflinePlace.swift */,
+				776BAB992A9CDFD000BBC20D /* OnlinePlace.swift */,
+				776BAB9B2A9CDFEF00BBC20D /* Event.swift */,
+				776BAB9D2A9CE00000BBC20D /* SportEvent.swift */,
+				776BAB9F2A9CE01700BBC20D /* DoublesSportEvent.swift */,
+				776BABA72A9CE09B00BBC20D /* Fan.swift */,
+				776BABA12A9CE02900BBC20D /* TeamSportEvent.swift */,
+				776BABA32A9CE04B00BBC20D /* Settings.swift */,
+				776BABA52A9CE06400BBC20D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,10 +262,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776BAB8C2A9CDF1800BBC20D /* Poker.swift in Sources */,
+				776BAB882A9CD6DC00BBC20D /* Chess.swift in Sources */,
+				776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */,
+				776BAB6C2A9CD50200BBC20D /* Themes.swift in Sources */,
+				776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				776BAB9E2A9CE00000BBC20D /* SportEvent.swift in Sources */,
+				776BAB902A9CDF4200BBC20D /* Basketball.swift in Sources */,
+				776BAB862A9CD6C900BBC20D /* PingPong.swift in Sources */,
+				776BAB682A9CD4B600BBC20D /* EquipmentList.swift in Sources */,
+				776BAB722A9CD55900BBC20D /* PlacesType.swift in Sources */,
+				776BAB782A9CD59700BBC20D /* GenderList.swift in Sources */,
+				776BAB982A9CDFAF00BBC20D /* OfflinePlace.swift in Sources */,
+				776BAB8E2A9CDF2B00BBC20D /* TeamSport.swift in Sources */,
+				776BAB8A2A9CD6EE00BBC20D /* Fencing.swift in Sources */,
+				776BAB9C2A9CDFEF00BBC20D /* Event.swift in Sources */,
+				776BABA02A9CE01700BBC20D /* DoublesSportEvent.swift in Sources */,
+				776BAB922A9CDF5300BBC20D /* Football.swift in Sources */,
+				776BAB942A9CDF6400BBC20D /* Volleyball.swift in Sources */,
+				776BAB842A9CD6B500BBC20D /* Tennis.swift in Sources */,
+				776BAB9A2A9CDFD000BBC20D /* OnlinePlace.swift in Sources */,
+				776BAB802A9CD67700BBC20D /* Sport.swift in Sources */,
+				776BAB702A9CD53D00BBC20D /* Language.swift in Sources */,
+				776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */,
+				776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */,
+				776BAB962A9CDF9200BBC20D /* Place.swift in Sources */,
+				776BAB762A9CD58400BBC20D /* TypeOfSport.swift in Sources */,
+				776BAB742A9CD57200BBC20D /* TypeOfGame.swift in Sources */,
+				776BAB7C2A9CD5FE00BBC20D /* Athlete.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
+				776BAB7E2A9CD62400BBC20D /* Team.swift in Sources */,
+				776BABA62A9CE06400BBC20D /* User.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
+				776BAB7A2A9CD5D300BBC20D /* CountryList.swift in Sources */,
+				776BAB6A2A9CD4CD00BBC20D /* PushList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
