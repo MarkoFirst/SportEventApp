@@ -14,6 +14,7 @@
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		CCA478302A9F8F82002D8904 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4782F2A9F8F82002D8904 /* SecondVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCA4782F2A9F8F82002D8904 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
+				CCA4782F2A9F8F82002D8904 /* SecondVC.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 			);
 			path = ViewControllers;
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				CCA478302A9F8F82002D8904 /* SecondVC.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
@@ -308,7 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H44PMYFBW9;
+				DEVELOPMENT_TEAM = U6JM6F58R2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportEventApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vadim.babiichuck.SportEventApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dima.kahanets.SportEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -337,7 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H44PMYFBW9;
+				DEVELOPMENT_TEAM = U6JM6F58R2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportEventApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -351,7 +355,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vadim.babiichuck.SportEventApp;
+				PRODUCT_BUNDLE_IDENTIFIER = dima.kahanets.SportEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
