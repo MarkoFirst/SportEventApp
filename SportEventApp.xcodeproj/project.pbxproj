@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8134ECEB2A9E4B010011C841 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8134ECEA2A9E4B010011C841 /* View.xib */; };
+		8134ECF12A9E68030011C841 /* AddedNameTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8134ECF02A9E68030011C841 /* AddedNameTVC.xib */; };
+		8134ECF32A9E69A20011C841 /* AddedNameTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8134ECF22A9E69A10011C841 /* AddedNameTVC.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8134ECEA2A9E4B010011C841 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		8134ECF02A9E68030011C841 /* AddedNameTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddedNameTVC.xib; sourceTree = "<group>"; };
+		8134ECF22A9E69A10011C841 /* AddedNameTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedNameTVC.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8134ECE92A9E4AE70011C841 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8134ECEA2A9E4B010011C841 /* View.xib */,
+				8134ECF02A9E68030011C841 /* AddedNameTVC.xib */,
+				8134ECF22A9E69A10011C841 /* AddedNameTVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8195CCB02A98FA5E000A917F = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +74,7 @@
 		8195CCBB2A98FA5E000A917F /* SportEventApp */ = {
 			isa = PBXGroup;
 			children = (
+				8134ECE92A9E4AE70011C841 /* Views */,
 				8195CCD02A98FAB5000A917F /* Models */,
 				8195CCD12A98FACD000A917F /* ViewControllers */,
 				8195CCBC2A98FA5E000A917F /* AppDelegate.swift */,
@@ -144,6 +161,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8134ECF12A9E68030011C841 /* AddedNameTVC.xib in Resources */,
+				8134ECEB2A9E4B010011C841 /* View.xib in Resources */,
 				8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */,
 				81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
@@ -158,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				8134ECF32A9E69A20011C841 /* AddedNameTVC.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
