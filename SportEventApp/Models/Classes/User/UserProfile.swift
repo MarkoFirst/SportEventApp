@@ -22,4 +22,25 @@ class UserProfile {
         self.mail = mail
         self.password = password
     }
+    
+    func changeFirstName(element: String) {
+        firstName = element
+    }
+    
+    func changeLastName(element: String) {
+        lastName = element
+    }
+    
+    func changeAge(element: Int) {
+        age = element
+    }
+    
+    func changeMail(element: String) {
+        mail = element
+    }
+    
+    func changePassword(element: String) {
+        password = element
+    }
+    
 }

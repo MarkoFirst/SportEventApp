@@ -8,16 +8,30 @@
 import Foundation
 
 class UserFav {
-    let savedEvent: [Event]
-    let favSport: [SportTypes]
-    let favTeam: [Team]
-    let favAthletes: [Athlete]
+    var savedEvent: [Event]
+    var favSport: [SportTypes]
+    var favTeam: [Team]
+    var favAthletes: [Athlete]
     
     init(savedEvent: [Event], favSport: [SportTypes], favTeam: [Team], favAthletes: [Athlete]) {
         self.savedEvent = savedEvent
         self.favSport = favSport
         self.favTeam = favTeam
         self.favAthletes = favAthletes
+    }
+    
+    func saveEvent(element: Event) {
+        savedEvent.append(element)
+    }
+    
+    func addFavSport(element: SportTypes) {
+        favSport.append(element)
+    }
+    func addFavTeam(element: Team) {
+        favTeam.append(element)
+    }
+    func addFavAthlete(element: Athlete) {
+        favAthletes.append(element)
     }
 }
 

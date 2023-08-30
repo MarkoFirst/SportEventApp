@@ -8,9 +8,12 @@
 import Foundation
 
 class PairGames: Athlete {
-    let rank: String
-    init(rank: String, name: String, age: Int, gender: Gender, country: Country) {
+    var rank: String
+    var sport: SportTypes
+    
+    init(rank: String, name: String, age: Int, gender: Gender, country: Country, sport: SportTypes) {
         self.rank = rank
+        self.sport = sport
         super.init(name: name, age: age, number: 0, gender: gender, country: country)
     }
 }

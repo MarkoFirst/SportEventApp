@@ -22,8 +22,8 @@ let teams = [Team(teamName: "Barcelona", athletes: barcaAth, dateCreate: "19.08.
 
 let attStadium = Place(nameOfPlace: "AT&T STADIUM", numberOfSeatPlaces: 80000, sport: .football, city: "Dallas", adress: "1 AT&T Way, TX 76011", price: "90$")
 
-let pair = [PairGames(rank: "GrandMaster", name: "Ivan Ivanov", age: 23, gender: .male, country: .ukraine),
-            PairGames(rank: "GrandMaster", name: "Dima Dimenko", age: 25, gender: .male, country: .ukraine)]
+let pair = [PairGames(rank: "GrandMaster", name: "Ivan Ivanov", age: 23, gender: .male, country: .ukraine, sport: .chess),
+            PairGames(rank: "GrandMaster", name: "Dima Dimenko", age: 25, gender: .male, country: .ukraine, sport: .chess)]
 
 let lokomotivCentre = Place(nameOfPlace: "Lokomotiv", numberOfSeatPlaces: 1000, sport: .chess, city: "Kharkiv", adress: "Evgen Kotlyar street, 15V", price: "14.99$")
 
