@@ -14,6 +14,16 @@
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		F71D89B02A9F8DF800E42A76 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89AF2A9F8DF800E42A76 /* Sport.swift */; };
+		F71D89B42A9F8E2900E42A76 /* enum SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89B32A9F8E2900E42A76 /* enum SportType.swift */; };
+		F71D89B62A9F8E3C00E42A76 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89B52A9F8E3C00E42A76 /* Team.swift */; };
+		F71D89B82A9F8E5700E42A76 /* Athlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89B72A9F8E5700E42A76 /* Athlet.swift */; };
+		F71D89BA2A9F8E6C00E42A76 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89B92A9F8E6C00E42A76 /* Event.swift */; };
+		F71D89BC2A9F8E8700E42A76 /* enum EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89BB2A9F8E8700E42A76 /* enum EventType.swift */; };
+		F71D89BE2A9F8EA300E42A76 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89BD2A9F8EA300E42A76 /* Place.swift */; };
+		F71D89C02A9F8EB800E42A76 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89BF2A9F8EB800E42A76 /* Settings.swift */; };
+		F71D89C22A9F8ECD00E42A76 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89C12A9F8ECD00E42A76 /* Users.swift */; };
+		F71D89C42A9F8EE700E42A76 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D89C32A9F8EE700E42A76 /* functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,16 @@
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F71D89AF2A9F8DF800E42A76 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		F71D89B32A9F8E2900E42A76 /* enum SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "enum SportType.swift"; sourceTree = "<group>"; };
+		F71D89B52A9F8E3C00E42A76 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		F71D89B72A9F8E5700E42A76 /* Athlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlet.swift; sourceTree = "<group>"; };
+		F71D89B92A9F8E6C00E42A76 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F71D89BB2A9F8E8700E42A76 /* enum EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "enum EventType.swift"; sourceTree = "<group>"; };
+		F71D89BD2A9F8EA300E42A76 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F71D89BF2A9F8EB800E42A76 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F71D89C12A9F8ECD00E42A76 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F71D89C32A9F8EE700E42A76 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +93,16 @@
 			isa = PBXGroup;
 			children = (
 				8195CCD52A9CB492000A917F /* ClassExample.swift */,
+				F71D89AF2A9F8DF800E42A76 /* Sport.swift */,
+				F71D89B32A9F8E2900E42A76 /* enum SportType.swift */,
+				F71D89B52A9F8E3C00E42A76 /* Team.swift */,
+				F71D89B72A9F8E5700E42A76 /* Athlet.swift */,
+				F71D89B92A9F8E6C00E42A76 /* Event.swift */,
+				F71D89BB2A9F8E8700E42A76 /* enum EventType.swift */,
+				F71D89BD2A9F8EA300E42A76 /* Place.swift */,
+				F71D89BF2A9F8EB800E42A76 /* Settings.swift */,
+				F71D89C12A9F8ECD00E42A76 /* Users.swift */,
+				F71D89C32A9F8EE700E42A76 /* functions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,9 +187,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71D89B42A9F8E2900E42A76 /* enum SportType.swift in Sources */,
+				F71D89BA2A9F8E6C00E42A76 /* Event.swift in Sources */,
+				F71D89B82A9F8E5700E42A76 /* Athlet.swift in Sources */,
+				F71D89B02A9F8DF800E42A76 /* Sport.swift in Sources */,
+				F71D89B62A9F8E3C00E42A76 /* Team.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				F71D89C02A9F8EB800E42A76 /* Settings.swift in Sources */,
+				F71D89BC2A9F8E8700E42A76 /* enum EventType.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				F71D89C42A9F8EE700E42A76 /* functions.swift in Sources */,
+				F71D89C22A9F8ECD00E42A76 /* Users.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
+				F71D89BE2A9F8EA300E42A76 /* Place.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
