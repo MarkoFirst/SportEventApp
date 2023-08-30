@@ -12,8 +12,18 @@
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
 		8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC22A98FA5E000A917F /* Main.storyboard */; };
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
-		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
+		8195CCD62A9CB492000A917F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* Team.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		946DACC92A9FAE1700E62249 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACC82A9FAE1700E62249 /* Enums.swift */; };
+		946DACCB2A9FAE6000E62249 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACCA2A9FAE6000E62249 /* Athlete.swift */; };
+		946DACCD2A9FAE9000E62249 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACCC2A9FAE9000E62249 /* Sport.swift */; };
+		946DACCF2A9FAEB300E62249 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACCE2A9FAEB300E62249 /* Event.swift */; };
+		946DACD12A9FAEDD00E62249 /* SportEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACD02A9FAEDD00E62249 /* SportEvent.swift */; };
+		946DACD32A9FAF1D00E62249 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACD22A9FAF1D00E62249 /* Place.swift */; };
+		946DACD52A9FAF5100E62249 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACD42A9FAF5100E62249 /* Equipment.swift */; };
+		946DACD72A9FAF7700E62249 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACD62A9FAF7700E62249 /* Settings.swift */; };
+		946DACD92A9FAF9200E62249 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACD82A9FAF9200E62249 /* User.swift */; };
+		946DACDB2A9FAFBA00E62249 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DACDA2A9FAFBA00E62249 /* DesignSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +33,19 @@
 		8195CCC02A98FA5E000A917F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		8195CCC32A98FA5E000A917F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8195CCC82A98FA60000A917F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
+		8195CCD52A9CB492000A917F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		946DACC82A9FAE1700E62249 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		946DACCA2A9FAE6000E62249 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		946DACCC2A9FAE9000E62249 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		946DACCE2A9FAEB300E62249 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		946DACD02A9FAEDD00E62249 /* SportEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportEvent.swift; sourceTree = "<group>"; };
+		946DACD22A9FAF1D00E62249 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		946DACD42A9FAF5100E62249 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		946DACD62A9FAF7700E62249 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		946DACD82A9FAF9200E62249 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		946DACDA2A9FAFBA00E62249 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +92,17 @@
 		8195CCD02A98FAB5000A917F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8195CCD52A9CB492000A917F /* ClassExample.swift */,
+				946DACC82A9FAE1700E62249 /* Enums.swift */,
+				8195CCD52A9CB492000A917F /* Team.swift */,
+				946DACCA2A9FAE6000E62249 /* Athlete.swift */,
+				946DACCC2A9FAE9000E62249 /* Sport.swift */,
+				946DACCE2A9FAEB300E62249 /* Event.swift */,
+				946DACD02A9FAEDD00E62249 /* SportEvent.swift */,
+				946DACD22A9FAF1D00E62249 /* Place.swift */,
+				946DACD42A9FAF5100E62249 /* Equipment.swift */,
+				946DACD62A9FAF7700E62249 /* Settings.swift */,
+				946DACD82A9FAF9200E62249 /* User.swift */,
+				946DACDA2A9FAFBA00E62249 /* DesignSystem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,10 +187,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946DACD92A9FAF9200E62249 /* User.swift in Sources */,
+				946DACCF2A9FAEB300E62249 /* Event.swift in Sources */,
+				946DACCD2A9FAE9000E62249 /* Sport.swift in Sources */,
+				946DACD52A9FAF5100E62249 /* Equipment.swift in Sources */,
+				946DACDB2A9FAFBA00E62249 /* DesignSystem.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				946DACCB2A9FAE6000E62249 /* Athlete.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				946DACD72A9FAF7700E62249 /* Settings.swift in Sources */,
+				946DACC92A9FAE1700E62249 /* Enums.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
-				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
+				946DACD12A9FAEDD00E62249 /* SportEvent.swift in Sources */,
+				8195CCD62A9CB492000A917F /* Team.swift in Sources */,
+				946DACD32A9FAF1D00E62249 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
