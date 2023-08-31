@@ -1,24 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gGd-61-nKl">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="MCU-gg-I71">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="gGd-61-nKl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CUy-TI-NpI">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rjx-SQ-1z2" kind="relationship" relationship="rootViewController" id="mrR-Ms-9Ri"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAe-aa-uWM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1248" y="-11"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kq1-yx-h3o">
+            <objects>
+                <viewController id="rjx-SQ-1z2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCj-VB-D4T">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="sportCover" translatesAutoresizingMaskIntoConstraints="NO" id="pBK-T3-sg2">
+                                <rect key="frame" x="0.0" y="103" width="393" height="353"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="288" id="6Hh-t0-iew"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Latest news about all sports" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYm-ql-3Sn">
+                                <rect key="frame" x="36" y="480.00000000000006" width="321" height="95.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lns-vn-5rU">
+                                <rect key="frame" x="36" y="591.66666666666663" width="321" height="86.333333333333371"/>
+                                <string key="text">Some notes in our latest look since the Draft Lottery, which saw the Minnesota Timberwolves land the No. 1 pick in the 2020 NBA Draft.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P9p-mn-4NA">
+                                <rect key="frame" x="36" y="718" width="321" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AI-85-AHZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="clo-7a-XZo"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Log in" cornerStyle="large">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="3pH-Ah-4s4" kind="show" id="7Hh-7E-9Wi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1N-I3-Ugy">
+                                        <rect key="frame" x="164.66666666666663" y="0.0" width="156.33333333333337" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="WwV-tG-fdR"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign up" cornerStyle="large">
+                                            <backgroundConfiguration key="background" strokeWidth="1">
+                                                <color key="strokeColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </backgroundConfiguration>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="3pH-Ah-4s4" kind="show" id="FwJ-L7-Jvq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rQt-zW-sC9"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lns-vn-5rU" firstAttribute="leading" secondItem="DCj-VB-D4T" secondAttribute="leading" constant="36" id="3EK-m9-4V9"/>
+                            <constraint firstAttribute="trailing" secondItem="KYm-ql-3Sn" secondAttribute="trailing" constant="36" id="7Jf-lL-CqI"/>
+                            <constraint firstAttribute="trailing" secondItem="pBK-T3-sg2" secondAttribute="trailing" id="AdP-04-H69"/>
+                            <constraint firstItem="KYm-ql-3Sn" firstAttribute="top" secondItem="pBK-T3-sg2" secondAttribute="bottom" constant="24" id="Aua-Bm-eyD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P9p-mn-4NA" secondAttribute="trailing" constant="20" id="JDH-MC-25D"/>
+                            <constraint firstAttribute="trailing" secondItem="lns-vn-5rU" secondAttribute="trailing" constant="36" id="Usl-fg-WKu"/>
+                            <constraint firstItem="P9p-mn-4NA" firstAttribute="leading" secondItem="DCj-VB-D4T" secondAttribute="leadingMargin" constant="20" id="UuL-Kh-773"/>
+                            <constraint firstItem="pBK-T3-sg2" firstAttribute="leading" secondItem="DCj-VB-D4T" secondAttribute="leading" id="efH-Lq-xga"/>
+                            <constraint firstItem="pBK-T3-sg2" firstAttribute="top" secondItem="rQt-zW-sC9" secondAttribute="top" id="loZ-sa-96u"/>
+                            <constraint firstItem="KYm-ql-3Sn" firstAttribute="leading" secondItem="DCj-VB-D4T" secondAttribute="leading" constant="36" id="udo-aZ-zec"/>
+                            <constraint firstItem="lns-vn-5rU" firstAttribute="top" secondItem="KYm-ql-3Sn" secondAttribute="bottom" constant="16" id="vYp-cN-aOU"/>
+                            <constraint firstItem="P9p-mn-4NA" firstAttribute="top" secondItem="lns-vn-5rU" secondAttribute="bottom" constant="40" id="xRp-PK-NCx"/>
+                            <constraint firstItem="rQt-zW-sC9" firstAttribute="bottom" secondItem="P9p-mn-4NA" secondAttribute="bottom" constant="56" id="y2u-hm-aqr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tNH-CT-aEb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2V-3l-NFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2139.6946564885498" y="-11.267605633802818"/>
+        </scene>
+        <!--Second screen-->
+        <scene sceneID="FFs-22-H0V">
+            <objects>
+                <viewController id="3pH-Ah-4s4" customClass="SecondVC" customModule="SportEvents_Storyboard_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iIp-6C-uk3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="S8k-DP-mlv"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Second screen" id="boz-DD-Toi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ey-Lo-Bkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3037" y="-11"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Hh-7E-9Wi"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="sportCover" width="1600" height="1600"/>
+    </resources>
 </document>
