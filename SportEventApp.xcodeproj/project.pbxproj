@@ -14,6 +14,16 @@
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		C48493E22AA0F99300624389 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493E12AA0F99300624389 /* Sport.swift */; };
+		C48493E42AA0F9B800624389 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493E32AA0F9B800624389 /* Team.swift */; };
+		C48493E62AA0F9C400624389 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493E52AA0F9C400624389 /* Player.swift */; };
+		C48493E82AA0F9DB00624389 /* Coach.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493E72AA0F9DB00624389 /* Coach.swift */; };
+		C48493EA2AA0F9F200624389 /* SportEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493E92AA0F9F200624389 /* SportEvent.swift */; };
+		C48493EC2AA0F9FD00624389 /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493EB2AA0F9FD00624389 /* Fan.swift */; };
+		C48493EE2AA0FA0F00624389 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493ED2AA0FA0F00624389 /* Equipment.swift */; };
+		C48493F02AA0FA1E00624389 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493EF2AA0FA1E00624389 /* Venue.swift */; };
+		C48493F22AA0FA3100624389 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493F12AA0FA3100624389 /* Settings.swift */; };
+		C48493F42AA0FA4200624389 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48493F32AA0FA4200624389 /* User.swift */; };
 		F71D89C62A9F946300E42A76 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F71D89C52A9F946300E42A76 /* Inter-Regular.otf */; };
 		F71D89C82A9F946D00E42A76 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */; };
 /* End PBXBuildFile section */
@@ -28,6 +38,16 @@
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C48493E12AA0F99300624389 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		C48493E32AA0F9B800624389 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		C48493E52AA0F9C400624389 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C48493E72AA0F9DB00624389 /* Coach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coach.swift; sourceTree = "<group>"; };
+		C48493E92AA0F9F200624389 /* SportEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportEvent.swift; sourceTree = "<group>"; };
+		C48493EB2AA0F9FD00624389 /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
+		C48493ED2AA0FA0F00624389 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		C48493EF2AA0FA1E00624389 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		C48493F12AA0FA3100624389 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C48493F32AA0FA4200624389 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F71D89C52A9F946300E42A76 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +99,16 @@
 			isa = PBXGroup;
 			children = (
 				8195CCD52A9CB492000A917F /* ClassExample.swift */,
+				C48493E12AA0F99300624389 /* Sport.swift */,
+				C48493E32AA0F9B800624389 /* Team.swift */,
+				C48493E52AA0F9C400624389 /* Player.swift */,
+				C48493E72AA0F9DB00624389 /* Coach.swift */,
+				C48493E92AA0F9F200624389 /* SportEvent.swift */,
+				C48493EB2AA0F9FD00624389 /* Fan.swift */,
+				C48493ED2AA0FA0F00624389 /* Equipment.swift */,
+				C48493EF2AA0FA1E00624389 /* Venue.swift */,
+				C48493F12AA0FA3100624389 /* Settings.swift */,
+				C48493F32AA0FA4200624389 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,9 +195,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48493E42AA0F9B800624389 /* Team.swift in Sources */,
+				C48493F02AA0FA1E00624389 /* Venue.swift in Sources */,
+				C48493F22AA0FA3100624389 /* Settings.swift in Sources */,
+				C48493E22AA0F99300624389 /* Sport.swift in Sources */,
+				C48493EE2AA0FA0F00624389 /* Equipment.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				C48493F42AA0FA4200624389 /* User.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				C48493E82AA0F9DB00624389 /* Coach.swift in Sources */,
+				C48493E62AA0F9C400624389 /* Player.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
+				C48493EC2AA0F9FD00624389 /* Fan.swift in Sources */,
+				C48493EA2AA0F9F200624389 /* SportEvent.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
