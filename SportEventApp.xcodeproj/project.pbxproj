@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773D181B2AA3C14F00F6F4A2 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D181A2AA3C14F00F6F4A2 /* SignUpVC.swift */; };
 		77B95D782AA005A800020FB8 /* SecondPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B95D772AA005A800020FB8 /* SecondPageVC.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		773D181A2AA3C14F00F6F4A2 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		77B95D772AA005A800020FB8 /* SecondPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageVC.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 				77B95D772AA005A800020FB8 /* SecondPageVC.swift */,
+				773D181A2AA3C14F00F6F4A2 /* SignUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
+				773D181B2AA3C14F00F6F4A2 /* SignUpVC.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
