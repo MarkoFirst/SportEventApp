@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4R-rt-SpF">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -14,14 +14,14 @@
             <objects>
                 <viewController id="Gic-sV-ben" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6f4-7z-l9e">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Athlete in circle" translatesAutoresizingMaskIntoConstraints="NO" id="M7s-P2-zwi">
-                                <rect key="frame" x="36" y="20" width="248" height="193.5"/>
+                                <rect key="frame" x="36" y="92" width="342" height="439.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mer-zE-Nqx">
-                                <rect key="frame" x="36" y="233.5" width="248" height="75"/>
+                                <rect key="frame" x="36" y="551.5" width="342" height="75"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Latest news about all sports">
                                         <attributes>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="RwW-gW-5mC">
-                                <rect key="frame" x="36" y="324.5" width="248" height="115.5"/>
+                                <rect key="frame" x="36" y="642.5" width="342" height="91.5"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Some notes in our latest look since the Draft Lottery, which saw the Minnesota Timberwolves land the No. 1 pick in the 2020 NBA Draft.</string>
@@ -52,10 +52,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1Lc-4a-GTU">
-                                <rect key="frame" x="36" y="480" width="248" height="48"/>
+                                <rect key="frame" x="36" y="774" width="342" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-O8-pH1">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Rn5-zE-8MZ"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUX-9u-5Uj">
-                                        <rect key="frame" x="132" y="0.0" width="116" height="48"/>
+                                        <rect key="frame" x="179" y="0.0" width="163" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="x9S-qk-Wqh"/>
                                         </constraints>
@@ -87,10 +87,11 @@
                                                     <attributes>
                                                         <color key="NSColor" red="0.46881508830000002" green="0.58983248470000005" blue="0.70981997249999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <font key="NSFont" size="18" name="InterV_Bold"/>
-                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
+                                            <attributedString key="attributedSubtitle"/>
+                                            <color key="baseForegroundColor" red="0.46881508830000002" green="0.58983248470000005" blue="0.70981997249999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="Cal-F2-7YR" kind="show" id="ROt-va-CHY"/>
@@ -129,7 +130,7 @@
             <objects>
                 <viewController id="Cal-F2-7YR" customClass="SecondPageVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w9O-tZ-Fik">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="42Y-Cs-Fq2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -143,10 +144,14 @@
         <!--Navigation Controller-->
         <scene sceneID="Gdw-J0-RCj">
             <objects>
-                <navigationController navigationBarHidden="YES" id="T4R-rt-SpF" sceneMemberID="viewController">
+                <navigationController id="T4R-rt-SpF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JVz-Xk-atv">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="skg-qm-jE1">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Gic-sV-ben" kind="relationship" relationship="rootViewController" id="p8I-Uf-GRq"/>
                     </connections>
