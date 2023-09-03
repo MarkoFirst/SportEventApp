@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		776747512AA515EA005725B3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747502AA515EA005725B3 /* SignUpVC.swift */; };
 		776BAB682A9CD4B600BBC20D /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB672A9CD4B600BBC20D /* EquipmentList.swift */; };
 		776BAB6A2A9CD4CD00BBC20D /* PushList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB692A9CD4CD00BBC20D /* PushList.swift */; };
 		776BAB6C2A9CD50200BBC20D /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BAB6B2A9CD50200BBC20D /* Themes.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		776747502AA515EA005725B3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		776BAB672A9CD4B600BBC20D /* EquipmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
 		776BAB692A9CD4CD00BBC20D /* PushList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushList.swift; sourceTree = "<group>"; };
 		776BAB6B2A9CD50200BBC20D /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		8195CCD12A98FACD000A917F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				776747502AA515EA005725B3 /* SignUpVC.swift */,
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 			);
@@ -298,6 +301,7 @@
 				776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */,
+				776747512AA515EA005725B3 /* SignUpVC.swift in Sources */,
 				776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */,
 				776BAB962A9CDF9200BBC20D /* Place.swift in Sources */,
 				776BAB762A9CD58400BBC20D /* TypeOfSport.swift in Sources */,
@@ -456,7 +460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H44PMYFBW9;
+				DEVELOPMENT_TEAM = HHTA648R26;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportEventApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vadim.babiichuck.SportEventApp;
+				PRODUCT_BUNDLE_IDENTIFIER = MykytaMelnykov.SportEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -485,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H44PMYFBW9;
+				DEVELOPMENT_TEAM = HHTA648R26;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SportEventApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -499,7 +503,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vadim.babiichuck.SportEventApp;
+				PRODUCT_BUNDLE_IDENTIFIER = MykytaMelnykov.SportEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

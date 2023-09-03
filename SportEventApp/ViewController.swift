@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 
 @available(iOS 16.0, *)
 func createEvent(teams: [Team], date: String, title: String, place: Place, description: String) -> Event? {
-    var typeOfSport = teams.enumerated().map( {$1.sport} )
-    var description = "The event type of \(typeOfSport[0]) with the participation of teams \(teams.enumerated().map( { "\($1.name)"}).joined(separator: " - ")) will be held on \(date) at \(place.name), the price of participation in the event is from \(place.priceFrom) to \(place.priceTo)."
+    let typeOfSport = teams.enumerated().map( {$1.sport} )
+    let description = "The event type of \(typeOfSport[0]) with the participation of teams \(teams.enumerated().map( { "\($1.name)"}).joined(separator: " - ")) will be held on \(date) at \(place.name), the price of participation in the event is from \(place.priceFrom) to \(place.priceTo)."
    
     if Set(typeOfSport).count == 1 && place.typeSport.contains(Set(typeOfSport)){
         return TeamSportEvent(teams: teams, typeOfSport: typeOfSport[0], title: title, description: description, date: date, place: place, currency: place.currency)
