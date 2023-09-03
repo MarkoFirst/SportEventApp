@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 class SignUpVC: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var nameTF: UITextField!
+    
+    @IBOutlet weak var fullNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTF.delegate = self
+        fullNameTF.delegate = self
         emailTF.delegate = self
         passwordTF.delegate = self
     }
@@ -25,5 +25,4 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
 }
