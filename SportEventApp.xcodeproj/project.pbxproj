@@ -15,6 +15,8 @@
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		F71D89C62A9F946300E42A76 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F71D89C52A9F946300E42A76 /* Inter-Regular.otf */; };
+		F71D89C82A9F946D00E42A76 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F71D89C52A9F946300E42A76 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */,
 				81B2B46B2A9E461800033839 /* Assets.xcassets */,
 				81B2B4672A9E44C600033839 /* Info.plist */,
+				F71D89C52A9F946300E42A76 /* Inter-Regular.otf */,
+				F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */,
 			);
 			path = SportEventApp;
 			sourceTree = "<group>";
@@ -148,7 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */,
+				F71D89C62A9F946300E42A76 /* Inter-Regular.otf in Resources */,
 				81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */,
+				F71D89C82A9F946D00E42A76 /* Inter-SemiBold.otf in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
