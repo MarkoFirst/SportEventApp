@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV7-Hi-byI">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="fSh-sj-cuW">
+            <objects>
+                <viewController id="MbI-5n-lBD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x2n-kz-3X1">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Sports-PNG-Images-HD" translatesAutoresizingMaskIntoConstraints="NO" id="nSZ-Z5-5ph">
+                                <rect key="frame" x="36" y="80" width="358" height="186"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Latest news about all sports" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H1-LO-R8F">
+                                <rect key="frame" x="36" y="290" width="358" height="95.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZU-Hk-vFZ">
+                                <rect key="frame" x="36" y="401.5" width="358" height="81.5"/>
+                                <string key="text">Some notes in our latest look since the Draft Lottery, which saw the Minnesota Timberwolves land the No. 1 pick in the 2020 NBA Draft.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pOu-qx-izr">
+                                <rect key="frame" x="36" y="798" width="358" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quJ-9o-61s">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <segue destination="4Gy-ES-DzJ" kind="show" id="e1r-Fd-27T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDV-xR-eP3">
+                                        <rect key="frame" x="183" y="0.0" width="175" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="oPh-WZ-LWC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hiE-Cw-Qec"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3ZU-Hk-vFZ" firstAttribute="top" secondItem="5H1-LO-R8F" secondAttribute="bottom" constant="16" id="0g2-Rv-MP5"/>
+                            <constraint firstItem="5H1-LO-R8F" firstAttribute="leading" secondItem="hiE-Cw-Qec" secondAttribute="leading" constant="36" id="0jA-MR-2cP"/>
+                            <constraint firstItem="hiE-Cw-Qec" firstAttribute="trailing" secondItem="5H1-LO-R8F" secondAttribute="trailing" constant="36" id="9g4-1T-ije"/>
+                            <constraint firstItem="hiE-Cw-Qec" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pOu-qx-izr" secondAttribute="bottom" constant="56" id="F0V-Q8-J4l"/>
+                            <constraint firstItem="nSZ-Z5-5ph" firstAttribute="leading" secondItem="hiE-Cw-Qec" secondAttribute="leading" constant="36" id="FoV-I5-rR2"/>
+                            <constraint firstItem="hiE-Cw-Qec" firstAttribute="trailing" secondItem="nSZ-Z5-5ph" secondAttribute="trailing" constant="36" id="HB2-QK-JVg"/>
+                            <constraint firstItem="hiE-Cw-Qec" firstAttribute="trailing" secondItem="pOu-qx-izr" secondAttribute="trailing" constant="36" id="LMI-yo-Q1p"/>
+                            <constraint firstItem="nSZ-Z5-5ph" firstAttribute="centerX" secondItem="x2n-kz-3X1" secondAttribute="centerX" id="O9Y-2k-Ndv"/>
+                            <constraint firstItem="pOu-qx-izr" firstAttribute="leading" secondItem="hiE-Cw-Qec" secondAttribute="leading" constant="36" id="OJe-QZ-BIl"/>
+                            <constraint firstItem="5H1-LO-R8F" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nSZ-Z5-5ph" secondAttribute="bottom" constant="24" id="V7u-xD-AVI"/>
+                            <constraint firstItem="nSZ-Z5-5ph" firstAttribute="top" secondItem="hiE-Cw-Qec" secondAttribute="top" constant="60" id="hNU-19-vHj"/>
+                            <constraint firstItem="pOu-qx-izr" firstAttribute="top" secondItem="3ZU-Hk-vFZ" secondAttribute="bottom" constant="40" id="knf-ry-6pv"/>
+                            <constraint firstItem="3ZU-Hk-vFZ" firstAttribute="leading" secondItem="hiE-Cw-Qec" secondAttribute="leading" constant="36" id="lir-v0-115"/>
+                            <constraint firstItem="hiE-Cw-Qec" firstAttribute="trailing" secondItem="3ZU-Hk-vFZ" secondAttribute="trailing" constant="36" id="zRF-TD-YuA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kos-pZ-cWU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffa-89-Hnd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="23"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cP8-Go-Fgm">
+            <objects>
+                <viewController id="4Gy-ES-DzJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3CA-Zp-OZD">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aKI-NJ-Pru"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XVp-ny-GNj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xqT-7x-rZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="301" y="23"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uan-dY-4Gl">
+            <objects>
+                <navigationController id="BV7-Hi-byI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vw0-n2-Vp7">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MbI-5n-lBD" kind="relationship" relationship="rootViewController" id="5ef-EN-Crd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sb4-P5-ZcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1566" y="23"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Sports-PNG-Images-HD" width="1600" height="1600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
