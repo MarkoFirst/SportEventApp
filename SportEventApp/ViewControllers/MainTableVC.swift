@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
+
 class MainTableVC: UIViewController {
 let liveScoreId = "liveScoreId"
     let sportsTVCId = "sportsTVC"
     let eventTVCId = "eventTVCId"
+    let names: [String] = ["Manchester City", "Chelsey", "Manchester U nuun kkkj nited", "dkfsknknsd fnskn", "dfnskdnknsf", "Mill"]
+    
+    let icons: [UIImage] = [#imageLiteral(resourceName: "barcelonaLogo.png"), #imageLiteral(resourceName: "mcLogo.png" ), #imageLiteral(resourceName: "nadaleLogo.png"), #imageLiteral(resourceName: "naviLogo.png"), #imageLiteral(resourceName: "psgLogo.png"), #imageLiteral(resourceName: "realLogo.png")]
+
     
     @IBOutlet weak var tableViev: UITableView!
     
@@ -38,7 +43,7 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
         case 1:
             return 1
         case 2:
-            return 10
+            return names.count
         default:
             return 0
         }
@@ -46,21 +51,23 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let liveScoreCell = tableView.dequeueReusableCell(withIdentifier: liveScoreId, for: indexPath)
+        let liveScoreCell = tableView.dequeueReusableCell(withIdentifier: liveScoreId, for: indexPath) as! LiveScoreTVC
         let sportsTVCCell = tableView.dequeueReusableCell(withIdentifier: sportsTVCId, for: indexPath)
-        let eventTVCCell = tableView.dequeueReusableCell(withIdentifier: eventTVCId, for: indexPath)
+        let eventTVCCell = tableView.dequeueReusableCell(withIdentifier: eventTVCId, for: indexPath) as! EventTVC
+        
         switch indexPath.section {
         case 0:
             return liveScoreCell
         case 1:
             return sportsTVCCell
         case 2:
+            eventTVCCell.firstTeamOrAtheleName?.text = names[indexPath.row]
+            eventTVCCell.firstTeamOrAthleteIcon?.image = icons[indexPath.row]
             return eventTVCCell
         default:
             return UITableViewCell()
         }
     }
-    
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        switch section {
 //        case 2:
