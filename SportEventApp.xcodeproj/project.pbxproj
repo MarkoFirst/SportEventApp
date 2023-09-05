@@ -36,6 +36,10 @@
 		229F130F2A9F632A00076434 /* Basketball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F13072A9F632A00076434 /* Basketball.swift */; };
 		229F13102A9F632A00076434 /* PingPong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F13082A9F632A00076434 /* PingPong.swift */; };
 		229F13112A9F632A00076434 /* Fencing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F13092A9F632A00076434 /* Fencing.swift */; };
+		229F13192AA64DFC00076434 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F13182AA64DFB00076434 /* SignUpVC.swift */; };
+		229F131B2AA7BB1600076434 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F131A2AA7BB1600076434 /* SignInVC.swift */; };
+		229F13232AA7F51D00076434 /* footballTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F13212AA7F51D00076434 /* footballTableViewCell.swift */; };
+		229F13242AA7F51D00076434 /* footballTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229F13222AA7F51D00076434 /* footballTableViewCell.xib */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -75,6 +79,10 @@
 		229F13072A9F632A00076434 /* Basketball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basketball.swift; sourceTree = "<group>"; };
 		229F13082A9F632A00076434 /* PingPong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingPong.swift; sourceTree = "<group>"; };
 		229F13092A9F632A00076434 /* Fencing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fencing.swift; sourceTree = "<group>"; };
+		229F13182AA64DFB00076434 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		229F131A2AA7BB1600076434 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		229F13212AA7F51D00076434 /* footballTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = footballTableViewCell.swift; sourceTree = "<group>"; };
+		229F13222AA7F51D00076434 /* footballTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = footballTableViewCell.xib; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +171,15 @@
 			path = SportTypes;
 			sourceTree = "<group>";
 		};
+		229F13202AA7F4D700076434 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				229F13212AA7F51D00076434 /* footballTableViewCell.swift */,
+				229F13222AA7F51D00076434 /* footballTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8195CCB02A98FA5E000A917F = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +224,10 @@
 		8195CCD12A98FACD000A917F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				229F13202AA7F4D700076434 /* Cells */,
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
+				229F13182AA64DFB00076434 /* SignUpVC.swift */,
+				229F131A2AA7BB1600076434 /* SignInVC.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 			);
 			path = ViewControllers;
@@ -271,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229F13242AA7F51D00076434 /* footballTableViewCell.xib in Resources */,
 				8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */,
 				81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
@@ -288,6 +309,7 @@
 				229F13102A9F632A00076434 /* PingPong.swift in Sources */,
 				229F12F62A9F630C00076434 /* Team.swift in Sources */,
 				229F130D2A9F632A00076434 /* Tenis.swift in Sources */,
+				229F131B2AA7BB1600076434 /* SignInVC.swift in Sources */,
 				229F12F72A9F630C00076434 /* Place.swift in Sources */,
 				229F12E92A9F62E000076434 /* Country.swift in Sources */,
 				229F12E22A9F62E000076434 /* Fonts.swift in Sources */,
@@ -295,11 +317,13 @@
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
 				229F12FB2A9F630C00076434 /* Athlete.swift in Sources */,
 				229F12F52A9F630C00076434 /* Pair Games.swift in Sources */,
+				229F13232AA7F51D00076434 /* footballTableViewCell.swift in Sources */,
 				229F12F82A9F630C00076434 /* Ticket.swift in Sources */,
 				229F12D62A9F62C900076434 /* createEvent(Pair).swift in Sources */,
 				229F13002A9F631900076434 /* DesignSettings.swift in Sources */,
 				229F130E2A9F632A00076434 /* Poker.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				229F13192AA64DFC00076434 /* SignUpVC.swift in Sources */,
 				229F130B2A9F632A00076434 /* Football.swift in Sources */,
 				229F12EA2A9F62E000076434 /* Gender.swift in Sources */,
 				229F130A2A9F632A00076434 /* Volleyball.swift in Sources */,
