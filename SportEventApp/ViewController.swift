@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     
     private var style: UITableViewCell.EditingStyle = .none
     
+    private let refreshControl: UIRefreshControl = UIRefreshControl()
+//    private var spinner: UIActivityIndicatorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,27 +33,47 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-    }
-
-    @IBAction func tapToEdit(_ sender: UIButton) {
-        style = .delete
-        tableView.isEditing.toggle()
-        addBtn.isEnabled.toggle()
-        sender.setTitle(
-            tableView.isEditing ? "Cancel" : "Edit",
-            for: .normal
-        )
+    
+        refreshControl.addTarget(self, action: #selector(poolToRefresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        refreshControl.tintColor = .systemPink
+        refreshControl.attributedTitle = NSMutableAttributedString(string: "some")
+        
+//        let btn = UIButton(frame: CGRect(x: 200, y: 200, width: 100, height: 100))
+//        btn.backgroundColor = .gray
+//        spinner = UIActivityIndicatorView(style: .medium)
+//        spinner?.color = .green
+//        btn.addSubview(spinner!)
+//
+//        view.addSubview(btn)
     }
     
-    @IBAction func tapToAdd(_ sender: UIButton) {
-        style = .insert
-        editBtn.isEnabled.toggle()
-        tableView.isEditing.toggle()
-        sender.setTitle(
-            tableView.isEditing ? "Cancel" : "Add",
-            for: .normal
-        )
+    @objc
+    private func poolToRefresh() {
+        print(#function)
+        refreshControl.endRefreshing()
     }
+
+//    @IBAction func tapToEdit(_ sender: UIButton) {
+//        style = .delete
+//        tableView.isEditing.toggle()
+//        addBtn.isEnabled.toggle()
+//        sender.setTitle(
+//            tableView.isEditing ? "Cancel" : "Edit",
+//            for: .normal
+//        )
+//    }
+    
+//    @IBAction func tapToAdd(_ sender: UIButton) {
+//        style = .insert
+//        editBtn.isEnabled.toggle()
+//        tableView.isEditing.toggle()
+//        sender.setTitle(
+//            tableView.isEditing ? "Cancel" : "Add",
+//            for: .normal
+//        )
+//    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,6 +99,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.titleLabel.text = indexPath.section == 0 ? nameList[indexPath.row] : addedList[indexPath.row]
         cell.myImage.image = UIImage(named: "Cover Image")
+        
+//        if indexPath.row == addedList.count - 1 {
+//            spinner?.startAnimating()
+//
+//            spinner?.stopAnimating()
+//        }
         
         return cell
     }
