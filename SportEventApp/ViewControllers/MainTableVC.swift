@@ -13,6 +13,7 @@ class MainTableVC: UIViewController {
     
     let liveScoreId = "liveScoreId"
     let sportsTVCId = "sportsTVC"
+    let eventTypeTVCId = "eventTypeId"
     let eventTVCId = "eventTVCId"
     var events: [Event] = []
     
@@ -24,7 +25,7 @@ class MainTableVC: UIViewController {
         tableViev.delegate = self
         tableViev.dataSource = self
         tableViev.register(UINib(nibName: "LiveScoreTVC", bundle: nil), forCellReuseIdentifier: liveScoreId)
-        tableViev.register(UINib(nibName: "LiveScoreTVC", bundle: nil), forCellReuseIdentifier: sportsTVCId)
+        tableViev.register(UINib(nibName: "EventTypeTVC", bundle: nil), forCellReuseIdentifier: eventTypeTVCId)
         tableViev.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: eventTVCId)
         
       
@@ -131,14 +132,14 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let liveScoreCell = tableView.dequeueReusableCell(withIdentifier: liveScoreId, for: indexPath) as! LiveScoreTVC
-        let sportsTVCCell = tableView.dequeueReusableCell(withIdentifier: sportsTVCId, for: indexPath)
+        let eventTypeCollectionCell = tableView.dequeueReusableCell(withIdentifier: eventTypeTVCId, for: indexPath) as! EventTypeTVC
         let eventTVCCell = tableView.dequeueReusableCell(withIdentifier: eventTVCId, for: indexPath) as! EventTVC
         
         switch indexPath.section {
         case 0:
             return liveScoreCell
         case 1:
-            return sportsTVCCell
+            return eventTypeCollectionCell
         case 2:
             if let event = events[indexPath.row] as? TeamSportEvent {
                 eventTVCCell.firstTeamOrAtheleName?.text = event.teams.enumerated().map({$1.name})[0]
@@ -160,6 +161,8 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
+        case 1:
+            return ""
         case 2:
             return "Events"
         default:
@@ -168,11 +171,11 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
 //       let vc = UIViewController()
 //        navigationController?.pushViewController(vc, animated: true)
-//    }
+    }
     
     /*
      Не розумію що робити з contains з версією iOS від 16 версії. Тому обрав запропоновані xcodoм зміни - @available(iOS 16.0, *)

@@ -532,19 +532,6 @@
                                             <constraint firstAttribute="width" constant="30" id="dUL-hM-kC0"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFN-j8-JCd">
-                                        <rect key="frame" x="165" y="14" width="75" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.38084058669999998" blue="0.2480841839" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button">
-                                            <color key="baseForegroundColor" red="1" green="0.38084058669999998" blue="0.2480841839" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="baseBackgroundColor" red="0.42946660520000002" green="0.5349121094" blue="0.65491777659999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="next:" destination="nDi-h5-mKA" eventType="touchUpInside" id="EOl-l4-9nG"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.04321392626" green="0.1425270736" blue="0.2509923577" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.04321392626" green="0.1425270736" blue="0.2509923577" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
