@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		774E1BBA2AA6665700C72041 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774E1BB92AA6665700C72041 /* EventTVC.xib */; };
 		774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BBB2AA678C800C72041 /* EventTVC.swift */; };
+		774E1BC22AA76E6A00C72041 /* TestFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BC12AA76E6A00C72041 /* TestFunc.swift */; };
 		776747512AA515EA005725B3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747502AA515EA005725B3 /* SignUpVC.swift */; };
 		776747552AA51BB6005725B3 /* MainTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747542AA51BB6005725B3 /* MainTableVC.swift */; };
 		776747572AA53053005725B3 /* EventInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747562AA53053005725B3 /* EventInfoVC.swift */; };
@@ -47,6 +48,7 @@
 		776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA32A9CE04B00BBC20D /* Settings.swift */; };
 		776BABA62A9CE06400BBC20D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA52A9CE06400BBC20D /* User.swift */; };
 		776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA72A9CE09B00BBC20D /* Fan.swift */; };
+		77A4696B2AA7C4F9008EE323 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4696A2AA7C4F9008EE323 /* Participant.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -61,6 +63,7 @@
 /* Begin PBXFileReference section */
 		774E1BB92AA6665700C72041 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
 		774E1BBB2AA678C800C72041 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
+		774E1BC12AA76E6A00C72041 /* TestFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFunc.swift; sourceTree = "<group>"; };
 		776747502AA515EA005725B3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		776747542AA51BB6005725B3 /* MainTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC.swift; sourceTree = "<group>"; };
 		776747562AA53053005725B3 /* EventInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoVC.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		776BABA32A9CE04B00BBC20D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		776BABA52A9CE06400BBC20D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		776BABA72A9CE09B00BBC20D /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
+		77A4696A2AA7C4F9008EE323 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				81B2B4672A9E44C600033839 /* Info.plist */,
 				F71D89C52A9F946300E42A76 /* Inter-Regular.otf */,
 				F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */,
+				774E1BC12AA76E6A00C72041 /* TestFunc.swift */,
 			);
 			path = SportEventApp;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				776BABA12A9CE02900BBC20D /* TeamSportEvent.swift */,
 				776BABA32A9CE04B00BBC20D /* Settings.swift */,
 				776BABA52A9CE06400BBC20D /* User.swift */,
+				77A4696A2AA7C4F9008EE323 /* Participant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
 				776BAB9E2A9CE00000BBC20D /* SportEvent.swift in Sources */,
+				77A4696B2AA7C4F9008EE323 /* Participant.swift in Sources */,
 				776747552AA51BB6005725B3 /* MainTableVC.swift in Sources */,
 				776BAB902A9CDF4200BBC20D /* Basketball.swift in Sources */,
 				776BAB862A9CD6C900BBC20D /* PingPong.swift in Sources */,
@@ -330,6 +337,7 @@
 				776BAB702A9CD53D00BBC20D /* Language.swift in Sources */,
 				776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				774E1BC22AA76E6A00C72041 /* TestFunc.swift in Sources */,
 				776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */,
 				774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */,
 				776747512AA515EA005725B3 /* SignUpVC.swift in Sources */,
@@ -498,8 +506,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,8 +535,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

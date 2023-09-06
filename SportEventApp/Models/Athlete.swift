@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-class Athlete {
+class Athlete: Participant {
     var firstName: String
     var lastName: String
     var age: UInt
@@ -17,8 +18,9 @@ class Athlete {
     var gender: GenderList
     var sport: TypeOfSport
     var number: UInt?
+    var icon: UIImage?
     
-    init(firstName: String, lastName: String, age: UInt, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: UInt?) {
+    init(firstName: String, lastName: String, age: UInt, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: UInt?, icon: UIImage?) {
         self.firstName = firstName
         self.lastName = lastName
         self.age = age
@@ -27,6 +29,7 @@ class Athlete {
         self.gender = gender
         self.sport = sport
         self.number = number
+        self.icon = icon
     }
     
     func changeFirstName(to newName: String) {

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-class Team {
+class Team: Participant {
     var name: String
     var playersCount: Int
     var createYear: UInt
@@ -15,8 +16,10 @@ class Team {
     var sport: TypeOfSport
     var team: [Athlete]
     var country: CountryList
+    var icon: UIImage?
     
-    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete], country: CountryList){
+    
+    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete], country: CountryList, icon: UIImage?){
         self.name = name
         self.playersCount = team.count
         self.createYear = createYear
@@ -24,6 +27,7 @@ class Team {
         self.sport = sport
         self.team = team
         self.country = country
+        self.icon = icon
     }
     
     func changeCoach(to newCoach: String) {

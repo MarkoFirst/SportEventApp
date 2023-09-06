@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 class EventInfoVC: UIViewController {
-
+    var text: String!
+    
+    @IBOutlet weak var labelText: UILabel!
+    @IBAction func backButton(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
