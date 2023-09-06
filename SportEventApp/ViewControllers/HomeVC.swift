@@ -1,20 +1,19 @@
 //
-//  SecondVC.swift
+//  HomeVC.swift
 //  SportEventApp
 //
-//  Created by Dima Kahanets on 30.08.2023.
+//  Created by Dima Kahanets on 04.09.2023.
 //
 
+import Foundation
 import UIKit
 
-class SecondVC: UIViewController {
+class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-    
     }
-    
+
 
 }
