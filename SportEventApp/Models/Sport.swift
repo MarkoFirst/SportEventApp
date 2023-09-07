@@ -9,10 +9,14 @@ import Foundation
 
 class Sport: Favoritable {
     var isFavorite: Bool = false
+    let sportImage: String?
+    let name: String?
     let type: SportType
     let equipment: [Equipment]
        
-    init(type: SportType, equipment: [Equipment]) {
+    init(sportImage: String? = nil, name: String? = nil, type: SportType, equipment: [Equipment]) {
+        self.sportImage = sportImage
+        self.name = name
         self.type = type
         self.equipment = equipment
     }
@@ -22,9 +26,6 @@ class Sport: Favoritable {
         }
 }
 
-let basketball = Sport(type: .team(.basketball), equipment: [.ball, .basket])
-let football = Sport(type: .team(.football), equipment: [.ball, .net])
-let tennis = Sport(type: .individualteam(.tennis), equipment: [.ball, .racket])
-let chess = Sport(type: .individual(.chess), equipment: [.chessSet])
+
 
 

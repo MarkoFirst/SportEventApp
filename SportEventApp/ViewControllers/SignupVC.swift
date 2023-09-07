@@ -15,7 +15,7 @@ class SignupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         let nameImage = UIImage(named: "user")
         addLeftImage(textField: nameTF, image: nameImage!)
         

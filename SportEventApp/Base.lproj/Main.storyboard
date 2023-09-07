@@ -74,7 +74,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="t7m-sh-gRz" kind="show" id="tDb-8y-vXa"/>
+                                            <segue destination="AeA-a8-dea" kind="show" id="u7b-Au-Od8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1N-I3-Ugy">
@@ -207,9 +207,6 @@
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
-                                <connections>
-                                    <segue destination="t7m-sh-gRz" kind="show" id="JDu-Tg-auA"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S8k-DP-mlv"/>
@@ -242,30 +239,106 @@
             </objects>
             <point key="canvasLocation" x="3117" y="725"/>
         </scene>
-        <!--Event InfoVC-->
-        <scene sceneID="SnU-uv-GdJ">
+        <!--HomeVC-->
+        <scene sceneID="NoF-LW-4X2">
             <objects>
-                <tableViewController id="t7m-sh-gRz" customClass="EventInfoVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="llw-jy-ggB">
+                <viewController id="AeA-a8-dea" customClass="HomeVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQY-i0-ISh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="t7m-sh-gRz" id="Gku-nf-6Aw"/>
-                            <outlet property="delegate" destination="t7m-sh-gRz" id="T1t-k5-6zn"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="9G9-EJ-cfe"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PnJ-sB-gkJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoE-Cm-IuY">
+                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y47-jz-78S">
+                                        <rect key="frame" x="16" y="11" width="82.666666666666671" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="Ojh-XU-dX3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8bO-dG-uKk">
+                                        <rect key="frame" x="245" y="0.0" width="132" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-dy-LXz">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="Zxt-N9-MjL"/>
+                                                    <constraint firstAttribute="height" constant="44" id="zJD-a1-hId"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="search"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilU-l8-ahr">
+                                                <rect key="frame" x="52" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="Dvm-BC-I2X"/>
+                                                    <constraint firstAttribute="height" constant="44" id="Q1v-ct-R5h"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bell"/>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="oeu-aU-cKr">
+                                                <rect key="frame" x="104" y="8" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="D6E-HX-e6b"/>
+                                                    <constraint firstAttribute="width" constant="28" id="mGO-af-AfF"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="y47-jz-78S" firstAttribute="leading" secondItem="hoE-Cm-IuY" secondAttribute="leading" constant="16" id="5aB-Rh-Rt1"/>
+                                    <constraint firstItem="8bO-dG-uKk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y47-jz-78S" secondAttribute="trailing" constant="8" symbolic="YES" id="COr-XZ-Tj9"/>
+                                    <constraint firstItem="y47-jz-78S" firstAttribute="centerY" secondItem="hoE-Cm-IuY" secondAttribute="centerY" id="FbK-h4-oRi"/>
+                                    <constraint firstAttribute="trailing" secondItem="8bO-dG-uKk" secondAttribute="trailing" constant="16" id="UMe-rw-QOX"/>
+                                    <constraint firstItem="8bO-dG-uKk" firstAttribute="centerY" secondItem="hoE-Cm-IuY" secondAttribute="centerY" id="ZVn-gf-JcR"/>
+                                    <constraint firstAttribute="height" constant="44" id="uTo-wT-Apl"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jse-OY-FSw">
+                                <rect key="frame" x="0.0" y="147" width="393" height="705"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9iv-BA-NMh"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jse-OY-FSw" firstAttribute="leading" secondItem="9iv-BA-NMh" secondAttribute="leading" id="6C0-FI-NqH"/>
+                            <constraint firstItem="hoE-Cm-IuY" firstAttribute="leading" secondItem="9iv-BA-NMh" secondAttribute="leading" id="Xt5-qh-8b6"/>
+                            <constraint firstItem="9iv-BA-NMh" firstAttribute="trailing" secondItem="Jse-OY-FSw" secondAttribute="trailing" id="jjd-1d-CR8"/>
+                            <constraint firstAttribute="bottom" secondItem="Jse-OY-FSw" secondAttribute="bottom" id="oN1-EN-4jy"/>
+                            <constraint firstItem="9iv-BA-NMh" firstAttribute="trailing" secondItem="hoE-Cm-IuY" secondAttribute="trailing" id="obn-2l-9ig"/>
+                            <constraint firstItem="Jse-OY-FSw" firstAttribute="top" secondItem="hoE-Cm-IuY" secondAttribute="bottom" id="pN3-4z-a2Z"/>
+                            <constraint firstItem="hoE-Cm-IuY" firstAttribute="top" secondItem="9iv-BA-NMh" secondAttribute="top" id="wPk-5S-27Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TLi-wl-oEp"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jse-OY-FSw" id="JAR-Eg-MN1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lup-GQ-YHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3117" y="-11"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="JDu-Tg-auA"/>
-    </inferredMetricsTieBreakers>
     <resources>
+        <image name="Avatar" width="150" height="150"/>
+        <image name="bell" width="18" height="20"/>
+        <image name="search" width="20" height="20"/>
         <image name="sportCover" width="1600" height="1600"/>
         <image name="target" width="1931.3333740234375" height="1333.3333740234375"/>
         <systemColor name="systemBackgroundColor">

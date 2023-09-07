@@ -11,5 +11,8 @@ import UIKit
 @IBDesignable
 class SportCVC: UICollectionViewCell {
     
+    @IBOutlet weak var sportImage: UIImageView!
+    
+    @IBOutlet weak var sportLabel: UILabel!
     
 }
