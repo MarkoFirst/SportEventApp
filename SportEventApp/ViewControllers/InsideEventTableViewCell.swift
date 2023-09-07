@@ -1,13 +1,13 @@
 //
-//  footballTableViewCell.swift
+//  InsideEventTableViewCell.swift
 //  SportEventApp
 //
-//  Created by Дима Самойленко on 06.09.2023.
+//  Created by Дима Самойленко on 07.09.2023.
 //
 
 import UIKit
 
-class footballTableViewCell: UITableViewCell {
+class InsideEventTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,5 @@ class footballTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

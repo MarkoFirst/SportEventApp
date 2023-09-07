@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
-class Poker: Team {
-    override init(teamName: String, athletes: [Athlete], dateCreate: String, coach: String, sport: SportTypes) {
-        super.init(teamName: teamName, athletes: athletes, dateCreate: dateCreate, coach: coach, sport: .poker)
+class Poker: PairGames {
+    override init(rank: String, name: String, age: Int, gender: Gender, country: Country, sport: SportTypes) {
+        super.init(rank: rank, name: name, age: age, gender: gender, country: country, sport: .poker)
     }
 }

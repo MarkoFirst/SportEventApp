@@ -8,16 +8,25 @@
 import Foundation
 import UIKit
 
-class SignInVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SignInVC: UIViewController {
+    
+  
     
     @IBOutlet weak var signInTVC: UITableView!
     
+    //@IBOutlet weak var scoreOfTeams: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         signInTVC.delegate = self
         signInTVC.dataSource = self
     }
-    
+}
+
+
+
+
+
+extension SignInVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -30,8 +39,8 @@ class SignInVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 250.0
-        case 1: return 100.0
-        case 2: return 200.0
+        case 1: return 138.0
+        case 2: return 300.0
         default: break
         }
         return 0
@@ -42,6 +51,7 @@ class SignInVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = signInTVC.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)
+            cell.layer.cornerRadius = 60
             return cell
             
         case 1:
@@ -49,11 +59,14 @@ class SignInVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         case 2:
             let cell = signInTVC.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+            
             return cell
         default: break
         }
         return UITableViewCell()
     }
-    
-
 }
+
+
+
+
