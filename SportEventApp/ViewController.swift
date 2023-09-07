@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -47,6 +48,13 @@ class ViewController: UIViewController {
 //        btn.addSubview(spinner!)
 //
 //        view.addSubview(btn)
+        
+        
+        
+        tableView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.height.width.equalTo(44)
+        }
     }
     
     @objc
@@ -98,7 +106,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.titleLabel.text = indexPath.section == 0 ? nameList[indexPath.row] : addedList[indexPath.row]
-        cell.myImage.image = UIImage(named: "Cover Image")
+//        cell.myImage.image = UIImage(named: "Cover Image")
+        
+        let event = Event()
+        cell.myImage.image = event.image
         
 //        if indexPath.row == addedList.count - 1 {
 //            spinner?.startAnimating()
@@ -166,5 +177,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let event = eventList[indexPath.row] // as Event
 //        navigationController?.pushViewController(EventVC(event), animated: true)
+    }
+}
+
+class UserPresenter {
+    func getUserFromAPI() -> [User] {
+        return []
     }
 }

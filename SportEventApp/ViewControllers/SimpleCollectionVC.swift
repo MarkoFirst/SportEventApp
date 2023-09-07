@@ -14,7 +14,7 @@ class SimpleCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        let layout = UICollectionViewFlowLayout()
 //        layout.itemSize = CGSize(width: 200, height: 500)
 //        layout.scrollDirection = .horizontal
@@ -26,13 +26,13 @@ class SimpleCollectionVC: UICollectionViewController {
 //        )
 //
 //        collectionView.collectionViewLayout = layout
-        
+
         refreshControl.addTarget(self, action: #selector(poolToRefresh), for: .valueChanged)
         collectionView.addSubview(refreshControl)
-        
+
         refreshControl.tintColor = .systemPink
         refreshControl.attributedTitle = NSMutableAttributedString(string: "some")
-        
+
         navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "image 4.pdf")
     }
     

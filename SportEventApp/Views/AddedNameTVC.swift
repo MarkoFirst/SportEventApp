@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 @IBDesignable
 class AddedNameTVC: UITableViewCell {
     
@@ -35,4 +36,16 @@ class AddedNameTVC: UITableViewCell {
     @objc func errorTap() {
         print(#function)
     }
+}
+
+
+
+class Event {
+    private var imageName: String
+    
+    var image: UIImage {
+        return UIImage(named: imageName)
+    }
+    
+    
 }

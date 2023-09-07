@@ -1,0 +1,24 @@
+PODS:
+  - LoaderAnimation (0.7.0):
+    - LoaderAnimation/Basic (= 0.7.0)
+    - LoaderAnimation/Modules (= 0.7.0)
+  - LoaderAnimation/Basic (0.7.0)
+  - LoaderAnimation/Modules (0.7.0)
+  - Wormholy (1.6.5)
+
+DEPENDENCIES:
+  - LoaderAnimation
+  - Wormholy
+
+SPEC REPOS:
+  trunk:
+    - LoaderAnimation
+    - Wormholy
+
+SPEC CHECKSUMS:
+  LoaderAnimation: cae5f6f4f147252cf9cfef38289741387075c49d
+  Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
+
+PODFILE CHECKSUM: fee8823f6f3202a7e6770d7daf19745c839067bc
+
+COCOAPODS: 1.12.1

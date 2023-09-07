@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3A91FB9A1CD3971B09E3AC /* Pods_SportEventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDC133313AD4F53F02460D8 /* Pods_SportEventApp.framework */; };
 		8134ECEB2A9E4B010011C841 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8134ECEA2A9E4B010011C841 /* View.xib */; };
 		8134ECF12A9E68030011C841 /* AddedNameTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8134ECF02A9E68030011C841 /* AddedNameTVC.xib */; };
 		8134ECF32A9E69A20011C841 /* AddedNameTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8134ECF22A9E69A10011C841 /* AddedNameTVC.swift */; };
@@ -19,9 +20,12 @@
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81E6A54C2AA7A2C400B89E9F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F43C712F193813519E37CFA /* Pods-SportEventApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportEventApp.release.xcconfig"; path = "Target Support Files/Pods-SportEventApp/Pods-SportEventApp.release.xcconfig"; sourceTree = "<group>"; };
+		6DDC133313AD4F53F02460D8 /* Pods_SportEventApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportEventApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8134ECEA2A9E4B010011C841 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		8134ECF02A9E68030011C841 /* AddedNameTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddedNameTVC.xib; sourceTree = "<group>"; };
 		8134ECF22A9E69A10011C841 /* AddedNameTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedNameTVC.swift; sourceTree = "<group>"; };
@@ -36,6 +40,7 @@
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportEventApp.debug.xcconfig"; path = "Target Support Files/Pods-SportEventApp/Pods-SportEventApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,12 +48,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3A91FB9A1CD3971B09E3AC /* Pods_SportEventApp.framework in Frameworks */,
+				81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06FBBE90F9CDD4BC3B6AEB12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DDC133313AD4F53F02460D8 /* Pods_SportEventApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E9CFDB92E78E8882B3CCC2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */,
+				5F43C712F193813519E37CFA /* Pods-SportEventApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8134ECE92A9E4AE70011C841 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +89,8 @@
 			children = (
 				8195CCBB2A98FA5E000A917F /* SportEventApp */,
 				8195CCBA2A98FA5E000A917F /* Products */,
+				06FBBE90F9CDD4BC3B6AEB12 /* Frameworks */,
+				7E9CFDB92E78E8882B3CCC2D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,15 +143,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8195CCCD2A98FA60000A917F /* Build configuration list for PBXNativeTarget "SportEventApp" */;
 			buildPhases = (
+				9BD203013597E270D2C0BE43 /* [CP] Check Pods Manifest.lock */,
 				8195CCB52A98FA5E000A917F /* Sources */,
 				8195CCB62A98FA5E000A917F /* Frameworks */,
 				8195CCB72A98FA5E000A917F /* Resources */,
+				61E53A54B76E0C72082A9E51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SportEventApp;
+			packageProductDependencies = (
+				81E6A54C2AA7A2C400B89E9F /* SnapKit */,
+			);
 			productName = SportEventApp;
 			productReference = 8195CCB92A98FA5E000A917F /* SportEventApp.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +185,9 @@
 				Base,
 			);
 			mainGroup = 8195CCB02A98FA5E000A917F;
+			packageReferences = (
+				81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8195CCBA2A98FA5E000A917F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,6 +211,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		61E53A54B76E0C72082A9E51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BD203013597E270D2C0BE43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportEventApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8195CCB52A98FA5E000A917F /* Sources */ = {
@@ -331,6 +408,7 @@
 		};
 		8195CCCE2A98FA60000A917F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -360,6 +438,7 @@
 		};
 		8195CCCF2A98FA60000A917F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F43C712F193813519E37CFA /* Pods-SportEventApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -409,6 +488,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		81E6A54C2AA7A2C400B89E9F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8195CCB12A98FA5E000A917F /* Project object */;
 }
