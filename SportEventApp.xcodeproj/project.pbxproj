@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77053C512AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */; };
+		77053C532AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */; };
+		77053C552AA938A3008514D9 /* EventInfoTitleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */; };
+		77053C572AA938B4008514D9 /* EventInfoTitleTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */; };
+		77053C592AA942A3008514D9 /* EventInfoIconTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */; };
+		77053C5B2AA942B0008514D9 /* EventInfoIconTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */; };
+		77053C5D2AA948D7008514D9 /* EventInfoDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */; };
+		77053C5F2AA948EA008514D9 /* EventInfoDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */; };
 		774E1BBA2AA6665700C72041 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774E1BB92AA6665700C72041 /* EventTVC.xib */; };
 		774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BBB2AA678C800C72041 /* EventTVC.swift */; };
-		774E1BC22AA76E6A00C72041 /* TestFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BC12AA76E6A00C72041 /* TestFunc.swift */; };
 		776747512AA515EA005725B3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747502AA515EA005725B3 /* SignUpVC.swift */; };
 		776747552AA51BB6005725B3 /* MainTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747542AA51BB6005725B3 /* MainTableVC.swift */; };
 		776747572AA53053005725B3 /* EventInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747562AA53053005725B3 /* EventInfoVC.swift */; };
@@ -65,9 +72,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsSectionCustomHeaderTVC.xib; sourceTree = "<group>"; };
+		77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSectionCustomHeaderTVC.swift; sourceTree = "<group>"; };
+		77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoTitleTVC.swift; sourceTree = "<group>"; };
+		77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoTitleTVC.xib; sourceTree = "<group>"; };
+		77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoIconTVC.swift; sourceTree = "<group>"; };
+		77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoIconTVC.xib; sourceTree = "<group>"; };
+		77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoDescriptionCell.swift; sourceTree = "<group>"; };
+		77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoDescriptionCell.xib; sourceTree = "<group>"; };
 		774E1BB92AA6665700C72041 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
 		774E1BBB2AA678C800C72041 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
-		774E1BC12AA76E6A00C72041 /* TestFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFunc.swift; sourceTree = "<group>"; };
 		776747502AA515EA005725B3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		776747542AA51BB6005725B3 /* MainTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC.swift; sourceTree = "<group>"; };
 		776747562AA53053005725B3 /* EventInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoVC.swift; sourceTree = "<group>"; };
@@ -146,6 +160,14 @@
 				77A469702AA874D4008EE323 /* EventTypeTVC.xib */,
 				77A469722AA87B83008EE323 /* EventTypeCVC.xib */,
 				77A469742AA87C1C008EE323 /* EventTypeCVC.swift */,
+				77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */,
+				77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */,
+				77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */,
+				77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */,
+				77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */,
+				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
+				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
+				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,7 +218,6 @@
 				81B2B4672A9E44C600033839 /* Info.plist */,
 				F71D89C52A9F946300E42A76 /* Inter-Regular.otf */,
 				F71D89C72A9F946D00E42A76 /* Inter-SemiBold.otf */,
-				774E1BC12AA76E6A00C72041 /* TestFunc.swift */,
 			);
 			path = SportEventApp;
 			sourceTree = "<group>";
@@ -304,13 +325,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77053C572AA938B4008514D9 /* EventInfoTitleTVC.xib in Resources */,
 				77A469732AA87B83008EE323 /* EventTypeCVC.xib in Resources */,
 				7767475A2AA62184005725B3 /* LiveScoreTVC.xib in Resources */,
 				8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */,
 				77A469712AA874D4008EE323 /* EventTypeTVC.xib in Resources */,
+				77053C512AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib in Resources */,
+				77053C5F2AA948EA008514D9 /* EventInfoDescriptionCell.xib in Resources */,
 				F71D89C62A9F946300E42A76 /* Inter-Regular.otf in Resources */,
 				81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */,
 				F71D89C82A9F946D00E42A76 /* Inter-SemiBold.otf in Resources */,
+				77053C5B2AA942B0008514D9 /* EventInfoIconTVC.xib in Resources */,
 				774E1BBA2AA6665700C72041 /* EventTVC.xib in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
 			);
@@ -328,6 +353,7 @@
 				776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */,
 				77A469752AA87C1C008EE323 /* EventTypeCVC.swift in Sources */,
 				776BAB6C2A9CD50200BBC20D /* Themes.swift in Sources */,
+				77053C592AA942A3008514D9 /* EventInfoIconTVC.swift in Sources */,
 				776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
 				776BAB9E2A9CE00000BBC20D /* SportEvent.swift in Sources */,
@@ -337,12 +363,14 @@
 				776BAB862A9CD6C900BBC20D /* PingPong.swift in Sources */,
 				776BAB682A9CD4B600BBC20D /* EquipmentList.swift in Sources */,
 				776BAB722A9CD55900BBC20D /* PlacesType.swift in Sources */,
+				77053C532AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift in Sources */,
 				776BAB782A9CD59700BBC20D /* GenderList.swift in Sources */,
 				776BAB982A9CDFAF00BBC20D /* OfflinePlace.swift in Sources */,
 				776BAB8E2A9CDF2B00BBC20D /* TeamSport.swift in Sources */,
 				776BAB8A2A9CD6EE00BBC20D /* Fencing.swift in Sources */,
 				776BAB9C2A9CDFEF00BBC20D /* Event.swift in Sources */,
 				776BABA02A9CE01700BBC20D /* DoublesSportEvent.swift in Sources */,
+				77053C552AA938A3008514D9 /* EventInfoTitleTVC.swift in Sources */,
 				776BAB922A9CDF5300BBC20D /* Football.swift in Sources */,
 				776747572AA53053005725B3 /* EventInfoVC.swift in Sources */,
 				776BAB942A9CDF6400BBC20D /* Volleyball.swift in Sources */,
@@ -352,7 +380,6 @@
 				776BAB702A9CD53D00BBC20D /* Language.swift in Sources */,
 				776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
-				774E1BC22AA76E6A00C72041 /* TestFunc.swift in Sources */,
 				776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */,
 				774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */,
 				776747512AA515EA005725B3 /* SignUpVC.swift in Sources */,
@@ -369,6 +396,7 @@
 				7767475C2AA62197005725B3 /* LiveScoreTVC.swift in Sources */,
 				776BAB7A2A9CD5D300BBC20D /* CountryList.swift in Sources */,
 				776BAB6A2A9CD4CD00BBC20D /* PushList.swift in Sources */,
+				77053C5D2AA948D7008514D9 /* EventInfoDescriptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

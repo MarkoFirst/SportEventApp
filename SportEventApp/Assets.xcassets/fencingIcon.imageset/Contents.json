@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "fencingIcon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -10,17 +10,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="0zz-Jt-wkx" customClass="EventTVC" customModule="SportEventApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0zz-Jt-wkx" id="J6q-5U-5g1">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpQ-mP-Xje">
-                        <rect key="frame" x="4" y="4" width="385" height="80"/>
+                        <rect key="frame" x="4" y="4" width="385" height="92"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mcLogo" translatesAutoresizingMaskIntoConstraints="NO" id="74J-2a-oeY">
-                                <rect key="frame" x="37.333333333333336" y="16" width="35.000000000000007" height="35"/>
+                                <rect key="frame" x="37.666666666666664" y="16" width="34.999999999999993" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="74J-2a-oeY" secondAttribute="height" multiplier="1:1" id="3Dd-vX-UHr"/>
                                     <constraint firstAttribute="height" constant="35" id="kQD-rt-P8s"/>
@@ -28,27 +28,30 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcelonaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1bV-TE-Evd">
-                                <rect key="frame" x="313" y="16" width="35" height="35"/>
+                                <rect key="frame" x="312.66666666666669" y="16" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="YM8-B2-4C1"/>
                                     <constraint firstAttribute="width" secondItem="1bV-TE-Evd" secondAttribute="height" multiplier="1:1" id="smf-aE-x8a"/>
                                     <constraint firstAttribute="width" constant="35" id="uxn-Gz-z4G"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, March 23, 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2YI-QI-Nr3">
-                                <rect key="frame" x="132.33333333333334" y="24" width="120.66666666666666" height="17.333333333333329"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, March 23, 21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2YI-QI-Nr3">
+                                <rect key="frame" x="92.666666666666686" y="24" width="200" height="18.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SrT-8K-ZQy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="France" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-HB-isM">
-                                <rect key="frame" x="173.66666666666666" y="49.333333333333336" width="37.666666666666657" height="14"/>
+                                <rect key="frame" x="173.66666666666666" y="50.666666666666664" width="37.666666666666657" height="13.999999999999993"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manchester City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="SEd-mD-LMq">
-                                <rect key="frame" x="16" y="59.333333333333336" width="77.333333333333329" height="12.666666666666664"/>
+                                <rect key="frame" x="16.333333333333336" y="59.333333333333336" width="77.333333333333314" height="12.666666666666664"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="Uao-0M-OOC"/>
                                 </constraints>
@@ -57,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcelona FC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtX-3V-dXL">
-                                <rect key="frame" x="298" y="59.666666666666664" width="64.666666666666686" height="11.666666666666664"/>
+                                <rect key="frame" x="297.66666666666669" y="59.666666666666664" width="64.666666666666686" height="11.666666666666664"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -65,23 +68,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13229312480802374" green="0.20514916094042179" blue="0.32128330310520037" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="2YI-QI-Nr3" firstAttribute="centerX" secondItem="OpQ-mP-Xje" secondAttribute="centerX" id="1Oi-MC-0Bx"/>
                             <constraint firstItem="1bV-TE-Evd" firstAttribute="top" secondItem="OpQ-mP-Xje" secondAttribute="top" constant="16" id="96S-Ry-bYi"/>
+                            <constraint firstItem="2YI-QI-Nr3" firstAttribute="centerX" secondItem="OpQ-mP-Xje" secondAttribute="centerX" id="CPf-BQ-A5F"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1bV-TE-Evd" secondAttribute="trailing" constant="36" id="EEc-WX-QsJ"/>
                             <constraint firstItem="2YI-QI-Nr3" firstAttribute="top" secondItem="OpQ-mP-Xje" secondAttribute="top" constant="24" id="Elb-lQ-hVk"/>
+                            <constraint firstItem="1bV-TE-Evd" firstAttribute="leading" secondItem="2YI-QI-Nr3" secondAttribute="trailing" constant="20" id="GJJ-aX-t7u"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CtX-3V-dXL" secondAttribute="trailing" id="HS9-nN-BIq"/>
                             <constraint firstItem="CtX-3V-dXL" firstAttribute="centerY" secondItem="SEd-mD-LMq" secondAttribute="centerY" id="Icg-wR-0hM"/>
                             <constraint firstItem="74J-2a-oeY" firstAttribute="top" secondItem="OpQ-mP-Xje" secondAttribute="top" constant="16" id="RcN-oh-edS"/>
+                            <constraint firstItem="2YI-QI-Nr3" firstAttribute="leading" secondItem="74J-2a-oeY" secondAttribute="trailing" constant="20" id="Ty7-72-l9m"/>
                             <constraint firstItem="SEd-mD-LMq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OpQ-mP-Xje" secondAttribute="leading" id="VCb-jG-eyl"/>
                             <constraint firstItem="74J-2a-oeY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OpQ-mP-Xje" secondAttribute="leading" constant="36" id="asg-lC-Flt"/>
                             <constraint firstItem="SEd-mD-LMq" firstAttribute="centerY" secondItem="74J-2a-oeY" secondAttribute="centerY" constant="32" id="dmq-wM-aGX"/>
                             <constraint firstItem="SEd-mD-LMq" firstAttribute="centerX" secondItem="74J-2a-oeY" secondAttribute="centerX" id="j3S-8G-R0r"/>
+                            <constraint firstAttribute="height" constant="92" id="nJU-fS-37E"/>
                             <constraint firstItem="fdh-HB-isM" firstAttribute="top" secondItem="2YI-QI-Nr3" secondAttribute="bottom" constant="8" id="qHW-gX-eNo"/>
                             <constraint firstItem="CtX-3V-dXL" firstAttribute="centerX" secondItem="1bV-TE-Evd" secondAttribute="centerX" id="qSE-gW-p7S"/>
                             <constraint firstItem="fdh-HB-isM" firstAttribute="centerX" secondItem="OpQ-mP-Xje" secondAttribute="centerX" id="tBb-5C-gN1"/>
-                            <constraint firstItem="1bV-TE-Evd" firstAttribute="leading" secondItem="2YI-QI-Nr3" secondAttribute="trailing" constant="60" id="xmC-mH-7EF"/>
-                            <constraint firstAttribute="height" constant="80" id="zYe-jg-iZ0"/>
-                            <constraint firstItem="2YI-QI-Nr3" firstAttribute="leading" secondItem="74J-2a-oeY" secondAttribute="trailing" constant="60" id="zYj-M9-GFk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

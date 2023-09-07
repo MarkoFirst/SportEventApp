@@ -19,10 +19,24 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         fullNameTF.delegate = self
         emailTF.delegate = self
         passwordTF.delegate = self
+        self.dismissKeyboard()
+        navigationController?.navigationBar.isHidden = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension SignUpVC {
+    func dismissKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(SignUpVC.dismissKeyboardTouchOutside))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboardTouchOutside() {
+        view.endEditing(true)
     }
 }

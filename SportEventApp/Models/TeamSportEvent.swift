@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class TeamSportEvent: SportEvent {
     var teams: [Team]
     
-    init(teams: [Team], typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList) {
+    init(teams: [Team], typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList, icon: UIImage?) {
         self.teams = teams
-        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency)
+        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency, icon: icon)
     }
 }

@@ -13,6 +13,8 @@ import UIKit
 class EventTypeCVC: UICollectionViewCell {
     let eventCellId = "eventCellId"
     
-
+    @IBOutlet weak var backgroundViewCVC: UIView!
+    @IBOutlet weak var typeEventIcon: UIImageView!
+    @IBOutlet weak var labelCVC: UILabel!
     
 }

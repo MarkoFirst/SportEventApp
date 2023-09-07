@@ -8,13 +8,13 @@
 import Foundation
 
 enum TypeOfSport: String {
-    case football
-    case basketball
-    case volleyball
-    case tennis
-    case pingpong
-    case chess
-    case poker
-    case fencing
-    case cybersport
+    case football = "Football"
+    case basketball = "Basketball"
+    case volleyball = "Volleyball"
+    case tennis = "Tennis"
+    case pingpong = "Ping-pong"
+    case chess = "Chess"
+    case poker = "Poker"
+    case fencing = "Fencing"
+    case cybersport = "Cybersport"
 }
