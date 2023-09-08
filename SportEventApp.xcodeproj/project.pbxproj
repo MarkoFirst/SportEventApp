@@ -26,6 +26,9 @@
 		2272F7912AA9141B00E45BAF /* MainTableviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2272F78F2AA9141B00E45BAF /* MainTableviewTableViewCell.xib */; };
 		2272F7932AA9190D00E45BAF /* FinishedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272F7922AA9190D00E45BAF /* FinishedEvent.swift */; };
 		2272F79F2AA9395C00E45BAF /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272F79E2AA9395C00E45BAF /* MainTableViewCell.swift */; };
+		2272F7A22AAA264800E45BAF /* SecondaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272F7A02AAA264700E45BAF /* SecondaryTableViewCell.swift */; };
+		2272F7A32AAA264800E45BAF /* SecondaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2272F7A12AAA264700E45BAF /* SecondaryTableViewCell.xib */; };
+		2272F7A52AAA67D000E45BAF /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272F7A42AAA67D000E45BAF /* DescriptionViewController.swift */; };
 		229F12D62A9F62C900076434 /* createEvent(Pair).swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F12D42A9F62C900076434 /* createEvent(Pair).swift */; };
 		229F12D72A9F62C900076434 /* createEvent(Team).swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F12D52A9F62C900076434 /* createEvent(Team).swift */; };
 		229F12E22A9F62E000076434 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F12D82A9F62E000076434 /* Fonts.swift */; };
@@ -86,6 +89,9 @@
 		2272F78F2AA9141B00E45BAF /* MainTableviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableviewTableViewCell.xib; sourceTree = "<group>"; };
 		2272F7922AA9190D00E45BAF /* FinishedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedEvent.swift; sourceTree = "<group>"; };
 		2272F79E2AA9395C00E45BAF /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		2272F7A02AAA264700E45BAF /* SecondaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTableViewCell.swift; sourceTree = "<group>"; };
+		2272F7A12AAA264700E45BAF /* SecondaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondaryTableViewCell.xib; sourceTree = "<group>"; };
+		2272F7A42AAA67D000E45BAF /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		229F12D42A9F62C900076434 /* createEvent(Pair).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "createEvent(Pair).swift"; sourceTree = "<group>"; };
 		229F12D52A9F62C900076434 /* createEvent(Team).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "createEvent(Team).swift"; sourceTree = "<group>"; };
 		229F12D82A9F62E000076434 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 				2272F78A2AA8F26200E45BAF /* ChessCollectionViewCell.xib */,
 				2272F78E2AA9141B00E45BAF /* MainTableviewTableViewCell.swift */,
 				2272F78F2AA9141B00E45BAF /* MainTableviewTableViewCell.xib */,
+				2272F7A02AAA264700E45BAF /* SecondaryTableViewCell.swift */,
+				2272F7A12AAA264700E45BAF /* SecondaryTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 				2272F79E2AA9395C00E45BAF /* MainTableViewCell.swift */,
 				229F13182AA64DFB00076434 /* SignUpVC.swift */,
 				229F131A2AA7BB1600076434 /* SignInVC.swift */,
+				2272F7A42AAA67D000E45BAF /* DescriptionViewController.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 			);
 			path = ViewControllers;
@@ -352,6 +361,7 @@
 				2272F7782AA8C75300E45BAF /* BasketballCollectionViewCell.xib in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
 				2272F7802AA8ED6C00E45BAF /* TenisCollectionViewCell.xib in Resources */,
+				2272F7A32AAA264800E45BAF /* SecondaryTableViewCell.xib in Resources */,
 				2272F7912AA9141B00E45BAF /* MainTableviewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +396,7 @@
 				229F13192AA64DFC00076434 /* SignUpVC.swift in Sources */,
 				2272F79F2AA9395C00E45BAF /* MainTableViewCell.swift in Sources */,
 				229F130B2A9F632A00076434 /* Football.swift in Sources */,
+				2272F7A22AAA264800E45BAF /* SecondaryTableViewCell.swift in Sources */,
 				229F12EA2A9F62E000076434 /* Gender.swift in Sources */,
 				2272F78B2AA8F26200E45BAF /* ChessCollectionViewCell.swift in Sources */,
 				229F130A2A9F632A00076434 /* Volleyball.swift in Sources */,
@@ -407,6 +418,7 @@
 				2272F7932AA9190D00E45BAF /* FinishedEvent.swift in Sources */,
 				229F13112A9F632A00076434 /* Fencing.swift in Sources */,
 				229F12D72A9F62C900076434 /* createEvent(Team).swift in Sources */,
+				2272F7A52AAA67D000E45BAF /* DescriptionViewController.swift in Sources */,
 				229F12F92A9F630C00076434 /* Event.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);

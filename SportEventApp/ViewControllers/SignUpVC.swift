@@ -21,6 +21,7 @@ class SignUpVC: UIViewController {
         textFieldSettings(emailTextView, UIImage(named: "emailImage")!, placeholderText: "E-mail")
         textFieldSettings(passwordTextView, UIImage(named: "passwordImage")!, placeholderText: "Password")
         
+        
     }
     
     @IBAction func fullNameSettings(_ textField: UITextField) {

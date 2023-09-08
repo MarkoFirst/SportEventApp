@@ -28,11 +28,17 @@ import UIKit
 
 
 
+let firstTeamPlayingInFuture = Team(teamName: "Liverpool", athletes: [Athlete(name: "", age: 0, number: 0, gender: .female, country: .argentina)], dateCreate: "", coach: "", sport: .football, teamLogo: UIImage(named: "liverpoolLogo") ?? UIImage())
+
+let secondTeamPlayingInFuture = Team(teamName: "Juventus", athletes: [Athlete(name: "", age: 0, number: 0, gender: .female, country: .argentina)], dateCreate: "", coach: "", sport: .football, teamLogo: UIImage(named: "juventusLogo") ?? UIImage())
+
+let testEvent = Event(title: "", description: "", date: "Mon ,29th March, 21:00", place: place, soldTickets: 0, teams: [team1, team2], pairs: nil)
 
 class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        print(createEvent(teams: teams, place: attStadium, date: "29.10.2023", soldTickets: 78098))
 //        print(createEvent(athlete: pair, place: lokomotivCentre, date: "23.11.2023", soldTickets: 100))
     }

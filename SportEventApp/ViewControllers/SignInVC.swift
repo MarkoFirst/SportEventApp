@@ -19,7 +19,13 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         signInTVC.delegate = self
         signInTVC.dataSource = self
+        
     }
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        print("btn pressed")
+    }
+
 }
 
 

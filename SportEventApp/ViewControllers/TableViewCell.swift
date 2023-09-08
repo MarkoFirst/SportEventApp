@@ -43,7 +43,7 @@ class TableViewCell: UITableViewCell {
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let selectedCell = sportTypeCV.cellForItem(at: indexPath)!
-        selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.4172288477, green: 0.5609018803, blue: 0.6608301401, alpha: 1)
+        selectedCell.contentView.backgroundColor = #colorLiteral(red: 0.09492205828, green: 0.1906141341, blue: 0.3029211164, alpha: 1)
     }
 }
 
