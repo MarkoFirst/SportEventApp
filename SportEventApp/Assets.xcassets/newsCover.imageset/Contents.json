@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "newsCover.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
