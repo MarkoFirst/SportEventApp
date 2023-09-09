@@ -12,4 +12,5 @@ import UIKit
 class NewsTVC: UITableViewCell {
     
     @IBOutlet weak var coverImage: UIImageView!
+    
 }

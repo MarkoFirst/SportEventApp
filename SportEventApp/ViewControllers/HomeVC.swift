@@ -12,66 +12,32 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let newsCellId = "newsCell"
-    private let sportTCellId = "sportTCell"
-    private let eventCellId = "eventCell"
-    
     private var events: [Event] = []
     
+    struct Cells {
+        static let newsCellId = "newsCell"
+        static let sportTCellId = "sportTCell"
+        static let eventCellId = "eventCell"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
         
-        tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: newsCellId)
-        tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: sportTCellId)
-        tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: eventCellId)
+        tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: Cells.newsCellId)
+        tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: Cells.sportTCellId)
+        tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: Cells.eventCellId)
+        
+        events = fetchData()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // SportEvent instance "event1"
-        let event1 = createEvent(teams: [chicagoBulls, lakers], date: Date(), title: "Basketball match", place: staplesCenter, description: "")
-        events.append(event1)
-        
-        // SportEvent instance "event2"
-        let event2 = createEvent(teams: [celtics, warriors], date: Date(), title: "Basketball match", place: staplesCenter, description: "")
-        events.append(event2)
-        
-        // SportEvent instance "event2"
-        let event3 = createEvent(teams: [heat, nets], date: Date(), title: "Basketball match", place: staplesCenter, description: "")
-        events.append(event3)
-        
-        // SportEvent instance "event2"
-        let event4 = createEvent(teams: [sixers, bucks], date: Date(), title: "Basketball match", place: staplesCenter, description: "")
-        events.append(event4)
-    }
-    
-    func createEvent(teams: [Team], date: Date, title: String, place: Place, description: String) -> Event {
-        guard let commonSport = teams.first?.sport.type,
-              teams.allSatisfy({ $0.sport.type == commonSport }),
-              let equipment = teams.first?.sport.equipment,
-              teams.allSatisfy({ $0.sport.equipment == equipment })
-        else {
-            fatalError("Невірні дані для створення події.")
-        }
-        
-        let event = SportEvent(
-            title: title,
-            description: description,
-            date: date,
-            location: place,
-            tickets: place.tickets,
-            sport: Sport(type: commonSport, equipment: equipment),
-            teams: teams
-        )
-        
-        return event
     }
 }
 
-
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -90,30 +56,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let newsCell = tableView.dequeueReusableCell(withIdentifier: Cells.newsCellId) as! NewsTVC
+        let sportCell = tableView.dequeueReusableCell(withIdentifier: Cells.sportTCellId) as! SportTVC
+        let eventCell = tableView.dequeueReusableCell(withIdentifier: Cells.eventCellId) as! EventTVC
         
-        if indexPath.section == 0 {
-            guard let newsCell = tableView.dequeueReusableCell(withIdentifier: newsCellId, for: indexPath) as? NewsTVC else {
-                return UITableViewCell()
-            }
-            
-            if let coverImage = newsCell.coverImage {
-                coverImage.image = UIImage(named: "target")
-            }
-            
+        switch indexPath.section {
+        case 0:
             return newsCell
-            
-        } else if indexPath.section == 1 {
-            guard let sportCell = tableView.dequeueReusableCell(withIdentifier: sportTCellId, for: indexPath) as? SportTVC else {
-                return UITableViewCell()
-            }
-            
+        case 1:
             return sportCell
-            
-        } else if indexPath.section == 2 {
-            guard let eventCell = tableView.dequeueReusableCell(withIdentifier: eventCellId, for: indexPath) as? EventTVC else {
-                return UITableViewCell()
-            }
-            
+        case 2:
             guard let sportEvent = events[indexPath.row] as? SportEvent else {
                 return UITableViewCell()
             }
@@ -142,9 +94,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            return eventCell
+            // Setup event date
+            if let eventDate = eventCell.eventDateLabel {
+                eventDate.text = sportEvent.dateCompactString
+            }
             
-        } else {
+            return eventCell
+        default:
             return UITableViewCell()
         }
     }
@@ -172,6 +128,59 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return 0
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "eventInfo") as! EventInfoVC
+            self.navigationController?.pushViewController(vc, animated: true)
+            vc.event = events[indexPath.row]
+            
+        }
+    }
 }
 
-
+extension HomeVC {
+    
+    func fetchData() -> [Event] {
+        // Create Date objects for each event with different dates
+        let date1 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 28, hour: 18, minute: 0))!
+        let date2 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 15, hour: 19, minute: 30))!
+        let date3 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 20, hour: 20, minute: 15))!
+        let date4 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 25, hour: 17, minute: 45))!
+        
+        func createEvent(teams: [Team], date: Date, title: String, place: Place, description: String, coverName: String?) -> Event {
+            guard let commonSport = teams.first?.sport.type,
+                  teams.allSatisfy({ $0.sport.type == commonSport }),
+                  let equipment = teams.first?.sport.equipment,
+                  teams.allSatisfy({ $0.sport.equipment == equipment }),
+                  let sportName = teams.first?.sport.name,
+                  teams.allSatisfy({ $0.sport.name == sportName })
+            else {
+                fatalError("Invalid event creation data.")
+            }
+            
+            let event = SportEvent(
+                eventCoverName: coverName,
+                title: title,
+                description: description,
+                date: date,
+                location: place,
+                tickets: place.tickets,
+                sport: Sport(name: sportName, type: commonSport, equipment: equipment),
+                teams: teams
+            )
+            
+            return event
+        }
+        
+        let event1 = createEvent(teams: [chicagoBulls, lakers], date: date1, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "bullsvslakers")
+        
+        let event2 = createEvent(teams: [celtics, warriors], date: date2, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "celticsvswarriors")
+        
+        let event3 = createEvent(teams: [heat, nets], date: date3, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "netsvsheat")
+        
+        let event4 = createEvent(teams: [sixers, bucks], date: date4, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "76vsbucks")
+        
+        return [event1, event2, event3, event4]
+    }
+}

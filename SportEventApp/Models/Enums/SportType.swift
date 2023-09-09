@@ -24,6 +24,7 @@ enum SportType: Equatable {
     enum TeamSport: String {
         case football = "Football"
         case basketball = "Basketball"
+        case soccer = "Soccer"
         
         var description: String {
             return rawValue

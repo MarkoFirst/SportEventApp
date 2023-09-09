@@ -10,7 +10,7 @@ import Foundation
 class Sport: Favoritable {
     var isFavorite: Bool = false
     let sportImage: String?
-    let name: String?
+    var name: String? 
     let type: SportType
     let equipment: [Equipment]
        

@@ -334,10 +334,106 @@
             </objects>
             <point key="canvasLocation" x="3117" y="-11"/>
         </scene>
+        <!--Event InfoVC-->
+        <scene sceneID="m4x-Qm-EuF">
+            <objects>
+                <viewController storyboardIdentifier="eventInfo" id="uSD-uA-E6K" customClass="EventInfoVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rFo-tU-Sw1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEa-4I-5Cr">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SKH-y8-x9a">
+                                        <rect key="frame" x="245" y="0.0" width="132" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR3-OX-faK">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="8Df-pj-2QX"/>
+                                                    <constraint firstAttribute="height" constant="44" id="E79-X0-fgS"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="search"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVY-gI-Td8">
+                                                <rect key="frame" x="52" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="W2o-MW-DsL"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="yZz-6K-U8z"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="bell"/>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="hgh-wV-Wb5">
+                                                <rect key="frame" x="104" y="8" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="28" id="CCQ-PB-N0d"/>
+                                                    <constraint firstAttribute="height" constant="28" id="ohg-dz-0lc"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01P-EB-Lm7">
+                                        <rect key="frame" x="0.0" y="6" width="77.333333333333329" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="kFB-Rm-dL4"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="Back"/>
+                                        <connections>
+                                            <action selector="back:" destination="uSD-uA-E6K" eventType="touchUpInside" id="a9u-Ba-xSf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4KY-gm-nl5"/>
+                                    <constraint firstItem="01P-EB-Lm7" firstAttribute="centerY" secondItem="nEa-4I-5Cr" secondAttribute="centerY" id="7bF-02-P0i"/>
+                                    <constraint firstItem="SKH-y8-x9a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="01P-EB-Lm7" secondAttribute="trailing" constant="8" symbolic="YES" id="MKf-jf-Td5"/>
+                                    <constraint firstItem="01P-EB-Lm7" firstAttribute="leading" secondItem="nEa-4I-5Cr" secondAttribute="leading" id="Q6O-i2-A2M"/>
+                                    <constraint firstAttribute="trailing" secondItem="SKH-y8-x9a" secondAttribute="trailing" constant="16" id="RJd-0P-Ir4"/>
+                                    <constraint firstItem="SKH-y8-x9a" firstAttribute="centerY" secondItem="nEa-4I-5Cr" secondAttribute="centerY" id="sgO-kF-XU8"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v3f-Np-X75">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Md-bB-5Hu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Md-bB-5Hu" firstAttribute="trailing" secondItem="nEa-4I-5Cr" secondAttribute="trailing" id="SZV-7j-V9e"/>
+                            <constraint firstAttribute="bottom" secondItem="v3f-Np-X75" secondAttribute="bottom" id="fZv-jb-0oJ"/>
+                            <constraint firstItem="v3f-Np-X75" firstAttribute="leading" secondItem="7Md-bB-5Hu" secondAttribute="leading" id="i6u-31-tqM"/>
+                            <constraint firstItem="nEa-4I-5Cr" firstAttribute="leading" secondItem="rFo-tU-Sw1" secondAttribute="leading" id="kpt-qK-cl0"/>
+                            <constraint firstItem="v3f-Np-X75" firstAttribute="top" secondItem="nEa-4I-5Cr" secondAttribute="bottom" id="mbg-WE-aBc"/>
+                            <constraint firstItem="nEa-4I-5Cr" firstAttribute="top" secondItem="7Md-bB-5Hu" secondAttribute="top" id="q2v-dx-7UW"/>
+                            <constraint firstItem="7Md-bB-5Hu" firstAttribute="trailing" secondItem="v3f-Np-X75" secondAttribute="trailing" id="uIh-FZ-9Gd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="v3f-Np-X75" id="1jN-78-fgp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vxs-ba-99t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4159.5419847328239" y="-11.267605633802818"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Avatar" width="150" height="150"/>
         <image name="bell" width="18" height="20"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="search" width="20" height="20"/>
         <image name="sportCover" width="1600" height="1600"/>
         <image name="target" width="1931.3333740234375" height="1333.3333740234375"/>

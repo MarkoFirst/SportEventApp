@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class EventTVC: UITableViewCell {
     
+    @IBOutlet weak var eventDateLabel: UILabel!
+    
     @IBOutlet weak var firstTeamLabel: UILabel!
     @IBOutlet weak var secondTeamLabel: UILabel!
     

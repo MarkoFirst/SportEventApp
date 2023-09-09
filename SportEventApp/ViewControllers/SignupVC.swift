@@ -16,6 +16,8 @@ class SignupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = false
+        
         let nameImage = UIImage(named: "user")
         addLeftImage(textField: nameTF, image: nameImage!)
         
@@ -31,8 +33,6 @@ class SignupVC: UIViewController {
         emailTF.configureTF()
         passwordTF.configureTF()
     }
-    
-    
     
     func addLeftImage(textField: UITextField, image: UIImage) {
         let padding = 16
@@ -58,7 +58,7 @@ extension UITextField {
 
 extension UIViewController {
     func dismissKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer( target:     self, action:    #selector(UIViewController.dismissKeyboardTouchOutside))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer( target: self, action:    #selector(UIViewController.dismissKeyboardTouchOutside))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

@@ -11,10 +11,10 @@ class SportEvent: Event {
     let teams: [Team]
     var sport: Sport
     
-    init(title: String, description: String, date: Date, location: Place, tickets: [Ticket], sport: Sport, teams: [Team]) {
+    init(eventCoverName: String? = nil, title: String, description: String, date: Date, location: Place, tickets: [Ticket], sport: Sport, teams: [Team]) {
         self.sport = sport
         self.teams = teams
-        super.init(title: title, description: description, date: date, location: location, tickets: tickets)
+        super.init(eventCoverName: eventCoverName, title: title, description: description, date: date, location: location, tickets: tickets)
     }
     
     override func describeEvent() {

@@ -6,12 +6,29 @@
 //
 
 import Foundation
+import UIKit
 
 class Event: Favoritable {
     var isFavorite: Bool = false
+    var eventCoverName: String?
+    var setEventCover: UIImage? {
+        return UIImage(named: eventCoverName ?? "unknownCover") 
+    }
     let title: String
     let description: String
     let date: Date
+    var dateCompactString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, MMM d"
+        
+        return dateFormatter.string(from: date)
+    }
+    var dateFullString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        
+        return dateFormatter.string(from: date)
+    }
     let location: Place
     var price: Double {
         return location.ticketPrice
@@ -20,7 +37,8 @@ class Event: Favoritable {
         return location.tickets
     }
     
-    init(title: String, description: String, date: Date, location: Place, tickets: [Ticket]) {
+    init(eventCoverName: String? = nil, title: String, description: String, date: Date, location: Place, tickets: [Ticket]) {
+        self.eventCoverName = eventCoverName
         self.title = title
         self.date = date
         self.description = description

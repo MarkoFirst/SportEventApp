@@ -33,6 +33,13 @@
 		CCA9ED032AA9D2B0000222C0 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED022AA9D2B0000222C0 /* Teams.swift */; };
 		CCA9ED082AA9D48B000222C0 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED072AA9D48B000222C0 /* Places.swift */; };
 		CCA9ED0A2AA9F8CC000222C0 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED092AA9F8CC000222C0 /* Sports.swift */; };
+		CCA9ED0C2AAB2A87000222C0 /* EventInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED0B2AAB2A87000222C0 /* EventInfoVC.swift */; };
+		CCA9ED102AAB3206000222C0 /* EventHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED0E2AAB3206000222C0 /* EventHeaderTVC.swift */; };
+		CCA9ED112AAB3206000222C0 /* EventHeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCA9ED0F2AAB3206000222C0 /* EventHeaderTVC.xib */; };
+		CCA9ED142AAB321E000222C0 /* EventImageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED122AAB321E000222C0 /* EventImageTVC.swift */; };
+		CCA9ED152AAB321E000222C0 /* EventImageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCA9ED132AAB321E000222C0 /* EventImageTVC.xib */; };
+		CCA9ED182AAB3232000222C0 /* EventDescTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA9ED162AAB3232000222C0 /* EventDescTVC.swift */; };
+		CCA9ED192AAB3232000222C0 /* EventDescTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCA9ED172AAB3232000222C0 /* EventDescTVC.xib */; };
 		CCF86B1B2AA5CB5000B210C9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86B1A2AA5CB5000B210C9 /* HomeVC.swift */; };
 		CCF86B262AA689D700B210C9 /* NewsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86B252AA689D700B210C9 /* NewsTVC.swift */; };
 		CCF86B282AA68E2400B210C9 /* NewsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF86B272AA68E2400B210C9 /* NewsTVC.xib */; };
@@ -73,6 +80,13 @@
 		CCA9ED022AA9D2B0000222C0 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		CCA9ED072AA9D48B000222C0 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		CCA9ED092AA9F8CC000222C0 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
+		CCA9ED0B2AAB2A87000222C0 /* EventInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoVC.swift; sourceTree = "<group>"; };
+		CCA9ED0E2AAB3206000222C0 /* EventHeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderTVC.swift; sourceTree = "<group>"; };
+		CCA9ED0F2AAB3206000222C0 /* EventHeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventHeaderTVC.xib; sourceTree = "<group>"; };
+		CCA9ED122AAB321E000222C0 /* EventImageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageTVC.swift; sourceTree = "<group>"; };
+		CCA9ED132AAB321E000222C0 /* EventImageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventImageTVC.xib; sourceTree = "<group>"; };
+		CCA9ED162AAB3232000222C0 /* EventDescTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescTVC.swift; sourceTree = "<group>"; };
+		CCA9ED172AAB3232000222C0 /* EventDescTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDescTVC.xib; sourceTree = "<group>"; };
 		CCF86B1A2AA5CB5000B210C9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CCF86B252AA689D700B210C9 /* NewsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVC.swift; sourceTree = "<group>"; };
 		CCF86B272AA68E2400B210C9 /* NewsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTVC.xib; sourceTree = "<group>"; };
@@ -115,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				8195CCD02A98FAB5000A917F /* Models */,
+				CCA9ED0D2AAB31D3000222C0 /* Views */,
 				8195CCD12A98FACD000A917F /* ViewControllers */,
 				8195CCBC2A98FA5E000A917F /* AppDelegate.swift */,
 				8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */,
@@ -148,18 +163,11 @@
 		8195CCD12A98FACD000A917F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CCF86B332AA72EDC00B210C9 /* SportTVC.xib */,
-				CCF86B312AA72E8900B210C9 /* SportTVC.swift */,
-				CCF86B2D2AA72A3800B210C9 /* SportCVC.xib */,
-				CCF86B2F2AA72A7400B210C9 /* SportCVC.swift */,
-				CCF86B272AA68E2400B210C9 /* NewsTVC.xib */,
-				CCF86B252AA689D700B210C9 /* NewsTVC.swift */,
-				CCF86B292AA696DF00B210C9 /* EventTVC.xib */,
-				CCF86B2B2AA696F100B210C9 /* EventTVC.swift */,
 				CCF86B1A2AA5CB5000B210C9 /* HomeVC.swift */,
-				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 				CCA4782F2A9F8F82002D8904 /* SignupVC.swift */,
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
+				CCA9ED0B2AAB2A87000222C0 /* EventInfoVC.swift */,
+				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +192,28 @@
 				CCA9ED092AA9F8CC000222C0 /* Sports.swift */,
 			);
 			path = Instance;
+			sourceTree = "<group>";
+		};
+		CCA9ED0D2AAB31D3000222C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCF86B332AA72EDC00B210C9 /* SportTVC.xib */,
+				CCF86B312AA72E8900B210C9 /* SportTVC.swift */,
+				CCF86B2D2AA72A3800B210C9 /* SportCVC.xib */,
+				CCF86B2F2AA72A7400B210C9 /* SportCVC.swift */,
+				CCF86B272AA68E2400B210C9 /* NewsTVC.xib */,
+				CCF86B252AA689D700B210C9 /* NewsTVC.swift */,
+				CCF86B292AA696DF00B210C9 /* EventTVC.xib */,
+				CCF86B2B2AA696F100B210C9 /* EventTVC.swift */,
+				CCA9ED0E2AAB3206000222C0 /* EventHeaderTVC.swift */,
+				CCA9ED0F2AAB3206000222C0 /* EventHeaderTVC.xib */,
+				CCA9ED122AAB321E000222C0 /* EventImageTVC.swift */,
+				CCA9ED132AAB321E000222C0 /* EventImageTVC.xib */,
+				CCA9ED162AAB3232000222C0 /* EventDescTVC.swift */,
+				CCA9ED172AAB3232000222C0 /* EventDescTVC.xib */,
+			);
+			name = Views;
+			path = ViewControllers/Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +276,12 @@
 			files = (
 				8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */,
 				81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */,
+				CCA9ED152AAB321E000222C0 /* EventImageTVC.xib in Resources */,
 				CCF86B2A2AA696DF00B210C9 /* EventTVC.xib in Resources */,
+				CCA9ED112AAB3206000222C0 /* EventHeaderTVC.xib in Resources */,
 				CCF86B342AA72EDC00B210C9 /* SportTVC.xib in Resources */,
 				CCF86B2E2AA72A3800B210C9 /* SportCVC.xib in Resources */,
+				CCA9ED192AAB3232000222C0 /* EventDescTVC.xib in Resources */,
 				CCF86B282AA68E2400B210C9 /* NewsTVC.xib in Resources */,
 				8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */,
 			);
@@ -268,6 +301,8 @@
 				CCA478302A9F8F82002D8904 /* SignupVC.swift in Sources */,
 				CC3A10952AA8B69700F75BB9 /* Equipment.swift in Sources */,
 				CC3A109D2AA8B69700F75BB9 /* Place.swift in Sources */,
+				CCA9ED182AAB3232000222C0 /* EventDescTVC.swift in Sources */,
+				CCA9ED102AAB3206000222C0 /* EventHeaderTVC.swift in Sources */,
 				CCF86B262AA689D700B210C9 /* NewsTVC.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
@@ -276,11 +311,13 @@
 				CC3A10992AA8B69700F75BB9 /* Team.swift in Sources */,
 				CC3A10942AA8B69700F75BB9 /* Language.swift in Sources */,
 				CCA9ED082AA9D48B000222C0 /* Places.swift in Sources */,
+				CCA9ED0C2AAB2A87000222C0 /* EventInfoVC.swift in Sources */,
 				CC3A10932AA8B69700F75BB9 /* Gender.swift in Sources */,
 				CCA9ED0A2AA9F8CC000222C0 /* Sports.swift in Sources */,
 				CC3A109B2AA8B69700F75BB9 /* SportEvent.swift in Sources */,
 				CC3A10972AA8B69700F75BB9 /* Theme.swift in Sources */,
 				CCF86B1B2AA5CB5000B210C9 /* HomeVC.swift in Sources */,
+				CCA9ED142AAB321E000222C0 /* EventImageTVC.swift in Sources */,
 				CCF86B322AA72E8900B210C9 /* SportTVC.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				CC3A10A02AA8B69700F75BB9 /* Sport.swift in Sources */,

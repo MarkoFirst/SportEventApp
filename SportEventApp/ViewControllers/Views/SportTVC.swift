@@ -10,10 +10,9 @@ import UIKit
 
 class SportTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private let sportCCellId = "sportCCell"
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let sportCCellId = "sportCCell"
     private var sports: [Sport] = []
     
     override func awakeFromNib() {
@@ -25,17 +24,10 @@ class SportTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataS
         sports.append(basketball)
         sports.append(football)
         sports.append(tennis)
-        sports.append(chess)
+        sports.append(soccer)
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,17 +37,16 @@ class SportTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let sportCCell = collectionView.dequeueReusableCell(withReuseIdentifier: sportCCellId, for: indexPath as IndexPath) as! SportCVC
         
-        // Отримуємо спорт за індексом indexPath.item з масиву sports
+        // Get sport by index.path from array
         let sport = sports[indexPath.item]
         
-        // Встановлюємо зображення спорту для sportImage
+        // Set sport image
         if let sportImageName = sport.sportImage {
             sportCCell.sportImage?.image = UIImage(named: sportImageName) ?? UIImage(named: "unknown")
-        } 
+        }
         
-        // Встановлюємо зображення спорту для sportImage
+        // Set sport label
         sportCCell.sportLabel.text = sport.name ?? "Unknown sport"
-        
         
         return sportCCell
     }
