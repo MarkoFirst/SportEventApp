@@ -14,7 +14,17 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     @IBOutlet weak var collectionView: UICollectionView!
     var eventType: [String] = ["Football", "Basketball", "Volleyball", "Tennis", "Ping-pong", "Chess", "Poker", "Fencing", "Cybersport"]
-    var eventTypeIcon: [UIImage] = [#imageLiteral(resourceName: "footballIcon.svg"), #imageLiteral(resourceName: "basketballIcon.svg"), #imageLiteral(resourceName: "volleyballIcon.svg"), #imageLiteral(resourceName: "tennisIcon.svg"), #imageLiteral(resourceName: "pingpongIcon.svg"), #imageLiteral(resourceName: "chessIcon.svg"), #imageLiteral(resourceName: "pokerIcon.svg"), #imageLiteral(resourceName: "fencingIcon.svg"), #imageLiteral(resourceName: "cybesportIcon.svg")]
+    var eventTypeIcon: [UIImage] = [
+        UIImage(named: "footballIcon")!,
+        UIImage(named: "basketballIcon")!,
+        UIImage(named: "volleyballIcon")!,
+        UIImage(named: "tennisIcon")!,
+        UIImage(named: "pingpongIcon")!,
+        UIImage(named: "chessIcon")!,
+        UIImage(named: "pokerIcon")!,
+        UIImage(named: "fencingIcon")!,
+        UIImage(named: "cybesportIcon")!
+        ]
     
     override func awakeFromNib() {
         super.awakeFromNib()

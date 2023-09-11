@@ -16,10 +16,13 @@ class Team: Participant {
     var sport: TypeOfSport
     var team: [Athlete]
     var country: CountryList
-    var icon: UIImage?
+    var iconName: String
+    var icon: UIImage? {
+        return UIImage(named: iconName)
+    }
     
     
-    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete], country: CountryList, icon: UIImage?){
+    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete], country: CountryList, iconName: String){
         self.name = name
         self.playersCount = team.count
         self.createYear = createYear
@@ -27,7 +30,7 @@ class Team: Participant {
         self.sport = sport
         self.team = team
         self.country = country
-        self.icon = icon
+        self.iconName = iconName
     }
     
     func changeCoach(to newCoach: String) {

@@ -72,7 +72,7 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             }
             return titleCell
         case 1:
-            iconCell.eventIcon.image = event?.icon
+            iconCell.eventIcon.image = event?.image
             return iconCell
         case 2:
             descriptionCell.eventDescription.text = event?.description

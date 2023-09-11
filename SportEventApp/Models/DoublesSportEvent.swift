@@ -11,8 +11,8 @@ import UIKit
 class DoublesSportEvent: SportEvent {
     var athletes: [Athlete]
     
-    init(athletes: [Athlete], typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList, icon: UIImage?) {
+    init(athletes: [Athlete], typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList, iconName: String) {
         self.athletes = athletes
-        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency, icon: icon)
+        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency, iconName: iconName)
     }
 }

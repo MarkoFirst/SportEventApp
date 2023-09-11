@@ -14,14 +14,17 @@ class Event {
     var date: String
     var place: Place
     var currency: CurrencyList
-    var icon: UIImage?
+    var iconName: String
+    var image: UIImage? {
+        return UIImage(named: iconName)
+    }
     
-    init(title: String, description: String, date: String, place: Place, currency: CurrencyList, icon: UIImage?) {
+    init(title: String, description: String, date: String, place: Place, currency: CurrencyList, iconName: String) {
         self.title = title
         self.description = description
         self.date = date
         self.place = place
         self.currency = currency
-        self .icon = icon
+        self.iconName = iconName
     }
 }

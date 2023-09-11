@@ -18,9 +18,12 @@ class Athlete: Participant {
     var gender: GenderList
     var sport: TypeOfSport
     var number: UInt?
-    var icon: UIImage?
+    var iconName: String
+    var icon: UIImage? {
+        return UIImage(named: iconName)
+    }
     
-    init(firstName: String, lastName: String, age: UInt, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: UInt?, icon: UIImage?) {
+    init(firstName: String, lastName: String, age: UInt, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: UInt?, iconName: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.age = age
@@ -29,7 +32,7 @@ class Athlete: Participant {
         self.gender = gender
         self.sport = sport
         self.number = number
-        self.icon = icon
+        self.iconName = iconName
     }
     
     func changeFirstName(to newName: String) {

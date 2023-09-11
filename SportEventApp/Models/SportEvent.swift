@@ -11,8 +11,8 @@ import UIKit
 class SportEvent: Event {
     var typeOfSport: TypeOfSport
     
-    init(typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList, icon: UIImage?) {
+    init(typeOfSport: TypeOfSport, title: String, description: String, date: String, place: Place, currency: CurrencyList, iconName: String) {
         self.typeOfSport = typeOfSport
-        super.init(title: title, description: description, date: date, place: place, currency: currency, icon: icon)
+        super.init(title: title, description: description, date: date, place: place, currency: currency, iconName: iconName)
     }
 }
