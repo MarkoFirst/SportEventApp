@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class EventInfoVC: UIViewController {
+    
     var event: Event?
     let titleId = "titleId"
     let iconId = "iconId"

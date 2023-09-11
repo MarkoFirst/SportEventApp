@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 
+
 @IBDesignable
 
 class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var filter: [TypeOfSport] = []
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var eventType: [String] = ["Football", "Basketball", "Volleyball", "Tennis", "Ping-pong", "Chess", "Poker", "Fencing", "Cybersport"]
+    
+    var eventType: [TypeOfSport] = [.football, .basketball, .volleyball, .tennis, .pingpong, .chess, .poker, .fencing, .cybersport]
     var eventTypeIcon: [UIImage] = [
         UIImage(named: "footballIcon")!,
         UIImage(named: "basketballIcon")!,
@@ -28,26 +32,31 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.allowsMultipleSelection = true
         self.collectionView.register(UINib.init(nibName: "EventTypeCVC", bundle: nil), forCellWithReuseIdentifier: "eventCellId")
-        
     }
     
-    //        override func setSelected(_ selected: Bool, animated: Bool) {
-    //            super.setSelected(selected, animated: animated)
-    //
-    //        }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return eventType.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellId", for: indexPath as IndexPath) as! EventTypeCVC
         cell.typeEventIcon.image = eventTypeIcon[indexPath.row]
-        cell.labelCVC.text = eventType[indexPath.row]
+        cell.labelCVC.text = eventType[indexPath.row].rawValue
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        filter.append(eventType[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let deselectType = eventType[indexPath.row]
+        filter.removeAll(where: ({$0 == deselectType}))
     }
 }
     

@@ -17,7 +17,8 @@ class MainTableVC: UIViewController {
     let eventsHeaderTVCId = "eventsHeaderTVCId"
     let eventTVCId = "eventTVCId"
     var events: [Event] = []
-    
+    var filterTypes: [TypeOfSport] = []
+
     @IBOutlet weak var tableViev: UITableView!
     
     
@@ -32,7 +33,6 @@ class MainTableVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         createTestData()
-        
     }
 }
 
@@ -41,7 +41,7 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -85,7 +85,9 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
             }
             eventTVCCell.dateEventLabel.text = events[indexPath.row].date
             eventTVCCell.coutryEventLabel.text = events[indexPath.row].place.contry.rawValue
+            
             return eventTVCCell
+            
         default:
             return UITableViewCell()
         }
