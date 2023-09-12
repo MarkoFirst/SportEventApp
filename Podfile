@@ -7,8 +7,6 @@ target 'SportEventApp' do
 
   # Pods for SportEventApp
   
-  
-  pod 'LoaderAnimation'
-  pod 'Wormholy', :configurations => ['Debug']
+
   
 end

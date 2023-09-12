@@ -39,13 +39,3 @@ class AddedNameTVC: UITableViewCell {
 }
 
 
-
-class Event {
-    private var imageName: String
-    
-    var image: UIImage {
-        return UIImage(named: imageName)
-    }
-    
-    
-}

@@ -19,6 +19,7 @@
 		8195CCC42A98FA5E000A917F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC22A98FA5E000A917F /* Main.storyboard */; };
 		8195CCC92A98FA60000A917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8195CCC72A98FA60000A917F /* LaunchScreen.storyboard */; };
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
+		81A271CD2AAA4E610070A719 /* CodableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A271CC2AAA4E610070A719 /* CodableVC.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
 		81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81E6A54C2AA7A2C400B89E9F /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		8195CCC32A98FA5E000A917F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8195CCC82A98FA60000A917F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8195CCD52A9CB492000A917F /* ClassExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExample.swift; sourceTree = "<group>"; };
+		81A271CC2AAA4E610070A719 /* CodableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableVC.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportEventApp.debug.xcconfig"; path = "Target Support Files/Pods-SportEventApp/Pods-SportEventApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 				BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */,
 				5F43C712F193813519E37CFA /* Pods-SportEventApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -132,6 +133,7 @@
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
 				8134ECF42AA0EA4D0011C841 /* SimpleCollectionVC.swift */,
 				8134ECF62AA10E890011C841 /* TeacherTabBar.swift */,
+				81A271CC2AAA4E610070A719 /* CodableVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,7 +149,6 @@
 				8195CCB52A98FA5E000A917F /* Sources */,
 				8195CCB62A98FA5E000A917F /* Frameworks */,
 				8195CCB72A98FA5E000A917F /* Resources */,
-				61E53A54B76E0C72082A9E51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,23 +214,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61E53A54B76E0C72082A9E51 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9BD203013597E270D2C0BE43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +248,7 @@
 				8134ECF32A9E69A20011C841 /* AddedNameTVC.swift in Sources */,
 				8134ECF72AA10E890011C841 /* TeacherTabBar.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				81A271CD2AAA4E610070A719 /* CodableVC.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);

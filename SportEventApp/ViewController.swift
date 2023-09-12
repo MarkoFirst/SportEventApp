@@ -107,9 +107,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.titleLabel.text = indexPath.section == 0 ? nameList[indexPath.row] : addedList[indexPath.row]
 //        cell.myImage.image = UIImage(named: "Cover Image")
-        
-        let event = Event()
-        cell.myImage.image = event.image
+//        
+//        let event = Event()
+//        cell.myImage.image = event.image
         
 //        if indexPath.row == addedList.count - 1 {
 //            spinner?.startAnimating()
@@ -180,8 +180,3 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-class UserPresenter {
-    func getUserFromAPI() -> [User] {
-        return []
-    }
-}
