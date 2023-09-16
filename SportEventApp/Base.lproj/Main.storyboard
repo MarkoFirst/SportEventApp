@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VsV-2r-094" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="-2"/>
+            <point key="canvasLocation" x="-842" y="-154"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -60,7 +60,7 @@ about all sports</string>
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="wG4-QV-3wb" kind="push" id="q4m-rW-pfH"/>
+                                            <action selector="pushToMainMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eqa-jh-uhr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-07-GbQ">
@@ -114,10 +114,13 @@ Timberwolves and th No. 1 pick in the
                     </view>
                     <navigationItem key="navigationItem" id="3WU-6u-tNo"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="pushToMainMenu" destination="kEd-3R-wd8" id="NUj-BD-7z8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="19" y="-153"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="xLu-yg-WZb">
@@ -429,7 +432,7 @@ Timberwolves and th No. 1 pick in the
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ga6-aX-yro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55.725190839694655" y="753.52112676056345"/>
+            <point key="canvasLocation" x="18" y="1025"/>
         </scene>
         <!--Description View Controller-->
         <scene sceneID="IgO-a0-Xsg">
@@ -542,7 +545,7 @@ Timberwolves and th No. 1 pick in the
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poe-1w-kQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884.73282442748086" y="753.52112676056345"/>
+            <point key="canvasLocation" x="1822" y="284"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="NqI-XB-TRe">
@@ -650,6 +653,9 @@ Timberwolves and th No. 1 pick in the
                                                 <integer key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="wG4-QV-3wb" kind="push" id="DIC-2l-9Ju"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="jJG-Z9-PdN">
                                         <rect key="frame" x="68" y="532" width="257" height="32"/>
@@ -723,7 +729,7 @@ Timberwolves and th No. 1 pick in the
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RR7-Rd-rxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852.67175572519079" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="840" y="-154"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

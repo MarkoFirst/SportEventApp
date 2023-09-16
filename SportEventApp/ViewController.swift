@@ -36,6 +36,7 @@ let testEvent = Event(title: "", description: "", date: "Mon ,29th March, 21:00"
 
 class ViewController: UIViewController {
         
+    @IBOutlet weak var pushToMainMenu: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +44,9 @@ class ViewController: UIViewController {
 //        print(createEvent(athlete: pair, place: lokomotivCentre, date: "23.11.2023", soldTickets: 100))
     }
     
+    @IBAction func pushToMainMenu(_ sender: UIButton) {
+        navigationController?.pushViewController(WelcomeVC(), animated: true)
+    }
     
     
    
