@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A418AD82AB6E35A0002B2A0 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A418AD72AB6E35A0002B2A0 /* Gender.swift */; };
+		7A418ADB2AB6E4E90002B2A0 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A418ADA2AB6E4E90002B2A0 /* Language.swift */; };
+		7A418ADD2AB6FAFC0002B2A0 /* SportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A418ADC2AB6FAFC0002B2A0 /* SportType.swift */; };
+		7A418ADF2AB6FD150002B2A0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A418ADE2AB6FD150002B2A0 /* Theme.swift */; };
+		7A418AE12AB6FF0E0002B2A0 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A418AE02AB6FF0E0002B2A0 /* Athlete.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A418AD72AB6E35A0002B2A0 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		7A418ADA2AB6E4E90002B2A0 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		7A418ADC2AB6FAFC0002B2A0 /* SportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportType.swift; sourceTree = "<group>"; };
+		7A418ADE2AB6FD150002B2A0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7A418AE02AB6FF0E0002B2A0 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +73,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A418AD92AB6E3BF0002B2A0 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C48493ED2AA0FA0F00624389 /* Equipment.swift */,
+				7A418AD72AB6E35A0002B2A0 /* Gender.swift */,
+				7A418ADA2AB6E4E90002B2A0 /* Language.swift */,
+				7A418ADC2AB6FAFC0002B2A0 /* SportType.swift */,
+				7A418ADE2AB6FD150002B2A0 /* Theme.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		8195CCB02A98FA5E000A917F = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +120,7 @@
 		8195CCD02A98FAB5000A917F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7A418AD92AB6E3BF0002B2A0 /* Enums */,
 				8195CCD52A9CB492000A917F /* ClassExample.swift */,
 				C48493E12AA0F99300624389 /* Sport.swift */,
 				C48493E32AA0F9B800624389 /* Team.swift */,
@@ -105,10 +128,10 @@
 				C48493E72AA0F9DB00624389 /* Coach.swift */,
 				C48493E92AA0F9F200624389 /* SportEvent.swift */,
 				C48493EB2AA0F9FD00624389 /* Fan.swift */,
-				C48493ED2AA0FA0F00624389 /* Equipment.swift */,
 				C48493EF2AA0FA1E00624389 /* Venue.swift */,
 				C48493F12AA0FA3100624389 /* Settings.swift */,
 				C48493F32AA0FA4200624389 /* User.swift */,
+				7A418AE02AB6FF0E0002B2A0 /* Athlete.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,13 +223,18 @@
 				C48493F22AA0FA3100624389 /* Settings.swift in Sources */,
 				C48493E22AA0F99300624389 /* Sport.swift in Sources */,
 				C48493EE2AA0FA0F00624389 /* Equipment.swift in Sources */,
+				7A418AE12AB6FF0E0002B2A0 /* Athlete.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				7A418AD82AB6E35A0002B2A0 /* Gender.swift in Sources */,
 				C48493F42AA0FA4200624389 /* User.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
+				7A418ADF2AB6FD150002B2A0 /* Theme.swift in Sources */,
 				C48493E82AA0F9DB00624389 /* Coach.swift in Sources */,
 				C48493E62AA0F9C400624389 /* Player.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				C48493EC2AA0F9FD00624389 /* Fan.swift in Sources */,
+				7A418ADD2AB6FAFC0002B2A0 /* SportType.swift in Sources */,
+				7A418ADB2AB6E4E90002B2A0 /* Language.swift in Sources */,
 				C48493EA2AA0F9F200624389 /* SportEvent.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 			);

@@ -1,15 +1,17 @@
 import Foundation
-class Sport {
-    let name: String
-    var teams: [Team]
-    var events: [SportEvent]
-    
-    init(name: String) {
-        self.name = name
-        self.teams = []
-        self.events = []
+
+
+class Sport: Favoritable {
+    var isFavorite: Bool = false
+    let type: SportType
+    let equipment: [Equipment]
+
+    init(type: SportType, equipment: [Equipment]) {
+        self.type = type
+        self.equipment = equipment
     }
-    
-    func startEvent(team: Team, event: SportEvent) {
-    }
+
+    func toggleFavorite() {
+            isFavorite.toggle()
+        }
 }

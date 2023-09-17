@@ -1,12 +1,17 @@
 import Foundation
 class Fan {
-    let name: String
-    var favoriteEvents: [SportEvent]
-    var favoriteTeams: [Team]
+    let team: Team
+    var sportType: TypeOfSport
+    var sportEvents: Event
+    var fanInfo: User
     
-    init(name: String) {
-        self.name = name
-        self.favoriteEvents = []
-        self.favoriteTeams = []
+    init(team: Team, sportType: TypeOfSport, sportEvents: Event, fanInfo: User) {
+        self.team = team
+        self.sportType = sportType
+        self.sportEvents = sportEvents
+        self.fanInfo = fanInfo
     }
+    
+
 }
+

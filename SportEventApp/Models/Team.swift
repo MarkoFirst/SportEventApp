@@ -1,20 +1,21 @@
 import Foundation
-class Team {
-    let name: String
-    var players: [Player]
-    var creationDate: Date
-    var coach: Coach?
-    var sport: Sport
-    
-    init(name: String) {
+class Team: Favoritable {
+    var isFavorite: Bool = false
+    let name: String?
+    let player: [Athlete]
+    let coach: String
+    let teamFoundingDate: Date
+    let sport: Sport
+
+    init(name: String? = nil, players: [Athlete] , coach: String, teamFoundingDate: Date, sport: Sport) {
         self.name = name
-        self.players = []
-        self.creationDate = Date()
-        self.coach = nil
-        self.sport = Sport(name: "")
+        self.player = player
+        self.coach = coach
+        self.teamFoundingDate = teamFoundingDate
+        self.sport = sport
     }
-    
-    func addPlayer(_ player: Player) {
-        players.append(player)
-    }
+
+    func toggleFavorite() {
+            isFavorite.toggle()
+        }
 }
