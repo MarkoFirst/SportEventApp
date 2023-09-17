@@ -324,7 +324,7 @@ extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        switch indexPath.item {
+        switch indexPath.section {
         case 0:
             cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
             cell.selectionStyle = .none
@@ -346,11 +346,11 @@ extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             return 150
         case 1:
-            return 200
+            return 312
 //        case 2:
 //            return 200
 //        case 4:

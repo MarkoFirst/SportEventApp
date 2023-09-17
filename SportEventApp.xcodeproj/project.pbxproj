@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220F88BF2AB627FD0060C4EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 220F88BE2AB627FD0060C4EC /* SnapKit */; };
+		220F88C12AB628010060C4EC /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 220F88C02AB628010060C4EC /* DGCharts */; };
 		226E7F052AB328DD00454B25 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E7F042AB328DD00454B25 /* WelcomeVC.swift */; };
-		226E7F082AB3293A00454B25 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 226E7F072AB3293A00454B25 /* SnapKit */; };
 		226E7F0A2AB331D100454B25 /* playerStatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E7F092AB331D100454B25 /* playerStatVC.swift */; };
 		226E7F0F2AB4967600454B25 /* AgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E7F0E2AB4967600454B25 /* AgeCollectionViewCell.swift */; };
 		226E7F112AB4A2E400454B25 /* GamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E7F102AB4A2E400454B25 /* GamesCollectionViewCell.swift */; };
@@ -154,13 +155,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226E7F082AB3293A00454B25 /* SnapKit in Frameworks */,
+				220F88C12AB628010060C4EC /* DGCharts in Frameworks */,
+				220F88BF2AB627FD0060C4EC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220F88BD2AB627A70060C4EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		226E7F0D2AB3842E00454B25 /* PlayerDescription */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +295,7 @@
 			children = (
 				8195CCBB2A98FA5E000A917F /* SportEventApp */,
 				8195CCBA2A98FA5E000A917F /* Products */,
+				220F88BD2AB627A70060C4EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -357,7 +367,8 @@
 			);
 			name = SportEventApp;
 			packageProductDependencies = (
-				226E7F072AB3293A00454B25 /* SnapKit */,
+				220F88BE2AB627FD0060C4EC /* SnapKit */,
+				220F88C02AB628010060C4EC /* DGCharts */,
 			);
 			productName = SportEventApp;
 			productReference = 8195CCB92A98FA5E000A917F /* SportEventApp.app */;
@@ -389,7 +400,6 @@
 			mainGroup = 8195CCB02A98FA5E000A917F;
 			packageReferences = (
 				226E7F062AB3293A00454B25 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				226E7F1A2AB6128A00454B25 /* XCRemoteSwiftPackageReference "PNChart" */,
 				226E7F1B2AB614A800454B25 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 8195CCBA2A98FA5E000A917F /* Products */;
@@ -713,14 +723,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		226E7F1A2AB6128A00454B25 /* XCRemoteSwiftPackageReference "PNChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kevinzhow/PNChart";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.9;
-			};
-		};
 		226E7F1B2AB614A800454B25 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
@@ -732,10 +734,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		226E7F072AB3293A00454B25 /* SnapKit */ = {
+		220F88BE2AB627FD0060C4EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 226E7F062AB3293A00454B25 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		220F88C02AB628010060C4EC /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 226E7F1B2AB614A800454B25 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
