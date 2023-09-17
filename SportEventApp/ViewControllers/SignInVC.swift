@@ -25,7 +25,10 @@ class SignInVC: UIViewController {
         navigationController?.popViewController(animated: true)
         print("btn pressed")
     }
-
+    @IBAction func pushToProfile(_ sender: UIButton) {
+        navigationController?.pushViewController(PlayerStatVC(), animated: true)
+    }
+    
 }
 
 

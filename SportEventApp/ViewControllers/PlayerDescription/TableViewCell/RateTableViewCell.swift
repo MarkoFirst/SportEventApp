@@ -358,27 +358,4 @@ class RateTableViewCell: UITableViewCell {
 
      // Configure the view for the selected state
  }
-
- 
- 
- 
- 
- 
-
- yellowCardView.addSubview(yellowCardNumberLabel)
- 
- yellowCardNumberLabel.snp.makeConstraints {
-     $0.left.equalTo(yellowCardView)
-     $0.centerY.equalTo(yellowCardView.snp.centerY)
- }
- 
- yellowCardView.addSubview(yellowCardNumberImage)
-
- yellowCardNumberImage.snp.makeConstraints {
-     $0.left.equalTo(yellowCardNumberLabel.snp.right)
-     $0.centerY.equalTo(yellowCardView.snp.centerY)
-     $0.height.width.equalTo(25)
- }
- 
- mainYellowCardSV.addArrangedSubview(yellowCardView)
  */

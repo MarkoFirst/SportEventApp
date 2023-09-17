@@ -162,6 +162,9 @@ Timberwolves and th No. 1 pick in the
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="user"/>
+                                                <connections>
+                                                    <action selector="pushToProfile:" destination="wG4-QV-3wb" eventType="touchUpInside" id="fDk-PM-mgX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -448,7 +451,7 @@ Timberwolves and th No. 1 pick in the
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rtg-XI-eNL">
                                         <rect key="frame" x="219" y="0.0" width="158" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-6v-zml" userLabel="SearchBtn">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-6v-zml" userLabel="SearchBtn">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="RvY-gb-brH"/>
@@ -466,7 +469,7 @@ Timberwolves and th No. 1 pick in the
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bell"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Y8-1z-hyC" userLabel="ProfileBtn">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Y8-1z-hyC" userLabel="ProfileBtn">
                                                 <rect key="frame" x="108" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="GtL-BS-nwk"/>
@@ -474,6 +477,9 @@ Timberwolves and th No. 1 pick in the
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="user"/>
+                                                <connections>
+                                                    <action selector="pushToProfile:" destination="2S8-eR-Fdz" eventType="touchUpInside" id="Fh9-Ir-SWy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

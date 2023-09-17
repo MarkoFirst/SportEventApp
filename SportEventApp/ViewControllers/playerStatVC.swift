@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class playerStatVC: UIViewController {
+class PlayerStatVC: UIViewController {
 
     let scrollview = UIScrollView()
     let backBtn = UIButton()
@@ -32,13 +32,16 @@ class playerStatVC: UIViewController {
         super.viewDidLoad()
         
         scrollview.isScrollEnabled = true
-        scrollview.contentSize = CGSize(width: view.frame.width, height: 2000)
+        scrollview.isUserInteractionEnabled = true
+        scrollview.contentSize = CGSize(width: view.frame.width, height: 1700)
         view.backgroundColor = .black
         
         view.addSubview(scrollview)
         //MARK: BACK BUTTON
         backBtn.contentMode = .scaleAspectFit
         backBtn.setImage(UIImage(named: "back"), for: .normal)
+        backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
+        
         scrollview.addSubview(backBtn)
         //MARK: SHARE BUTTON
         shareBtn.contentMode = .scaleAspectFit
@@ -107,7 +110,7 @@ class playerStatVC: UIViewController {
         layout.itemSize = CGSize(width: 116.0, height: 100.0)
         layout.scrollDirection = .horizontal
         
-        achivementsCollView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200), collectionViewLayout: layout)
+        achivementsCollView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
         achivementsCollView.backgroundColor = .clear
         
         achivementsCollView.delegate = self
@@ -191,16 +194,18 @@ class playerStatVC: UIViewController {
         scrollview.addSubview(discussingSV)
         
         //MARK: TABLE VIEW
-        discussionTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 700), style: .insetGrouped)
+        discussionTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), style: .insetGrouped)
         discussionTableView.backgroundColor = .clear
         discussionTableView.isScrollEnabled = false
-
+        discussionTableView.isUserInteractionEnabled = true
+        
         discussionTableView.dataSource = self
         discussionTableView.delegate = self
         
         discussionTableView.register(LatestNewsTableViewCell.self, forCellReuseIdentifier: "cell1")
         discussionTableView.register(RateTableViewCell.self, forCellReuseIdentifier: "cell2")
-        
+        discussionTableView.register(TrophiesTableViewCell.self, forCellReuseIdentifier: "cell3")
+        discussionTableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "cell4")
         
         scrollview.addSubview(discussionTableView)
         
@@ -260,7 +265,6 @@ class playerStatVC: UIViewController {
         positionSV.snp.makeConstraints {
             $0.top.equalTo(playerName.snp.bottom).inset(-200)
             $0.left.equalToSuperview().inset(16)
-            //$0.right.equalToSuperview().inset(100)
             $0.right.equalTo(juventusLogoDesc.snp.left).inset(140)
         }
         
@@ -278,15 +282,16 @@ class playerStatVC: UIViewController {
         discussionTableView.snp.makeConstraints {
             $0.top.equalTo(discussingSV.snp.bottom).inset(-16)
             $0.left.right.equalTo(view)
-            $0.height.equalTo(700)
+            $0.height.equalTo(1100)
         }
-        
-        
+    }
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 
-extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
+extension PlayerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: COLLECTIONVIEW SETUP
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -319,7 +324,7 @@ extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -333,12 +338,14 @@ extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath)
             cell.selectionStyle = .none
             return cell
-//        case 2:
-//            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath)
-//            return cell
-//        case 3:
-//            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell4", for: indexPath)
-//            return cell
+        case 2:
+            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
+        case 3:
+            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell4", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
         default:
             cell = UITableViewCell()
             return cell
@@ -351,10 +358,10 @@ extension playerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             return 150
         case 1:
             return 312
-//        case 2:
-//            return 200
-//        case 4:
-//            return 150
+        case 2:
+            return 220
+        case 3:
+            return 250
         default:
             return 0.0
         }

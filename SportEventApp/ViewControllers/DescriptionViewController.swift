@@ -20,7 +20,10 @@ class DescriptionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func pushToProfile(_ sender: UIButton) {
+        navigationController?.pushViewController(PlayerStatVC(), animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
