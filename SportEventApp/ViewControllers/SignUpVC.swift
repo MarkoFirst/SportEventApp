@@ -22,6 +22,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         self.dismissKeyboard()
         navigationController?.navigationBar.isHidden = false
     }
+    @IBAction func tapLogIn(_ sender: UIButton) {
+            let vc = SignInVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

@@ -15,6 +15,7 @@
 		77053C5B2AA942B0008514D9 /* EventInfoIconTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */; };
 		77053C5D2AA948D7008514D9 /* EventInfoDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */; };
 		77053C5F2AA948EA008514D9 /* EventInfoDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */; };
+		7734654F2AB709FB0074289D /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734654E2AB709FB0074289D /* SignInVC.swift */; };
 		774E1BBA2AA6665700C72041 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774E1BB92AA6665700C72041 /* EventTVC.xib */; };
 		774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BBB2AA678C800C72041 /* EventTVC.swift */; };
 		776747512AA515EA005725B3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747502AA515EA005725B3 /* SignUpVC.swift */; };
@@ -82,6 +83,7 @@
 		77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoIconTVC.xib; sourceTree = "<group>"; };
 		77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoDescriptionCell.swift; sourceTree = "<group>"; };
 		77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoDescriptionCell.xib; sourceTree = "<group>"; };
+		7734654E2AB709FB0074289D /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		774E1BB92AA6665700C72041 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
 		774E1BBB2AA678C800C72041 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
 		776747502AA515EA005725B3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				779A54052AAB690E00099683 /* StartPageVC.swift */,
+				7734654E2AB709FB0074289D /* SignInVC.swift */,
 				776747502AA515EA005725B3 /* SignUpVC.swift */,
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
 				776747542AA51BB6005725B3 /* MainTableVC.swift */,
@@ -397,6 +400,7 @@
 				776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */,
 				77A4696F2AA874A8008EE323 /* EventTypeTVC.swift in Sources */,
 				776BAB962A9CDF9200BBC20D /* Place.swift in Sources */,
+				7734654F2AB709FB0074289D /* SignInVC.swift in Sources */,
 				776BAB762A9CD58400BBC20D /* TypeOfSport.swift in Sources */,
 				776BAB742A9CD57200BBC20D /* TypeOfGame.swift in Sources */,
 				779A54062AAB690E00099683 /* StartPageVC.swift in Sources */,
