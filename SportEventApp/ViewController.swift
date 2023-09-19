@@ -50,7 +50,6 @@ class ViewController: UIViewController {
 //        view.addSubview(btn)
         
         
-        
         tableView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.height.width.equalTo(44)
@@ -202,3 +201,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+
+//{
+//   "name": "Vadim"
+//   "surname": "Babiichuck"
+//   "age": 27
+//    "avatar"
+//}
+//
+//{
+//   "name": "Kate"
+//   "surname": "Somnikova"
+//   "age": 23,
+//   "childs": [
+//
+//   ]
+//}
+//
+//class User {
+//    var name: String
+//    var surname: String
+//    var age: UInt
+//
+//    var child: ([User])?
+//}

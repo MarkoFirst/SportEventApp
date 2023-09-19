@@ -7,6 +7,8 @@ target 'SportEventApp' do
 
   # Pods for SportEventApp
   
-
+  pod 'Alamofire'
+  pod 'Wormholy', :configurations => ['Debug']
+#  pod 'RealmSwift'
   
 end

@@ -24,7 +24,7 @@ class AddedNameTVC: UITableViewCell {
         btn.setTitle("error btn", for: .normal)
         btn.backgroundColor = .red
         btn.addTarget(self, action: #selector(errorTap), for: .touchUpInside)
-        addSubview(btn)
+        contentView.addSubview(btn)
         
         
         contentView.bringSubviewToFront(customContentView)

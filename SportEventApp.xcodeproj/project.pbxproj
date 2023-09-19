@@ -21,6 +21,9 @@
 		8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCD52A9CB492000A917F /* ClassExample.swift */; };
 		81A271CD2AAA4E610070A719 /* CodableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A271CC2AAA4E610070A719 /* CodableVC.swift */; };
 		81B2B46C2A9E461800033839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B2B46B2A9E461800033839 /* Assets.xcassets */; };
+		81BFF28F2AB0EAB400767DAC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF28E2AB0EAB400767DAC /* Alamofire */; };
+		81BFF2922ABA17A700767DAC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF2912ABA17A700767DAC /* Realm */; };
+		81BFF2942ABA17A700767DAC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF2932ABA17A700767DAC /* RealmSwift */; };
 		81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81E6A54C2AA7A2C400B89E9F /* SnapKit */; };
 		CCF0E85A2A9F4D50008CF8C6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84A2A9F4D4E008CF8C6 /* Place.swift */; };
 		CCF0E85B2A9F4D50008CF8C6 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84B2A9F4D4E008CF8C6 /* DesignSystem.swift */; };
@@ -80,7 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BFF28F2AB0EAB400767DAC /* Alamofire in Frameworks */,
 				0F3A91FB9A1CD3971B09E3AC /* Pods_SportEventApp.framework in Frameworks */,
+				81BFF2922ABA17A700767DAC /* Realm in Frameworks */,
+				81BFF2942ABA17A700767DAC /* RealmSwift in Frameworks */,
 				81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +208,7 @@
 				8195CCB52A98FA5E000A917F /* Sources */,
 				8195CCB62A98FA5E000A917F /* Frameworks */,
 				8195CCB72A98FA5E000A917F /* Resources */,
+				A9DB268BF57FA581A13BAADF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,6 +217,9 @@
 			name = SportEventApp;
 			packageProductDependencies = (
 				81E6A54C2AA7A2C400B89E9F /* SnapKit */,
+				81BFF28E2AB0EAB400767DAC /* Alamofire */,
+				81BFF2912ABA17A700767DAC /* Realm */,
+				81BFF2932ABA17A700767DAC /* RealmSwift */,
 			);
 			productName = SportEventApp;
 			productReference = 8195CCB92A98FA5E000A917F /* SportEventApp.app */;
@@ -241,6 +251,8 @@
 			mainGroup = 8195CCB02A98FA5E000A917F;
 			packageReferences = (
 				81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				81BFF28D2AB0EAB400767DAC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				81BFF2902ABA17A700767DAC /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 8195CCBA2A98FA5E000A917F /* Products */;
 			projectDirPath = "";
@@ -289,6 +301,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A9DB268BF57FA581A13BAADF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportEventApp/Pods-SportEventApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -308,7 +337,7 @@
 				8134ECF32A9E69A20011C841 /* AddedNameTVC.swift in Sources */,
 				8134ECF72AA10E890011C841 /* TeacherTabBar.swift in Sources */,
 				CCF0E85D2A9F4D50008CF8C6 /* Settings.swift in Sources */,
-				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,        
+				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				81A271CD2AAA4E610070A719 /* CodableVC.swift in Sources */,
 				CCF0E8672A9F4D50008CF8C6 /* Sport.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
@@ -543,6 +572,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		81BFF28D2AB0EAB400767DAC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		81BFF2902ABA17A700767DAC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -554,6 +599,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		81BFF28E2AB0EAB400767DAC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81BFF28D2AB0EAB400767DAC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		81BFF2912ABA17A700767DAC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81BFF2902ABA17A700767DAC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		81BFF2932ABA17A700767DAC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81BFF2902ABA17A700767DAC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		81E6A54C2AA7A2C400B89E9F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 81E6A54B2AA7A2C400B89E9F /* XCRemoteSwiftPackageReference "SnapKit" */;
