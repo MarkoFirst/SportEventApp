@@ -38,6 +38,11 @@ class EventInfoVC: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func PlayerInfoBtn(_ sender: UIButton) {
+        let vc = PlayerInfoVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {

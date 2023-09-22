@@ -34,6 +34,11 @@ class MainTableVC: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         createTestData()
     }
+    
+    @IBAction func PlayerInfoBtn(_ sender: UIButton) {
+        let vc = PlayerInfoVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
