@@ -56,6 +56,8 @@
 		776BABA42A9CE04B00BBC20D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA32A9CE04B00BBC20D /* Settings.swift */; };
 		776BABA62A9CE06400BBC20D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA52A9CE06400BBC20D /* User.swift */; };
 		776BABA82A9CE09B00BBC20D /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BABA72A9CE09B00BBC20D /* Fan.swift */; };
+		7773DC672ABE550600B926E8 /* AthleteLogoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */; };
+		7773DC6B2ABE581000B926E8 /* DiscussinTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */; };
 		779A54022AAB685000099683 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 779A54012AAB685000099683 /* SnapKit */; };
 		779A54062AAB690E00099683 /* StartPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A54052AAB690E00099683 /* StartPageVC.swift */; };
 		779FA2C82ABB8AA50027A86E /* PlayerInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */; };
@@ -125,6 +127,8 @@
 		776BABA32A9CE04B00BBC20D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		776BABA52A9CE06400BBC20D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		776BABA72A9CE09B00BBC20D /* Fan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
+		7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteLogoTVC.swift; sourceTree = "<group>"; };
+		7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussinTVC.swift; sourceTree = "<group>"; };
 		779A54052AAB690E00099683 /* StartPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageVC.swift; sourceTree = "<group>"; };
 		779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoVC.swift; sourceTree = "<group>"; };
 		77A4696A2AA7C4F9008EE323 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
 				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
 				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
+				7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */,
+				7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				776BAB8C2A9CDF1800BBC20D /* Poker.swift in Sources */,
 				776BAB882A9CD6DC00BBC20D /* Chess.swift in Sources */,
 				776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */,
+				7773DC672ABE550600B926E8 /* AthleteLogoTVC.swift in Sources */,
 				77A469752AA87C1C008EE323 /* EventTypeCVC.swift in Sources */,
 				776BAB6C2A9CD50200BBC20D /* Themes.swift in Sources */,
 				77053C592AA942A3008514D9 /* EventInfoIconTVC.swift in Sources */,
@@ -385,6 +392,7 @@
 				776BAB982A9CDFAF00BBC20D /* OfflinePlace.swift in Sources */,
 				776BAB8E2A9CDF2B00BBC20D /* TeamSport.swift in Sources */,
 				776BAB8A2A9CD6EE00BBC20D /* Fencing.swift in Sources */,
+				7773DC6B2ABE581000B926E8 /* DiscussinTVC.swift in Sources */,
 				776BAB9C2A9CDFEF00BBC20D /* Event.swift in Sources */,
 				776BABA02A9CE01700BBC20D /* DoublesSportEvent.swift in Sources */,
 				77053C552AA938A3008514D9 /* EventInfoTitleTVC.swift in Sources */,
