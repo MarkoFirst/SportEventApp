@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class PlayerInfoVC: UIViewController {
+    
 var tableView = UITableView()
     
     override func viewDidLoad() {
@@ -22,8 +23,6 @@ var tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
-//        ------ отключение выделения ячеек
-
     }
     
     func setupTableView() {
@@ -35,6 +34,8 @@ var tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AthleteLogoTVC.self, forCellReuseIdentifier: "AthleteLogoTVC")
+        tableView.register(DiscussinTVC.self, forCellReuseIdentifier: "DiscussinTVC")
+        tableView.register(NewsTVC.self, forCellReuseIdentifier: "NewsTVC")
     }
 }
 
@@ -49,11 +50,16 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let athleteLovoCell = tableView.dequeueReusableCell(withIdentifier: "AthleteLogoTVC") as! AthleteLogoTVC
-        
+        let athleteLogoCell = tableView.dequeueReusableCell(withIdentifier: "AthleteLogoTVC") as! AthleteLogoTVC
+        let discussCell = tableView.dequeueReusableCell(withIdentifier: "DiscussinTVC") as! DiscussinTVC
+        let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsTVC") as! NewsTVC
         switch indexPath.section {
         case 0:
-            return athleteLovoCell
+            return athleteLogoCell
+        case 1:
+            return discussCell
+        case 2:
+            return newsCell
         default:
             return UITableViewCell()
         }
@@ -62,5 +68,4 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-   
 }
