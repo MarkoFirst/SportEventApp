@@ -58,7 +58,7 @@ extension NewsTVC {
         shareNewsBtn.layer.borderWidth = 1
         shareNewsBtn.layer.cornerRadius = 20
         shareNewsBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
-        shareNewsBtn.setImage(UIImage(systemName: "arrowshape.turn.up.right.fill"), for: .normal)
+        shareNewsBtn.setImage(UIImage(named: "shareArrow"), for: .normal)
         shareNewsBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
         shareNewsBtn.addTarget(self, action: #selector(tapShareNewsBtn), for: .touchUpInside)
         newsView.addSubview(shareNewsBtn)

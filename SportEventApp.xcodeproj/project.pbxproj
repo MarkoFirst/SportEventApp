@@ -16,6 +16,7 @@
 		77053C5D2AA948D7008514D9 /* EventInfoDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */; };
 		77053C5F2AA948EA008514D9 /* EventInfoDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */; };
 		7734654F2AB709FB0074289D /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7734654E2AB709FB0074289D /* SignInVC.swift */; };
+		77452C092AC09E4800D7F368 /* AthleteStatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77452C082AC09E4800D7F368 /* AthleteStatsTVC.swift */; };
 		774E1BBA2AA6665700C72041 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774E1BB92AA6665700C72041 /* EventTVC.xib */; };
 		774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774E1BBB2AA678C800C72041 /* EventTVC.swift */; };
 		776747512AA515EA005725B3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776747502AA515EA005725B3 /* SignUpVC.swift */; };
@@ -67,6 +68,8 @@
 		77A469732AA87B83008EE323 /* EventTypeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A469722AA87B83008EE323 /* EventTypeCVC.xib */; };
 		77A469752AA87C1C008EE323 /* EventTypeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A469742AA87C1C008EE323 /* EventTypeCVC.swift */; };
 		77B4B4822ABF60BE001D46C3 /* NewsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */; };
+		77FD21E82AC232DB0090799E /* TrophiesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD21E72AC232DB0090799E /* TrophiesTVC.swift */; };
+		77FD21EA2AC241750090799E /* TrophiesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD21E92AC241750090799E /* TrophiesCVC.swift */; };
 		8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBC2A98FA5E000A917F /* AppDelegate.swift */; };
 		8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */; };
 		8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195CCC02A98FA5E000A917F /* ViewController.swift */; };
@@ -88,6 +91,7 @@
 		77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoDescriptionCell.swift; sourceTree = "<group>"; };
 		77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInfoDescriptionCell.xib; sourceTree = "<group>"; };
 		7734654E2AB709FB0074289D /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		77452C082AC09E4800D7F368 /* AthleteStatsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteStatsTVC.swift; sourceTree = "<group>"; };
 		774E1BB92AA6665700C72041 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
 		774E1BBB2AA678C800C72041 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
 		776747502AA515EA005725B3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		77A469722AA87B83008EE323 /* EventTypeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTypeCVC.xib; sourceTree = "<group>"; };
 		77A469742AA87C1C008EE323 /* EventTypeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypeCVC.swift; sourceTree = "<group>"; };
 		77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVC.swift; sourceTree = "<group>"; };
+		77FD21E72AC232DB0090799E /* TrophiesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesTVC.swift; sourceTree = "<group>"; };
+		77FD21E92AC241750090799E /* TrophiesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesCVC.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8195CCBC2A98FA5E000A917F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 				7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */,
 				7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */,
 				77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */,
+				77452C082AC09E4800D7F368 /* AthleteStatsTVC.swift */,
+				77FD21E72AC232DB0090799E /* TrophiesTVC.swift */,
+				77FD21E92AC241750090799E /* TrophiesCVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				776BAB8C2A9CDF1800BBC20D /* Poker.swift in Sources */,
+				77FD21E82AC232DB0090799E /* TrophiesTVC.swift in Sources */,
 				776BAB882A9CD6DC00BBC20D /* Chess.swift in Sources */,
 				776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */,
 				7773DC672ABE550600B926E8 /* AthleteLogoTVC.swift in Sources */,
@@ -387,6 +397,7 @@
 				776BAB9E2A9CE00000BBC20D /* SportEvent.swift in Sources */,
 				77A4696B2AA7C4F9008EE323 /* Participant.swift in Sources */,
 				776747552AA51BB6005725B3 /* MainTableVC.swift in Sources */,
+				77FD21EA2AC241750090799E /* TrophiesCVC.swift in Sources */,
 				776BAB902A9CDF4200BBC20D /* Basketball.swift in Sources */,
 				776BAB862A9CD6C900BBC20D /* PingPong.swift in Sources */,
 				776BAB682A9CD4B600BBC20D /* EquipmentList.swift in Sources */,
@@ -409,6 +420,7 @@
 				776BAB802A9CD67700BBC20D /* Sport.swift in Sources */,
 				776BAB702A9CD53D00BBC20D /* Language.swift in Sources */,
 				776BABA22A9CE02900BBC20D /* TeamSportEvent.swift in Sources */,
+				77452C092AC09E4800D7F368 /* AthleteStatsTVC.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				776BAB6E2A9CD51800BBC20D /* CurrencyList.swift in Sources */,
 				774E1BBC2AA678C800C72041 /* EventTVC.swift in Sources */,

@@ -107,7 +107,7 @@ extension AthleteLogoTVC {
         bookmarkBtn.layer.borderWidth = 1
         bookmarkBtn.layer.cornerRadius = 20
         bookmarkBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
-        bookmarkBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        bookmarkBtn.setImage(UIImage(named: "bookmark"), for: .normal)
         bookmarkBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
         bookmarkBtn.addTarget(self, action: #selector(tapBookmarkBtn), for: .touchUpInside)
         contentView.addSubview(bookmarkBtn)
@@ -117,7 +117,7 @@ extension AthleteLogoTVC {
         shareBtn.layer.borderWidth = 1
         shareBtn.layer.cornerRadius = 20
         shareBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
-        shareBtn.setImage(UIImage(systemName: "arrowshape.turn.up.right.fill"), for: .normal)
+        shareBtn.setImage(UIImage(named: "shareArrow"), for: .normal)
         shareBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
         shareBtn.addTarget(self, action: #selector(tapShareBtn), for: .touchUpInside)
         contentView.addSubview(shareBtn)

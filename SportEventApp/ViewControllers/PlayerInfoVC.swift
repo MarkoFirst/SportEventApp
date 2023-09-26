@@ -23,6 +23,7 @@ var tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
     }
     
     func setupTableView() {
@@ -36,6 +37,8 @@ var tableView = UITableView()
         tableView.register(AthleteLogoTVC.self, forCellReuseIdentifier: "AthleteLogoTVC")
         tableView.register(DiscussinTVC.self, forCellReuseIdentifier: "DiscussinTVC")
         tableView.register(NewsTVC.self, forCellReuseIdentifier: "NewsTVC")
+        tableView.register(AthleteStatsTVC.self, forCellReuseIdentifier: "AthleteStatsTVC")
+        tableView.register(TrophiesTVC.self, forCellReuseIdentifier: "TrophiesTVC")
     }
 }
 
@@ -50,9 +53,13 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let athleteLogoCell = tableView.dequeueReusableCell(withIdentifier: "AthleteLogoTVC") as! AthleteLogoTVC
         let discussCell = tableView.dequeueReusableCell(withIdentifier: "DiscussinTVC") as! DiscussinTVC
         let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsTVC") as! NewsTVC
+        let athleteStatsCell = tableView.dequeueReusableCell(withIdentifier: "AthleteStatsTVC") as! AthleteStatsTVC
+        let trophiesCell = tableView.dequeueReusableCell(withIdentifier: "TrophiesTVC") as! TrophiesTVC
+        
         switch indexPath.section {
         case 0:
             return athleteLogoCell
@@ -60,6 +67,10 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             return discussCell
         case 2:
             return newsCell
+        case 3:
+            return athleteStatsCell
+        case 4:
+            return trophiesCell
         default:
             return UITableViewCell()
         }
