@@ -12,12 +12,53 @@ import Alamofire
 import RealmSwift
 
 class CodableVC: UIViewController {
+    var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         
-        setupRealm()
+        
+        
+//        setupRealm()
+        setupCD()
+    }
+    
+    private func setupCD() {
+        let service = CoreDataService()
+        
+//        service.addUser(age: 18, name: "Dima", startDate: Date())
+//        service.addUser(age: 20, name: "Borys", startDate: Date())
+//        service.addUser(age: 22, name: "Vlad", startDate: Date())
+        
+        print("-------------------❤️️️️️️️---------------")
+//        service.getUsers().forEach { dump($0) }
+//        service.getUsers().forEach { print($0) }
+        
+        if let admin = service.getUsers().first {//.first(where: { $0.isAdmin }) {
+//            service.removeUser(admin)
+//            let event = EventCD(context: service.context)
+//            event.date = Date()
+//            event.id = UUID()
+//            event.price = 6
+//            event.title = "Second event"
+//
+//            service.addFavorite(admin, event: event)
+            
+            print(admin)
+            let events = admin.favoriteList?.allObjects.compactMap { $0 as? EventCD }
+            events?.forEach { print($0.title) }
+        }
+        print("-------------------❤️️️️️️️---------------")
+        
+        
+//
+//        let userList = service.getUsers()
+//
+//        let usersToDelete = userList.filter { $0.isAdmin }
+//
+//        usersToDelete.forEach { service.context.delete($0) }
+//        service.saveContext()
     }
     
     private func setupUD() {
@@ -81,8 +122,14 @@ class CodableVC: UIViewController {
         formView.layer.cornerRadius = 16
         view.addSubview(formView)
         
+//        let ps = NSParagraphStyle()
+//        ps.minimumLineHeight = 1.1
+        
         let titleLabel = UILabel()
         titleLabel.text = "Sign Up"
+//        titleLabel.attributedText = NSMutableAttributedString(string: "Sign Up", attributes: [
+//            .paragraphStyle: ps
+//        ])
         titleLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
         titleLabel.textColor = .white
         formView.addSubview(titleLabel)
@@ -93,7 +140,7 @@ class CodableVC: UIViewController {
             (UIImage(named: "user")!, "Password", .password)
         ]
         
-        let stackView = UIStackView(arrangedSubviews: array.map({ item in
+        stackView = UIStackView(arrangedSubviews: array.map({ item in
             let textField = UITextField()
             textField.placeholder = item.1
             textField.textContentType = item.2
@@ -125,6 +172,7 @@ class CodableVC: UIViewController {
         let btn = UIButton(type: .system)
         btn.setTitle("Sign Up", for: .normal)
         btn.setTitleColor(.white, for: .normal)
+//        btn.setImage(UIImage(named: "svg")?.withTintColor(.red), for: .normal)
         btn.backgroundColor = .darkGray
         btn.layer.cornerRadius = 10
         btn.layer.cornerCurve = .continuous
@@ -157,13 +205,17 @@ class CodableVC: UIViewController {
             $0.height.equalTo(60)
         }
         
-        sendRequest()
+//        sendRequest()
     }
     
     @objc
     func nextTap() {
-        navigationController?.pushViewController(CodableVC(), animated: true)
+//        navigationController?.pushViewController(CodableVC(), animated: true)
         //        present(CodableVC(), animated: true)
+        
+        stackView.arrangedSubviews.forEach {
+            print(($0 as? UITextField)?.text)
+        }
     }
     
     //    func sendRequest() {
@@ -272,7 +324,7 @@ class UserDefaultsWrapper {
 class UserRealm: Object {
 //    @objc dynamic var age: Int = 0
     @Persisted
-    private var name: String
+    var name: String
     
     @Persisted var surname: String
     @Persisted(primaryKey: true) var email: String

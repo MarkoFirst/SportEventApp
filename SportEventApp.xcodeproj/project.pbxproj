@@ -24,6 +24,9 @@
 		81BFF28F2AB0EAB400767DAC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF28E2AB0EAB400767DAC /* Alamofire */; };
 		81BFF2922ABA17A700767DAC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF2912ABA17A700767DAC /* Realm */; };
 		81BFF2942ABA17A700767DAC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81BFF2932ABA17A700767DAC /* RealmSwift */; };
+		81BFF29C2ABCABBB00767DAC /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF29B2ABCABBB00767DAC /* CoreDataService.swift */; };
+		81BFF2A02ABCB22800767DAC /* UserCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF29E2ABCB22800767DAC /* UserCD+CoreDataProperties.swift */; };
+		81BFF2A32ABCC1F100767DAC /* UserCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF2A12ABCC1F100767DAC /* UserCoreData.xcdatamodeld */; };
 		81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81E6A54C2AA7A2C400B89E9F /* SnapKit */; };
 		CCF0E85A2A9F4D50008CF8C6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84A2A9F4D4E008CF8C6 /* Place.swift */; };
 		CCF0E85B2A9F4D50008CF8C6 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84B2A9F4D4E008CF8C6 /* DesignSystem.swift */; };
@@ -60,6 +63,9 @@
 		81A271CC2AAA4E610070A719 /* CodableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableVC.swift; sourceTree = "<group>"; };
 		81B2B4672A9E44C600033839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81B2B46B2A9E461800033839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81BFF29B2ABCABBB00767DAC /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		81BFF29E2ABCB22800767DAC /* UserCD+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81BFF2A22ABCC1F100767DAC /* UserCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreData.xcdatamodel; sourceTree = "<group>"; };
 		BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportEventApp.debug.xcconfig"; path = "Target Support Files/Pods-SportEventApp/Pods-SportEventApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CCF0E84A2A9F4D4E008CF8C6 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		CCF0E84B2A9F4D4E008CF8C6 /* DesignSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -142,8 +148,8 @@
 		8195CCBB2A98FA5E000A917F /* SportEventApp */ = {
 			isa = PBXGroup;
 			children = (
-				8134ECE92A9E4AE70011C841 /* Views */,
 				8195CCD02A98FAB5000A917F /* Models */,
+				8134ECE92A9E4AE70011C841 /* Views */,
 				8195CCD12A98FACD000A917F /* ViewControllers */,
 				8195CCBC2A98FA5E000A917F /* AppDelegate.swift */,
 				8195CCBE2A98FA5E000A917F /* SceneDelegate.swift */,
@@ -169,6 +175,9 @@
 				CCF0E8542A9F4D4F008CF8C6 /* Ticket.swift */,
 				CCF0E8592A9F4D50008CF8C6 /* User.swift */,
 				CCF0E84E2A9F4D4F008CF8C6 /* Enums */,
+				81BFF29E2ABCB22800767DAC /* UserCD+CoreDataProperties.swift */,
+				81BFF2A12ABCC1F100767DAC /* UserCoreData.xcdatamodeld */,
+				81BFF29B2ABCABBB00767DAC /* CoreDataService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8134ECF52AA0EA4D0011C841 /* SimpleCollectionVC.swift in Sources */,
+				81BFF2A32ABCC1F100767DAC /* UserCoreData.xcdatamodeld in Sources */,
 				CCF0E8612A9F4D50008CF8C6 /* SportType.swift in Sources */,
 				CCF0E8642A9F4D50008CF8C6 /* SportEvent.swift in Sources */,
 				CCF0E85B2A9F4D50008CF8C6 /* DesignSystem.swift in Sources */,
@@ -341,9 +351,11 @@
 				81A271CD2AAA4E610070A719 /* CodableVC.swift in Sources */,
 				CCF0E8672A9F4D50008CF8C6 /* Sport.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
+				81BFF29C2ABCABBB00767DAC /* CoreDataService.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 				CCF0E8652A9F4D50008CF8C6 /* Team.swift in Sources */,
 				CCF0E85E2A9F4D50008CF8C6 /* Gender.swift in Sources */,
+				81BFF2A02ABCB22800767DAC /* UserCD+CoreDataProperties.swift in Sources */,
 				CCF0E8662A9F4D50008CF8C6 /* Athlete.swift in Sources */,
 				CCF0E85C2A9F4D50008CF8C6 /* Event.swift in Sources */,
 				CCF0E85A2A9F4D50008CF8C6 /* Place.swift in Sources */,
@@ -620,6 +632,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		81BFF2A12ABCC1F100767DAC /* UserCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81BFF2A22ABCC1F100767DAC /* UserCoreData.xcdatamodel */,
+			);
+			currentVersion = 81BFF2A22ABCC1F100767DAC /* UserCoreData.xcdatamodel */;
+			path = UserCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8195CCB12A98FA5E000A917F /* Project object */;
 }
