@@ -11,6 +11,8 @@ import SnapKit
 
 class TrophiesTVC: UITableViewCell {
     
+    let trophy = ["European cup", "FIFA CLub World cup", "European super cup", "World cup"]
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -32,9 +34,6 @@ extension TrophiesTVC {
         trophiesView.backgroundColor = UIColor(red: 0.09, green: 0.082, blue: 0.125, alpha: 1)
         trophiesView.layer.cornerRadius = 20
         contentView.addSubview(trophiesView)
-        trophiesView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(12)
-        }
         
         let trophiesLabel = UILabel()
         trophiesLabel.text = "TROPHIES"
@@ -42,27 +41,46 @@ extension TrophiesTVC {
         trophiesLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         trophiesLabel.adjustsFontSizeToFitWidth = true
         trophiesView.addSubview(trophiesLabel)
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
+        trophiesView.addSubview(separatorView)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset.left = 0
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(TrophiesCVC.self, forCellWithReuseIdentifier: "TrophiesCVC")
+        trophiesView.addSubview(collectionView)
+        
+        let hideLine = UIView()
+        hideLine.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
+        trophiesView.addSubview(hideLine)
+        
+        trophiesView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
+        
         trophiesLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(16)
             $0.leading.equalToSuperview().inset(20)
         }
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(TrophiesCVC.self, forCellWithReuseIdentifier: "TrophiesCVC")
-        trophiesView.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
+        separatorView.snp.makeConstraints {
+            $0.height.equalTo(0.5)
             $0.top.equalTo(trophiesLabel.snp.bottom).inset(-16)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(separatorView.snp.bottom).inset(-12)
+            $0.height.equalTo(trophiesView.snp.width).multipliedBy(0.5)
             $0.leading.trailing.equalToSuperview().inset(0)
         }
         
-        let hideLine = UIView()
-        hideLine.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
-        trophiesView.addSubview(hideLine)
         hideLine.snp.makeConstraints {
             $0.height.equalTo(4)
             $0.top.equalTo(collectionView.snp.bottom).inset(-16)
@@ -74,17 +92,37 @@ extension TrophiesTVC {
     }
 }
 
-extension TrophiesTVC: UICollectionViewDelegate, UICollectionViewDataSource {
-
+extension TrophiesTVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        
+        return trophy.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrophiesCVC", for: indexPath as IndexPath) as! TrophiesCVC
-//        cell.contentView.bounds.size.height = 200
+        cell.label.text = trophy[indexPath.row]
+        cell.image.image = {
+            switch cell.label.text {
+            case "European cup":
+                return UIImage(named: "eurocup")
+            case "FIFA CLub World cup":
+                return UIImage(named: "fifaCup")
+            case "European super cup":
+                return UIImage(named: "uefaCup")
+            case "World cup":
+                return UIImage(named: "fifaWorldCup")
+            default:
+                return UIImage()
+            }
+        }()
+        
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.height * 0.7, height: collectionView.frame.height)
+    }
 }
