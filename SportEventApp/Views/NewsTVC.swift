@@ -40,19 +40,19 @@ extension NewsTVC {
         newsView.backgroundColor = UIColor(red: 0.09, green: 0.082, blue: 0.125, alpha: 1)
         newsView.layer.cornerRadius = 20
         contentView.addSubview(newsView)
-
+        
         let teamFlagLogo = UIImageView()
         teamFlagLogo.image = UIImage(named: athleteTeamFlag)
         teamFlagLogo.layer.cornerRadius = 25
         teamFlagLogo.clipsToBounds = true
         newsView.addSubview(teamFlagLogo)
-
+        
         let athleteImage = UIImageView()
         athleteImage.image = UIImage(named: athleteIcon)
         athleteImage.layer.cornerRadius = 20
         athleteImage.clipsToBounds = true
         newsView.addSubview(athleteImage)
-    
+        
         let shareNewsBtn = UIButton(type: .system)
         shareNewsBtn.backgroundColor = UIColor(red: 0.133, green: 0.122, blue: 0.196, alpha: 0.95)
         shareNewsBtn.layer.borderWidth = 1
@@ -84,17 +84,17 @@ extension NewsTVC {
         let separatorView = UIView()
         separatorView.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
         newsView.addSubview(separatorView)
-
+        
         let newsItemStackView = UIStackView()
         newsItemStackView.axis = .horizontal
         newsItemStackView.alignment = .center
         newsItemStackView.spacing = 8
-
+        
         let newsDateStackView = UIStackView()
         newsDateStackView.axis = .vertical
         newsDateStackView.alignment = .center
         newsItemStackView.addArrangedSubview(newsDateStackView)
-
+        
         let newsDateDayLabel = UILabel()
         newsDateDayLabel.text = newsDateDay.description
         newsDateDayLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
@@ -158,13 +158,9 @@ extension NewsTVC {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        newsDateStackView.snp.makeConstraints {
-            $0.height.width.equalTo(50)
-        }
+        newsDateStackView.snp.makeConstraints { $0.height.width.equalTo(50) }
         
-        newsDescriptionLabel.snp.makeConstraints {
-            $0.height.equalTo(50)
-        }
+        newsDescriptionLabel.snp.makeConstraints { $0.height.equalTo(50) }
     }
     
     @objc private func tapShareNewsBtn() {

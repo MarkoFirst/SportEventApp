@@ -11,7 +11,8 @@ import SnapKit
 
 class TrophiesTVC: UITableViewCell {
     
-    let trophy = ["European cup", "FIFA CLub World cup", "European super cup", "World cup"]
+    let trophy = ["European cup", "FIFA CLub World cup", "European super cup", "FIFA World cup"]
+    let trophyValue = [7, 4, 2, 6]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -88,7 +89,6 @@ extension TrophiesTVC {
             $0.width.equalToSuperview().multipliedBy(0.15)
             $0.bottom.equalTo(trophiesView.snp.bottom).inset(12)
         }
-        
     }
 }
 
@@ -111,12 +111,13 @@ extension TrophiesTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 return UIImage(named: "fifaCup")
             case "European super cup":
                 return UIImage(named: "uefaCup")
-            case "World cup":
+            case "FIFA World cup":
                 return UIImage(named: "fifaWorldCup")
             default:
                 return UIImage()
             }
         }()
+        cell.cupValue.text = trophyValue[indexPath.row].description
         
         return cell
     }

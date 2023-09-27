@@ -34,6 +34,7 @@ class AthleteLogoTVC: UITableViewCell {
 extension AthleteLogoTVC {
     
     func setupViews() {
+        
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
         let teamLogo = UIImageView()
@@ -49,29 +50,23 @@ extension AthleteLogoTVC {
         athleteInfoStackView.autoresizesSubviews = true
         contentView.addSubview(athleteInfoStackView)
         
-        for item in stackViewLabels {
+        stackViewLabels.forEach {
+            
             let view = UIView()
             view.backgroundColor = UIColor(red: 0.133, green: 0.122, blue: 0.196, alpha: 0.95)
             view.layer.cornerRadius = 20
             athleteInfoStackView.addArrangedSubview(view)
-            view.snp.makeConstraints {
-                $0.height.equalTo(view.snp.width).multipliedBy(1)
-            }
             
             let labelItem = UILabel()
-            labelItem.text = item
+            labelItem.text = $0
             labelItem.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
             labelItem.font = UIFont.systemFont(ofSize: 20, weight: .bold)
             labelItem.adjustsFontSizeToFitWidth = true
             view.addSubview(labelItem)
-            labelItem.snp.makeConstraints {
-                $0.top.equalToSuperview().inset(12)
-                $0.leading.equalToSuperview().inset(12)
-                $0.height.equalTo(view.snp.height).multipliedBy(0.12)
-            }
             
             let labelValue = UILabel()
-            switch item {
+            
+            switch $0 {
             case "Age":
                 labelValue.text = ageValue.description
             case "Games":
@@ -87,6 +82,15 @@ extension AthleteLogoTVC {
             labelValue.textAlignment = .right
             labelValue.adjustsFontSizeToFitWidth = true
             view.addSubview(labelValue)
+            
+            view.snp.makeConstraints { $0.height.equalTo(view.snp.width).multipliedBy(1) }
+            
+            labelItem.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(12)
+                $0.leading.equalToSuperview().inset(12)
+                $0.height.equalTo(view.snp.height).multipliedBy(0.12)
+            }
+            
             labelValue.snp.makeConstraints {
                 $0.bottom.equalToSuperview().inset(12)
                 $0.trailing.equalToSuperview().inset(12)
@@ -109,7 +113,6 @@ extension AthleteLogoTVC {
         bookmarkBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
         bookmarkBtn.setImage(UIImage(named: "bookmark"), for: .normal)
         bookmarkBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
-        bookmarkBtn.addTarget(self, action: #selector(tapBookmarkBtn), for: .touchUpInside)
         contentView.addSubview(bookmarkBtn)
         
         let shareBtn = UIButton(type: .system)
@@ -119,7 +122,6 @@ extension AthleteLogoTVC {
         shareBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
         shareBtn.setImage(UIImage(named: "shareArrow"), for: .normal)
         shareBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
-        shareBtn.addTarget(self, action: #selector(tapShareBtn), for: .touchUpInside)
         contentView.addSubview(shareBtn)
         
         let countryFlagLogo = UIImageView()
@@ -166,18 +168,18 @@ extension AthleteLogoTVC {
         
         teamLogo.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
-            $0.leading.trailing.equalToSuperview().inset(0)
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(teamLogo.snp.width).multipliedBy(1)
         }
         
         athleteInfoStackView.snp.makeConstraints {
             $0.top.equalTo(teamLogo.snp.bottom).inset(50)
             $0.leading.trailing.equalToSuperview().inset(12)
-            $0.bottom.equalToSuperview().inset(0)
+            $0.bottom.equalToSuperview()
         }
         
         navigationBackBtn.snp.makeConstraints {
-            $0.top.equalTo(teamLogo.snp.top).inset(0)
+            $0.top.equalTo(teamLogo.snp.top)
             $0.leading.equalToSuperview().inset(16)
         }
         
@@ -217,9 +219,7 @@ extension AthleteLogoTVC {
             $0.leading.equalToSuperview().inset(16)
         }
         
-        uniformLogo.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        uniformLogo.snp.makeConstraints { $0.edges.equalToSuperview() }
         
         athleteNumberLabel.snp.makeConstraints {
             $0.centerY.equalTo(uniformLogoView.snp.centerY)
@@ -229,16 +229,8 @@ extension AthleteLogoTVC {
         
         athleteRoleLabel.snp.makeConstraints {
             $0.centerY.equalTo(uniformLogoView.snp.centerY)
-            $0.leading.equalTo(uniformLogoView.snp.trailing).inset(0)
+            $0.leading.equalTo(uniformLogoView.snp.trailing)
         }
-    }
-    
-    @objc private func tapShareBtn() {
-        print("Tap share")
-    }
-    
-    @objc private func tapBookmarkBtn() {
-        print("Tap bookmark")
     }
     
     @objc private func tapBackBtn() {

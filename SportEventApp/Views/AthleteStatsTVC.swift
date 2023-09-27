@@ -20,8 +20,8 @@ class AthleteStatsTVC: UITableViewCell {
     let cardItem = ["Yellow cards", "Red cards"]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
     
@@ -33,6 +33,7 @@ class AthleteStatsTVC: UITableViewCell {
 extension AthleteStatsTVC {
     
     func setupViews() {
+        
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
         let statsView = UIView()
@@ -71,42 +72,31 @@ extension AthleteStatsTVC {
         kickStatsLabel.adjustsFontSizeToFitWidth = true
         kickStats.addSubview(kickStatsLabel)
         
-        for item in statsInfo {
+        statsInfo.forEach { item in
             
             let stackView = UIStackView()
             stackView.axis = .vertical
             stackView.alignment = .center
             stackView.distribution = .fillProportionally
             kickStatsStackView.addArrangedSubview(stackView)
-            stackView.snp.makeConstraints {
-                $0.height.equalTo(kickStats.snp.height).multipliedBy(1)
-            }
             
             let shotsOnTargetView = UIView()
             shotsOnTargetView.backgroundColor = .clear
             stackView.addArrangedSubview(shotsOnTargetView)
-            shotsOnTargetView.snp.makeConstraints {
-                $0.height.equalTo(shotsOnTargetView.snp.width).multipliedBy(1)
-            }
             
             let statsImage = UIImageView()
             statsImage.image = {
                 switch item {
                 case "Shots on target":
-                    return percentImage(number: shotsOnTarget, from: allKicksStats)
+                    return UIImage(named: percentImage(number: shotsOnTarget, from: allKicksStats)) ?? UIImage()
                 case "Goals scored":
-                    return percentImage(number: goalsScored, from: allKicksStats)
+                    return UIImage(named: percentImage(number: goalsScored, from: allKicksStats)) ?? UIImage()
                 default:
-                    return UIImage(named: "stats100-100")!
+                    return UIImage()
                 }
             }()
             
             shotsOnTargetView.addSubview(statsImage)
-            statsImage.snp.makeConstraints {
-                
-                $0.height.equalTo(statsImage.snp.width).multipliedBy(1)
-                $0.edges.equalToSuperview().inset(8)
-            }
             
             let labelValue = UILabel()
             labelValue.text = {
@@ -126,10 +116,6 @@ extension AthleteStatsTVC {
             labelValue.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             labelValue.adjustsFontSizeToFitWidth = true
             shotsOnTargetView.addSubview(labelValue)
-            labelValue.snp.makeConstraints {
-                $0.centerY.centerX.equalToSuperview()
-                $0.width.height.equalToSuperview().multipliedBy(0.2)
-            }
             
             let label = UILabel()
             label.text = item
@@ -139,6 +125,21 @@ extension AthleteStatsTVC {
             label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
             label.adjustsFontSizeToFitWidth = true
             stackView.addArrangedSubview(label)
+            
+            stackView.snp.makeConstraints { $0.height.equalTo(kickStats.snp.height).multipliedBy(1) }
+            
+            shotsOnTargetView.snp.makeConstraints { $0.height.equalTo(shotsOnTargetView.snp.width).multipliedBy(1) }
+            
+            statsImage.snp.makeConstraints {
+                $0.height.equalTo(statsImage.snp.width).multipliedBy(1)
+                $0.edges.equalToSuperview().inset(8)
+            }
+            
+            labelValue.snp.makeConstraints {
+                $0.centerY.centerX.equalToSuperview()
+                $0.width.height.equalToSuperview().multipliedBy(0.2)
+            }
+            
             label.snp.makeConstraints {
                 $0.width.equalToSuperview().multipliedBy(0.6)
                 $0.height.equalTo(label.snp.width).multipliedBy(0.5)
@@ -168,25 +169,16 @@ extension AthleteStatsTVC {
         foulsStackView.distribution = .fillEqually
         statsView.addSubview(foulsStackView)
         
-        for item in disciplineItem {
+        disciplineItem.forEach {
             
             let foulsView = UIView()
             foulsView.backgroundColor = .clear
             foulsStackView.addArrangedSubview(foulsView)
-            foulsView.snp.makeConstraints {
-                $0.height.equalTo(foulsView.snp.width).multipliedBy(1)
-            }
             
             let vericalLine = UIView()
             vericalLine.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
             vericalLine.layer.cornerRadius = 0.5
             foulsView.addSubview(vericalLine)
-            vericalLine.snp.makeConstraints {
-                $0.width.equalTo(1)
-                $0.top.equalToSuperview().inset(0)
-                $0.leading.equalToSuperview().inset(0)
-                $0.height.equalTo(foulsView.snp.height).multipliedBy(0.3)
-            }
             
             let foulsValueLabel = UILabel()
             foulsValueLabel.text = allKicksStats.description
@@ -195,48 +187,49 @@ extension AthleteStatsTVC {
             foulsValueLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             foulsValueLabel.adjustsFontSizeToFitWidth = true
             foulsView.addSubview(foulsValueLabel)
-            foulsValueLabel.snp.makeConstraints {
-                $0.top.equalToSuperview().inset(0)
-                $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
-                $0.size.equalTo(foulsView.snp.size).multipliedBy(0.3)
-            }
             
             let foulsItemLabel = UILabel()
-            foulsItemLabel.text = item
+            foulsItemLabel.text = $0
             foulsItemLabel.textColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
             foulsItemLabel.textAlignment = .left
             foulsItemLabel.numberOfLines = 2
             foulsItemLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             foulsItemLabel.adjustsFontSizeToFitWidth = true
             foulsView.addSubview(foulsItemLabel)
+            
+            foulsView.snp.makeConstraints { $0.height.equalTo(foulsView.snp.width).multipliedBy(1) }
+            
+            vericalLine.snp.makeConstraints {
+                $0.width.equalTo(1)
+                $0.top.equalToSuperview()
+                $0.leading.equalToSuperview()
+                $0.height.equalTo(foulsView.snp.height).multipliedBy(0.3)
+            }
+            
+            foulsValueLabel.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(0)
+                $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
+                $0.size.equalTo(foulsView.snp.size).multipliedBy(0.3)
+            }
+            
             foulsItemLabel.snp.makeConstraints {
                 $0.top.equalTo(foulsValueLabel.snp.bottom).inset(-4)
                 $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
                 $0.height.equalTo(foulsView.snp.height).multipliedBy(0.3)
                 $0.width.equalTo(foulsView.snp.width).multipliedBy(0.7)
             }
-            
         }
         
-        for item in cardItem {
+        cardItem.forEach { item in
             
             let cardsView = UIView()
             cardsView.backgroundColor = .clear
             foulsStackView.addArrangedSubview(cardsView)
-            cardsView.snp.makeConstraints {
-                $0.height.equalTo(cardsView.snp.width).multipliedBy(1)
-            }
             
             let vericalLine = UIView()
             vericalLine.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
             vericalLine.layer.cornerRadius = 0.5
             cardsView.addSubview(vericalLine)
-            vericalLine.snp.makeConstraints {
-                $0.width.equalTo(1)
-                $0.top.equalToSuperview().inset(0)
-                $0.leading.equalToSuperview().inset(0)
-                $0.height.equalTo(cardsView.snp.height).multipliedBy(0.3)
-            }
             
             let cardsValueLabel = UILabel()
             cardsValueLabel.text = allKicksStats.description
@@ -245,11 +238,6 @@ extension AthleteStatsTVC {
             cardsValueLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             cardsValueLabel.adjustsFontSizeToFitWidth = true
             cardsView.addSubview(cardsValueLabel)
-            cardsValueLabel.snp.makeConstraints {
-                $0.top.equalToSuperview().inset(0)
-                $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
-                $0.size.equalTo(cardsView.snp.size).multipliedBy(0.3)
-            }
             
             let cardLogo = UIView()
             cardLogo.backgroundColor = {
@@ -265,12 +253,6 @@ extension AthleteStatsTVC {
             
             cardLogo.layer.cornerRadius = 2
             cardsView.addSubview(cardLogo)
-            cardLogo.snp.makeConstraints {
-                $0.centerY.equalTo(vericalLine.snp.centerY)
-                $0.leading.equalTo(cardsValueLabel.snp.trailing).inset(0)
-                $0.height.equalTo(cardsView.snp.height).multipliedBy(0.2)
-                $0.width.equalTo(cardLogo.snp.height).multipliedBy(0.7)
-            }
             
             let cardsItemLabel = UILabel()
             cardsItemLabel.text = item
@@ -280,6 +262,29 @@ extension AthleteStatsTVC {
             cardsItemLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             cardsItemLabel.adjustsFontSizeToFitWidth = true
             cardsView.addSubview(cardsItemLabel)
+            
+            cardsView.snp.makeConstraints { $0.height.equalTo(cardsView.snp.width).multipliedBy(1) }
+            
+            vericalLine.snp.makeConstraints {
+                $0.width.equalTo(1)
+                $0.top.equalToSuperview()
+                $0.leading.equalToSuperview()
+                $0.height.equalTo(cardsView.snp.height).multipliedBy(0.3)
+            }
+            
+            cardsValueLabel.snp.makeConstraints {
+                $0.top.equalToSuperview()
+                $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
+                $0.size.equalTo(cardsView.snp.size).multipliedBy(0.3)
+            }
+            
+            cardLogo.snp.makeConstraints {
+                $0.centerY.equalTo(vericalLine.snp.centerY)
+                $0.leading.equalTo(cardsValueLabel.snp.trailing)
+                $0.height.equalTo(cardsView.snp.height).multipliedBy(0.2)
+                $0.width.equalTo(cardLogo.snp.height).multipliedBy(0.7)
+            }
+            
             cardsItemLabel.snp.makeConstraints {
                 $0.top.equalTo(cardsValueLabel.snp.bottom).inset(-4)
                 $0.leading.equalTo(vericalLine.snp.trailing).inset(-12)
@@ -302,12 +307,10 @@ extension AthleteStatsTVC {
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        kickStats.snp.makeConstraints {
-            $0.height.equalTo(kickStats.snp.width).multipliedBy(1)
-        }
+        kickStats.snp.makeConstraints { $0.height.equalTo(kickStats.snp.width).multipliedBy(1) }
         
         shoeIcon.snp.makeConstraints {
-            $0.leading.bottom.equalToSuperview().inset(0)
+            $0.leading.bottom.equalToSuperview()
             $0.width.equalTo(kickStats.snp.width).multipliedBy(0.5)
             $0.height.equalTo(shoeIcon.snp.width).multipliedBy(1)
         }
@@ -329,7 +332,7 @@ extension AthleteStatsTVC {
             $0.width.equalTo(4)
             $0.height.equalTo(30)
             $0.top.equalTo(separatorView.snp.bottom).inset(-12)
-            $0.leading.equalToSuperview().inset(0)
+            $0.leading.equalToSuperview()
         }
         
         disciplineLabel.snp.makeConstraints {
@@ -344,37 +347,36 @@ extension AthleteStatsTVC {
         
         hideLine.snp.makeConstraints {
             $0.height.equalTo(4)
-            $0.top.equalTo(foulsStackView.snp.bottom).inset(0)
+            $0.top.equalTo(foulsStackView.snp.bottom)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(0.15)
             $0.bottom.equalTo(statsView.snp.bottom).inset(12)
         }
         
-        statsView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(12)
-        }
+        statsView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
     }
     
-    func percentImage(number: Int, from: Int) -> UIImage {
+    func percentImage(number: Int, from: Int) -> String {
+        
         switch Float(number) / Float(from) * 100 {
         case 0...12:
-            return UIImage(named: "stats0-100")!
+            return "stats0-100"
         case 13...25:
-            return UIImage(named: "stats12-100")!
+            return "stats12-100"
         case 26...37:
-            return UIImage(named: "stats25-100")!
+            return "stats25-100"
         case 38...50:
-            return UIImage(named: "stats37-100")!
+            return "stats37-100"
         case 51...62:
-            return UIImage(named: "stats50-100")!
+            return "stats50-100"
         case 63...75:
-            return UIImage(named: "stats62-100")!
+            return "stats62-100"
         case 76...87:
-            return UIImage(named: "stats75-100")!
+            return "stats75-100"
         case 88...99:
-            return UIImage(named: "stats87-100")!
+            return "stats87-100"
         default:
-            return UIImage(named: "stats100-100")!
+            return "stats100-100"
         }
     }
 }

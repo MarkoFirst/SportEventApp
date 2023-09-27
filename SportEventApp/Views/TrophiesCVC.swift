@@ -38,7 +38,7 @@ extension TrophiesCVC {
         contentView.addSubview(view)
         
         label.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 44, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         view.addSubview(label)
@@ -49,7 +49,6 @@ extension TrophiesCVC {
         cirle.image = UIImage(named: "circle")
         view.addSubview(cirle)
         
-        cupValue.text = "7"
         cupValue.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         cupValue.adjustsFontSizeToFitWidth = true
         cupValue.textAlignment = .center
@@ -63,13 +62,13 @@ extension TrophiesCVC {
         }
         
         label.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(8)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(view.snp.height).multipliedBy(0.2)
         }
         
         image.snp.makeConstraints {
-            $0.trailing.bottom.equalToSuperview().inset(12)
+            $0.trailing.equalToSuperview().inset(12)
+            $0.bottom.equalToSuperview().inset(16)
             $0.height.equalTo(view.snp.height).multipliedBy(0.5)
             $0.width.equalTo(image.snp.height).multipliedBy(0.5)
         }

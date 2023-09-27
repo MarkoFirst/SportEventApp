@@ -27,8 +27,9 @@ class SignInVC: UIViewController {
 extension SignInVC: UITextFieldDelegate {
     
     func setupView() {
+        
         view.backgroundColor = UIColor(red: 0.039, green: 0.145, blue: 0.251, alpha: 1)
-
+        
         let topImage = UIImageView(image: UIImage(named: "SignUpAthletes"))
         view.addSubview(topImage)
         
@@ -42,7 +43,7 @@ extension SignInVC: UITextFieldDelegate {
         mainLabel.font = UIFont(name: "Helvetica", size: 32)
         mainLabel.textColor = UIColor(red: 0.95, green: 1, blue: 1, alpha: 1)
         view.addSubview(mainLabel)
-      
+        
         let mainStackView = UIStackView()
         mainStackView.axis = .vertical
         mainStackView.spacing = 20
@@ -109,6 +110,7 @@ extension SignInVC: UITextFieldDelegate {
         
         let signUpLabel = UILabel()
         signUpLabel.text = "Don`t have an account?"
+        signUpLabel.font = UIFont(name: "Helvetica", size: 16)
         signUpLabel.textColor = UIColor(red: 0.388, green: 0.506, blue: 0.62, alpha: 1)
         signUpStackView.addArrangedSubview(signUpLabel)
         
@@ -126,7 +128,7 @@ extension SignInVC: UITextFieldDelegate {
         
         mainView.snp.makeConstraints {
             $0.top.equalTo(mainLabel.snp.top).inset(-52)
-            $0.bottom.leading.trailing.equalToSuperview().inset(0)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
         
         mainLabel.snp.makeConstraints {
@@ -140,9 +142,7 @@ extension SignInVC: UITextFieldDelegate {
             $0.bottom.equalTo(signUpStackView.snp.top).inset(-124)
         }
         
-        userNameView.snp.makeConstraints {
-            $0.height.equalTo(60)
-        }
+        userNameView.snp.makeConstraints { $0.height.equalTo(60) }
         
         userNameImage.snp.makeConstraints {
             $0.height.width.equalTo(20)
@@ -153,12 +153,10 @@ extension SignInVC: UITextFieldDelegate {
         userNameTextField.snp.makeConstraints {
             $0.centerY.equalTo(userNameView.snp.centerY)
             $0.leading.equalTo(userNameImage.snp.trailing).inset(-16)
-            $0.trailing.equalTo(userNameView.snp.trailing).inset(0)
+            $0.trailing.equalTo(userNameView.snp.trailing)
         }
         
-        userPasswordView.snp.makeConstraints {
-            $0.height.equalTo(60)
-        }
+        userPasswordView.snp.makeConstraints { $0.height.equalTo(60) }
         
         userPasswordImage.snp.makeConstraints {
             $0.height.width.equalTo(20)
@@ -178,18 +176,16 @@ extension SignInVC: UITextFieldDelegate {
             $0.trailing.equalTo(userPasswordInvisibleImage.snp.leading).inset(-8)
         }
         
-        userForgotBtnView.snp.makeConstraints {
-            $0.height.equalTo(28)
-        }
+        userForgotBtnView.snp.makeConstraints { $0.height.equalTo(28) }
         
         forgotButton.snp.makeConstraints {
             $0.width.equalTo(150)
-            $0.trailing.equalToSuperview().inset(0)
+            $0.trailing.equalToSuperview()
         }
         
         signInButton.snp.makeConstraints {
             $0.height.equalTo(48)
-            $0.leading.trailing.equalToSuperview().inset(0)
+            $0.leading.trailing.equalToSuperview()
         }
         
         signUpStackView.snp.makeConstraints {
