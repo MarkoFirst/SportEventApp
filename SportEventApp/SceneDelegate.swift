@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        window?.rootViewController = UINavigationController(rootViewController: CodableVC())
+        window?.rootViewController = UINavigationController(rootViewController: AnimateVC())
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

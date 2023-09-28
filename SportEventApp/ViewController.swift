@@ -104,7 +104,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = indexPath.section == 0 ? nameList[indexPath.row] : addedList[indexPath.row]
+        let element = indexPath.section == 0 ? nameList[indexPath.row] : addedList[indexPath.row]
+        
+        cell.titleLabel.text = element
 //        cell.myImage.image = UIImage(named: "Cover Image")
 //        
 //        let event = Event()
@@ -115,6 +117,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //
 //            spinner?.stopAnimating()
 //        }
+        
+//        [36,24,37].forEach {
+//            let view = UIView()
+//
+//            label.text = $0
+//            view.addSubview(label)
+//
+//            cell.testStack.addArrangedSubview(view)
+//        }
+//
+        
         
         return cell
     }

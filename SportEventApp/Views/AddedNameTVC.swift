@@ -16,6 +16,8 @@ class AddedNameTVC: UITableViewCell {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var customContentView: UIView!
     
+    var testStack = UIStackView()
+    
     @IBAction func tapToEdit(_ sender: UIButton) {
         print(sender.titleLabel?.text)
         
