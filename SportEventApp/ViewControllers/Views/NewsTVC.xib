@@ -49,7 +49,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="3" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Live" cornerStyle="capsule">
-                                    <imageReference key="image" image="dot.circle" catalog="system" symbolScale="small"/>
+                                    <imageReference key="image" image="smallcircle.filled.circle" catalog="system" symbolScale="small"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                     <color key="baseBackgroundColor" red="0.23921568630000001" green="0.35686274509999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
@@ -91,7 +91,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dot.circle" catalog="system" width="128" height="123"/>
+        <image name="smallcircle.filled.circle" catalog="system" width="128" height="123"/>
         <image name="target" width="1931.3333740234375" height="1333.3333740234375"/>
     </resources>
 </document>

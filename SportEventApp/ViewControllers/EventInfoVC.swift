@@ -17,6 +17,7 @@ class EventInfoVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBOutlet weak var userAvatar: UIImageView!
     var event: Event?
     
     struct Cells {
@@ -29,13 +30,26 @@ class EventInfoVC: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
+        navigationItem.leftBarButtonItem = nil;
+        navigationItem.hidesBackButton = true;
+        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
         
         tableView.register(UINib(nibName: "EventHeaderTVC", bundle: nil), forCellReuseIdentifier: Cells.eventHeaderId)
         tableView.register(UINib(nibName: "EventImageTVC", bundle: nil), forCellReuseIdentifier: Cells.eventImageId)
         tableView.register(UINib(nibName: "EventDescTVC", bundle: nil), forCellReuseIdentifier: Cells.eventDescId)
         
+        userAvatar.isUserInteractionEnabled = true
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
+        userAvatar.addGestureRecognizer(tapGesture)
+        
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    @objc func goToProfile () {
+        navigationController?.pushViewController(ProfileVC(), animated: true)
     }
 }
 

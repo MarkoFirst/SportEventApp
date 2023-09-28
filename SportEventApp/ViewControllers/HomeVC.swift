@@ -10,6 +10,8 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    @IBOutlet weak var userAvatar: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var events: [Event] = []
@@ -24,15 +26,28 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
+        navigationItem.leftBarButtonItem = nil;
+        navigationItem.hidesBackButton = true;
+        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
         
         tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: Cells.newsCellId)
         tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: Cells.sportTCellId)
         tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: Cells.eventCellId)
         
+        userAvatar.isUserInteractionEnabled = true
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
+        userAvatar.addGestureRecognizer(tapGesture)
+        
         events = fetchData()
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @objc func goToProfile () {
+        navigationController?.pushViewController(ProfileVC(), animated: true)
     }
 }
 

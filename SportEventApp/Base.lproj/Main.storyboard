@@ -35,7 +35,7 @@
         <!--View Controller-->
         <scene sceneID="Kq1-yx-h3o">
             <objects>
-                <viewController id="rjx-SQ-1z2" sceneMemberID="viewController">
+                <viewController id="rjx-SQ-1z2" customClass="ViewController" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DCj-VB-D4T">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="AeA-a8-dea" kind="show" id="u7b-Au-Od8"/>
+                                            <action selector="toLogin:" destination="rjx-SQ-1z2" eventType="touchUpInside" id="Vl6-bM-iIn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1N-I3-Ugy">
@@ -90,7 +90,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="3pH-Ah-4s4" kind="show" id="FwJ-L7-Jvq"/>
+                                            <segue destination="3pH-Ah-4s4" kind="show" id="TwY-B8-wjf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -242,13 +242,13 @@
         <!--HomeVC-->
         <scene sceneID="NoF-LW-4X2">
             <objects>
-                <viewController id="AeA-a8-dea" customClass="HomeVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AeA-a8-dea" customClass="HomeVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zQY-i0-ISh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoE-Cm-IuY">
-                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y47-jz-78S">
                                         <rect key="frame" x="16" y="11" width="82.666666666666671" height="22"/>
@@ -307,8 +307,8 @@
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jse-OY-FSw">
-                                <rect key="frame" x="0.0" y="147" width="393" height="705"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jse-OY-FSw">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -325,9 +325,10 @@
                             <constraint firstItem="hoE-Cm-IuY" firstAttribute="top" secondItem="9iv-BA-NMh" secondAttribute="top" id="wPk-5S-27Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TLi-wl-oEp"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="Jse-OY-FSw" id="JAR-Eg-MN1"/>
+                        <outlet property="tableView" destination="Jse-OY-FSw" id="zh6-6A-aI0"/>
+                        <outlet property="userAvatar" destination="oeu-aU-cKr" id="fJ6-Ff-4Aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lup-GQ-YHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -421,8 +422,10 @@
                             <constraint firstItem="7Md-bB-5Hu" firstAttribute="trailing" secondItem="v3f-Np-X75" secondAttribute="trailing" id="uIh-FZ-9Gd"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="v3f-Np-X75" id="1jN-78-fgp"/>
+                        <outlet property="userAvatar" destination="hgh-wV-Wb5" id="dkL-od-IVR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxs-ba-99t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

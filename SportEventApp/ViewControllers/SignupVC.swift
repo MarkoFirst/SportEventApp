@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class SignupVC: UIViewController {
+    
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -18,14 +19,14 @@ class SignupVC: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         
-        let nameImage = UIImage(named: "user")
-        addLeftImage(textField: nameTF, image: nameImage!)
+        guard let nameImage = UIImage(named: "user") else { return }
+        addLeftImage(textField: nameTF, image: nameImage)
         
-        let emailImage = UIImage(named: "envelope")
-        addLeftImage(textField: emailTF, image: emailImage!)
+        guard let emailImage = UIImage(named: "envelope") else { return }
+        addLeftImage(textField: emailTF, image: emailImage)
         
-        let passwordImage = UIImage(named: "lock")
-        addLeftImage(textField: passwordTF, image: passwordImage!)
+        guard let passwordImage = UIImage(named: "lock") else { return }
+        addLeftImage(textField: passwordTF, image: passwordImage)
         
         self.dismissKeyboard()
         
@@ -36,11 +37,11 @@ class SignupVC: UIViewController {
     
     func addLeftImage(textField: UITextField, image: UIImage) {
         let padding = 16
-        let outerView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + CGFloat(padding), height: image.size.height) )
-        let leftImageView = UIImageView(frame: CGRect(x: CGFloat(padding), y: 0.0, width: image.size.width, height: image.size.height))
-        leftImageView.image = image
-        outerView.addSubview(leftImageView)
-        textField.leftView = outerView
+        let boundingView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + CGFloat(padding), height: image.size.height) )
+        let imageView = UIImageView(frame: CGRect(x: CGFloat(padding), y: 0.0, width: image.size.width, height: image.size.height))
+        imageView.image = image
+        boundingView.addSubview(imageView)
+        textField.leftView = boundingView
         textField.leftViewMode = .always
     }
     
@@ -67,3 +68,5 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+
