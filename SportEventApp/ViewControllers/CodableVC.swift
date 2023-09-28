@@ -342,3 +342,18 @@ class UserRealm: Object {
 // Float
 // Bool
 // Date
+
+
+
+
+
+struct Some {
+    var name: String
+    
+    var user: User_?
+}
+
+
+class User_ {
+    var name: String = ""
+}

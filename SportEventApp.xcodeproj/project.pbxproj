@@ -28,6 +28,8 @@
 		81BFF2A02ABCB22800767DAC /* UserCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF29E2ABCB22800767DAC /* UserCD+CoreDataProperties.swift */; };
 		81BFF2A32ABCC1F100767DAC /* UserCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF2A12ABCC1F100767DAC /* UserCoreData.xcdatamodeld */; };
 		81BFF2A52AC32FCB00767DAC /* AnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFF2A42AC32FCB00767DAC /* AnimateVC.swift */; };
+		81E69D822AC5E2FA000831B7 /* MemoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E69D812AC5E2FA000831B7 /* MemoryVC.swift */; };
+		81E69D842AC5FCC7000831B7 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E69D832AC5FCC7000831B7 /* SecondVC.swift */; };
 		81E6A54D2AA7A2C400B89E9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81E6A54C2AA7A2C400B89E9F /* SnapKit */; };
 		CCF0E85A2A9F4D50008CF8C6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84A2A9F4D4E008CF8C6 /* Place.swift */; };
 		CCF0E85B2A9F4D50008CF8C6 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0E84B2A9F4D4E008CF8C6 /* DesignSystem.swift */; };
@@ -68,6 +70,8 @@
 		81BFF29E2ABCB22800767DAC /* UserCD+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81BFF2A22ABCC1F100767DAC /* UserCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreData.xcdatamodel; sourceTree = "<group>"; };
 		81BFF2A42AC32FCB00767DAC /* AnimateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateVC.swift; sourceTree = "<group>"; };
+		81E69D812AC5E2FA000831B7 /* MemoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryVC.swift; sourceTree = "<group>"; };
+		81E69D832AC5FCC7000831B7 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		BCA614FA9CE0DABD7C969674 /* Pods-SportEventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportEventApp.debug.xcconfig"; path = "Target Support Files/Pods-SportEventApp/Pods-SportEventApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CCF0E84A2A9F4D4E008CF8C6 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		CCF0E84B2A9F4D4E008CF8C6 /* DesignSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				8134ECF62AA10E890011C841 /* TeacherTabBar.swift */,
 				81A271CC2AAA4E610070A719 /* CodableVC.swift */,
 				81BFF2A42AC32FCB00767DAC /* AnimateVC.swift */,
+				81E69D812AC5E2FA000831B7 /* MemoryVC.swift */,
+				81E69D832AC5FCC7000831B7 /* SecondVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				81BFF2A32ABCC1F100767DAC /* UserCoreData.xcdatamodeld in Sources */,
 				CCF0E8612A9F4D50008CF8C6 /* SportType.swift in Sources */,
 				CCF0E8642A9F4D50008CF8C6 /* SportEvent.swift in Sources */,
+				81E69D842AC5FCC7000831B7 /* SecondVC.swift in Sources */,
 				CCF0E85B2A9F4D50008CF8C6 /* DesignSystem.swift in Sources */,
 				CCF0E85F2A9F4D50008CF8C6 /* Language.swift in Sources */,
 				81BFF2A52AC32FCB00767DAC /* AnimateVC.swift in Sources */,
@@ -364,6 +371,7 @@
 				CCF0E85C2A9F4D50008CF8C6 /* Event.swift in Sources */,
 				CCF0E85A2A9F4D50008CF8C6 /* Place.swift in Sources */,
 				CCF0E8682A9F4D50008CF8C6 /* User.swift in Sources */,
+				81E69D822AC5E2FA000831B7 /* MemoryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
