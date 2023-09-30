@@ -15,6 +15,7 @@ var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         setupTableView()
@@ -27,11 +28,9 @@ var tableView = UITableView()
     }
     
     func setupTableView() {
+        
         view.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(0)
-        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AthleteLogoTVC.self, forCellReuseIdentifier: "AthleteLogoTVC")
@@ -39,6 +38,14 @@ var tableView = UITableView()
         tableView.register(NewsTVC.self, forCellReuseIdentifier: "NewsTVC")
         tableView.register(AthleteStatsTVC.self, forCellReuseIdentifier: "AthleteStatsTVC")
         tableView.register(TrophiesTVC.self, forCellReuseIdentifier: "TrophiesTVC")
+        tableView.register(HistoryTVC.self, forCellReuseIdentifier: "HistoryTVC")
+        
+        view.addSubview(tableView)
+
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
 }
 
@@ -59,9 +66,11 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
         let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsTVC") as! NewsTVC
         let athleteStatsCell = tableView.dequeueReusableCell(withIdentifier: "AthleteStatsTVC") as! AthleteStatsTVC
         let trophiesCell = tableView.dequeueReusableCell(withIdentifier: "TrophiesTVC") as! TrophiesTVC
+        let historyCell = tableView.dequeueReusableCell(withIdentifier: "HistoryTVC") as! HistoryTVC
         
         switch indexPath.section {
         case 0:
+            athleteLogoCell.navigationController = navigationController
             return athleteLogoCell
         case 1:
             return discussCell
@@ -71,6 +80,8 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             return athleteStatsCell
         case 4:
             return trophiesCell
+        case 5:
+            return historyCell
         default:
             return UITableViewCell()
         }

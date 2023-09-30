@@ -18,20 +18,22 @@ class MainTableVC: UIViewController {
     let eventTVCId = "eventTVCId"
     var events: [Event] = []
     var filterTypes: [TypeOfSport] = []
-
-    @IBOutlet weak var tableViev: UITableView!
     
+    @IBOutlet weak var tableViev: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableViev.delegate = self
         tableViev.dataSource = self
         tableViev.register(UINib(nibName: "LiveScoreTVC", bundle: nil), forCellReuseIdentifier: liveScoreId)
         tableViev.register(UINib(nibName: "EventTypeTVC", bundle: nil), forCellReuseIdentifier: eventTypeTVCId)
         tableViev.register(UINib(nibName: "EventsSectionCustomHeaderTVC", bundle: nil), forCellReuseIdentifier: eventsHeaderTVCId)
         tableViev.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: eventTVCId)
+        
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         createTestData()
     }
     
@@ -46,8 +48,9 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch section {
         case 0:
             return 1
@@ -99,6 +102,7 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 3 {
             let vc = storyboard?.instantiateViewController(withIdentifier: "eventStoryboard") as! EventInfoVC
             self.navigationController?.pushViewController(vc, animated: true)

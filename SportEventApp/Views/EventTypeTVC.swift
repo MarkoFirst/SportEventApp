@@ -18,17 +18,8 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     
     var eventType: [TypeOfSport] = [.football, .basketball, .volleyball, .tennis, .pingpong, .chess, .poker, .fencing, .cybersport]
-    var eventTypeIcon: [UIImage] = [
-        UIImage(named: "footballIcon")!,
-        UIImage(named: "basketballIcon")!,
-        UIImage(named: "volleyballIcon")!,
-        UIImage(named: "tennisIcon")!,
-        UIImage(named: "pingpongIcon")!,
-        UIImage(named: "chessIcon")!,
-        UIImage(named: "pokerIcon")!,
-        UIImage(named: "fencingIcon")!,
-        UIImage(named: "cybesportIcon")!
-        ]
+
+    var eventTypeIcon = ["footballIcon", "basketballIcon", "volleyballIcon", "tennisIcon", "pingpongIcon", "chessIcon",  "pokerIcon", "fencingIcon", "cybesportIcon"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +35,7 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellId", for: indexPath as IndexPath) as! EventTypeCVC
-        cell.typeEventIcon.image = eventTypeIcon[indexPath.row]
+        cell.typeEventIcon.image = UIImage(named: eventTypeIcon[indexPath.row]) ?? UIImage()
         cell.labelCVC.text = eventType[indexPath.row].rawValue
         
         return cell

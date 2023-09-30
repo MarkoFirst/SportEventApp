@@ -16,15 +16,17 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fullNameTF.delegate = self
         emailTF.delegate = self
         passwordTF.delegate = self
         self.dismissKeyboard()
         navigationController?.navigationBar.isHidden = false
     }
+    
     @IBAction func tapLogIn(_ sender: UIButton) {
-            let vc = SignInVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+        let vc = SignInVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -34,6 +36,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
 }
 
 extension SignUpVC {
+    
     func dismissKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(SignUpVC.dismissKeyboardTouchOutside))
         tap.cancelsTouchesInView = false

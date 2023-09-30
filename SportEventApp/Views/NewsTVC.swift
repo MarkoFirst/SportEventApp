@@ -39,6 +39,7 @@ extension NewsTVC {
         let newsView = UIView()
         newsView.backgroundColor = UIColor(red: 0.09, green: 0.082, blue: 0.125, alpha: 1)
         newsView.layer.cornerRadius = 20
+        newsView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         contentView.addSubview(newsView)
         
         let teamFlagLogo = UIImageView()

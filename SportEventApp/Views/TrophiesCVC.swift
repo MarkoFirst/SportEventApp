@@ -32,7 +32,7 @@ extension TrophiesCVC {
         
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 12
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
         contentView.addSubview(view)

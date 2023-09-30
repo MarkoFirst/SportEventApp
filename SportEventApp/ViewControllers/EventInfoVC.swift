@@ -30,9 +30,7 @@ class EventInfoVC: UIViewController {
         
         if let event_ = event {
             event = event_
-        } else {
-            return
-        }
+        } else { return }
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -46,11 +44,13 @@ class EventInfoVC: UIViewController {
 }
 
 extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
-   
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         switch section {
         case 0:
             return 1
@@ -62,11 +62,13 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let titleCell = tableView.dequeueReusableCell(withIdentifier: titleId, for: indexPath) as! EventInfoTitleTVC
         let iconCell = tableView.dequeueReusableCell(withIdentifier: iconId, for: indexPath) as! EventInfoIconTVC
         let descriptionCell = tableView.dequeueReusableCell(withIdentifier: descriptionId, for: indexPath) as! EventInfoDescriptionCell
+        
         switch indexPath.section {
         case 0:
             titleCell.eventTitle.text = event?.title
@@ -87,6 +89,4 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-
-
 }

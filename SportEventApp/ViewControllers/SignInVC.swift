@@ -35,6 +35,7 @@ extension SignInVC: UITextFieldDelegate {
         
         let mainView = UIView()
         mainView.layer.cornerRadius = 25
+        mainView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         mainView.backgroundColor = UIColor(red: 0.039, green: 0.145, blue: 0.251, alpha: 1)
         view.addSubview(mainView)
         
@@ -213,5 +214,4 @@ extension SignInVC: UITextFieldDelegate {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpStoryboard") as! SignUpVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

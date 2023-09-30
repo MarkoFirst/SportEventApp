@@ -21,6 +21,8 @@ class AthleteLogoTVC: UITableViewCell {
     let athleteNumber = 7
     let athleteRole = "FORWARD"
     
+    var navigationController: UINavigationController?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -234,6 +236,6 @@ extension AthleteLogoTVC {
     }
     
     @objc private func tapBackBtn() {
-        print("Tap back")
+        navigationController?.popViewController(animated: true)
     }
 }
