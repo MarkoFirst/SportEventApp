@@ -10,8 +10,6 @@ import UIKit
 
 class HomeVC: UIViewController {
     
-    @IBOutlet weak var userAvatar: UIImageView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     private var events: [Event] = []
@@ -21,29 +19,64 @@ class HomeVC: UIViewController {
         static let sportTCellId = "sportTCell"
         static let eventCellId = "eventCell"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
-        navigationItem.leftBarButtonItem = nil;
-        navigationItem.hidesBackButton = true;
-        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
-        
+        events = fetchData()
+        setupNavBar()
+        setupTableView()
+    }
+    
+    func setupTableView() {
         tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: Cells.newsCellId)
         tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: Cells.sportTCellId)
         tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: Cells.eventCellId)
         
-        userAvatar.isUserInteractionEnabled = true
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
-        userAvatar.addGestureRecognizer(tapGesture)
-        
-        events = fetchData()
-        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setupNavBar() {
+        
+        navigationItem.hidesBackButton = true;
+        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
+        
+        // MARK: Configure shareButton
+        
+        let shareButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        shareButton.setImage(UIImage(named: "search")?.withTintColor(UIColor.black), for: .normal)
+        shareButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let shareButtonItem = UIBarButtonItem(customView: shareButton)
+        
+        // MARK: Configure bookmarkButton
+        
+        let bookmarkButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        bookmarkButton.setImage(UIImage(named: "bell")?.withTintColor(UIColor.black), for: .normal)
+        bookmarkButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let bookmarkButtonItem = UIBarButtonItem(customView: bookmarkButton)
+        
+        // MARK: Configure userAvatar
+        
+        let userAvatar = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        userAvatar.setImage(UIImage(named: "avatar"), for: .normal)
+        userAvatar.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
+        
+        let userAvatarItem = UIBarButtonItem(customView: userAvatar)
+        
+        // MARK: Configure leftButtonItem
+        
+        let leftButtonItem = UIBarButtonItem(title: "Live score", style: .plain, target: nil, action: nil)
+        
+        navigationItem.rightBarButtonItems = [userAvatarItem, bookmarkButtonItem, shareButtonItem]
+        navigationItem.leftBarButtonItem = leftButtonItem
+    }
+    
+    @objc func buttonTapped() {
+        print("You tap on button")
     }
     
     @objc func goToProfile () {

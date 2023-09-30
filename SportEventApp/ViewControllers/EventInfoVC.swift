@@ -29,23 +29,49 @@ class EventInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
-        navigationItem.leftBarButtonItem = nil;
-        navigationItem.hidesBackButton = true;
-        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
-        
         tableView.register(UINib(nibName: "EventHeaderTVC", bundle: nil), forCellReuseIdentifier: Cells.eventHeaderId)
         tableView.register(UINib(nibName: "EventImageTVC", bundle: nil), forCellReuseIdentifier: Cells.eventImageId)
         tableView.register(UINib(nibName: "EventDescTVC", bundle: nil), forCellReuseIdentifier: Cells.eventDescId)
         
-        userAvatar.isUserInteractionEnabled = true
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
-        userAvatar.addGestureRecognizer(tapGesture)
+        configureNavBar()
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func configureNavBar() {
+
+        navigationController?.navigationBar.isHidden = false
+        
+        // MARK: Configure shareButton
+        
+        let shareButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        shareButton.setImage(UIImage(named: "search")?.withTintColor(UIColor.black), for: .normal)
+        shareButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let shareButtonItem = UIBarButtonItem(customView: shareButton)
+        
+        // MARK: Configure bookmarkButton
+        
+        let bookmarkButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        bookmarkButton.setImage(UIImage(named: "bell")?.withTintColor(UIColor.black), for: .normal)
+        bookmarkButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let bookmarkButtonItem = UIBarButtonItem(customView: bookmarkButton)
+        
+        // MARK: Configure userAvatar
+        
+        let userAvatar = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        userAvatar.setImage(UIImage(named: "avatar"), for: .normal)
+        userAvatar.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
+        
+        let userAvatarItem = UIBarButtonItem(customView: userAvatar)
+        
+        navigationItem.rightBarButtonItems = [userAvatarItem, bookmarkButtonItem, shareButtonItem]
+    }
+    
+    @objc func buttonTapped() {
+        print("You tap on button")
     }
     
     @objc func goToProfile () {

@@ -17,8 +17,6 @@ class SignupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = false
-        
         guard let nameImage = UIImage(named: "user") else { return }
         addLeftImage(textField: nameTF, image: nameImage)
         

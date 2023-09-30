@@ -10,17 +10,8 @@ import UIKit
 import SnapKit
 
 class StatsTVC: UITableViewCell {
-    
-    private var sectionView = UIView()
-    private var sectionTitleLabel = UILabel()
-    private var headerView = UIView()
-    private var greenSquareView = AthleteStatView()
-    private var goalStackView = UIStackView()
-    private var separatorView = UIView()
-    private var disciplineView = UIView()
-    private var disciplineTitleLabel = UILabel()
-    private var disciplineGreenView = UIView()
-    private var disciplineStackView = UIStackView()
+
+    private var sectionTitleLabel: UILabel!
     
     let discipline: [(UInt, String, UIImage?)] = [
         (8, "Fouls won", nil),
@@ -53,122 +44,93 @@ extension StatsTVC {
         
         // MARK: Configure views
         
-        sectionView = {
-            let view = UIView()
-            view.layer.cornerRadius = 12
-            view.layer.cornerCurve = .continuous
-            view.clipsToBounds = true
-            view.backgroundColor = UIColor.clear
+        let sectionView = UIView()
+        sectionView.layer.cornerRadius = 12
+        sectionView.layer.cornerCurve = .continuous
+        sectionView.clipsToBounds = true
+        sectionView.backgroundColor = UIColor.clear
+        
+        sectionTitleLabel = UILabel()
+        sectionTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        sectionTitleLabel.numberOfLines = 0
+        sectionTitleLabel.adjustsFontSizeToFitWidth = true
+        sectionTitleLabel.textColor = UIColor.white
+        
+        let headerView = UIView()
 
-            return view
-        }()
-        
-        sectionTitleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textColor = UIColor.white
+        let greenSquareView = AthleteStatView()
+        greenSquareView.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
+        greenSquareView.layer.cornerRadius = 12
+        greenSquareView.configure(title: "Label", subtitle: "14")
+ 
+        let goalStackView = UIStackView(arrangedSubviews: goals.map ({ (count, label) in
+            let view = GoalView()
+            view.countLabel.text = count.description
+            view.goalLabel.text = label
             
-            return label
-        }()
-        
-        greenSquareView = {
-            let view = AthleteStatView()
-            view.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
-            view.layer.cornerRadius = 12
-            view.configure(title: "Label", subtitle: "14")
+            view.snp.makeConstraints { make in
+                make.width.equalTo(64)
+            }
             
             return view
-        }()
+        }))
+        goalStackView.axis = .horizontal
+        goalStackView.spacing = 8
+        goalStackView.alignment = .center
+        goalStackView.distribution = .fillEqually
         
-        goalStackView = {
-            let stackView = UIStackView(arrangedSubviews: goals.map ({ (count, label) in
-                let view = GoalView()
-                view.countLabel.text = count.description
-                view.goalLabel.text = label
-                
-                view.snp.makeConstraints { make in
-                    make.width.equalTo(64)
-                }
-            
-                return view
-            }))
-            stackView.axis = .horizontal
-            stackView.spacing = 8
-            stackView.alignment = .center
-            stackView.distribution = .fillEqually
-            
-            return stackView
-        }()
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
         
-        separatorView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        let disciplineView = UIView()
             
-            return view
-        }()
-        
-        disciplineTitleLabel = {
-            let label = UILabel()
-            label.text = "DISCIPLINE"
-            label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textColor = UIColor.white
-            
-            return label
-        }()
-        
-        disciplineGreenView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
-            view.layer.cornerRadius = 2
-            
-            return view
-        }()
-        
-        disciplineStackView = {
-            let stackView = UIStackView(arrangedSubviews: discipline.map ({ (qty, name, image) in
-                let view = DisciplineView()
+        let disciplineTitleLabel = UILabel()
+        disciplineTitleLabel.text = "DISCIPLINE"
+        disciplineTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        disciplineTitleLabel.numberOfLines = 0
+        disciplineTitleLabel.adjustsFontSizeToFitWidth = true
+        disciplineTitleLabel.textColor = UIColor.white
 
-                view.titleLabel.text = qty.description
-                view.subtitleLabel.text = name
-                view.imageView.image = image
-                
-                return view
-            }))
-            stackView.axis = .horizontal
-            stackView.spacing = 16
-            stackView.alignment = .fill
-            stackView.distribution = .fillEqually
+        let disciplineGreenView = UIView()
+        disciplineGreenView.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
+        disciplineGreenView.layer.cornerRadius = 2
+
+        let disciplineStackView = UIStackView(arrangedSubviews: discipline.map ({ (qty, name, image) in
+            let view = DisciplineView()
             
-            return stackView
-        }()
-        
+            view.titleLabel.text = qty.description
+            view.subtitleLabel.text = name
+            view.imageView.image = image
+            
+            return view
+        }))
+        disciplineStackView.axis = .horizontal
+        disciplineStackView.spacing = 16
+        disciplineStackView.alignment = .fill
+        disciplineStackView.distribution = .fillEqually
+
         let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView: UIVisualEffectView = {
-            let blur = UIVisualEffectView(effect: blurEffect)
-            blur.frame = sectionView.bounds
-            blur.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            return blur
-        }()
-        
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = sectionView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+     
         // MARK: Adding views
         
         contentView.addSubview(sectionView)
+        
         sectionView.addSubview(sectionTitleLabel)
         sectionView.addSubview(headerView)
         sectionView.addSubview(separatorView)
         sectionView.addSubview(disciplineView)
+        sectionView.addSubview(blurEffectView)
+        sectionView.sendSubviewToBack(blurEffectView)
+        
         headerView.addSubview(greenSquareView)
         headerView.addSubview(goalStackView)
+        
         disciplineView.addSubview(disciplineTitleLabel)
         disciplineView.addSubview(disciplineGreenView)
         disciplineView.addSubview(disciplineStackView)
-        sectionView.addSubview(blurEffectView)
-        sectionView.sendSubviewToBack(blurEffectView)
         
         // MARK: Setup constraints
         

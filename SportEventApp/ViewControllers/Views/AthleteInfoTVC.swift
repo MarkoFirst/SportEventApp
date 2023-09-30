@@ -10,15 +10,12 @@ import SnapKit
 
 class AthleteInfoTVC: UITableViewCell {
     
-    private var athleteImageView = UIImageView()
-    private var teamLogoView = UIImageView()
-    private var firstNameLabel = UILabel()
-    private var lastNameLabel = UILabel()
-    private var nameStackView = UIStackView()
+    private var athleteImageView: UIImageView!
+    private var firstNameLabel: UILabel!
+    private var lastNameLabel: UILabel!
     private var ageView = AthleteStatView()
     private var gamesView = AthleteStatView()
     private var goalsView = AthleteStatView()
-    private var infoView = UIView()
     
     let screenWidth = UIScreen.main.bounds.width
     
@@ -33,7 +30,6 @@ class AthleteInfoTVC: UITableViewCell {
     }
 }
 
-
 extension AthleteInfoTVC {
     
     func setupView() {
@@ -42,63 +38,45 @@ extension AthleteInfoTVC {
         
         // MARK: Configure views
         
-        athleteImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFill
-            
-            return imageView
-        }()
+        athleteImageView = UIImageView()
+        athleteImageView.contentMode = .scaleAspectFill
         
-        teamLogoView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "bullsLogo")
-            imageView.contentMode = .scaleAspectFill
-            
-            return imageView
-        }()
+        let teamLogoView = UIImageView()
+        teamLogoView.image = UIImage(named: "bullsLogo")
+        teamLogoView.contentMode = .scaleAspectFill
         
-        firstNameLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .left
-            label.textColor = .white
-            
-            return label
-        }()
+        firstNameLabel = UILabel()
+        firstNameLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        firstNameLabel.numberOfLines = 0
+        firstNameLabel.adjustsFontSizeToFitWidth = true
+        firstNameLabel.textAlignment = .left
+        firstNameLabel.textColor = .white
         
-        lastNameLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .left
-            label.textColor = .white
-            
-            return label
-        }()
+        lastNameLabel = UILabel()
+        lastNameLabel.font = UIFont.systemFont(ofSize: 34, weight: .bold)
+        lastNameLabel.numberOfLines = 0
+        lastNameLabel.adjustsFontSizeToFitWidth = true
+        lastNameLabel.textAlignment = .left
+        lastNameLabel.textColor = .white
         
-        nameStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.spacing = 4
-            stackView.alignment = .leading
-            stackView.distribution = .fillProportionally
-            stackView.backgroundColor = .clear
-            
-            return stackView
-        }()
+        let nameStackView = UIStackView(arrangedSubviews: [firstNameLabel, lastNameLabel])
+        nameStackView.axis = .vertical
+        nameStackView.spacing = 4
+        nameStackView.alignment = .leading
+        nameStackView.distribution = .fillProportionally
+        nameStackView.backgroundColor = .clear
+        
+        let infoView = UIView()
         
         // MARK: Adding views
         
         contentView.addSubview(athleteImageView)
         contentView.addSubview(nameStackView)
         contentView.addSubview(infoView)
+        
         athleteImageView.addSubview(nameStackView)
         athleteImageView.addSubview(teamLogoView)
-        nameStackView.addArrangedSubview(firstNameLabel)
-        nameStackView.addArrangedSubview(lastNameLabel)
+        
         infoView.addSubview(ageView)
         infoView.addSubview(gamesView)
         infoView.addSubview(goalsView)
@@ -148,7 +126,7 @@ extension AthleteInfoTVC {
         }
     }
     
-    func set(athlete: Athlete) {
+    func configure(athlete: Athlete) {
         guard let image = athlete.setAthleteImage else { return }
         athleteImageView.image = image
         firstNameLabel.text = athlete.firstName

@@ -11,8 +11,7 @@ import SnapKit
 
 class TrophyTVC: UITableViewCell {
     
-    private var sectionView = UIView()
-    private var sectionTitleLabel = UILabel()
+    private var sectionTitleLabel: UILabel!
     private var collectionView: UICollectionView!
     
     let trophies: [(UInt, String, UIImage?)] = [
@@ -57,28 +56,18 @@ extension TrophyTVC {
         
         // MARK: Configure views
         
-        sectionView = {
-            let view = UIView()
-            view.addSubview(sectionTitleLabel)
-            view.layer.cornerRadius = 12
-            view.layer.cornerCurve = .continuous
-            view.clipsToBounds = true
-            view.backgroundColor = UIColor.clear
-            
-            return view
-        }()
+            let sectionView = UIView()
+            sectionView.layer.cornerRadius = 12
+            sectionView.layer.cornerCurve = .continuous
+            sectionView.clipsToBounds = true
+            sectionView.backgroundColor = UIColor.clear
         
-        sectionTitleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textColor = UIColor.white
-            
-            return label
-        }()
-        
-        collectionView = {
+            sectionTitleLabel = UILabel()
+            sectionTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+            sectionTitleLabel.numberOfLines = 0
+            sectionTitleLabel.adjustsFontSizeToFitWidth = true
+            sectionTitleLabel.textColor = UIColor.white
+
             let layout = UICollectionViewFlowLayout()
             layout.itemSize = CGSize(width: 112.0, height: 148.0)
             layout.minimumLineSpacing = 8
@@ -93,24 +82,23 @@ extension TrophyTVC {
             
             collectionView.delegate = self
             collectionView.dataSource = self
-            
-            return collectionView
-        }()
+        
+        let indicatorView = UIView()
+        indicatorView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22)
+        indicatorView.layer.cornerRadius = 2
         
         let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView: UIVisualEffectView = {
-            let blur = UIVisualEffectView(effect: blurEffect)
-            blur.frame = sectionView.bounds
-            blur.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            return blur
-        }()
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = sectionView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // MARK: Adding views
         
         contentView.addSubview(sectionView)
+        
         sectionView.addSubview(sectionTitleLabel)
         sectionView.addSubview(collectionView)
+        sectionView.addSubview(indicatorView)
         sectionView.addSubview(blurEffectView)
         sectionView.sendSubviewToBack(blurEffectView)
         
@@ -130,8 +118,15 @@ extension TrophyTVC {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(sectionTitleLabel.snp.bottom).offset(16)
             make.leading.trailing.equalTo(sectionView).inset(16)
-            make.bottom.equalTo(sectionView.snp.bottom).offset(-16)
             make.height.equalTo(148)
+        }
+        
+        indicatorView.snp.makeConstraints { make in
+            make.centerX.equalTo(sectionView)
+            make.top.equalTo(collectionView.snp.bottom).offset(16)
+            make.bottom.equalTo(sectionView.snp.bottom).offset(-12)
+            make.width.equalTo(40)
+            make.height.equalTo(4)
         }
     }
     

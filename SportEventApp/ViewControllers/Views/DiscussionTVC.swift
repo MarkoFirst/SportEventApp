@@ -11,27 +11,7 @@ import SnapKit
 
 class DiscussionTVC: UITableViewCell {
     
-    private var wrapperView = UIView()
-    private var headerView = UIView()
-    private var circleView = UIView()
-    private var discussingLabel = UILabel()
-    private var avatarsStackView = UIStackView()
-    private var sectionView = UIView()
-    private var sHeaderImageView = UIImageView()
-    private var sHeaderStackView = UIStackView()
-    private var sHeaderTitleLabel = UILabel()
-    private var sHeaderSubtitleLabel = UILabel()
-    private var sHeaderButton = UIButton()
-    private var sectionHeaderView = UIView()
-    private var separatorView = UIView()
-    private var sectionBodyView = UIView()
-    private var sBodyStackView = UIStackView()
-    private var sBodyDateDayLabel = UILabel()
-    private var sBodyDateMonthLabel = UILabel()
-    private var sBodyTextLabel = UILabel()
-
-    
-    let avatars = ["Avatar", "Avatar", "Avatar", "Avatar"]
+    let avatars = ["avatar01", "avatar02", "avatar03", "avatar04"]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super .init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,7 +22,6 @@ class DiscussionTVC: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension DiscussionTVC {
@@ -53,187 +32,123 @@ extension DiscussionTVC {
         
         // MARK: Configure views
         
-        wrapperView = {
-            let view = UIView()
-            view.backgroundColor = UIColor.clear
-            
-            return view
-        }()
+        let wrapperView = UIView()
+        wrapperView.backgroundColor = UIColor.clear
         
-        circleView = {
-            let view = UIView()
-            view.layer.borderWidth = 8
-            view.layer.borderColor = UIColor(red: 0.239, green: 0.357, blue: 0.949, alpha: 1).cgColor
-            view.layer.cornerRadius = 12
-            
-            return view
-        }()
+        let headerView = UIView()
         
-        discussingLabel = {
-            let label = UILabel()
-            label.text = "Now discussing"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textColor = UIColor(red: 0.239, green: 0.357, blue: 0.949, alpha: 1)
-            
-            return label
-        }()
+        let circleView = UIView()
+        circleView.layer.borderWidth = 8
+        circleView.layer.borderColor = UIColor(red: 0.239, green: 0.357, blue: 0.949, alpha: 1).cgColor
+        circleView.layer.cornerRadius = 12
         
-        avatarsStackView = {
-            let stackView = UIStackView(arrangedSubviews: avatars.map ({ avatarName in
-                let view = UIImageView()
-
-                view.image = UIImage(named: avatarName)
-                view.layer.cornerRadius = 16
-                view.layer.borderColor = UIColor(red: 0.055, green: 0.047, blue: 0.082, alpha: 1).cgColor
-                view.layer.borderWidth = 1
-                view.clipsToBounds = true
-                
-                view.snp.makeConstraints { make in
-                    make.width.height.equalTo(32)
-                }
-                
-                return view
-            }))
-            stackView.axis = .horizontal
-            stackView.spacing = -12
-            
-            return stackView
-        }()
+        let discussingLabel = UILabel()
+        discussingLabel.text = "Now discussing"
+        discussingLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        discussingLabel.numberOfLines = 0
+        discussingLabel.adjustsFontSizeToFitWidth = true
+        discussingLabel.textColor = UIColor(red: 0.239, green: 0.357, blue: 0.949, alpha: 1)
         
-        sectionView = {
-            let view = UIView()
-            view.layer.cornerRadius = 12
-            view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-            view.layer.cornerCurve = .continuous
-            view.layer.borderWidth = 0.5
-            view.backgroundColor = UIColor.clear
+        let avatarsStackView = UIStackView(arrangedSubviews: avatars.map ({ avatarName in
+            let view = UIImageView()
+            
+            view.image = UIImage(named: avatarName)
+            view.layer.cornerRadius = 16
+            view.layer.borderColor = UIColor(red: 0.055, green: 0.047, blue: 0.082, alpha: 1).cgColor
+            view.layer.borderWidth = 1
             view.clipsToBounds = true
             
-            return view
-        }()
-        
-        sHeaderImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "Avatar")
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 18
-            imageView.clipsToBounds = true
-            
-            return imageView
-        }()
-        
-        sHeaderStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.spacing = 4
-            
-            return stackView
-        }()
-        
-        sHeaderTitleLabel = {
-            let label = UILabel()
-            label.text = "Football news"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.numberOfLines = 0
-            label.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
-            label.textAlignment = .left
-            label.textColor = .white
-            
-            return label
-        }()
-        
-        sHeaderSubtitleLabel = {
-            let label = UILabel()
-            label.text = "Juve, Ronaldo"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.numberOfLines = 0
-            label.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
-            label.textAlignment = .left
-            label.textColor = .white
-            
-            return label
-        }()
-        
-        sHeaderButton = {
-            let button = UIButton()
-            button.setImage(UIImage(named: "share")?.withTintColor(UIColor.white), for: .normal)
-            button.tintColor = UIColor.white
-            button.layer.cornerRadius = 18
-            button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22).cgColor
-            
-            return button
-        }()
-        
-        separatorView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+            view.snp.makeConstraints { make in
+                make.width.height.equalTo(32)
+            }
             
             return view
-        }()
+        }))
+        avatarsStackView.axis = .horizontal
+        avatarsStackView.spacing = -12
         
-        sectionBodyView = {
-            let view = UIView()
-            
-            return view
-        }()
+        let sectionView = UIView()
+        sectionView.layer.cornerRadius = 12
+        sectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        sectionView.layer.cornerCurve = .continuous
+        sectionView.layer.borderWidth = 0.5
+        sectionView.backgroundColor = UIColor.clear
+        sectionView.clipsToBounds = true
         
-        sBodyStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.spacing = 0
-            stackView.alignment = .center
-            stackView.distribution = .fillProportionally
-            
-            return stackView
-        }()
+        let sectionHeaderView = UIView()
         
-        sBodyDateDayLabel = {
-            let label = UILabel()
-            label.text = "22"
-            label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-            label.numberOfLines = 0
-            label.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
-            label.textAlignment = .center
-            label.textColor = .white
-            
-            return label
-        }()
+        let sHeaderImageView = UIImageView()
+        sHeaderImageView.image = UIImage(named: "avatar01")
+        sHeaderImageView.contentMode = .scaleAspectFill
+        sHeaderImageView.layer.cornerRadius = 20
+        sHeaderImageView.clipsToBounds = true
         
-        sBodyDateMonthLabel = {
-            let label = UILabel()
-            label.text = "Oct"
-            label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-            label.numberOfLines = 0
-            label.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
-            label.textAlignment = .center
-            label.textColor = .white
-            
-            return label
-        }()
+        let sHeaderTitleLabel = UILabel()
+        sHeaderTitleLabel.text = "Football news"
+        sHeaderTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        sHeaderTitleLabel.numberOfLines = 0
+        sHeaderTitleLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
+        sHeaderTitleLabel.textAlignment = .left
+        sHeaderTitleLabel.textColor = .white
         
-        sBodyTextLabel = {
-            let label = UILabel()
-            label.text = "Ronaldo nominated for UEFA Men's Player ot the Year"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.numberOfLines = 0
-            label.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
-            label.textAlignment = .left
-            label.textColor = .white
-            
-            return label
-        }()
+        let sHeaderSubtitleLabel = UILabel()
+        sHeaderSubtitleLabel.text = "Juve, Ronaldo"
+        sHeaderSubtitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        sHeaderSubtitleLabel.numberOfLines = 0
+        sHeaderSubtitleLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
+        sHeaderSubtitleLabel.textAlignment = .left
+        sHeaderSubtitleLabel.textColor = .white
+        
+        let sHeaderStackView = UIStackView(arrangedSubviews: [sHeaderTitleLabel, sHeaderSubtitleLabel])
+        sHeaderStackView.axis = .vertical
+        sHeaderStackView.spacing = 4
+        
+        let sHeaderButton = UIButton()
+        sHeaderButton.setImage(UIImage(named: "share")?.withTintColor(UIColor.white), for: .normal)
+        sHeaderButton.tintColor = UIColor.white
+        sHeaderButton.layer.cornerRadius = 18
+        sHeaderButton.layer.borderWidth = 2
+        sHeaderButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22).cgColor
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        let sectionBodyView = UIView()
+        
+        let sBodyDateDayLabel = UILabel()
+        sBodyDateDayLabel.text = "22"
+        sBodyDateDayLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        sBodyDateDayLabel.numberOfLines = 0
+        sBodyDateDayLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
+        sBodyDateDayLabel.textAlignment = .center
+        sBodyDateDayLabel.textColor = .white
+        
+        let sBodyDateMonthLabel = UILabel()
+        sBodyDateMonthLabel.text = "Oct"
+        sBodyDateMonthLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        sBodyDateMonthLabel.numberOfLines = 0
+        sBodyDateMonthLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
+        sBodyDateMonthLabel.textAlignment = .center
+        sBodyDateMonthLabel.textColor = .white
+        
+        let sBodyStackView = UIStackView(arrangedSubviews: [sBodyDateDayLabel, sBodyDateMonthLabel])
+        sBodyStackView.axis = .vertical
+        sBodyStackView.spacing = 0
+        sBodyStackView.alignment = .center
+        sBodyStackView.distribution = .fillProportionally
+        
+        let sBodyTextLabel = UILabel()
+        sBodyTextLabel.text = "Ronaldo nominated for UEFA Men's Player ot the Year"
+        sBodyTextLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        sBodyTextLabel.numberOfLines = 0
+        sBodyTextLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
+        sBodyTextLabel.textAlignment = .left
+        sBodyTextLabel.textColor = .white
         
         let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView: UIVisualEffectView = {
-            let blur = UIVisualEffectView(effect: blurEffect)
-            blur.frame = sectionView.bounds
-            blur.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            return blur
-        }()
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = sectionView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // MARK: Adding views
         
@@ -255,14 +170,8 @@ extension DiscussionTVC {
         sectionHeaderView.addSubview(sHeaderStackView)
         sectionHeaderView.addSubview(sHeaderButton)
         
-        sHeaderStackView.addArrangedSubview(sHeaderTitleLabel)
-        sHeaderStackView.addArrangedSubview(sHeaderSubtitleLabel)
-        
         sectionBodyView.addSubview(sBodyStackView)
         sectionBodyView.addSubview(sBodyTextLabel)
-        
-        sBodyStackView.addArrangedSubview(sBodyDateDayLabel)
-        sBodyStackView.addArrangedSubview(sBodyDateMonthLabel)
         
         // MARK: Setup constraints
         
@@ -306,8 +215,7 @@ extension DiscussionTVC {
         sHeaderImageView.snp.makeConstraints { make in
             make.centerY.equalTo(sectionHeaderView.snp.centerY)
             make.top.left.equalTo(sectionHeaderView)
-            make.width.equalTo(40)
-            make.height.equalTo(sHeaderImageView.snp.width)
+            make.size.equalTo(40)
         }
         
         sHeaderStackView.snp.makeConstraints { make in

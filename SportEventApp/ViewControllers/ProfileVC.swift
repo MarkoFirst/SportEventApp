@@ -132,7 +132,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         let historyCell = tableView.dequeueReusableCell(withIdentifier: Cells.historyCellId) as! HistoryTVC
         
         let athlete = athletes[indexPath.row]
-        athleteInfoCell.set(athlete: athlete)
+        athleteInfoCell.configure(athlete: athlete)
         
         
         switch indexPath.section {
