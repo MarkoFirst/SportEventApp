@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Team: Equatable {
     
@@ -19,13 +20,15 @@ class Team: Equatable {
     var dateCreate: String
     var coach: String
     var sport: SportTypes
+    var teamLogo: UIImage
     
-    init(teamName: String, athletes: [Athlete], dateCreate: String, coach: String, sport: SportTypes) {
+    init(teamName: String, athletes: [Athlete], dateCreate: String, coach: String, sport: SportTypes, teamLogo: UIImage) {
         self.teamName = teamName
         self.athletes = athletes
         self.dateCreate = dateCreate
         self.coach = coach
         self.sport = sport
+        self.teamLogo = teamLogo
     }
     
     func changeTeamName(element: String) {
