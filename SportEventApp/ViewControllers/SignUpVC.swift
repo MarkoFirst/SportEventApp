@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class SignUpVC: UIViewController {
     
@@ -20,15 +21,15 @@ class SignUpVC: UIViewController {
         textFieldSettings(fullnameTextView, UIImage(named: "personImage")!, placeholderText: "Full Name")
         textFieldSettings(emailTextView, UIImage(named: "emailImage")!, placeholderText: "E-mail")
         textFieldSettings(passwordTextView, UIImage(named: "passwordImage")!, placeholderText: "Password")
-        
-        
     }
     
     @IBAction func fullNameSettings(_ textField: UITextField) {
-        
          }
      
-
+    @IBAction func signUpBtnFunc(_ sender: UIButton) {
+        print(fullnameTextView.text as Any)
+    }
+    
     
     func textFieldSettings(_ textField: UITextField, _ image: UIImage, placeholderText: String) {
        //mainview setup
@@ -57,5 +58,32 @@ class SignUpVC: UIViewController {
              let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: attributes)
 
         textField.attributedPlaceholder = attributedPlaceholder
+    }
+}
+
+extension SignUpVC {
+    func setupRealm() {
+        let realm = try! Realm()
+        let settings = RealmSettings()
+        
+        do {
+            try realm.write {
+                settings.fullname = fullnameTextView.text ?? ""
+                settings.email = emailTextView.text ?? ""
+                settings.password = passwordTextView.text ?? ""
+            }
+        } catch {
+            fatalError("ERROR")
+        }
+    }
+}
+class RealmSettings: Object {
+    @Persisted dynamic var id = UUID().uuidString
+    @Persisted dynamic var fullname = ""
+    @Persisted dynamic var email = ""
+    @Persisted dynamic var password = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
     }
 }

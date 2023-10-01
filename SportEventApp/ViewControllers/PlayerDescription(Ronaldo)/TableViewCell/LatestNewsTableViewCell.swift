@@ -108,6 +108,7 @@ class LatestNewsTableViewCell: UITableViewCell {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(imageSV.snp.bottom).inset(-16)
             $0.left.equalTo(dateStackView.snp.right).inset(-24)
+            $0.bottom.equalTo(contentView).inset(8)
         }
         shareButton.setImage(UIImage(named: "share"), for: .normal)
         contentView.addSubview(shareButton)

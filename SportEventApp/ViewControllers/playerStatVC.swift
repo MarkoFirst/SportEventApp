@@ -11,68 +11,103 @@ import UIKit
 
 class PlayerStatVC: UIViewController {
 
-    let scrollview = UIScrollView()
-    let backBtn = UIButton()
-    let shareBtn = UIButton()
-    let saveBtn = UIButton()
-    let teamLabelView = UIImageView()
-    let ronaldo = UIImageView()
-    let portugal = UIImageView()
-    let juventusLogoDesc = UIImageView()
-    let playerName = UILabel()
-    let positionSVArr: [(UIImageView, UILabel)] = [(UIImageView(), UILabel())]
-    var positionSV = UIStackView()
-    var achivementsCollView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var humanArr = [UIImage]()
-    let discussingSVArr: [(UIImageView, UILabel, UIView)] = [(UIImageView(), UILabel(), UIView())]
-    var discussingSV = UIStackView()
-    var discussionTableView = UITableView()
-    
+    private var discussionTableView = UITableView()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+}
+
+extension PlayerStatVC: UITableViewDataSource, UITableViewDelegate {
+
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func setup() {
         
+        //MARK: SCROLLVIEW
+        
+        let scrollview = UIScrollView()
         scrollview.isScrollEnabled = true
         scrollview.isUserInteractionEnabled = true
+
         scrollview.contentSize = CGSize(width: view.frame.width, height: 1700)
         view.backgroundColor = .black
-        
         view.addSubview(scrollview)
+        
         //MARK: BACK BUTTON
+        
+        let backBtn = UIButton()
         backBtn.contentMode = .scaleAspectFit
         backBtn.setImage(UIImage(named: "back"), for: .normal)
         backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
-        
         scrollview.addSubview(backBtn)
+        
         //MARK: SHARE BUTTON
+        
+        let shareBtn = UIButton()
         shareBtn.contentMode = .scaleAspectFit
         shareBtn.setImage(UIImage(named: "share"), for: .normal)
         scrollview.addSubview(shareBtn)
+        
         //MARK: SAVE BUTTON
+        
+        let saveBtn = UIButton()
         saveBtn.contentMode = .scaleAspectFit
         saveBtn.setImage(UIImage(named: "save"), for: .normal)
         scrollview.addSubview(saveBtn)
-        //MARK: COUNTRY FLAG
+        
+        //MARK: TEAM LABEL
+        
+        let teamLabelView = UIImageView()
         teamLabelView.image = UIImage(named: "juventusSVG")
         scrollview.addSubview(teamLabelView)
+        
         //MARK: PLAYER PHOTO
+        
+        let ronaldo = UIImageView()
         ronaldo.image = UIImage(named: "ronaldo")
         scrollview.addSubview(ronaldo)
+        
         //MARK: COUNTRY FLAG
+        
+        let portugal = UIImageView()
         portugal.image = UIImage(named: "portugal")
         portugal.clipsToBounds = true
         portugal.layer.cornerRadius = (portugal.image?.size.height ?? 0) / 2
-        scrollview.addSubview(portugal)
+        //scrollview.addSubview(portugal)
+        
         //MARK: TEAM BG LOGO
+        
+        let juventusLogoDesc = UIImageView()
         juventusLogoDesc.image = UIImage(named: "juventusLogoDesc")
         juventusLogoDesc.clipsToBounds = true
         juventusLogoDesc.layer.cornerRadius = (juventusLogoDesc.image?.size.height ?? 0) / 2
         scrollview.addSubview(juventusLogoDesc)
+        
+        //MARK: TEAM/COUNTRY STACKVIEW
+        
+        let teamCountrySV = UIStackView()
+        teamCountrySV.spacing = -12
+        teamCountrySV.addArrangedSubview(portugal)
+        teamCountrySV.addArrangedSubview(juventusLogoDesc)
+        scrollview.addSubview(teamCountrySV)
+        
         //MARK: PLAYER NAME
+        
+        let playerName = UILabel()
         playerName.text = "Ronaldo"
         playerName.textColor = .white
         playerName.font = .systemFont(ofSize: 40, weight: .heavy)
         scrollview.addSubview(playerName)
+        
         //MARK: POSITION OF PLAYER
+        
+        var positionSV = UIStackView()
+        let positionSVArr: [(UIImageView, UILabel)] = [(UIImageView(), UILabel())]
         positionSV = UIStackView(arrangedSubviews: positionSVArr.map({ imageView, label in
             let viewInSV = UIView()
             
@@ -84,12 +119,9 @@ class PlayerStatVC: UIViewController {
             
             viewInSV.addSubview(label)
             viewInSV.addSubview(imageView)
-            
-            
-            
+
             viewInSV.snp.makeConstraints {
                 $0.height.equalTo(30)
-                //$0.width.equalTo(200)
             }
             
             imageView.snp.makeConstraints {
@@ -103,98 +135,12 @@ class PlayerStatVC: UIViewController {
             }
             return viewInSV
         }))
+        
         scrollview.addSubview(positionSV)
-        
-        //MARK: ACHIVEMENTS COLLECTION VIEW
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 116.0, height: 100.0)
-        layout.scrollDirection = .horizontal
-        
-        achivementsCollView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
-        achivementsCollView.backgroundColor = .clear
-        
-        achivementsCollView.delegate = self
-        achivementsCollView.dataSource = self
-        
-        achivementsCollView.register(AgeCollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
-        achivementsCollView.register(GamesCollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
-        achivementsCollView.register(GoalsCollectionViewCell.self, forCellWithReuseIdentifier: "cell3")
-        
-        
-        scrollview.addSubview(achivementsCollView)
-        //MARK: DISCUSSING STACKVIEW
-        discussingSV = UIStackView(arrangedSubviews: discussingSVArr.map({ (imageView, label, view) in
-            let viewInSV = UIView()
-            
-            label.text = "Now discussing"
-            label.textColor = .systemBlue
-            label.font = .systemFont(ofSize: 17, weight: .bold)
-            
-            imageView.image = UIImage(named: "disscusingImage") ?? UIImage()
-            imageView.contentMode = .scaleAspectFill
-            
-            humanArr = [
-                UIImage(named: "h1") ?? UIImage(),
-                UIImage(named: "h2") ?? UIImage(),
-                UIImage(named: "h3") ?? UIImage(),
-                UIImage(named: "h4") ?? UIImage(),
-                UIImage(named: "h5") ?? UIImage()
-            ]
-            
-            let sv = UIStackView()
-            sv.axis = .horizontal
-            sv.alignment = .center
-            sv.spacing = -20
-            sv.distribution = .fill
-            
-            humanArr.forEach { image in
-                let imageView = UIImageView(image: image)
-                imageView.contentMode = .scaleAspectFit
-                imageView.widthAnchor.constraint(equalToConstant: 36).isActive = true
-                sv.addArrangedSubview(imageView)
-                view.addSubview(sv)
-            }
-            
-            viewInSV.addSubview(label)
-            viewInSV.addSubview(imageView)
-            viewInSV.addSubview(view)
-            
-            
-            sv.snp.makeConstraints {
-                $0.left.right.top.bottom.equalTo(view)
-            }
-            
-            
-            viewInSV.snp.makeConstraints {
-                $0.height.equalTo(30)
-                //$0.width.equalTo(200)
-            }
-            
-            imageView.snp.makeConstraints {
-                $0.centerY.equalTo(viewInSV.snp.centerY)
-                $0.left.equalTo(viewInSV.snp.left)
-                $0.height.width.equalTo(32)
-            }
-            
-            label.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.left.equalTo(imageView.snp.right)
-                $0.centerY.equalTo(viewInSV.snp.centerY)
-            }
-            
-            view.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.left.equalTo(label.snp.right).inset(-40)
-                $0.right.equalTo(viewInSV.snp.right)
-                $0.centerY.equalTo(viewInSV.snp.centerY)
-            }
-            
-            return viewInSV
-        }))
-        scrollview.addSubview(discussingSV)
-        
+
         //MARK: TABLE VIEW
-        discussionTableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), style: .insetGrouped)
+        
+        discussionTableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
         discussionTableView.backgroundColor = .clear
         discussionTableView.isScrollEnabled = false
         discussionTableView.isUserInteractionEnabled = true
@@ -202,10 +148,12 @@ class PlayerStatVC: UIViewController {
         discussionTableView.dataSource = self
         discussionTableView.delegate = self
         
-        discussionTableView.register(LatestNewsTableViewCell.self, forCellReuseIdentifier: "cell1")
-        discussionTableView.register(RateTableViewCell.self, forCellReuseIdentifier: "cell2")
-        discussionTableView.register(TrophiesTableViewCell.self, forCellReuseIdentifier: "cell3")
-        discussionTableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "cell4")
+        discussionTableView.register(PlayerDataTableViewCell.self,   forCellReuseIdentifier: "cell1")
+        discussionTableView.register(DiscussionTableViewCell.self,   forCellReuseIdentifier: "cell2")
+        discussionTableView.register(LatestNewsTableViewCell.self,   forCellReuseIdentifier: "cell3")
+        discussionTableView.register(RateTableViewCell.self,         forCellReuseIdentifier: "cell4")
+        discussionTableView.register(TrophiesTableViewCell.self,     forCellReuseIdentifier: "cell5")
+        discussionTableView.register(HistoryTableViewCell.self,      forCellReuseIdentifier: "cell6")
         
         scrollview.addSubview(discussionTableView)
         
@@ -213,7 +161,6 @@ class PlayerStatVC: UIViewController {
         
         scrollview.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            
         }
         
         backBtn.snp.makeConstraints {
@@ -239,81 +186,34 @@ class PlayerStatVC: UIViewController {
         
         teamLabelView.snp.makeConstraints {
             $0.top.equalTo(backBtn).inset(48)
-            $0.left.equalToSuperview().inset(-32)
+            $0.centerX.equalToSuperview().inset(-32)
         }
         
         ronaldo.snp.makeConstraints {
             $0.top.equalTo(backBtn).inset(84)
-            $0.left.equalToSuperview().inset(84)
+            $0.centerX.equalTo(teamLabelView.snp.centerX).offset(60)
         }
         
-        juventusLogoDesc.snp.makeConstraints {
+        teamCountrySV.snp.makeConstraints {
             $0.top.equalTo(backBtn.snp.bottom).inset(-64)
-            $0.left.equalToSuperview().inset(16)
-        }
-        
-        portugal.snp.makeConstraints {
-            $0.top.equalTo(backBtn.snp.bottom).inset(-64)
-            $0.centerX.equalTo(juventusLogoDesc.snp.right).inset(-6)
+            $0.centerX.equalTo(ronaldo.snp.left).inset(-20)
         }
         
         playerName.snp.makeConstraints {
-            $0.top.equalTo(juventusLogoDesc.snp.bottom).inset(-16)
-            $0.left.equalToSuperview().inset(16)
+            $0.top.equalTo(teamCountrySV.snp.bottom).inset(-16)
+            $0.left.equalTo(teamCountrySV.snp.left)
         }
         
         positionSV.snp.makeConstraints {
             $0.top.equalTo(playerName.snp.bottom).inset(-200)
-            $0.left.equalToSuperview().inset(16)
+            $0.left.equalTo(playerName.snp.left)
             $0.right.equalTo(juventusLogoDesc.snp.left).inset(140)
         }
         
-        achivementsCollView.snp.makeConstraints {
-            $0.top.equalTo(ronaldo.snp.bottom).inset(2)
-            $0.left.right.equalTo(view).inset(12)
-            $0.height.equalTo(100)
-        }
-        
-        discussingSV.snp.makeConstraints {
-            $0.top.equalTo(achivementsCollView.snp.bottom).inset(-16)
-            $0.left.right.equalTo(view).inset(16)
-        }
-        
         discussionTableView.snp.makeConstraints {
-            $0.top.equalTo(discussingSV.snp.bottom).inset(-16)
+            $0.top.equalTo(positionSV.snp.bottom).inset(30)
             $0.left.right.equalTo(view)
-            $0.height.equalTo(1100)
-        }
-    }
-    @objc func back() {
-        navigationController?.popViewController(animated: true)
-    }
-}
-
-
-extension PlayerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
-    
-    //MARK: COLLECTIONVIEW SETUP
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
-        
-        switch indexPath.item {
-        case 0:
-            cell = achivementsCollView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
-            return cell
-        case 1:
-            cell = achivementsCollView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
-            return cell
-        case 2:
-            cell = achivementsCollView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath)
-            return cell
-        default:
-            cell = UICollectionViewCell()
-            return cell
+            $0.bottom.equalTo(view.snp.bottom)
         }
     }
     
@@ -324,7 +224,7 @@ extension PlayerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -332,10 +232,12 @@ extension PlayerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         switch indexPath.section {
         case 0:
             cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
+            cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell
         case 1:
             cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath)
+            cell.backgroundColor = .clear
             cell.selectionStyle = .none
             return cell
         case 2:
@@ -346,25 +248,17 @@ extension PlayerStatVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell4", for: indexPath)
             cell.selectionStyle = .none
             return cell
+        case 4:
+            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell5", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
+        case 5:
+            cell = discussionTableView.dequeueReusableCell(withIdentifier: "cell6", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
         default:
             cell = UITableViewCell()
             return cell
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 150
-        case 1:
-            return 312
-        case 2:
-            return 220
-        case 3:
-            return 250
-        default:
-            return 0.0
-        }
-    }
-    
 }

@@ -127,11 +127,11 @@ Timberwolves and th No. 1 pick in the
             <objects>
                 <viewController storyboardIdentifier="SignInTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wG4-QV-3wb" customClass="SignInVC" customModule="SportEventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lde-Oc-Q2j">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-o0-cO7" userLabel="UpView">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yGh-LC-Eic">
                                         <rect key="frame" x="219" y="0.0" width="158" height="50"/>
@@ -660,6 +660,7 @@ Timberwolves and th No. 1 pick in the
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="signUpBtnFunc:" destination="eeY-c6-a6u" eventType="touchUpInside" id="OLq-7K-s4o"/>
                                             <segue destination="wG4-QV-3wb" kind="push" id="DIC-2l-9Ju"/>
                                         </connections>
                                     </button>
@@ -739,7 +740,7 @@ Timberwolves and th No. 1 pick in the
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XTK-gU-hex"/>
+        <segue reference="DIC-2l-9Ju"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image" width="286" height="369"/>
