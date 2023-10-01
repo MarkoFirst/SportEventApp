@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 
 class TrophiesTVC: UITableViewCell {
-    
-    let trophy = ["European cup", "FIFA CLub World cup", "European super cup", "FIFA World cup"]
-    let trophyValue = [7, 4, 2, 6]
+   
+    var athlete: Athlete?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
     
@@ -94,30 +94,17 @@ extension TrophiesTVC {
 
 extension TrophiesTVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return trophy.count
+        return athlete?.trophies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrophiesCVC", for: indexPath as IndexPath) as! TrophiesCVC
-        cell.label.text = trophy[indexPath.row]
-        cell.image.image = {
-            switch cell.label.text {
-            case "European cup":
-                return UIImage(named: "eurocup")
-            case "FIFA CLub World cup":
-                return UIImage(named: "fifaCup")
-            case "European super cup":
-                return UIImage(named: "uefaCup")
-            case "FIFA World cup":
-                return UIImage(named: "fifaWorldCup")
-            default:
-                return UIImage()
-            }
-        }()
-        cell.cupValue.text = trophyValue[indexPath.row].description
+        
+        cell.label.text = athlete?.trophies?[indexPath.row].name
+        cell.cupValue.text = athlete?.trophies?[indexPath.row].count.description
+        cell.image.image = athlete?.trophies?[indexPath.row].icon
         
         return cell
     }

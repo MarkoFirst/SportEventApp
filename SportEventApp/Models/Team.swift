@@ -14,7 +14,7 @@ class Team: Participant {
     var createYear: UInt
     var coach: String
     var sport: TypeOfSport
-    var team: [Athlete]
+    var team: [Athlete]?
     var country: CountryList
     var iconName: String
     var icon: UIImage? {
@@ -22,9 +22,9 @@ class Team: Participant {
     }
     
     
-    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete], country: CountryList, iconName: String){
+    init(name: String, createYear: UInt, coach: String, sport: TypeOfSport, team: [Athlete]?, country: CountryList, iconName: String){
         self.name = name
-        self.playersCount = team.count
+        self.playersCount = team?.count ?? 0
         self.createYear = createYear
         self.coach = coach
         self.sport = sport
@@ -38,7 +38,7 @@ class Team: Participant {
     }
     
     func getAllAthlete() -> [String]{
-        return team.enumerated().map( { "\($1.firstName) \($1.lastName)"})
+        return team?.enumerated().map( { "\($1.firstName) \($1.lastName)"}) ?? [""]
         
     }
 }

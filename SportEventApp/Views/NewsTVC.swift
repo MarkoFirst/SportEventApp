@@ -11,14 +11,14 @@ import SnapKit
 
 class NewsTVC: UITableViewCell {
     
-    let athleteTeamFlag = "juventusFlag"
-    let athleteIcon = "ronaldoIcon"
-    let typeNews = "Football news"
-    let teamName = "Juve"
-    let athleteLastName = "Ronaldo"
-    let newsDateDay = 22
-    let newsDateMonth = "Oct"
-    let newsDescription = "Ronaldo nominated for UEFA Men`s Player of the year"
+    var teamFlagLogo: UIImageView!
+    var athleteImage: UIImageView!
+    var typeNewsLabel: UILabel!
+    private var athleteNewsInfo: UILabel!
+    
+    private let newsDateDay = 22
+    private let newsDateMonth = "Oct"
+    private let newsDescription = "Ronaldo nominated for UEFA Men`s Player of the year"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,14 +42,12 @@ extension NewsTVC {
         newsView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         contentView.addSubview(newsView)
         
-        let teamFlagLogo = UIImageView()
-        teamFlagLogo.image = UIImage(named: athleteTeamFlag)
+        teamFlagLogo = UIImageView()
         teamFlagLogo.layer.cornerRadius = 25
         teamFlagLogo.clipsToBounds = true
         newsView.addSubview(teamFlagLogo)
         
-        let athleteImage = UIImageView()
-        athleteImage.image = UIImage(named: athleteIcon)
+        athleteImage = UIImageView()
         athleteImage.layer.cornerRadius = 20
         athleteImage.clipsToBounds = true
         newsView.addSubview(athleteImage)
@@ -61,22 +59,19 @@ extension NewsTVC {
         shareNewsBtn.layer.borderColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1).cgColor
         shareNewsBtn.setImage(UIImage(named: "shareArrow"), for: .normal)
         shareNewsBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
-        shareNewsBtn.addTarget(self, action: #selector(tapShareNewsBtn), for: .touchUpInside)
         newsView.addSubview(shareNewsBtn)
         
         let newsInfoStackView = UIStackView()
         newsInfoStackView.axis = .vertical
         newsView.addSubview(newsInfoStackView)
         
-        let typeNewsLabel = UILabel()
-        typeNewsLabel.text = typeNews
+        typeNewsLabel = UILabel()
         typeNewsLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         typeNewsLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         typeNewsLabel.adjustsFontSizeToFitWidth = true
         newsInfoStackView.addArrangedSubview(typeNewsLabel)
         
-        let athleteNewsInfo = UILabel()
-        athleteNewsInfo.text = "\(teamName), \(athleteLastName)"
+        athleteNewsInfo = UILabel()
         athleteNewsInfo.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         athleteNewsInfo.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         athleteNewsInfo.adjustsFontSizeToFitWidth = true
@@ -164,7 +159,7 @@ extension NewsTVC {
         newsDescriptionLabel.snp.makeConstraints { $0.height.equalTo(50) }
     }
     
-    @objc private func tapShareNewsBtn() {
-        print("Tap share news")
+    func getNewsInfo(teamName: String, athleteLastName: String) {
+        athleteNewsInfo.text = ("\(teamName), \(athleteLastName)")
     }
 }

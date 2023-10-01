@@ -148,7 +148,7 @@ enum CountryList: String {
     case Peru
     case Philippines
     case Poland
-    case Portugal
+    case Portugal = "portugalFlag"
     case Qatar
     case Romania
     case Rwanda

@@ -11,6 +11,8 @@ import UIKit
 
 class MainTableVC: UIViewController {
     
+    var athlete: Athlete?
+    
     let liveScoreId = "liveScoreId"
     let sportsTVCId = "sportsTVC"
     let eventTypeTVCId = "eventTypeId"
@@ -35,11 +37,13 @@ class MainTableVC: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         createTestData()
+        
     }
     
     @IBAction func PlayerInfoBtn(_ sender: UIButton) {
         let vc = PlayerInfoVC()
         navigationController?.pushViewController(vc, animated: true)
+        vc.athlete = athlete
     }
 }
 
@@ -114,6 +118,47 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
 extension MainTableVC {
     
     func createTestData() {
+        
+         // Teams
+       let juventus = Team(name: "Juventus", createYear: 1897, coach: "Massimiliano Allegri", sport: .football, team: nil, country: .Italy, iconName: "juventusFlag")
+        
+        let barcelona = Team(name: "Barcelona", createYear: 1899, coach: "Ronald Koeman", sport: .football, team: nil, country: .Spain, iconName: "barcelonaLogo")
+        
+        let psg = Team(name: "Paris Saint-Germain", createYear: 1970, coach: "Mauricio Pochettino", sport: .football, team: nil, country: .France, iconName: "psgLogo")
+        
+        let manCity = Team(name: "Manchester City", createYear: 1880, coach: "Pep Guardiola", sport: .football, team: nil, country: .UnitedKingdom, iconName: "mcLogo")
+        
+        let realMadrid = Team(name: "Real Madrid", createYear: 1902, coach: "Carlo Ancelotti", sport: .football, team: nil, country: .Spain, iconName: "realLogo")
+        
+        let navi = Team(name: "Natus Vincere", createYear: 2009, coach: "Andrey Gorodenskiy", sport: .cybersport, team: nil, country: .Ukraine, iconName: "naviLogo")
+        
+        let virtuspro = Team(name: "Virtus.pro", createYear: 2003, coach: "Dzhami Ali", sport: .cybersport, team: nil, country: .Other, iconName: "virtusproLogo")
+        
+        // Ronaldo Teams
+        let ronaldoManUtd = AthleteTeams(team: "Manchester United", teamColor: UIColor.red, fromYearInTeam: 2003, toYearInTeam: 2009, iconName: "manutdLogo")
+
+        let ronaldoReal = AthleteTeams(team: "Real Madrid", teamColor: UIColor.orange, fromYearInTeam: 2009, toYearInTeam: 2018, iconName: "realLogo")
+
+        let ronaldoJuventus = AthleteTeams(team: "Juventus", teamColor: UIColor.white, fromYearInTeam: 2018, toYearInTeam: 2023, iconName: "juventusLogo")
+      
+        //Trophies
+        let europeanCup = Trophy(name: "European cup", count: 3, iconName: "eurocup")
+        let fifaCLubWorldCup = Trophy(name: "FIFA CLub World cup", count: 3, iconName: "fifaCup")
+        let europeanSuperCup = Trophy(name: "European super cup", count: 2, iconName: "uefaCup")
+        let fifaWorldCup = Trophy(name: "FIFA World cup", count: 0, iconName: "fifaWorldCup")
+        
+        // Athletes
+        
+        let ronaldo = Athlete(firstName: "Cristiano", lastName: "Ronaldo", age: 33, typeOfSport: .football, gamesValue: 14, goalsValue: 10, athleteTeam: juventus, atheleBigImageName: "ronaldoLogo", athleteRole: "FORWARD", allKicks: 14, shotOnTarget: 8, goalsScored: 6, foulsWon: 8, foulsConceded: 3, redCards: 1, yellowCards: 3, trophies: [europeanCup, fifaCLubWorldCup, europeanSuperCup, fifaWorldCup], teams: [ronaldoManUtd, ronaldoReal, ronaldoJuventus], citizenship: .Portugal, birthplace: .Portugal, gender: .male, sport: .football, number: 7, iconName: "ronaldoIcon")
+        
+        athlete = ronaldo
+        
+        let djokovic = Athlete(firstName: "Novak", lastName: "Djokovic", age: 34, typeOfSport: .tennis, gamesValue: 18, goalsValue: 12, athleteTeam: nil, atheleBigImageName: "djokovicFlag", athleteRole: "TENNIS PLAYER", allKicks: 142, shotOnTarget: 92, goalsScored: 32, foulsWon: 25, foulsConceded: 8, redCards: 0, yellowCards: 2, trophies: nil, teams: nil, citizenship: .Serbia, birthplace: .Other, gender: .male, sport: .tennis, number: 1, iconName: "djokovicLogo")
+        
+        let nadal = Athlete(firstName: "Rafael", lastName: "Nadal", age: 35, typeOfSport: .tennis, gamesValue: 20, goalsValue: 15, athleteTeam: nil, atheleBigImageName: "nadalFlag", athleteRole: "TENNIS PLAYER", allKicks: 155, shotOnTarget: 105, goalsScored: 40, foulsWon: 28, foulsConceded: 10, redCards: 0, yellowCards: 1, trophies: nil, teams: nil, citizenship: .Spain, birthplace: .Other, gender: .male, sport: .tennis, number: 2, iconName: "nadaleLogo")
+        
+        
+        
         func createEvent(participant: [Participant], date: String, typeOfSport: TypeOfSport, title: String, place: Place, description: String, iconName: String) -> Event? {
             
             switch participant {
@@ -135,65 +180,13 @@ extension MainTableVC {
                 return nil
             }
         }
-            
-            let firstEvent = createEvent(participant:
-                                            [
-                                                Team(name: "Manchester City", createYear: 1936, coach: "Patrick van Leeuwen", sport: .football, team:
-                                                        [
-                                                            Athlete(firstName: "Ivan", lastName: "Ivanenko", age: 29, citizenship: .Afghanistan, birthplace: .Albania, gender: .male, sport: .football, number: 20, iconName: "defaultAthleteIcon")
-                                                        ], country: .UnitedKingdom, iconName: "mcLogo"),
-                                                Team(name: "Barcelona FC", createYear: 1912, coach: "Irina", sport: .football, team:
-                                                        [
-                                                            Athlete(firstName: "Dima", lastName: "Dimov", age: 89, citizenship: .Ukraine, birthplace: .Ukraine, gender: .male, sport: .football, number: 18, iconName: "defaultAthleteIcon")
-                                                        ], country: .Spain, iconName: "barcelonaLogo")
-                                            ],
-                                         date: "Mon, March 23, 21",
-                                         typeOfSport: .football,
-                                         title: "Championship. Event 1",
-                                         place: Place(name: "Donbass Arena", type: .stadium, contry: .Ukraine, maxSpectatorsCount: 52187, typeSport: [.football, .chess, .volleyball], priceFrom: 100, priceTo: 3000, currency: .UAH), description: "Отбор", iconName: "EventFirst")
-            
-            let secondEvent = createEvent(participant:
-                                            [
-                                                Team(name: "Paris Saint-Germain", createYear: 1936, coach: "Kate", sport: .football, team:
-                                                        [
-                                                            Athlete(firstName: "Ivan", lastName: "Ivanenko", age: 29, citizenship: .Afghanistan, birthplace: .Albania, gender: .male, sport: .football, number: 20, iconName: "defaultAthleteIcon")
-                                                        ], country: .France, iconName: "psgLogo"),
-                                                Team(name: "Real Madrid", createYear: 1912, coach: "Viktor", sport: .football, team:
-                                                        [
-                                                            Athlete(firstName: "Dima", lastName: "Dimov", age: 89, citizenship: .Ukraine, birthplace: .Ukraine, gender: .male, sport: .football, number: 18, iconName: "defaultAthleteIcon")
-                                                        ], country: .Spain, iconName: "realLogo")
-                                            ],
-                                          date: "Fri, Febr 24, 11",
-                                          typeOfSport: .football,
-                                          title: "World Cup. Event 2",
-                                          place: Place(name: "Wembley", type: .stadium, contry: .UnitedKingdom, maxSpectatorsCount: 52187, typeSport: [.football, .chess, .volleyball], priceFrom: 100, priceTo: 3000, currency: .UAH), description: "Final", iconName: "EventSecond")
-            
-            let thirdEvent = createEvent(participant:
-                                            [
-                                                Team(name: "Navi", createYear: 1936, coach: "Vasiliy", sport: .cybersport, team:
-                                                        [
-                                                            Athlete(firstName: "Ivan", lastName: "Ivanenko", age: 29, citizenship: .Afghanistan, birthplace: .Albania, gender: .male, sport: .football, number: 20, iconName: "defaultAthleteIcon"),
-                                                        ], country: .Ukraine, iconName: "naviLogo"),
-                                                Team(name: "Virtus pro", createYear: 1912, coach: "Sasha", sport: .cybersport, team:
-                                                        [
-                                                            Athlete(firstName: "Dima", lastName: "Dimov", age: 89, citizenship: .Ukraine, birthplace: .Ukraine, gender: .male, sport: .football, number: 18, iconName: "defaultAthleteIcon"),
-                                                        ], country: .Other, iconName: "virtusproLogo")
-                                            ],
-                                         date: "Wed, Jan 24, 01",
-                                         typeOfSport: .cybersport,
-                                         title: "World Cyber Cup. Event 3",
-                                         place: OnlinePlace(urlAdress: "www.game.com", language: [.English], name: "Game.com", type: .internet, contry: .UnitedStates, maxSpectatorsCount: 1000, typeSport: [.cybersport], priceFrom: 100, priceTo: 1000, currency: .USD),
-                                         description: "1/4 Final", iconName: "EventThird")
-            
-            let fourthEvent = createEvent(participant:
-                                            [
-                                                Athlete(firstName: "Novak", lastName: "Djokovic", age: 29, citizenship: .Spain, birthplace: .Spain, gender: .male, sport: .tennis, number: nil, iconName: "djokovicLogo"),
-                                                Athlete(firstName: "Rafael", lastName: "Nadal ", age: 40, citizenship: .Serbia, birthplace: .Serbia, gender: .male, sport: .tennis, number: nil, iconName: "nadaleLogo"),
-                                            ],
-                                          date: "Mon, Jul 24, 12",
-                                          typeOfSport: .tennis,
-                                          title: "Cup. Event 4",
-                                          place: Place(name: "Arthur Ashe Stadium", type: .stadium, contry: .UnitedStates, maxSpectatorsCount: 10000, typeSport: [.tennis, .volleyball], priceFrom: 100, priceTo: 3000, currency: .USD), description: "Friendly game", iconName: "EventFourth")
-        }
+        
+        let firstEvent = createEvent(participant: [manCity, barcelona], date: "Mon, March 23, 21", typeOfSport: .football, title: "Championship. Event 1", place: Place(name: "Donbass Arena", type: .stadium, contry: .Ukraine, maxSpectatorsCount: 52187, typeSport: [.football, .chess, .volleyball], priceFrom: 100, priceTo: 3000, currency: .UAH), description: "Отбор", iconName: "EventFirst")
+        
+        let secondEvent = createEvent(participant: [psg, realMadrid], date: "Fri, Febr 24, 11", typeOfSport: .football, title: "World Cup. Event 2", place: Place(name: "Wembley", type: .stadium, contry: .UnitedKingdom, maxSpectatorsCount: 52187, typeSport: [.football, .chess, .volleyball], priceFrom: 100, priceTo: 3000, currency: .UAH), description: "Final", iconName: "EventSecond")
+        
+        let thirdEvent = createEvent(participant: [navi, virtuspro], date: "Wed, Jan 24, 01", typeOfSport: .cybersport, title: "World Cyber Cup. Event 3", place: OnlinePlace(urlAdress: "www.game.com", language: [.English], name: "Game.com", type: .internet, contry: .UnitedStates, maxSpectatorsCount: 1000, typeSport: [.cybersport], priceFrom: 100, priceTo: 1000, currency: .USD), description: "1/4 Final", iconName: "EventThird")
+        
+        let fourthEvent = createEvent(participant: [djokovic, nadal], date: "Mon, Jul 24, 12", typeOfSport: .tennis, title: "Cup. Event 4", place: Place(name: "Arthur Ashe Stadium", type: .stadium, contry: .UnitedStates, maxSpectatorsCount: 10000, typeSport: [.tennis, .volleyball], priceFrom: 100, priceTo: 3000, currency: .USD), description: "Friendly game", iconName: "EventFourth")
     }
-
+}

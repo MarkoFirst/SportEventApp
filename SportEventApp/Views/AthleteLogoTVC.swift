@@ -11,15 +11,14 @@ import SnapKit
 
 class AthleteLogoTVC: UITableViewCell {
     
-    let stackViewLabels = ["Age", "Games", "Goals"]
-    let ageValue = 33
-    let gamesValue = 14
-    let goalsValue = 10
-    let athleteTeamFlag = "juventusFlag"
-    let athleteCountryFlag = "portugalFlag"
-    let athleteLastName = "Ronaldo"
-    let athleteNumber = 7
-    let athleteRole = "FORWARD"
+    var teamLogo: UIImageView!
+    private var athleteInfoStackView: UIStackView!
+    var countryFlagLogo: UIImageView!
+    var teamFlagLogo: UIImageView!
+    var playerNameLabel: UILabel!
+    var athleteNumberLabel: UILabel!
+    var athleteRoleLabel: UILabel!
+    private let stackViewLabels = ["Age", "Games", "Goals"]
     
     var navigationController: UINavigationController?
     
@@ -39,25 +38,15 @@ extension AthleteLogoTVC {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
-        let teamLogo = UIImageView()
-        teamLogo.image = UIImage(named: "ronaldoLogo")
+        teamLogo = UIImageView()
         teamLogo.contentMode = .scaleAspectFit
         contentView.addSubview(teamLogo)
         
-        let athleteInfoStackView = UIStackView()
-        athleteInfoStackView.axis = .horizontal
-        athleteInfoStackView.distribution = .fillEqually
-        athleteInfoStackView.spacing = 20
-        athleteInfoStackView.translatesAutoresizingMaskIntoConstraints = true
-        athleteInfoStackView.autoresizesSubviews = true
-        contentView.addSubview(athleteInfoStackView)
-        
-        stackViewLabels.forEach {
+        athleteInfoStackView = UIStackView(arrangedSubviews: stackViewLabels.map {
             
             let view = UIView()
             view.backgroundColor = UIColor(red: 0.133, green: 0.122, blue: 0.196, alpha: 0.95)
             view.layer.cornerRadius = 20
-            athleteInfoStackView.addArrangedSubview(view)
             
             let labelItem = UILabel()
             labelItem.text = $0
@@ -67,18 +56,6 @@ extension AthleteLogoTVC {
             view.addSubview(labelItem)
             
             let labelValue = UILabel()
-            
-            switch $0 {
-            case "Age":
-                labelValue.text = ageValue.description
-            case "Games":
-                labelValue.text = gamesValue.description
-            case "Goals":
-                labelValue.text = goalsValue.description
-            default:
-                return
-            }
-            
             labelValue.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
             labelValue.font = UIFont.systemFont(ofSize: 56, weight: .bold)
             labelValue.textAlignment = .right
@@ -99,7 +76,16 @@ extension AthleteLogoTVC {
                 $0.width.equalTo(view.snp.width).multipliedBy(0.4)
                 $0.height.equalTo(view.snp.height).multipliedBy(0.3)
             }
-        }
+            
+            return view
+        })
+        
+        athleteInfoStackView.axis = .horizontal
+        athleteInfoStackView.distribution = .fillEqually
+        athleteInfoStackView.spacing = 20
+        athleteInfoStackView.translatesAutoresizingMaskIntoConstraints = true
+        athleteInfoStackView.autoresizesSubviews = true
+        contentView.addSubview(athleteInfoStackView)
         
         let navigationBackBtn = UIButton(type: .system)
         navigationBackBtn.setTitle("BACK", for: .normal)
@@ -126,20 +112,17 @@ extension AthleteLogoTVC {
         shareBtn.tintColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
         contentView.addSubview(shareBtn)
         
-        let countryFlagLogo = UIImageView()
-        countryFlagLogo.image = UIImage(named: athleteCountryFlag)
+        countryFlagLogo = UIImageView()
         countryFlagLogo.layer.cornerRadius = 25
         countryFlagLogo.clipsToBounds = true
         contentView.addSubview(countryFlagLogo)
         
-        let teamFlagLogo = UIImageView()
-        teamFlagLogo.image = UIImage(named: athleteTeamFlag)
+        teamFlagLogo = UIImageView()
         teamFlagLogo.layer.cornerRadius = 25
         teamFlagLogo.clipsToBounds = true
         contentView.addSubview(teamFlagLogo)
         
-        let playerNameLabel = UILabel()
-        playerNameLabel.text = athleteLastName
+        playerNameLabel = UILabel()
         playerNameLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         playerNameLabel.adjustsFontSizeToFitWidth = true
         playerNameLabel.font = UIFont.systemFont(ofSize: 48, weight: .bold)
@@ -152,16 +135,14 @@ extension AthleteLogoTVC {
         uniformLogo.image = UIImage(named: "uniformLogo")
         uniformLogoView.addSubview(uniformLogo)
         
-        let athleteNumberLabel = UILabel()
-        athleteNumberLabel.text = athleteNumber.description
+        athleteNumberLabel = UILabel()
         athleteNumberLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         athleteNumberLabel.adjustsFontSizeToFitWidth = true
         athleteNumberLabel.textAlignment = .center
         athleteNumberLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         uniformLogoView.addSubview(athleteNumberLabel)
         
-        let athleteRoleLabel = UILabel()
-        athleteRoleLabel.text = athleteRole
+        athleteRoleLabel = UILabel()
         athleteRoleLabel.textColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 1)
         athleteRoleLabel.adjustsFontSizeToFitWidth = true
         athleteRoleLabel.textAlignment = .center
@@ -237,5 +218,11 @@ extension AthleteLogoTVC {
     
     @objc private func tapBackBtn() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func setupAthleteLogoCell(age: UInt, games: UInt, goals: UInt) {
+        (athleteInfoStackView.arrangedSubviews[0].subviews.last as? UILabel)?.text = age.description
+        (athleteInfoStackView.arrangedSubviews[1].subviews.last as? UILabel)?.text = games.description
+        (athleteInfoStackView.arrangedSubviews[2].subviews.last as? UILabel)?.text = goals.description
     }
 }

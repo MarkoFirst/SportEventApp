@@ -10,14 +10,17 @@ import UIKit
 import SnapKit
 
 class HistoryTVC: UITableViewCell {
+    
+    var athlete: Athlete?
+    
     let teamsCount = 7
     let fromYearInTeam = 2019
     let toYearInTeam = 2020
     var linePositionValue = false
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
     
@@ -27,7 +30,6 @@ class HistoryTVC: UITableViewCell {
 }
 
 extension HistoryTVC: UIScrollViewDelegate {
-    
     
     func setupViews() {
         
@@ -64,8 +66,8 @@ extension HistoryTVC: UIScrollViewDelegate {
         stackView.translatesAutoresizingMaskIntoConstraints = true
         stackView.autoresizesSubviews = true
         scrollView.addSubview(stackView)
-
-        for _ in 0..<teamsCount {
+        
+        for _ in 0..<3 {
             
             let globalView = UIView()
             globalView.backgroundColor = .clear
@@ -171,17 +173,17 @@ extension HistoryTVC: UIScrollViewDelegate {
         }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom).inset(-16)
+            $0.top.equalTo(separatorView.snp.bottom).inset(-20)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         stackView.snp.makeConstraints { $0.edges.height.equalToSuperview() }
     }
     
-   private func linePosition() -> Int {
-       
+    private func linePosition() -> Int {
+        
         linePositionValue.toggle()
-       
+        
         if linePositionValue {
             return 20
         } else {
@@ -189,5 +191,4 @@ extension HistoryTVC: UIScrollViewDelegate {
         }
     }
 }
-
 

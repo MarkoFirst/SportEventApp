@@ -11,13 +11,20 @@ import SnapKit
 
 class AthleteStatsTVC: UITableViewCell {
     
-    var athleteLastName = "Ronaldo"
-    var allKicksStats = 14
-    var shotsOnTarget = 8
-    var goalsScored = 6
-    let statsInfo = ["Shots on target", "Goals scored"]
-    let disciplineItem = ["Fouls won", "Fouls conceded"]
-    let cardItem = ["Yellow cards", "Red cards"]
+    var kickStatsLabel: UILabel!
+    var percentShotOnTarget: UIImageView!
+    var percentGoalsScored: UIImageView!
+    var allKicksStats: UILabel!
+    var shotsOnTarget: UILabel!
+    var goalsScored: UILabel!
+    var foulsWonLabel: UILabel!
+    var foulsConceded: UILabel!
+    var yellowCardsValue: UILabel!
+    var redCardsValue: UILabel!
+    
+    private let statsInfo = ["Shots on target", "Goals scored"]
+    private let disciplineItem = ["Fouls won", "Fouls conceded"]
+    private let cardItem = ["Yellow cards", "Red cards"]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,8 +71,7 @@ extension AthleteStatsTVC {
         shoeIcon.image = UIImage(named: "footballShoeLogo")
         kickStats.addSubview(shoeIcon)
         
-        let kickStatsLabel = UILabel()
-        kickStatsLabel.text = allKicksStats.description
+        kickStatsLabel = UILabel()
         kickStatsLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
         kickStatsLabel.textAlignment = .center
         kickStatsLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
@@ -85,37 +91,30 @@ extension AthleteStatsTVC {
             stackView.addArrangedSubview(shotsOnTargetView)
             
             let statsImage = UIImageView()
-            statsImage.image = {
-                switch item {
-                case "Shots on target":
-                    return UIImage(named: percentImage(number: shotsOnTarget, from: allKicksStats)) ?? UIImage()
-                case "Goals scored":
-                    return UIImage(named: percentImage(number: goalsScored, from: allKicksStats)) ?? UIImage()
-                default:
-                    return UIImage()
-                }
-            }()
+            
+            switch item {
+            case "Shots on target":
+                percentShotOnTarget = statsImage
+            default:
+                percentGoalsScored = statsImage
+            }
             
             shotsOnTargetView.addSubview(statsImage)
             
             let labelValue = UILabel()
-            labelValue.text = {
-                switch item {
-                case "Shots on target":
-                    return shotsOnTarget.description
-                case "Goals scored":
-                    return goalsScored.description
-                default:
-                    return ""
-                }
-            }()
-            
             labelValue.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
             labelValue.numberOfLines = 2
             labelValue.textAlignment = .center
             labelValue.font = UIFont.systemFont(ofSize: 44, weight: .bold)
             labelValue.adjustsFontSizeToFitWidth = true
             shotsOnTargetView.addSubview(labelValue)
+            
+            switch item {
+            case "Shots on target":
+                shotsOnTarget = labelValue
+            default:
+                goalsScored = labelValue
+            }
             
             let label = UILabel()
             label.text = item
@@ -181,7 +180,14 @@ extension AthleteStatsTVC {
             foulsView.addSubview(vericalLine)
             
             let foulsValueLabel = UILabel()
-            foulsValueLabel.text = allKicksStats.description
+            
+            switch $0 {
+            case "Fouls won":
+                foulsWonLabel = foulsValueLabel
+            default:
+                foulsConceded = foulsValueLabel
+            }
+            
             foulsValueLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
             foulsValueLabel.textAlignment = .left
             foulsValueLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
@@ -232,7 +238,14 @@ extension AthleteStatsTVC {
             cardsView.addSubview(vericalLine)
             
             let cardsValueLabel = UILabel()
-            cardsValueLabel.text = allKicksStats.description
+            
+            switch item {
+            case "Yellow cards":
+                yellowCardsValue = cardsValueLabel
+            default:
+                redCardsValue = cardsValueLabel
+            }
+            
             cardsValueLabel.textColor = UIColor(red: 0.906, green: 0.902, blue: 0.925, alpha: 1)
             cardsValueLabel.textAlignment = .left
             cardsValueLabel.font = UIFont.systemFont(ofSize: 44, weight: .bold)
@@ -240,6 +253,7 @@ extension AthleteStatsTVC {
             cardsView.addSubview(cardsValueLabel)
             
             let cardLogo = UIView()
+            
             cardLogo.backgroundColor = {
                 switch item {
                 case "Yellow cards":
@@ -356,7 +370,7 @@ extension AthleteStatsTVC {
         statsView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
     }
     
-    func percentImage(number: Int, from: Int) -> String {
+    func percentImage(number: UInt, from: UInt) -> String {
         
         switch Float(number) / Float(from) * 100 {
         case 0...12:
