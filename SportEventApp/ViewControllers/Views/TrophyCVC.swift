@@ -11,11 +11,9 @@ import SnapKit
 
 class TrophyCVC: UICollectionViewCell {
     
-    lazy var trophyView = UIView()
-    lazy var trophyNameLabel = UILabel()
-    lazy var trophyQtyBadgeView = UIView()
-    lazy var trophyQtyLabel = UILabel()
-    lazy var trophyImage = UIImageView()
+    var trophyNameLabel: UILabel!
+    var trophyQtyLabel: UILabel!
+    var trophyImage: UIImageView!
     
     static let trophyCellId = "TrophyCVC"
     
@@ -36,58 +34,37 @@ extension TrophyCVC {
         
         // MARK: Configure views
         
-        trophyView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
-            view.layer.cornerRadius = 12
-            view.layer.borderWidth = 0.5
-            view.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4).cgColor
-            view.clipsToBounds = true
-            
-            return view
-        }()
-        
-        trophyNameLabel = {
-            let label = UILabel()
-            label.text = "Europen super cup"
-            label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-            label.textColor = UIColor.white
-            label.textAlignment = .left
-            label.numberOfLines = 2
-            label.lineBreakMode = .byTruncatingTail
-            label.adjustsFontSizeToFitWidth = true
-            
-            return label
-        }()
-        
-        trophyQtyBadgeView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
-            view.layer.cornerRadius = 12
-            
-            return view
-        }()
-        
-        trophyQtyLabel = {
-            let label = UILabel()
-            label.text = "8"
-            label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-            label.textColor = UIColor.white
-            label.textAlignment = .center
-            label.numberOfLines = 1
-            label.adjustsFontSizeToFitWidth = true
-            
-            return label
-        }()
-    
-        trophyImage = {
-            let image = UIImageView()
-            image.image = UIImage(named: "lavine")
-            image.contentMode = .scaleAspectFit
-            image.clipsToBounds = true
-            
-            return image
-        }()
+            let trophyView = UIView()
+            trophyView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
+            trophyView.layer.cornerRadius = 12
+            trophyView.layer.borderWidth = 0.5
+            trophyView.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4).cgColor
+            trophyView.clipsToBounds = true
+
+            trophyNameLabel = UILabel()
+            trophyNameLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+            trophyNameLabel.textColor = UIColor.white
+            trophyNameLabel.textAlignment = .left
+            trophyNameLabel.numberOfLines = 2
+            trophyNameLabel.lineBreakMode = .byTruncatingTail
+            trophyNameLabel.adjustsFontSizeToFitWidth = true
+  
+            let trophyQtyBadgeView = UIView()
+            trophyQtyBadgeView.backgroundColor = UIColor(red: 0.275, green: 0.502, blue: 0.314, alpha: 1)
+            trophyQtyBadgeView.layer.cornerRadius = 12
+
+            trophyQtyLabel = UILabel()
+            trophyQtyLabel.text = "8"
+            trophyQtyLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+            trophyQtyLabel.textColor = UIColor.white
+            trophyQtyLabel.textAlignment = .center
+            trophyQtyLabel.numberOfLines = 1
+            trophyQtyLabel.adjustsFontSizeToFitWidth = true
+
+            trophyImage = UIImageView()
+            trophyImage.image = UIImage(named: "lavine")
+            trophyImage.contentMode = .scaleAspectFit
+            trophyImage.clipsToBounds = true
         
         // MARK: Adding views
         

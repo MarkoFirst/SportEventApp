@@ -53,13 +53,13 @@ extension DiscussionTVC {
             let view = UIImageView()
             
             view.image = UIImage(named: avatarName)
-            view.layer.cornerRadius = 16
+            view.layer.cornerRadius = 14
             view.layer.borderColor = UIColor(red: 0.055, green: 0.047, blue: 0.082, alpha: 1).cgColor
             view.layer.borderWidth = 1
             view.clipsToBounds = true
             
             view.snp.makeConstraints { make in
-                make.width.height.equalTo(32)
+                make.width.height.equalTo(28)
             }
             
             return view
@@ -77,14 +77,21 @@ extension DiscussionTVC {
         
         let sectionHeaderView = UIView()
         
-        let sHeaderImageView = UIImageView()
-        sHeaderImageView.image = UIImage(named: "avatar01")
-        sHeaderImageView.contentMode = .scaleAspectFill
-        sHeaderImageView.layer.cornerRadius = 20
-        sHeaderImageView.clipsToBounds = true
+        let sHeaderFirstImageView = UIImageView()
+        sHeaderFirstImageView.image = UIImage(named: "bullsLogo")
+        sHeaderFirstImageView.backgroundColor = UIColor.white
+        sHeaderFirstImageView.contentMode = .scaleAspectFill
+        sHeaderFirstImageView.layer.cornerRadius = 20
+        sHeaderFirstImageView.clipsToBounds = true
+        
+        let sHeaderSecondImageView = UIImageView()
+        sHeaderSecondImageView.image = UIImage(named: "zachLavine")
+        sHeaderSecondImageView.contentMode = .scaleAspectFill
+        sHeaderSecondImageView.layer.cornerRadius = 20
+        sHeaderSecondImageView.clipsToBounds = true
         
         let sHeaderTitleLabel = UILabel()
-        sHeaderTitleLabel.text = "Football news"
+        sHeaderTitleLabel.text = "Basketball news"
         sHeaderTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         sHeaderTitleLabel.numberOfLines = 0
         sHeaderTitleLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
@@ -92,7 +99,7 @@ extension DiscussionTVC {
         sHeaderTitleLabel.textColor = .white
         
         let sHeaderSubtitleLabel = UILabel()
-        sHeaderSubtitleLabel.text = "Juve, Ronaldo"
+        sHeaderSubtitleLabel.text = "Bulls, Zach LaVine"
         sHeaderSubtitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         sHeaderSubtitleLabel.numberOfLines = 0
         sHeaderSubtitleLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
@@ -107,7 +114,7 @@ extension DiscussionTVC {
         sHeaderButton.setImage(UIImage(named: "share")?.withTintColor(UIColor.white), for: .normal)
         sHeaderButton.tintColor = UIColor.white
         sHeaderButton.layer.cornerRadius = 18
-        sHeaderButton.layer.borderWidth = 2
+        sHeaderButton.layer.borderWidth = 1
         sHeaderButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22).cgColor
         
         let separatorView = UIView()
@@ -138,7 +145,7 @@ extension DiscussionTVC {
         sBodyStackView.distribution = .fillProportionally
         
         let sBodyTextLabel = UILabel()
-        sBodyTextLabel.text = "Ronaldo nominated for UEFA Men's Player ot the Year"
+        sBodyTextLabel.text = "Zach LaVine nominated for Player of the Year"
         sBodyTextLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         sBodyTextLabel.numberOfLines = 0
         sBodyTextLabel.textColor = UIColor(red: 0.145, green: 0.545, blue: 0.961, alpha: 1)
@@ -166,7 +173,8 @@ extension DiscussionTVC {
         sectionView.addSubview(blurEffectView)
         sectionView.sendSubviewToBack(blurEffectView)
         
-        sectionHeaderView.addSubview(sHeaderImageView)
+        sectionHeaderView.addSubview(sHeaderFirstImageView)
+        sectionHeaderView.addSubview(sHeaderSecondImageView)
         sectionHeaderView.addSubview(sHeaderStackView)
         sectionHeaderView.addSubview(sHeaderButton)
         
@@ -212,16 +220,23 @@ extension DiscussionTVC {
             make.left.right.equalTo(sectionView).inset(16)
         }
         
-        sHeaderImageView.snp.makeConstraints { make in
+        sHeaderFirstImageView.snp.makeConstraints { make in
             make.centerY.equalTo(sectionHeaderView.snp.centerY)
             make.top.left.equalTo(sectionHeaderView)
             make.size.equalTo(40)
         }
         
+        sHeaderSecondImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(sectionHeaderView.snp.centerY)
+            make.top.equalTo(sectionHeaderView)
+            make.left.equalTo(sHeaderFirstImageView.snp.right).offset(-24)
+            make.size.equalTo(40)
+        }
+        
         sHeaderStackView.snp.makeConstraints { make in
             make.centerY.equalTo(sectionHeaderView.snp.centerY)
-            make.left.equalTo(sHeaderImageView.snp.right).offset(16)
-            make.height.equalTo(sHeaderImageView.snp.height)
+            make.left.equalTo(sHeaderSecondImageView.snp.right).offset(16)
+            make.height.equalTo(sHeaderFirstImageView.snp.height)
         }
         
         sHeaderButton.snp.makeConstraints { make in

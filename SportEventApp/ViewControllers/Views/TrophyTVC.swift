@@ -56,32 +56,32 @@ extension TrophyTVC {
         
         // MARK: Configure views
         
-            let sectionView = UIView()
-            sectionView.layer.cornerRadius = 12
-            sectionView.layer.cornerCurve = .continuous
-            sectionView.clipsToBounds = true
-            sectionView.backgroundColor = UIColor.clear
+        let sectionView = UIView()
+        sectionView.layer.cornerRadius = 12
+        sectionView.layer.cornerCurve = .continuous
+        sectionView.clipsToBounds = true
+        sectionView.backgroundColor = UIColor.clear
         
-            sectionTitleLabel = UILabel()
-            sectionTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-            sectionTitleLabel.numberOfLines = 0
-            sectionTitleLabel.adjustsFontSizeToFitWidth = true
-            sectionTitleLabel.textColor = UIColor.white
-
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 112.0, height: 148.0)
-            layout.minimumLineSpacing = 8
-            layout.scrollDirection = .horizontal
-            
-            collectionView = UICollectionView(frame: sectionView.frame, collectionViewLayout: layout)
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.clipsToBounds = false
-            collectionView.backgroundColor = UIColor.clear
-            
-            collectionView.register(TrophyCVC.self, forCellWithReuseIdentifier: TrophyCVC.trophyCellId)
-            
-            collectionView.delegate = self
-            collectionView.dataSource = self
+        sectionTitleLabel = UILabel()
+        sectionTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        sectionTitleLabel.numberOfLines = 0
+        sectionTitleLabel.adjustsFontSizeToFitWidth = true
+        sectionTitleLabel.textColor = UIColor.white
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 112.0, height: 148.0)
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .horizontal
+        
+        collectionView = UICollectionView(frame: sectionView.frame, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.clipsToBounds = false
+        collectionView.backgroundColor = UIColor.clear
+        
+        collectionView.register(TrophyCVC.self, forCellWithReuseIdentifier: TrophyCVC.trophyCellId)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         let indicatorView = UIView()
         indicatorView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22)

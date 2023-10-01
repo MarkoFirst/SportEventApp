@@ -47,13 +47,16 @@ extension HistoryTVC {
         sectionTitleLabel.adjustsFontSizeToFitWidth = true
         sectionTitleLabel.textColor = UIColor.white
         
+        let yearBackLine = UIView()
+        yearBackLine.backgroundColor = UIColor(red: 0.453, green: 0.438, blue: 0.492, alpha: 1)
+        
         let yearsStackView  = UIStackView(arrangedSubviews: years.map ({ year in
             let yearView: UIView = {
                 let view  = UIView()
                 view.layer.cornerRadius = 13
                 view.layer.cornerCurve = .continuous
                 view.clipsToBounds = true
-                view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.22)
+                view.backgroundColor = UIColor(red: 0.453, green: 0.438, blue: 0.492, alpha: 1)
                 
                 return view
             }()
@@ -77,7 +80,6 @@ extension HistoryTVC {
             
             return yearView
         }))
-        
         yearsStackView.axis = .horizontal
         yearsStackView.alignment = .fill
         yearsStackView.spacing = 16
@@ -114,11 +116,26 @@ extension HistoryTVC {
             
             return timelineView
         }))
-        
         timelineStackView.axis = .horizontal
         timelineStackView.alignment = .fill
         timelineStackView.spacing = 0
         timelineStackView.distribution = .fillEqually
+        
+        let numberOfLines = 15
+        let lineageStackView = UIStackView(arrangedSubviews: (0..<numberOfLines).map { _ in
+                let line = UIView()
+                line.backgroundColor = UIColor(red: 0.453, green: 0.438, blue: 0.492, alpha: 1)
+
+            line.snp.makeConstraints { make in
+                make.width.equalTo(0.5)
+                make.height.equalTo(24)
+            }
+
+            return line
+        })
+        lineageStackView.axis = .horizontal
+        lineageStackView.alignment = .fill
+        lineageStackView.distribution = .equalSpacing
         
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -130,8 +147,10 @@ extension HistoryTVC {
         contentView.addSubview(sectionView)
         
         sectionView.addSubview(sectionTitleLabel)
+        sectionView.addSubview(yearBackLine)
         sectionView.addSubview(yearsStackView)
         sectionView.addSubview(timelineStackView)
+        sectionView.addSubview(lineageStackView)
         sectionView.addSubview(blurEffectView)
         sectionView.sendSubviewToBack(blurEffectView)
         
@@ -145,6 +164,12 @@ extension HistoryTVC {
             make.top.horizontalEdges.equalTo(sectionView).inset(16)
         }
         
+        yearBackLine.snp.makeConstraints { make in
+            make.centerY.equalTo(yearsStackView.snp.centerY)
+            make.horizontalEdges.equalTo(sectionView)
+            make.height.equalTo(0.5)
+        }
+        
         yearsStackView.snp.makeConstraints { make in
             make.top.equalTo(sectionTitleLabel.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(sectionView).inset(16)
@@ -155,6 +180,11 @@ extension HistoryTVC {
             make.left.equalTo(sectionView)
             make.right.equalTo(sectionView).inset(64)
             make.bottom.equalTo(sectionView).inset(32)
+        }
+        
+        lineageStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(sectionView).inset(16)
+            make.bottom.equalTo(sectionView.snp.bottom)
         }
     }
     

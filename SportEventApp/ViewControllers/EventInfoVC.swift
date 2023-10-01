@@ -18,6 +18,7 @@ class EventInfoVC: UIViewController {
     }
     
     @IBOutlet weak var userAvatar: UIImageView!
+    
     var event: Event?
     
     struct Cells {

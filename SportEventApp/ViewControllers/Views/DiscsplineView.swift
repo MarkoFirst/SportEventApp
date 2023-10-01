@@ -34,40 +34,27 @@ extension DisciplineView {
         
         // MARK: Configure views
         
-        titleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .left
-            label.textColor = UIColor.white
-            
-            return label
-        }()
+        titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+        titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.textAlignment = .left
+        titleLabel.textColor = UIColor.white
         
-        subtitleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-            label.numberOfLines = 2
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .left
-            label.textColor = UIColor.white
-            
-            return label
-        }()
+        subtitleLabel = UILabel()
+        subtitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        subtitleLabel.numberOfLines = 2
+        subtitleLabel.adjustsFontSizeToFitWidth = true
+        subtitleLabel.textAlignment = .left
+        subtitleLabel.textColor = UIColor.white
         
-        imageView = {
-            let imageView = UIImageView()
-     
-            return imageView
-        }()
+        imageView = UIImageView()
         
         // MARK: Adding views
         
         self.addSubview(titleLabel)
         self.addSubview(subtitleLabel)
         self.addSubview(imageView)
-
         
         // MARK: Setup constraints
         
@@ -86,8 +73,7 @@ extension DisciplineView {
         imageView.snp.makeConstraints { make in
             make.centerY.equalTo(titleLabel.snp.centerY)
             make.leading.equalTo(titleLabel.snp.trailing).offset(4)
-            make.width.height.equalTo(20)
-            
+            make.size.equalTo(20)
         }
     }
     

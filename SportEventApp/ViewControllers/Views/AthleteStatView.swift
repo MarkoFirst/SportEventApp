@@ -11,8 +11,8 @@ import SnapKit
 
 class AthleteStatView: UIView {
     
-    lazy var titleLabel = UILabel()
-    lazy var subtitleLabel = UILabel()
+    private var titleLabel: UILabel!
+    private var subtitleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,37 +36,25 @@ extension AthleteStatView {
         
         // MARK: Configure views
         
-        titleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .left
-            label.textColor = UIColor.white
-            
-            return label
-        }()
+        titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.textAlignment = .left
+        titleLabel.textColor = UIColor.white
         
-        subtitleLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
-            label.numberOfLines = 0
-            label.adjustsFontSizeToFitWidth = true
-            label.textAlignment = .right
-            label.textColor = UIColor.white
-            
-            return label
-        }()
-        
+        subtitleLabel = UILabel()
+        subtitleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.adjustsFontSizeToFitWidth = true
+        subtitleLabel.textAlignment = .right
+        subtitleLabel.textColor = UIColor.white
+  
         let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView: UIVisualEffectView = {
-            let blur = UIVisualEffectView(effect: blurEffect)
-            blur.frame = self.bounds
-            blur.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            return blur
-        }()
-        
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+  
         // MARK: Adding views
         
         self.addSubview(titleLabel)
@@ -77,13 +65,13 @@ extension AthleteStatView {
         // MARK: Setup constraints
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(12)
+            make.leading.equalToSuperview().offset(12)
         }
         
         subtitleLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-12)
+            make.trailing.equalToSuperview().offset(-12)
         }
         
     }
