@@ -13,6 +13,7 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupView()
         self.dismissKeyboard()
     }
@@ -26,7 +27,7 @@ class SignInVC: UIViewController {
 
 extension SignInVC: UITextFieldDelegate {
     
-    func setupView() {
+    private func setupView() {
         
         view.backgroundColor = UIColor(red: 0.039, green: 0.145, blue: 0.251, alpha: 1)
         

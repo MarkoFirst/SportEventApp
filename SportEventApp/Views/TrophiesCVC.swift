@@ -28,7 +28,7 @@ class TrophiesCVC: UICollectionViewCell {
 
 extension TrophiesCVC {
     
-    func setupViews() {
+    private func setupViews() {
         
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.376, green: 0.369, blue: 0.424, alpha: 0.5)

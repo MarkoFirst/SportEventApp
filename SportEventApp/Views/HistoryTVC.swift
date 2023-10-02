@@ -12,10 +12,9 @@ import SnapKit
 class HistoryTVC: UITableViewCell {
     
     var athlete: Athlete?
+    var historyView: UIView!
+    var stackView: UIStackView!
     
-    let teamsCount = 7
-    let fromYearInTeam = 2019
-    let toYearInTeam = 2020
     var linePositionValue = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -31,11 +30,11 @@ class HistoryTVC: UITableViewCell {
 
 extension HistoryTVC: UIScrollViewDelegate {
     
-    func setupViews() {
+    private func setupViews() {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
-        let historyView = UIView()
+        historyView = UIView()
         historyView.backgroundColor = UIColor(red: 0.09, green: 0.082, blue: 0.125, alpha: 1)
         historyView.layer.cornerRadius = 20
         contentView.addSubview(historyView)
@@ -58,16 +57,49 @@ extension HistoryTVC: UIScrollViewDelegate {
         scrollView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         historyView.addSubview(scrollView)
         
-        let stackView = UIStackView()
+        stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 0
-        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = true
         stackView.autoresizesSubviews = true
         scrollView.addSubview(stackView)
         
-        for _ in 0..<3 {
+        historyView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
+        
+        historyLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+            $0.top.equalTo(historyLabel.snp.bottom).inset(-16)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(separatorView.snp.bottom).inset(-20)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        stackView.snp.makeConstraints { $0.edges.height.equalToSuperview() }
+    }
+    
+    func linePosition() -> Int {
+        
+        linePositionValue.toggle()
+        
+        if linePositionValue {
+            return 20
+        } else {
+            return -20
+        }
+    }
+    
+    func setupAthleteHistory(teams: [AthleteTeams]) {
+        
+        teams.forEach { team in
             
             let globalView = UIView()
             globalView.backgroundColor = .clear
@@ -80,7 +112,7 @@ extension HistoryTVC: UIScrollViewDelegate {
             yearsStackview.autoresizesSubviews = true
             globalView.addSubview(yearsStackview)
             
-            for year in fromYearInTeam...toYearInTeam {
+            for year in team.fromYearInTeam..<team.toYearInTeam {
                 
                 let view = UIView()
                 view.backgroundColor = .clear
@@ -134,13 +166,13 @@ extension HistoryTVC: UIScrollViewDelegate {
             }
             
             let line = UIView()
-            line.backgroundColor = .blue
+            line.backgroundColor = team.teamColor
             line.layer.cornerRadius = 2
             globalView.addSubview(line)
             
             let teamIcon = UIImageView()
-            teamIcon.image = UIImage(named: "juventusFlag") ?? UIImage()
-            teamIcon.layer.cornerRadius = 16
+            teamIcon.image = UIImage(named: team.iconName)
+            teamIcon.layer.cornerRadius = 20
             teamIcon.layer.masksToBounds = true
             globalView.addSubview(teamIcon)
             
@@ -155,40 +187,8 @@ extension HistoryTVC: UIScrollViewDelegate {
             teamIcon.snp.makeConstraints {
                 $0.centerY.equalTo(line.snp.centerY)
                 $0.centerX.equalTo(line.snp.centerX)
-                $0.size.equalTo(32)
+                $0.size.equalTo(40)
             }
-        }
-        
-        historyView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
-        
-        historyLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
-        separatorView.snp.makeConstraints {
-            $0.height.equalTo(0.5)
-            $0.top.equalTo(historyLabel.snp.bottom).inset(-16)
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
-        scrollView.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom).inset(-20)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        stackView.snp.makeConstraints { $0.edges.height.equalToSuperview() }
-    }
-    
-    private func linePosition() -> Int {
-        
-        linePositionValue.toggle()
-        
-        if linePositionValue {
-            return 20
-        } else {
-            return -20
         }
     }
 }
-

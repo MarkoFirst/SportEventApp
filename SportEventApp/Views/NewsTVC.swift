@@ -22,6 +22,7 @@ class NewsTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
     
@@ -32,7 +33,7 @@ class NewsTVC: UITableViewCell {
 
 extension NewsTVC {
     
-    func setupViews() {
+    private func setupViews() {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         

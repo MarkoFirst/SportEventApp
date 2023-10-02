@@ -11,11 +11,13 @@ import UIKit
 @IBDesignable
 
 class EventTypeCVC: UICollectionViewCell {
-    let eventCellId = "eventCellId"
+    
+    private let eventCellId = "eventCellId"
     
     @IBOutlet weak var backgroundViewCVC: UIView!
     @IBOutlet weak var typeEventIcon: UIImageView!
     @IBOutlet weak var labelCVC: UILabel!
+    
     override var isSelected: Bool {
         didSet {
             if self.isSelected {

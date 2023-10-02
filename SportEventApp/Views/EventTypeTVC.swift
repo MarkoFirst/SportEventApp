@@ -23,6 +23,7 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.allowsMultipleSelection = true

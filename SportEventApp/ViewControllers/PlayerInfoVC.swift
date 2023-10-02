@@ -14,7 +14,7 @@ class PlayerInfoVC: UIViewController {
     
     var athlete: Athlete?
     
-    var tableView = UITableView()
+    var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +28,15 @@ class PlayerInfoVC: UIViewController {
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-        if let athlete_ = athlete {
-            athlete = athlete_
-        } else { return }
+        
+        if let athlete_ = athlete { athlete = athlete_ }
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         
         view.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
+        tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AthleteLogoTVC.self, forCellReuseIdentifier: "AthleteLogoTVC")
@@ -56,7 +56,6 @@ class PlayerInfoVC: UIViewController {
 }
 
 extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
@@ -93,7 +92,6 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             return discussCell
             
         case 2:
-            
             newsCell.teamFlagLogo.image = athlete?.athleteTeam?.icon
             newsCell.athleteImage.image = athlete?.icon
             newsCell.typeNewsLabel.text = athlete?.typeOfSport.rawValue
@@ -102,7 +100,6 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             return newsCell
             
         case 3:
-            
             athleteStatsCell.percentShotOnTarget.image = UIImage(named: athleteStatsCell.percentImage(number: athlete?.shotOnTarget ?? 0, from: athlete?.allKicks ?? 0))
             athleteStatsCell.percentGoalsScored.image = UIImage(named: athleteStatsCell.percentImage(number: athlete?.goalsScored ?? 0, from: athlete?.allKicks ?? 0))
             athleteStatsCell.kickStatsLabel.text = athlete?.allKicks.description
@@ -116,11 +113,14 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             return athleteStatsCell
             
         case 4:
-            
             trophiesCell.athlete = athlete
             return trophiesCell
             
         case 5:
+            if (athlete?.teams) != nil {
+                historyCell.setupAthleteHistory(teams: athlete!.teams!)
+            }
+            
             return historyCell
             
         default:

@@ -39,7 +39,7 @@ class AthleteStatsTVC: UITableViewCell {
 
 extension AthleteStatsTVC {
     
-    func setupViews() {
+    private func setupViews() {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
@@ -255,11 +255,15 @@ extension AthleteStatsTVC {
             let cardLogo = UIView()
             
             cardLogo.backgroundColor = {
+                
                 switch item {
+                    
                 case "Yellow cards":
                     return .yellow
+                    
                 case "Red cards":
                     return .red
+                    
                 default:
                     return .clear
                 }

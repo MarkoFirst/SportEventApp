@@ -13,5 +13,4 @@ import UIKit
 class EventInfoDescriptionCell: UITableViewCell {
     
     @IBOutlet weak var eventDescription: UILabel!
-    
 }

@@ -11,7 +11,5 @@ import UIKit
 @IBDesignable
 
 class LiveScoreTVC: UITableViewCell {
-
-
-
+    
 }

@@ -13,8 +13,6 @@ import UIKit
 class EventInfoTitleTVC: UITableViewCell {
 
     @IBOutlet weak var eventTitle: UILabel!
-    
     @IBOutlet weak var eventType: UILabel!
-    
     @IBOutlet weak var eventDate: UILabel!
 }

@@ -11,9 +11,10 @@ import UIKit
 class EventInfoVC: UIViewController {
     
     var event: Event?
-    let titleId = "titleId"
-    let iconId = "iconId"
-    let descriptionId = "descriptionId"
+    
+    private let titleId = "titleId"
+    private let iconId = "iconId"
+    private let descriptionId = "descriptionId"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,9 +29,7 @@ class EventInfoVC: UIViewController {
         tableView.register(UINib(nibName: "EventInfoDescriptionCell", bundle: nil), forCellReuseIdentifier: descriptionId)
         navigationController?.navigationBar.isHidden = true
         
-        if let event_ = event {
-            event = event_
-        } else { return }
+        if let event_ = event { event = event_ }
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -38,8 +37,7 @@ class EventInfoVC: UIViewController {
     }
     
     @IBAction func PlayerInfoBtn(_ sender: UIButton) {
-        let vc = PlayerInfoVC()
-        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 
@@ -50,7 +48,7 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         switch section {
         case 0:
             return 1
@@ -70,6 +68,7 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
         let descriptionCell = tableView.dequeueReusableCell(withIdentifier: descriptionId, for: indexPath) as! EventInfoDescriptionCell
         
         switch indexPath.section {
+            
         case 0:
             titleCell.eventTitle.text = event?.title
             titleCell.eventDate.text = event?.date
@@ -78,13 +77,17 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             } else if let event_ = event as? DoublesSportEvent {
                 titleCell.eventType.text = event_.typeOfSport.rawValue
             }
+            
             return titleCell
+            
         case 1:
             iconCell.eventIcon.image = event?.image
             return iconCell
+            
         case 2:
             descriptionCell.eventDescription.text = event?.description
             return descriptionCell
+            
         default:
             return UITableViewCell()
         }

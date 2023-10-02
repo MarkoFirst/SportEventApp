@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class TrophiesTVC: UITableViewCell {
-   
+    
     var athlete: Athlete?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,7 +27,7 @@ class TrophiesTVC: UITableViewCell {
 extension TrophiesTVC {
     
     
-    func setupViews() {
+    private func setupViews() {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         

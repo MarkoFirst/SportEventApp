@@ -8,16 +8,15 @@
 import Foundation
 import UIKit
 
-
 class MainTableVC: UIViewController {
     
     var athlete: Athlete?
     
-    let liveScoreId = "liveScoreId"
-    let sportsTVCId = "sportsTVC"
-    let eventTypeTVCId = "eventTypeId"
-    let eventsHeaderTVCId = "eventsHeaderTVCId"
-    let eventTVCId = "eventTVCId"
+    private let liveScoreId = "liveScoreId"
+    private let sportsTVCId = "sportsTVC"
+    private let eventTypeTVCId = "eventTypeId"
+    private let eventsHeaderTVCId = "eventsHeaderTVCId"
+    private let eventTVCId = "eventTVCId"
     var events: [Event] = []
     var filterTypes: [TypeOfSport] = []
     
@@ -37,13 +36,14 @@ class MainTableVC: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         createTestData()
-        
     }
     
     @IBAction func PlayerInfoBtn(_ sender: UIButton) {
-        let vc = PlayerInfoVC()
-        navigationController?.pushViewController(vc, animated: true)
-        vc.athlete = athlete
+        if let athlete = athlete {
+            let vc = PlayerInfoVC()
+            navigationController?.pushViewController(vc, animated: true)
+            vc.athlete = athlete
+        }
     }
 }
 
@@ -77,13 +77,18 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
         let eventTVCCell = tableView.dequeueReusableCell(withIdentifier: eventTVCId, for: indexPath) as! EventTVC
         
         switch indexPath.section {
+            
         case 0:
             return liveScoreCell
+            
         case 1:
             return eventTypeCollectionCell
+            
         case 2:
             return eventSectionHeaderCell
+            
         case 3:
+            
             if let event = events[indexPath.row] as? TeamSportEvent {
                 eventTVCCell.firstTeamOrAtheleName?.text = event.teams.enumerated().map({$1.name})[0]
                 eventTVCCell.secondTeamOrAthleteName?.text = event.teams.enumerated().map({$1.name})[1]
@@ -95,6 +100,7 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
                 eventTVCCell.firstTeamOrAthleteIcon?.image = event.athletes[0].icon
                 eventTVCCell.secondTeamOrAthleteIcon?.image = event.athletes[1].icon
             }
+            
             eventTVCCell.dateEventLabel.text = events[indexPath.row].date
             eventTVCCell.coutryEventLabel.text = events[indexPath.row].place.contry.rawValue
             
@@ -119,8 +125,8 @@ extension MainTableVC {
     
     func createTestData() {
         
-         // Teams
-       let juventus = Team(name: "Juventus", createYear: 1897, coach: "Massimiliano Allegri", sport: .football, team: nil, country: .Italy, iconName: "juventusFlag")
+        // Teams
+        let juventus = Team(name: "Juventus", createYear: 1897, coach: "Massimiliano Allegri", sport: .football, team: nil, country: .Italy, iconName: "juventusFlag")
         
         let barcelona = Team(name: "Barcelona", createYear: 1899, coach: "Ronald Koeman", sport: .football, team: nil, country: .Spain, iconName: "barcelonaLogo")
         
@@ -135,12 +141,12 @@ extension MainTableVC {
         let virtuspro = Team(name: "Virtus.pro", createYear: 2003, coach: "Dzhami Ali", sport: .cybersport, team: nil, country: .Other, iconName: "virtusproLogo")
         
         // Ronaldo Teams
-        let ronaldoManUtd = AthleteTeams(team: "Manchester United", teamColor: UIColor.red, fromYearInTeam: 2003, toYearInTeam: 2009, iconName: "manutdLogo")
-
-        let ronaldoReal = AthleteTeams(team: "Real Madrid", teamColor: UIColor.orange, fromYearInTeam: 2009, toYearInTeam: 2018, iconName: "realLogo")
-
-        let ronaldoJuventus = AthleteTeams(team: "Juventus", teamColor: UIColor.white, fromYearInTeam: 2018, toYearInTeam: 2023, iconName: "juventusLogo")
-      
+        let ronaldoManUtd = AthleteTeams(team: "Manchester United", teamColor: UIColor.red, fromYearInTeam: 2003, toYearInTeam: 2009, iconName: "manUTeamLogo")
+        
+        let ronaldoReal = AthleteTeams(team: "Real Madrid", teamColor: UIColor.orange, fromYearInTeam: 2009, toYearInTeam: 2018, iconName: "realTeamLogo")
+        
+        let ronaldoJuventus = AthleteTeams(team: "Juventus", teamColor: UIColor.white, fromYearInTeam: 2018, toYearInTeam: 2023, iconName: "juventusFlag")
+        
         //Trophies
         let europeanCup = Trophy(name: "European cup", count: 3, iconName: "eurocup")
         let fifaCLubWorldCup = Trophy(name: "FIFA CLub World cup", count: 3, iconName: "fifaCup")
@@ -148,7 +154,6 @@ extension MainTableVC {
         let fifaWorldCup = Trophy(name: "FIFA World cup", count: 0, iconName: "fifaWorldCup")
         
         // Athletes
-        
         let ronaldo = Athlete(firstName: "Cristiano", lastName: "Ronaldo", age: 33, typeOfSport: .football, gamesValue: 14, goalsValue: 10, athleteTeam: juventus, atheleBigImageName: "ronaldoLogo", athleteRole: "FORWARD", allKicks: 14, shotOnTarget: 8, goalsScored: 6, foulsWon: 8, foulsConceded: 3, redCards: 1, yellowCards: 3, trophies: [europeanCup, fifaCLubWorldCup, europeanSuperCup, fifaWorldCup], teams: [ronaldoManUtd, ronaldoReal, ronaldoJuventus], citizenship: .Portugal, birthplace: .Portugal, gender: .male, sport: .football, number: 7, iconName: "ronaldoIcon")
         
         athlete = ronaldo
@@ -156,8 +161,6 @@ extension MainTableVC {
         let djokovic = Athlete(firstName: "Novak", lastName: "Djokovic", age: 34, typeOfSport: .tennis, gamesValue: 18, goalsValue: 12, athleteTeam: nil, atheleBigImageName: "djokovicFlag", athleteRole: "TENNIS PLAYER", allKicks: 142, shotOnTarget: 92, goalsScored: 32, foulsWon: 25, foulsConceded: 8, redCards: 0, yellowCards: 2, trophies: nil, teams: nil, citizenship: .Serbia, birthplace: .Other, gender: .male, sport: .tennis, number: 1, iconName: "djokovicLogo")
         
         let nadal = Athlete(firstName: "Rafael", lastName: "Nadal", age: 35, typeOfSport: .tennis, gamesValue: 20, goalsValue: 15, athleteTeam: nil, atheleBigImageName: "nadalFlag", athleteRole: "TENNIS PLAYER", allKicks: 155, shotOnTarget: 105, goalsScored: 40, foulsWon: 28, foulsConceded: 10, redCards: 0, yellowCards: 1, trophies: nil, teams: nil, citizenship: .Spain, birthplace: .Other, gender: .male, sport: .tennis, number: 2, iconName: "nadaleLogo")
-        
-        
         
         func createEvent(participant: [Participant], date: String, typeOfSport: TypeOfSport, title: String, place: Place, description: String, iconName: String) -> Event? {
             

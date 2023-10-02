@@ -11,10 +11,11 @@ import SnapKit
 
 class DiscussinTVC: UITableViewCell {
     
-   private let disscussUsers = ["discussUser1", "discussUser2", "discussUser3", "discussUser4", "discussUser5"]
+    private let disscussUsers = ["discussUser1", "discussUser2", "discussUser3", "discussUser4", "discussUser5"]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
     
@@ -25,7 +26,7 @@ class DiscussinTVC: UITableViewCell {
 
 extension DiscussinTVC {
     
-    func setupViews() {
+    private func setupViews() {
         
         contentView.backgroundColor = UIColor(red: 0.016, green: 0.012, blue: 0.031, alpha: 1)
         
