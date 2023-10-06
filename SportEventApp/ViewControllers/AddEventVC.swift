@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 class AddEventVC: UIViewController {
     
@@ -21,7 +22,8 @@ class AddEventVC: UIViewController {
     
     lazy var teams: [Team] = []
     
-    let service = CoreDataService()
+    // Open the local-only default realm
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +69,19 @@ class AddEventVC: UIViewController {
         let firstTeam = firstTeamTF.textField.text ?? ""
         let secondTeam = secondTeamTF.textField.text ?? ""
         
-        service.createNewEvent(cover: coverData!, title: title, desc: desc, firstTeam: firstTeam, secondTeam: secondTeam, date: date)
+        let event = Event(title: title, description: desc, date: date, firstTeam: firstTeam, secondTeam: secondTeam)
+        do {
+            try realm.write {
+                realm.add(event)
+            }
+        } catch {
+            print("Error: \(error)")
+        }
         
         // MARK: Update the list of events on the HomeVC
 
         if let homeVC = presentingViewController as? HomeVC {
-            homeVC.events = service.getEvents()
+            homeVC.events = Array(realm.objects(Event.self))
             homeVC.tableView.reloadData()
         }
         

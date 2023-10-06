@@ -6,23 +6,26 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol Favoritable {
     var isFavorite: Bool { get set }
     func toggleFavorite()
 }
 
-class User {
-    private var firstName: String
-    private var lastName: String
-    private var email: String
-    var favorites: [Favoritable]
+class User: Object {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var firstName: String = ""
+    var lastName: String = ""
+    @Persisted var email: String = ""
+    @Persisted var password: String = ""
+    var favorites: [Favoritable] = []
     
-    init(firstName: String, lastName: String, email: String, favorites: [Favoritable]) {
+    convenience init(firstName: String, email: String, password: String) {
+        self.init()
         self.firstName = firstName
-        self.lastName = lastName
         self.email = email
-        self.favorites = favorites
+        self.password = password
     }
     
     func editFirstName(to firstName: String) -> String {

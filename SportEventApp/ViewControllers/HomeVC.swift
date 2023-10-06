@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
 
 class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let service = CoreDataService()
+    // Open the local-only default realm
+    let realm = try! Realm()
     
-    var events: [EventCD] = []
+    var events: [Event] = []
     
     struct Cells {
         static let newsCellId = "newsCell"
@@ -25,7 +27,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        events = service.getEvents()
+        events = Array(realm.objects(Event.self))
         setupNavBar()
         setupTableView()
     }
@@ -33,7 +35,7 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        events = service.getEvents()
+        events = Array(realm.objects(Event.self))
         tableView.reloadData()
     }
     
@@ -86,23 +88,23 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return sportCell
         case 2:
-            guard let sportEvent = events[indexPath.row] as? EventCD else {
+            guard let sportEvent = events[indexPath.row] as? Event else {
                 return UITableViewCell()
             }
             
             // Setup first team label
             if let firstTeamLabel = eventCell.firstTeamLabel {
-                firstTeamLabel.text = sportEvent.firstTeam ?? "Unknown team"
+                firstTeamLabel.text = sportEvent.firstTeam 
             }
             
             // Setup second team label
             if let secondTeamLabel = eventCell.secondTeamLabel {
-                secondTeamLabel.text = sportEvent.secondTeam ?? "Unknown team"
+                secondTeamLabel.text = sportEvent.secondTeam 
             }
             
             // Setup event date
             if let eventDate = eventCell.eventDateLabel,
-               let startDate = sportEvent.startDate {
+               let startDate = sportEvent.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "E, MMM d"
                 let dateString = dateFormatter.string(from: startDate)
@@ -160,10 +162,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Get the event to be deleted from the events array
-            let eventToRemove = events[indexPath.row]
+            let eventToDelete = events[indexPath.row]
             
             // Delete the event from the database using CoreDataService
-            service.deleteEvent(event: eventToRemove)
+            do {
+                try realm.write {
+                    realm.delete(eventToDelete)
+                }
+            } catch {
+                print("Error: \(error)")
+            }
             
             // Remove the event from the array
             events.remove(at: indexPath.row)

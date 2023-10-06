@@ -7,12 +7,35 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let config = Realm.Configuration(
+            schemaVersion: 2, // Збільште номер версії, якщо ви змінюєте схему бази даних
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                    // Додаємо код міграції для оновлення бази даних
+                    // Наприклад, видалення полів, які були видалені зі структури
+                    migration.deleteData(forType: User.className())
+                }
+            }
+        )
+
+        // Встановлюємо конфігурацію Realm з міграцією
+        Realm.Configuration.defaultConfiguration = config
+
+        do {
+            // Відкриваємо базу даних з оновленою конфігурацією
+            let realm = try Realm()
+            // Тепер ви можете взаємодіяти з базою даних без отримання помилки міграції
+        } catch {
+            // Обробка помилок при відкритті бази даних
+            print("Помилка при відкритті бази даних: \(error)")
+        }
         return true
     }
     

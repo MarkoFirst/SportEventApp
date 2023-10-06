@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
 import SnapKit
 
@@ -15,7 +16,9 @@ class LoginVC: UIViewController {
     private var emailTF: CustomTF!
     private var passwordTF: CustomTF!
     
-    let service = CoreDataService()
+    // Open the local-only default realm
+    let realm = try! Realm()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +37,11 @@ class LoginVC: UIViewController {
         let email = emailTF.getText() ?? ""
         let password = passwordTF.getText() ?? ""
         
-        // MARK: Getting users from Core Data
+        // MARK: Get all users in the realm
+    
+        let users = realm.objects(User.self)
         
-        let users = service.getUser()
-        
-        // MARK: Checking for user availability in Core Data
+        // MARK: Checking for user availability in Realm
         
         let userExists = users.contains { user in
             user.email == email &&
@@ -52,7 +55,7 @@ class LoginVC: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "homeID") as! HomeVC
             self.navigationController?.pushViewController(nextViewController, animated: true)
         } else {
-            showAlert(title: "Error", message: "This user not exists in Core Data.")
+            showAlert(title: "Error", message: "This user not exists in Realm.")
         }
     }
 }

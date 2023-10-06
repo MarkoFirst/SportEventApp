@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
 
 class SignupVC: UIViewController {
@@ -16,7 +17,8 @@ class SignupVC: UIViewController {
     
     @IBOutlet weak var signUp: UIButton!
     
-    let service = CoreDataService()
+    // Open the local-only default realm
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +51,11 @@ class SignupVC: UIViewController {
             return
         }
         
-        // MARK: Getting users from Core Data
-        
-        let users = service.getUser()
-        
-        // MARK: Checking for user availability in Core Data
+        // MARK: Get all users in the realm
+    
+        let users = realm.objects(User.self)
+
+        // MARK: Checking for user availability in Realm
         
         let userExists = users.contains { user in
             user.firstName == firstName &&
@@ -64,13 +66,22 @@ class SignupVC: UIViewController {
         // MARK: Output of the corresponding alert
         
         if userExists {
-            showAlert(title: "Error", message: "This user already exists in Core Data.")
+            showAlert(title: "Error", message: "This user already exists in Realm.")
         } else {
-            service.createNewUser(firstName: firstName, email: email, password: password)
-            showAlert(title: "Success", message: "New user successfully added to Core Data.")
+            
+            let user = User(firstName: firstName, email: email, password: password)
+            do {
+                try realm.write {
+                    realm.add(user)
+                }
+                showAlert(title: "Success", message: "New user successfully added to Realm.")
+            } catch {
+                print("Error: \(error)")
+            }
         }
     }
 }
+
 
 extension SignupVC {
     func setupTextFields() {
@@ -80,7 +91,7 @@ extension SignupVC {
         else {
             return
         }
-  
+        
         addLeftImage(textField: nameTF, image: nameImage)
         addLeftImage(textField: emailTF, image: emailImage)
         addLeftImage(textField: passwordTF, image: passwordImage)
