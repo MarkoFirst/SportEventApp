@@ -14,19 +14,76 @@ class SignupVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    @IBOutlet weak var signUp: UIButton!
+    
+    let service = CoreDataService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let nameImage = UIImage(named: "user") else { return }
+        signUp.addTarget(self, action: #selector(createNewUser), for: .touchUpInside)
+        
+        setupTextFields()
+        
+        dismissKeyboard()
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func createNewUser() {
+        let firstName = nameTF.text ?? ""
+        let email = emailTF.text ?? ""
+        let password = passwordTF.text ?? ""
+        
+        // MARK: Email format check
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        
+        if !emailPredicate.evaluate(with: email) {
+            showAlert(title: "Error", message: "Invalid email format. Please use a valid email address.")
+            return
+        }
+        
+        // MARK: Getting users from Core Data
+        
+        let users = service.getUser()
+        
+        // MARK: Checking for user availability in Core Data
+        
+        let userExists = users.contains { user in
+            user.firstName == firstName &&
+            user.email == email &&
+            user.password == password
+        }
+        
+        // MARK: Output of the corresponding alert
+        
+        if userExists {
+            showAlert(title: "Error", message: "This user already exists in Core Data.")
+        } else {
+            service.createNewUser(firstName: firstName, email: email, password: password)
+            showAlert(title: "Success", message: "New user successfully added to Core Data.")
+        }
+    }
+}
+
+extension SignupVC {
+    func setupTextFields() {
+        guard let nameImage = UIImage(named: "user"),
+              let emailImage = UIImage(named: "envelope"),
+              let passwordImage = UIImage(named: "lock")
+        else {
+            return
+        }
+  
         addLeftImage(textField: nameTF, image: nameImage)
-        
-        guard let emailImage = UIImage(named: "envelope") else { return }
         addLeftImage(textField: emailTF, image: emailImage)
-        
-        guard let passwordImage = UIImage(named: "lock") else { return }
         addLeftImage(textField: passwordTF, image: passwordImage)
-        
-        self.dismissKeyboard()
         
         nameTF.configureTF()
         emailTF.configureTF()
@@ -42,18 +99,7 @@ class SignupVC: UIViewController {
         textField.leftView = boundingView
         textField.leftViewMode = .always
     }
-    
 }
-
-extension UITextField {
-    func configureTF() {
-        layer.borderWidth = 1
-        layer.borderColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1).cgColor
-        layer.cornerRadius = 10
-        clipsToBounds = true
-    }
-}
-
 
 extension UIViewController {
     func dismissKeyboard() {
@@ -67,4 +113,11 @@ extension UIViewController {
     }
 }
 
-
+extension UITextField {
+    func configureTF() {
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1).cgColor
+        layer.cornerRadius = 10
+        clipsToBounds = true
+    }
+}

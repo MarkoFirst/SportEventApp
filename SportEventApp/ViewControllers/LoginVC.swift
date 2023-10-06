@@ -11,12 +11,11 @@ import SnapKit
 
 class LoginVC: UIViewController {
     
-    var vStackView: UIStackView!
+    private var formStack: UIStackView!
+    private var emailTF: CustomTF!
+    private var passwordTF: CustomTF!
     
-    let textFields: [(UIImage, String, UITextContentType, UIKeyboardType)] = [
-        (UIImage(named: "envelope")!, "Email or username", .emailAddress, .emailAddress),
-        (UIImage(named: "lock")!, "Password", .password, .default)
-    ]
+    let service = CoreDataService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +24,36 @@ class LoginVC: UIViewController {
         dismissKeyboard()
     }
     
-    @objc func goToHomeVC() {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "homeID") as! HomeVC
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func loginToAccount() {
+        let email = emailTF.getText() ?? ""
+        let password = passwordTF.getText() ?? ""
+        
+        // MARK: Getting users from Core Data
+        
+        let users = service.getUser()
+        
+        // MARK: Checking for user availability in Core Data
+        
+        let userExists = users.contains { user in
+            user.email == email &&
+            user.password == password
+        }
+        
+        // MARK: Output of the corresponding alert
+        
+        if userExists {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "homeID") as! HomeVC
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        } else {
+            showAlert(title: "Error", message: "This user not exists in Core Data.")
+        }
     }
 }
 
@@ -59,39 +84,28 @@ extension LoginVC {
         loginButton.layer.cornerCurve = .continuous
         loginButton.clipsToBounds = true
         loginButton.backgroundColor = UIColor(red: 0.239, green: 0.357, blue: 0.949, alpha: 1)
-        loginButton.addTarget(self, action: #selector(goToHomeVC), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginToAccount), for: .touchUpInside)
         
         let forgotPassButton = UIButton(type: .system)
         forgotPassButton.setTitle("Forgot password?", for: .normal)
         forgotPassButton.setTitleColor(UIColor(red: 0.238, green: 0.356, blue: 0.95, alpha: 1), for: .normal)
         forgotPassButton.backgroundColor = .clear
         
-        vStackView = UIStackView(arrangedSubviews: textFields.map ({ (image, placeholder, type, keyboard) in
-            let textField = UITextField()
-            addLeftImage(textField: textField, image: image)
-            textField.placeholder = placeholder
-            textField.textContentType = type
-            textField.keyboardType = keyboard
-            
-            if type == .password {
-                textField.isSecureTextEntry = true
-            }
-            
-            textField.layer.borderWidth = 1
-            textField.layer.borderColor = UIColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1).cgColor
-            textField.layer.cornerRadius = 12
-            textField.layer.cornerCurve = .continuous
-            textField.clipsToBounds = true
-            
-            textField.snp.makeConstraints { make in
-                make.height.equalTo(48)
-            }
-            
-            return textField
-        }))
+        guard let emailImage = UIImage(named: "envelope"),
+              let passwordImage = UIImage(named: "lock")
+        else {
+            return
+        }
         
-        vStackView.axis = .vertical
-        vStackView.spacing = 16
+        emailTF = CustomTF()
+        emailTF.configure(image: emailImage, placeholder: "Email address", textContentType: .emailAddress, keyboardType: .emailAddress, isSecureTextEntry: false)
+        
+        passwordTF = CustomTF()
+        passwordTF.configure(image: passwordImage, placeholder: "Password", textContentType: .password, keyboardType: .default, isSecureTextEntry: true)
+        
+        formStack = UIStackView(arrangedSubviews: [emailTF, passwordTF])
+        formStack.axis = .vertical
+        formStack.spacing = 16
         
         let questionLabel = UILabel()
         questionLabel.text = "Don't have an account?"
@@ -118,7 +132,7 @@ extension LoginVC {
         formView.addSubview(titleLabel)
         formView.addSubview(loginButton)
         formView.addSubview(forgotPassButton)
-        formView.addSubview(vStackView)
+        formView.addSubview(formStack)
         formView.addSubview(hStackView)
         
         // MARK: Setup constraints
@@ -139,7 +153,7 @@ extension LoginVC {
         
         forgotPassButton.snp.makeConstraints { make in
             make.height.equalTo(20)
-            make.top.equalTo(vStackView.snp.bottom).offset(24)
+            make.top.equalTo(formStack.snp.bottom).offset(24)
             make.trailing.equalTo(formView).offset(-24)
         }
         
@@ -149,7 +163,7 @@ extension LoginVC {
             make.leading.trailing.equalTo(formView).inset(24)
         }
         
-        vStackView.snp.makeConstraints { make in
+        formStack.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(24)
             make.leading.trailing.equalTo(formView).inset(24)
         }
@@ -158,15 +172,5 @@ extension LoginVC {
             make.bottom.equalTo(formView.safeAreaLayoutGuide.snp.bottom).offset(-24)
             make.centerX.equalTo(formView.snp.centerX)
         }
-    }
-    
-    func addLeftImage(textField: UITextField, image: UIImage) {
-        let padding = 16
-        let boundingView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + CGFloat(padding + 8), height: image.size.height) )
-        let imageView = UIImageView(frame: CGRect(x: CGFloat(padding), y: 0, width: image.size.width, height: image.size.height))
-        imageView.image = image
-        boundingView.addSubview(imageView)
-        textField.leftView = boundingView
-        textField.leftViewMode = .always
     }
 }

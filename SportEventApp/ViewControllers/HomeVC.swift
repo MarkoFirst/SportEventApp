@@ -12,7 +12,9 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var events: [Event] = []
+    let service = CoreDataService()
+    
+    var events: [EventCD] = []
     
     struct Cells {
         static let newsCellId = "newsCell"
@@ -23,61 +25,29 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        events = fetchData()
+        events = service.getEvents()
         setupNavBar()
         setupTableView()
     }
     
-    func setupTableView() {
-        tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: Cells.newsCellId)
-        tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: Cells.sportTCellId)
-        tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: Cells.eventCellId)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        events = service.getEvents()
+        tableView.reloadData()
     }
     
-    func setupNavBar() {
+    
+    // MARK: Open VC for creating an event
+    
+    @objc func createNewEvent() {
+        let newEventVC = AddEventVC()
         
-        navigationItem.hidesBackButton = true;
-        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
-        
-        // MARK: Configure shareButton
-        
-        let shareButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        shareButton.setImage(UIImage(named: "search")?.withTintColor(UIColor.black), for: .normal)
-        shareButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        let shareButtonItem = UIBarButtonItem(customView: shareButton)
-        
-        // MARK: Configure bookmarkButton
-        
-        let bookmarkButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        bookmarkButton.setImage(UIImage(named: "bell")?.withTintColor(UIColor.black), for: .normal)
-        bookmarkButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        let bookmarkButtonItem = UIBarButtonItem(customView: bookmarkButton)
-        
-        // MARK: Configure userAvatar
-        
-        let userAvatar = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        userAvatar.setImage(UIImage(named: "avatar"), for: .normal)
-        userAvatar.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
-        
-        let userAvatarItem = UIBarButtonItem(customView: userAvatar)
-        
-        // MARK: Configure leftButtonItem
-        
-        let leftButtonItem = UIBarButtonItem(title: "Live score", style: .plain, target: nil, action: nil)
-        
-        navigationItem.rightBarButtonItems = [userAvatarItem, bookmarkButtonItem, shareButtonItem]
-        navigationItem.leftBarButtonItem = leftButtonItem
+        newEventVC.modalPresentationStyle = .fullScreen
+        present(newEventVC, animated: true, completion: nil)
     }
     
-    @objc func buttonTapped() {
-        print("You tap on button")
-    }
+    // MARK: Go to the profile VC
     
     @objc func goToProfile () {
         navigationController?.pushViewController(ProfileVC(), animated: true)
@@ -85,6 +55,8 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -114,37 +86,29 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return sportCell
         case 2:
-            guard let sportEvent = events[indexPath.row] as? SportEvent else {
+            guard let sportEvent = events[indexPath.row] as? EventCD else {
                 return UITableViewCell()
             }
             
             // Setup first team label
             if let firstTeamLabel = eventCell.firstTeamLabel {
-                firstTeamLabel.text = sportEvent.teams.first?.name ?? "Unknown team"
+                firstTeamLabel.text = sportEvent.firstTeam ?? "Unknown team"
             }
             
             // Setup second team label
             if let secondTeamLabel = eventCell.secondTeamLabel {
-                secondTeamLabel.text = sportEvent.teams.last?.name ?? "Unknown team"
-            }
-            
-            // Setup first team logo
-            if let firstTeamImage = eventCell.firstTeamImage {
-                if let firstTeamLogoName = sportEvent.teams.first?.logo {
-                    firstTeamImage.image = UIImage(named: firstTeamLogoName) ?? UIImage(named: "unknown")
-                }
-            }
-            
-            // Setup second team logo
-            if let secondTeamImage = eventCell.secondTeamImage {
-                if let secondTeamLogoName = sportEvent.teams.last?.logo {
-                    secondTeamImage.image = UIImage(named: secondTeamLogoName) ?? UIImage(named: "unknown")
-                }
+                secondTeamLabel.text = sportEvent.secondTeam ?? "Unknown team"
             }
             
             // Setup event date
-            if let eventDate = eventCell.eventDateLabel {
-                eventDate.text = sportEvent.dateCompactString
+            if let eventDate = eventCell.eventDateLabel,
+               let startDate = sportEvent.startDate {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "E, MMM d"
+                let dateString = dateFormatter.string(from: startDate)
+                eventDate.text = dateString
+            } else {
+                eventCell.eventDateLabel?.text = "No Date"
             }
             
             return eventCell
@@ -185,50 +149,77 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             
         }
     }
+    
+    // MARK: - UITableViewDelegate
+        
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Allowing deletion of events only in the "Live Match" section
+        return indexPath.section == 2
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Get the event to be deleted from the events array
+            let eventToRemove = events[indexPath.row]
+            
+            // Delete the event from the database using CoreDataService
+            service.deleteEvent(event: eventToRemove)
+            
+            // Remove the event from the array
+            events.remove(at: indexPath.row)
+            
+            // Update the table view
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
 extension HomeVC {
     
-    func fetchData() -> [Event] {
-        // Create Date objects for each event with different dates
-        let date1 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 28, hour: 18, minute: 0))!
-        let date2 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 15, hour: 19, minute: 30))!
-        let date3 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 20, hour: 20, minute: 15))!
-        let date4 = Calendar.current.date(from: DateComponents(year: 2023, month: 9, day: 25, hour: 17, minute: 45))!
+    func setupTableView() {
+        tableView.register(UINib(nibName: "NewsTVC", bundle: nil), forCellReuseIdentifier: Cells.newsCellId)
+        tableView.register(UINib(nibName: "SportTVC", bundle: nil), forCellReuseIdentifier: Cells.sportTCellId)
+        tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: Cells.eventCellId)
         
-        func createEvent(teams: [Team], date: Date, title: String, place: Place, description: String, coverName: String?) -> Event {
-            guard let commonSport = teams.first?.sport.type,
-                  teams.allSatisfy({ $0.sport.type == commonSport }),
-                  let equipment = teams.first?.sport.equipment,
-                  teams.allSatisfy({ $0.sport.equipment == equipment }),
-                  let sportName = teams.first?.sport.name,
-                  teams.allSatisfy({ $0.sport.name == sportName })
-            else {
-                fatalError("Invalid event creation data.")
-            }
-            
-            let event = SportEvent(
-                eventCoverName: coverName,
-                title: title,
-                description: description,
-                date: date,
-                location: place,
-                tickets: place.tickets,
-                sport: Sport(name: sportName, type: commonSport, equipment: equipment),
-                teams: teams
-            )
-            
-            return event
-        }
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func setupNavBar() {
         
-        let event1 = createEvent(teams: [chicagoBulls, lakers], date: date1, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "bullsvslakers")
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.hidesBackButton = true;
+        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false;
         
-        let event2 = createEvent(teams: [celtics, warriors], date: date2, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "celticsvswarriors")
+        // MARK: Configure shareButton
         
-        let event3 = createEvent(teams: [heat, nets], date: date3, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "netsvsheat")
+        let addEventButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        addEventButton.setImage(UIImage(named: "newEvent")?.withTintColor(UIColor.black), for: .normal)
+        addEventButton.addTarget(self, action: #selector(createNewEvent), for: .touchUpInside)
         
-        let event4 = createEvent(teams: [sixers, bucks], date: date4, title: "High-Stakes Showdown: The Clash of Titans", place: staplesCenter, description: "Get ready for an electrifying night of basketball as two powerhouse teams collide in a thrilling match that promises to leave you on the edge of your seat. The tension is palpable, the excitement is contagious, and the hardwood court is about to witness a display of skill, athleticism, and teamwork like never before.", coverName: "76vsbucks")
+        let addEventButtonItem = UIBarButtonItem(customView: addEventButton)
         
-        return [event1, event2, event3, event4]
+        // MARK: Configure bookmarkButton
+        
+        let bookmarkButton = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        bookmarkButton.setImage(UIImage(named: "bell")?.withTintColor(UIColor.black), for: .normal)
+        
+        let bookmarkButtonItem = UIBarButtonItem(customView: bookmarkButton)
+        
+        // MARK: Configure userAvatar
+        
+        let userAvatar = UIButton(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        userAvatar.setImage(UIImage(named: "avatar"), for: .normal)
+        userAvatar.addTarget(self, action: #selector(goToProfile), for: .touchUpInside)
+        
+        let userAvatarItem = UIBarButtonItem(customView: userAvatar)
+        
+        // MARK: Configure leftButtonItem
+        
+        let leftLabelItem = UIBarButtonItem(title: "Live score", style: .plain, target: nil, action: nil)
+        
+        navigationItem.rightBarButtonItems = [userAvatarItem, bookmarkButtonItem, addEventButtonItem]
+        navigationItem.leftBarButtonItem = leftLabelItem
     }
 }

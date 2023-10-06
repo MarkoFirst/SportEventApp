@@ -39,6 +39,14 @@
 		CC7CD6202AAEF612004E6939 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC7CD61F2AAEF612004E6939 /* SnapKit */; };
 		CC944BFE2AC1BB5200C2F6C7 /* DiscsplineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC944BFD2AC1BB5200C2F6C7 /* DiscsplineView.swift */; };
 		CC944C002AC1D66300C2F6C7 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC944BFF2AC1D66300C2F6C7 /* GoalView.swift */; };
+		CC9B01982ACC6760006DB528 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01962ACC6760006DB528 /* CoreDataModel.xcdatamodeld */; };
+		CC9B01A02ACCA317006DB528 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B019F2ACCA317006DB528 /* CoreDataService.swift */; };
+		CC9B01A32ACCA67F006DB528 /* UserCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01A12ACCA67F006DB528 /* UserCD+CoreDataClass.swift */; };
+		CC9B01A42ACCA67F006DB528 /* UserCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01A22ACCA67F006DB528 /* UserCD+CoreDataProperties.swift */; };
+		CC9B01A82ACCCEF6006DB528 /* CustomTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01A72ACCCEF6006DB528 /* CustomTF.swift */; };
+		CC9B01AA2ACD793D006DB528 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01A92ACD793D006DB528 /* AddEventVC.swift */; };
+		CC9B01B12ACDE6CD006DB528 /* EventCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01AF2ACDE6CD006DB528 /* EventCD+CoreDataClass.swift */; };
+		CC9B01B22ACDE6CD006DB528 /* EventCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B01B02ACDE6CD006DB528 /* EventCD+CoreDataProperties.swift */; };
 		CCA478302A9F8F82002D8904 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4782F2A9F8F82002D8904 /* SignupVC.swift */; };
 		CCA8C8B42AB070A30002BF94 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8C8B32AB070A20002BF94 /* ProfileVC.swift */; };
 		CCA8C8BA2AB114770002BF94 /* AthleteInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8C8B92AB114770002BF94 /* AthleteInfoTVC.swift */; };
@@ -97,6 +105,14 @@
 		CC7CD61C2AAEF5BD004E6939 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CC944BFD2AC1BB5200C2F6C7 /* DiscsplineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscsplineView.swift; sourceTree = "<group>"; };
 		CC944BFF2AC1D66300C2F6C7 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		CC9B01972ACC6760006DB528 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CC9B019F2ACCA317006DB528 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		CC9B01A12ACCA67F006DB528 /* UserCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CC9B01A22ACCA67F006DB528 /* UserCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CC9B01A72ACCCEF6006DB528 /* CustomTF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTF.swift; sourceTree = "<group>"; };
+		CC9B01A92ACD793D006DB528 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
+		CC9B01AF2ACDE6CD006DB528 /* EventCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CC9B01B02ACDE6CD006DB528 /* EventCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCA4782F2A9F8F82002D8904 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		CCA8C8B32AB070A20002BF94 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		CCA8C8B92AB114770002BF94 /* AthleteInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteInfoTVC.swift; sourceTree = "<group>"; };
@@ -180,6 +196,12 @@
 				CC3A108D2AA8B69700F75BB9 /* User.swift */,
 				CC3A10832AA8B69700F75BB9 /* Enums */,
 				CCA9ED042AA9D2B7000222C0 /* Instance */,
+				CC9B01962ACC6760006DB528 /* CoreDataModel.xcdatamodeld */,
+				CC9B01A12ACCA67F006DB528 /* UserCD+CoreDataClass.swift */,
+				CC9B01A22ACCA67F006DB528 /* UserCD+CoreDataProperties.swift */,
+				CC9B01AF2ACDE6CD006DB528 /* EventCD+CoreDataClass.swift */,
+				CC9B01B02ACDE6CD006DB528 /* EventCD+CoreDataProperties.swift */,
+				CC9B019F2ACCA317006DB528 /* CoreDataService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +216,7 @@
 				CCA4782F2A9F8F82002D8904 /* SignupVC.swift */,
 				8195CCC02A98FA5E000A917F /* ViewController.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
+				CC9B01A92ACD793D006DB528 /* AddEventVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -225,6 +248,7 @@
 			children = (
 				CCA8C8B92AB114770002BF94 /* AthleteInfoTVC.swift */,
 				CC44BAA02AB9DF950020201B /* AthleteStatView.swift */,
+				CC9B01A72ACCCEF6006DB528 /* CustomTF.swift */,
 				CC944BFD2AC1BB5200C2F6C7 /* DiscsplineView.swift */,
 				CC44BAA22ABC54740020201B /* DiscussionTVC.swift */,
 				CCA9ED162AAB3232000222C0 /* EventDescTVC.swift */,
@@ -335,8 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9B01A02ACCA317006DB528 /* CoreDataService.swift in Sources */,
 				CCA9ED032AA9D2B0000222C0 /* Teams.swift in Sources */,
 				8195CCC12A98FA5E000A917F /* ViewController.swift in Sources */,
+				CC9B01B12ACDE6CD006DB528 /* EventCD+CoreDataClass.swift in Sources */,
 				CC3A109E2AA8B69700F75BB9 /* DesignSystem.swift in Sources */,
 				CC44BAA52ABC54A70020201B /* HistoryTVC.swift in Sources */,
 				CC3A109F2AA8B69700F75BB9 /* Settings.swift in Sources */,
@@ -352,6 +378,7 @@
 				CCF86B262AA689D700B210C9 /* NewsTVC.swift in Sources */,
 				8195CCBD2A98FA5E000A917F /* AppDelegate.swift in Sources */,
 				CCA8C8B42AB070A30002BF94 /* ProfileVC.swift in Sources */,
+				CC9B01A82ACCCEF6006DB528 /* CustomTF.swift in Sources */,
 				8195CCBF2A98FA5E000A917F /* SceneDelegate.swift in Sources */,
 				CC3A10982AA8B69700F75BB9 /* Event.swift in Sources */,
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
@@ -362,10 +389,12 @@
 				CCA9ED0C2AAB2A87000222C0 /* EventInfoVC.swift in Sources */,
 				CC3A10932AA8B69700F75BB9 /* Gender.swift in Sources */,
 				CCA9ED0A2AA9F8CC000222C0 /* Sports.swift in Sources */,
+				CC9B01AA2ACD793D006DB528 /* AddEventVC.swift in Sources */,
 				CC3A109B2AA8B69700F75BB9 /* SportEvent.swift in Sources */,
 				CC44BAA32ABC54740020201B /* DiscussionTVC.swift in Sources */,
 				CC3A10972AA8B69700F75BB9 /* Theme.swift in Sources */,
 				CC44BAA72ABC54EA0020201B /* StatsTVC.swift in Sources */,
+				CC9B01A42ACCA67F006DB528 /* UserCD+CoreDataProperties.swift in Sources */,
 				CCF86B1B2AA5CB5000B210C9 /* HomeVC.swift in Sources */,
 				CCA9ED142AAB321E000222C0 /* EventImageTVC.swift in Sources */,
 				CCF86B322AA72E8900B210C9 /* SportTVC.swift in Sources */,
@@ -375,11 +404,14 @@
 				8195CCD62A9CB492000A917F /* ClassExample.swift in Sources */,
 				CC3A10962AA8B69700F75BB9 /* SportType.swift in Sources */,
 				CCF86B302AA72A7400B210C9 /* SportCVC.swift in Sources */,
+				CC9B01982ACC6760006DB528 /* CoreDataModel.xcdatamodeld in Sources */,
 				CCA8C8BA2AB114770002BF94 /* AthleteInfoTVC.swift in Sources */,
 				CCF86B2C2AA696F100B210C9 /* EventTVC.swift in Sources */,
+				CC9B01B22ACDE6CD006DB528 /* EventCD+CoreDataProperties.swift in Sources */,
 				CC3A109A2AA8B69700F75BB9 /* Ticket.swift in Sources */,
 				CC3A109C2AA8B69700F75BB9 /* User.swift in Sources */,
 				CC3A10A12AA8B69700F75BB9 /* Athlete.swift in Sources */,
+				CC9B01A32ACCA67F006DB528 /* UserCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +651,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		CC9B01962ACC6760006DB528 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC9B01972ACC6760006DB528 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = CC9B01972ACC6760006DB528 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8195CCB12A98FA5E000A917F /* Project object */;
 }

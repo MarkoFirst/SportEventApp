@@ -19,7 +19,7 @@ class EventInfoVC: UIViewController {
     
     @IBOutlet weak var userAvatar: UIImageView!
     
-    var event: Event?
+    var event: EventCD?
     
     struct Cells {
         static let eventHeaderId = "eventHeaderCell"
@@ -107,18 +107,30 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             headerCell.headerTitleLabel.text = event?.title
-            headerCell.headerDateLabel.text = event?.dateFullString
-
-            if let event = event as? SportEvent {
-                headerCell.headerSportLabel.text = event.sport.name
+            
+            if let eventDate = headerCell.headerDateLabel,
+               let startDate = event?.startDate {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "E, MMM d"
+                let dateString = dateFormatter.string(from: startDate)
+                eventDate.text = dateString
+            } else {
+                headerCell.headerDateLabel?.text = "No Date"
             }
+
+                headerCell.headerSportLabel.text = "Basketball"
             
             return headerCell
         case 1:
-            imageCell.headerImage.image = event?.setEventCover
+            if let eventData = event?.eventCover,
+                let image = UIImage(data: eventData) {
+                imageCell.headerImage.image = image
+            } else {
+                imageCell.headerImage.image = UIImage(named: "mask") 
+            }
             return imageCell
         case 2:
-            descCell.headerDescTextView.text = event?.description
+            descCell.headerDescTextView.text = event?.desc
             return descCell
         default:
             return UITableViewCell()

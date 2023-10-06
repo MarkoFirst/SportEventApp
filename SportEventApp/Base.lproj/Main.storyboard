@@ -233,6 +233,7 @@
                         <outlet property="emailTF" destination="pUy-YK-nx2" id="3ar-D4-vdr"/>
                         <outlet property="nameTF" destination="P0R-8d-U77" id="8uk-Ru-w1R"/>
                         <outlet property="passwordTF" destination="FeX-Du-bYA" id="svo-7v-tRq"/>
+                        <outlet property="signUp" destination="PYd-yQ-Mf4" id="iHA-eZ-lPF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ey-Lo-Bkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
