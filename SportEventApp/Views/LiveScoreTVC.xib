@@ -156,7 +156,7 @@
     <resources>
         <image name="Blur" width="382" height="255"/>
         <image name="LiveScroreTVCIcon" width="382" height="255"/>
-        <image name="PremierLeagueLogo" width="3000" height="3756"/>
+        <image name="PremierLeagueLogo" width="200" height="251"/>
         <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="shield.fill" catalog="system" width="128" height="121"/>
         <systemColor name="secondaryLabelColor">

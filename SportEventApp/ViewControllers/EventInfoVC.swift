@@ -71,7 +71,7 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             
         case 0:
             titleCell.eventTitle.text = event?.title
-            titleCell.eventDate.text = event?.date
+            titleCell.eventDate.text = event?.dateFormatter()
             if let event_ = event as? TeamSportEvent {
                 titleCell.eventType.text = event_.typeOfSport.rawValue
             } else if let event_ = event as? DoublesSportEvent {
