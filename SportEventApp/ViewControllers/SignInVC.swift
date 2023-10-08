@@ -229,7 +229,7 @@ extension SignInVC {
         let realmUsersList = realm.objects(User.self)
         let user = realmUsersList.first( where: { $0.email == login || $0.login == login && $0.password == password})
         
-        guard let user else {
+        guard user != nil else {
             showAlert(title: "Oops!", message: "User not found")
             return
         }

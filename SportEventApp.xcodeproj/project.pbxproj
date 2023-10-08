@@ -72,6 +72,7 @@
 		77A469752AA87C1C008EE323 /* EventTypeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A469742AA87C1C008EE323 /* EventTypeCVC.swift */; };
 		77B4B4822ABF60BE001D46C3 /* NewsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */; };
 		77E536F22AC9E52700ACAB17 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E536F12AC9E52700ACAB17 /* Trophy.swift */; };
+		77E8FF4C2AD33E45005AFD69 /* EventCreatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8FF4B2AD33E45005AFD69 /* EventCreatorVC.swift */; };
 		77EFD8EB2AD2C86200B438D4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77EFD8EA2AD2C86200B438D4 /* Realm */; };
 		77EFD8ED2AD2C86200B438D4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77EFD8EC2AD2C86200B438D4 /* RealmSwift */; };
 		77FD21E82AC232DB0090799E /* TrophiesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FD21E72AC232DB0090799E /* TrophiesTVC.swift */; };
@@ -150,6 +151,7 @@
 		77A469742AA87C1C008EE323 /* EventTypeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypeCVC.swift; sourceTree = "<group>"; };
 		77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTVC.swift; sourceTree = "<group>"; };
 		77E536F12AC9E52700ACAB17 /* Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
+		77E8FF4B2AD33E45005AFD69 /* EventCreatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatorVC.swift; sourceTree = "<group>"; };
 		77FD21E72AC232DB0090799E /* TrophiesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesTVC.swift; sourceTree = "<group>"; };
 		77FD21E92AC241750090799E /* TrophiesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesCVC.swift; sourceTree = "<group>"; };
 		8195CCB92A98FA5E000A917F /* SportEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +304,7 @@
 				776747562AA53053005725B3 /* EventInfoVC.swift */,
 				779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
+				77E8FF4B2AD33E45005AFD69 /* EventCreatorVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				776BAB962A9CDF9200BBC20D /* Place.swift in Sources */,
 				7734654F2AB709FB0074289D /* SignInVC.swift in Sources */,
 				7799E9392AC8F20400F19B70 /* CountryFlagList.swift in Sources */,
+				77E8FF4C2AD33E45005AFD69 /* EventCreatorVC.swift in Sources */,
 				776BAB762A9CD58400BBC20D /* TypeOfSport.swift in Sources */,
 				776BAB742A9CD57200BBC20D /* TypeOfGame.swift in Sources */,
 				779A54062AAB690E00099683 /* StartPageVC.swift in Sources */,

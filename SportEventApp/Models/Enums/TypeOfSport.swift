@@ -17,4 +17,5 @@ enum TypeOfSport: String {
     case poker = "Poker"
     case fencing = "Fencing"
     case cybersport = "Cybersport"
+    case other
 }
