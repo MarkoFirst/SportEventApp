@@ -8,8 +8,12 @@
 import Foundation
 import SnapKit
 import UIKit
+import RealmSwift
 
 class SignInVC: UIViewController {
+    
+    var userNameTextField: UITextField!
+    var userPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +26,6 @@ class SignInVC: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    
 }
 
 extension SignInVC: UITextFieldDelegate {
@@ -60,8 +63,9 @@ extension SignInVC: UITextFieldDelegate {
         let userNameImage = UIImageView(image: UIImage(named: "mailLogo"))
         userNameView.addSubview(userNameImage)
         
-        let userNameTextField = UITextField()
+        userNameTextField = UITextField()
         userNameTextField.placeholder = "Email or username"
+        userNameTextField.autocapitalizationType = .none
         userNameTextField.textContentType = .username
         userNameTextField.textColor = UIColor(red: 0.761, green: 0.761, blue: 0.761, alpha: 1)
         userNameTextField.delegate = self
@@ -79,7 +83,7 @@ extension SignInVC: UITextFieldDelegate {
         let userPasswordInvisibleImage = UIImageView(image: UIImage(named: "invisibleLogo"))
         userPasswordView.addSubview(userPasswordInvisibleImage)
         
-        let userPasswordTextField = UITextField()
+        userPasswordTextField = UITextField()
         userPasswordTextField.placeholder = "Password"
         userPasswordTextField.textContentType = .password
         userPasswordTextField.isSecureTextEntry = true
@@ -207,12 +211,37 @@ extension SignInVC: UITextFieldDelegate {
     }
     
     @objc private func tapSignIn() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainStoryboard") as! MainTableVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        let login = userNameTextField.text ?? ""
+        let password = userPasswordTextField.text ?? ""
+        checkUser(login: login, password: password)
     }
     
     @objc private func tapSignUp() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpStoryboard") as! SignUpVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SignInVC {
+    
+    private func checkUser(login: String, password: String) {
+        let realm = try! Realm()
+        let realmUsersList = realm.objects(User.self)
+        let user = realmUsersList.first( where: { $0.email == login || $0.login == login && $0.password == password})
+        
+        guard let user else {
+            showAlert(title: "Oops!", message: "User not found")
+            return
+        }
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainStoryboard") as! MainTableVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

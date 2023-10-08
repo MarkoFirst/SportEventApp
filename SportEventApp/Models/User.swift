@@ -6,44 +6,28 @@
 //
 
 import Foundation
+import RealmSwift
 
-class User {
-    let id: UInt
-    private var email: String
-    private var phoneNumber: String
-    private var firstName: String
-    private var lastName: String
-    private let birthday: String
-    private var userSettings: Settings
+class User: Object {
+    @Persisted var login: String
+    @Persisted var email: String
+    @Persisted var password: String
+    @Persisted(primaryKey: true) var id: String = UUID().uuidString
+    private var userSettings: Settings?
     var favoritesEvent: [Event] = []
     var favoritesSport: [Sport] = []
     var favoritesTeam: [Team] = []
     var favoritesAthlete: [Athlete] = []
     
-    init(id: UInt, email: String, phoneNumber: String, firstName: String, lastName: String, birthday: String, userSettings: Settings) {
-        self.id = id
+    convenience init(login: String, email: String, password: String) {
+        self.init()
+        self.login = login
         self.email = email
-        self.phoneNumber = phoneNumber
-        self.firstName = firstName
-        self.lastName = lastName
-        self.birthday = birthday
-        self.userSettings = userSettings
+        self.password = password
     }
     
     func changeEmail(to newEmail: String) {
         self.email = newEmail
-    }
-    
-    func changePhoneNumber(to newPhoneNumber: String) {
-        self.phoneNumber = newPhoneNumber
-    }
-    
-    func changeFirstName(to newFirstName: String) {
-        self.firstName = newFirstName
-    }
-    
-    func changeLastName(to newLastName: String) {
-        self.lastName = newLastName
     }
     
     func addFavoriteEvent(event: Event) {

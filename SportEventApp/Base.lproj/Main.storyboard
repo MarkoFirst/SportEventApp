@@ -228,7 +228,7 @@
                                                         <rect key="frame" x="44" y="16" width="312" height="26"/>
                                                         <color key="textColor" red="0.79492888790000005" green="0.79492888790000005" blue="0.79492888790000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.04321392626" green="0.1425270736" blue="0.2509923577" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -395,6 +395,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapSignUp:" destination="sgx-mE-O2Y" eventType="touchUpInside" id="eEp-sJ-v0t"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNp-Cl-hRW">
                                 <rect key="frame" x="94" y="841.33333333333337" width="242" height="32.666666666666629"/>
