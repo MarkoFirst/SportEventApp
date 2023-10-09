@@ -27,8 +27,6 @@ class EventCreatorVC: UIViewController {
     var secondParticipantTextField: UITextField!
     var imagePicker: UIImagePickerController!
     
-    let allTypeOfSport: [TypeOfSport] = [.football, .basketball, .volleyball, .tennis, .pingpong, .chess, .poker, .fencing, .cybersport, .other]
-    
     let donbassArena = Place(name: "Donbass Arena", type: .stadium, contry: .Ukraine, maxSpectatorsCount: 52187, typeSport: [.football, .chess, .volleyball], priceFrom: 100, priceTo: 3000, currency: .UAH)
     let arturAsheStadium = Place(name: "Arthur Ashe Stadium", type: .stadium, contry: .UnitedStates, maxSpectatorsCount: 10000, typeSport: [.tennis, .volleyball], priceFrom: 100, priceTo: 3000, currency: .USD)
     let campNou = Place(name: "Camp Nou", type: .stadium, contry: .Spain, maxSpectatorsCount: 99354, typeSport: [.football], priceFrom: 60, priceTo: 2500, currency: .EUR)
@@ -49,16 +47,16 @@ class EventCreatorVC: UIViewController {
     var athletes: [Athlete] = []
     var allPlces: [Place]?
     var filteredPlaces: [Place] = []
-    var gameType: [TypeOfGame] = [.double, .team]
     
-    var titleLabel: String?
-    var descriptionLabel: String?
-    var datePickerValue: Date?
-    var eventTypePickerValue: TypeOfSport?
-    var eventPlacePickerValue: Place?
-    var gameTypePickerValue: TypeOfGame?
-    var firstParticipant: Participant?
-    var secondParticipant: Participant?
+    var eventTitle: String?
+    var eventDescription: String?
+    var eventDate: Date?
+    var eventType: TypeOfSport?
+    var eventPlace: Place?
+    var gameType: TypeOfGame?
+    var eventFirstParticipant: Participant?
+    var eventSecondParticipant: Participant?
+    var eventImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +73,16 @@ class EventCreatorVC: UIViewController {
         textField.resignFirstResponder()
         return true
     }
+    
+    func dismissKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(EventCreatorVC.dismissKeyboardTouchOutside))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboardTouchOutside() {
+        view.endEditing(true)
+    }
 }
 
 extension EventCreatorVC: UITextFieldDelegate {
@@ -88,20 +96,10 @@ extension EventCreatorVC: UITextFieldDelegate {
         mainLabel.font = .boldSystemFont(ofSize: 32)
         view.addSubview(mainLabel)
         
-        mainLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
         let eventTitleLabel = UILabel()
         eventTitleLabel.text = "1. Event title:"
         eventTitleLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventTitleLabel)
-        
-        eventTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(mainLabel.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
         
         eventTitleTF = UITextField()
         eventTitleTF.placeholder = "Title"
@@ -110,21 +108,11 @@ extension EventCreatorVC: UITextFieldDelegate {
         eventTitleTF.textColor = .black
         eventTitleTF.delegate = self
         view.addSubview(eventTitleTF)
-        eventTitleTF.snp.makeConstraints {
-            $0.top.equalTo(eventTitleLabel.snp.bottom).inset(-8)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(28)
-        }
         
         let eventDescriptionLabel = UILabel()
         eventDescriptionLabel.text = "2. Event description:"
         eventDescriptionLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventDescriptionLabel)
-        
-        eventDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(eventTitleTF.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
         
         eventDescriptionTF = UITextField()
         eventDescriptionTF.placeholder = "Description"
@@ -133,43 +121,22 @@ extension EventCreatorVC: UITextFieldDelegate {
         eventDescriptionTF.textColor = .black
         eventDescriptionTF.delegate = self
         view.addSubview(eventDescriptionTF)
-        eventDescriptionTF.snp.makeConstraints {
-            $0.top.equalTo(eventDescriptionLabel.snp.bottom).inset(-8)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(28)
-        }
         
         let eventDateLabel = UILabel()
         eventDateLabel.text = "3. Event date:"
         eventDateLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventDateLabel)
         
-        eventDateLabel.snp.makeConstraints {
-            $0.top.equalTo(eventDescriptionTF.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
         eventDatePicker = UIDatePicker()
         eventDatePicker.datePickerMode = .dateAndTime
         eventDatePicker.preferredDatePickerStyle = .compact
         eventDatePicker.backgroundColor = .clear
         view.addSubview(eventDatePicker)
-        eventDatePicker.snp.makeConstraints {
-            $0.centerY.equalTo(eventDateLabel.snp.centerY)
-            $0.leading.equalTo(eventDateLabel.snp.trailing).inset(-4)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(32)
-        }
         
         let eventTypeOfSportLabel = UILabel()
         eventTypeOfSportLabel.text = "4. Event type:"
         eventTypeOfSportLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventTypeOfSportLabel)
-        
-        eventTypeOfSportLabel.snp.makeConstraints {
-            $0.top.equalTo(eventDatePicker.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
         
         typeOfSportPicker = UIPickerView()
         typeOfSportPicker.delegate = self
@@ -177,12 +144,6 @@ extension EventCreatorVC: UITextFieldDelegate {
         
         typeOfSportTextField = UITextField()
         view.addSubview(typeOfSportTextField)
-        typeOfSportTextField.snp.makeConstraints {
-            $0.centerY.equalTo(eventTypeOfSportLabel.snp.centerY)
-            $0.leading.equalTo(eventTypeOfSportLabel.snp.trailing).inset(-4)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(32)
-        }
         
         typeOfSportTextField.borderStyle = .roundedRect
         typeOfSportTextField.placeholder = "Select event type"
@@ -194,23 +155,12 @@ extension EventCreatorVC: UITextFieldDelegate {
         eventPlaceLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventPlaceLabel)
         
-        eventPlaceLabel.snp.makeConstraints {
-            $0.top.equalTo(typeOfSportTextField.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
         placePicker = UIPickerView()
         placePicker.delegate = self
         placePicker.dataSource = self
         
         placeTextField = UITextField()
         view.addSubview(placeTextField)
-        placeTextField.snp.makeConstraints {
-            $0.centerY.equalTo(eventPlaceLabel.snp.centerY)
-            $0.leading.equalTo(eventPlaceLabel.snp.trailing).inset(-4)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(32)
-        }
         
         placeTextField.borderStyle = .roundedRect
         placeTextField.placeholder = "Select event place"
@@ -222,23 +172,12 @@ extension EventCreatorVC: UITextFieldDelegate {
         gameTypeLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(gameTypeLabel)
         
-        gameTypeLabel.snp.makeConstraints {
-            $0.top.equalTo(placeTextField.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
         gameTypePicker = UIPickerView()
         gameTypePicker.delegate = self
         gameTypePicker.dataSource = self
         
         gameTypeTextField = UITextField()
         view.addSubview(gameTypeTextField)
-        gameTypeTextField.snp.makeConstraints {
-            $0.centerY.equalTo(gameTypeLabel.snp.centerY)
-            $0.leading.equalTo(gameTypeLabel.snp.trailing).inset(-4)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(32)
-        }
         
         gameTypeTextField.borderStyle = .roundedRect
         gameTypeTextField.placeholder = "Select game type"
@@ -250,11 +189,6 @@ extension EventCreatorVC: UITextFieldDelegate {
         eventParticipantsLabel.font = UIFont(name: "Helvetica", size: 20)
         view.addSubview(eventParticipantsLabel)
         
-        eventParticipantsLabel.snp.makeConstraints {
-            $0.top.equalTo(gameTypeTextField.snp.bottom).inset(-24)
-            $0.leading.equalToSuperview().inset(20)
-        }
-        
         let participantsStackView = UIStackView()
         participantsStackView.axis = .horizontal
         participantsStackView.spacing = 8
@@ -262,21 +196,12 @@ extension EventCreatorVC: UITextFieldDelegate {
         participantsStackView.alignment = .center
         view.addSubview(participantsStackView)
         
-        participantsStackView.snp.makeConstraints {
-            $0.top.equalTo(eventParticipantsLabel.snp.bottom).inset(-12)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(40)
-        }
-        
         firstParticipantPicker = UIPickerView()
         firstParticipantPicker.delegate = self
         firstParticipantPicker.dataSource = self
         
         firstParticipantTextField = UITextField()
         participantsStackView.addArrangedSubview(firstParticipantTextField)
-        firstParticipantTextField.snp.makeConstraints {
-            $0.height.equalTo(32)
-        }
         
         firstParticipantTextField.borderStyle = .roundedRect
         firstParticipantTextField.placeholder = "Select first participant"
@@ -288,76 +213,174 @@ extension EventCreatorVC: UITextFieldDelegate {
         vsLabel.textAlignment = .center
         vsLabel.font = UIFont(name: "Helvetica", size: 20)
         participantsStackView.addArrangedSubview(vsLabel)
-        vsLabel.snp.makeConstraints {
-            $0.size.equalTo(32)
-        }
+        
         secondParticipantPicker = UIPickerView()
         secondParticipantPicker.delegate = self
         secondParticipantPicker.dataSource = self
         
         secondParticipantTextField = UITextField()
         participantsStackView.addArrangedSubview(secondParticipantTextField)
-        secondParticipantTextField.snp.makeConstraints {
-            $0.height.equalTo(32)
-        }
         
         secondParticipantTextField.borderStyle = .roundedRect
         secondParticipantTextField.placeholder = "Select second participant"
         secondParticipantTextField.inputView = secondParticipantPicker
         secondParticipantTextField.delegate = self
         
+        let eventImagesLabel = UILabel()
+        eventImagesLabel.text = "8. Event image:"
+        eventImagesLabel.font = UIFont(name: "Helvetica", size: 20)
+        view.addSubview(eventImagesLabel)
         
-        imagePicker = UIImagePickerController()
-        
-        
-        
-        
-        
-        
+        let imageButton = UIButton(type: .system)
+        imageButton.setTitle("Select", for: .normal)
+        imageButton.tintColor = .black
+        imageButton.layer.cornerRadius = 8
+        imageButton.layer.borderWidth = 1
+        imageButton.layer.borderColor = UIColor.black.cgColor
+        imageButton.addTarget(self, action: #selector(setImage), for: .touchUpInside)
+        view.addSubview(imageButton)
         
         let button = UIButton(type: .system)
-        button.titleLabel?.text = "Ok"
-        button.tintColor = UIColor(red: 0.973, green: 0.98, blue: 1, alpha: 1)
-        button.titleLabel?.font = UIFont(name: "Helvetica", size: 18)
-        button.backgroundColor = UIColor(red: 0.184, green: 0.486, blue: 0.965, alpha: 1)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(tapOk), for: .touchUpInside)
+        button.setTitle("Create event", for: .normal)
+        button.tintColor = .black
+        button.layer.cornerRadius = 8
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(createEvent), for: .touchUpInside)
         view.addSubview(button)
+        
+        mainLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        eventTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(mainLabel.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        eventTitleTF.snp.makeConstraints {
+            $0.top.equalTo(eventTitleLabel.snp.bottom).inset(-8)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(28)
+        }
+        
+        eventDescriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(eventTitleTF.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        eventDescriptionTF.snp.makeConstraints {
+            $0.top.equalTo(eventDescriptionLabel.snp.bottom).inset(-8)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(28)
+        }
+        
+        eventDateLabel.snp.makeConstraints {
+            $0.top.equalTo(eventDescriptionTF.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        eventDatePicker.snp.makeConstraints {
+            $0.centerY.equalTo(eventDateLabel.snp.centerY)
+            $0.leading.equalTo(eventDateLabel.snp.trailing).inset(-4)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(32)
+        }
+        
+        eventTypeOfSportLabel.snp.makeConstraints {
+            $0.top.equalTo(eventDatePicker.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        typeOfSportTextField.snp.makeConstraints {
+            $0.centerY.equalTo(eventTypeOfSportLabel.snp.centerY)
+            $0.leading.equalTo(eventTypeOfSportLabel.snp.trailing).inset(-4)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(32)
+        }
+        
+        eventPlaceLabel.snp.makeConstraints {
+            $0.top.equalTo(typeOfSportTextField.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        placeTextField.snp.makeConstraints {
+            $0.centerY.equalTo(eventPlaceLabel.snp.centerY)
+            $0.leading.equalTo(eventPlaceLabel.snp.trailing).inset(-4)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(32)
+        }
+        
+        gameTypeLabel.snp.makeConstraints {
+            $0.top.equalTo(placeTextField.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        gameTypeTextField.snp.makeConstraints {
+            $0.centerY.equalTo(gameTypeLabel.snp.centerY)
+            $0.leading.equalTo(gameTypeLabel.snp.trailing).inset(-4)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(32)
+        }
+        
+        eventParticipantsLabel.snp.makeConstraints {
+            $0.top.equalTo(gameTypeTextField.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        participantsStackView.snp.makeConstraints {
+            $0.top.equalTo(eventParticipantsLabel.snp.bottom).inset(-12)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(40)
+        }
+        
+        firstParticipantTextField.snp.makeConstraints {
+            $0.height.equalTo(32)
+        }
+        
+        vsLabel.snp.makeConstraints {
+            $0.size.equalTo(32)
+        }
+        
+        secondParticipantTextField.snp.makeConstraints {
+            $0.height.equalTo(32)
+        }
+        
+        eventImagesLabel.snp.makeConstraints {
+            $0.top.equalTo(secondParticipantTextField.snp.bottom).inset(-24)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        imageButton.snp.makeConstraints {
+            $0.centerY.equalTo(eventImagesLabel.snp.centerY)
+            $0.leading.equalTo(eventImagesLabel.snp.trailing).inset(-20)
+            $0.height.equalTo(32)
+            $0.width.equalTo(80)
+        }
+        
         button.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(40)
             $0.height.equalTo(40)
-            $0.width.equalTo(80)
+            $0.width.equalTo(120)
         }
     }
     
-    @objc private func tapOk() {
-        titleLabel = eventTitleTF.text ?? ""
-        descriptionLabel = eventDescriptionTF.text ?? ""
-        datePickerValue = eventDatePicker.date
-        eventTypePickerValue = TypeOfSport(rawValue: typeOfSportTextField.text!) ?? TypeOfSport.other
-        eventPlacePickerValue = allPlces?.first(where: { $0.name == placeTextField.text } )
-        gameTypePickerValue = TypeOfGame(rawValue: gameTypeTextField.text!) ?? TypeOfGame.team
-        //        print(titleLabel)
-        //        print(descriptionLabel)
-        //        print(datePickerValue)
-        //        print(eventTypePickerValue)
-        //        print(eventPlacePickerValue)
-        //        print(gameTypePickerValue)
-    }
-    
-    func dismissKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(EventCreatorVC.dismissKeyboardTouchOutside))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc private func dismissKeyboardTouchOutside() {
-        view.endEditing(true)
+    @objc private func createEvent() {
+        eventTitle = eventTitleTF.text ?? ""
+        eventDescription = eventDescriptionTF.text ?? ""
+        eventDate = eventDatePicker.date
+        eventType = TypeOfSport(rawValue: typeOfSportTextField.text!) ?? TypeOfSport.other
+        eventPlace = allPlces?.first(where: { $0.name == placeTextField.text } )
+        gameType = TypeOfGame(rawValue: gameTypeTextField.text!) ?? TypeOfGame.double
+        print(gameType)
+        
     }
 }
-    
-    extension EventCreatorVC: UIPickerViewDelegate, UIPickerViewDataSource {
+
+extension EventCreatorVC: UIPickerViewDelegate, UIPickerViewDataSource {
+   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -366,11 +389,11 @@ extension EventCreatorVC: UITextFieldDelegate {
         switch pickerView {
             
         case typeOfSportPicker:
-            return allTypeOfSport.count
+            return TypeOfSport.allCases.count
         case placePicker:
             return filteredPlaces.count
         case gameTypePicker:
-            return gameType.count
+            return TypeOfGame.allCases.count
         case firstParticipantPicker, secondParticipantPicker:
             if gameTypeTextField.text == TypeOfGame.team.rawValue {
                 return teams.count
@@ -383,21 +406,20 @@ extension EventCreatorVC: UITextFieldDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         switch pickerView {
-            
         case typeOfSportPicker:
-            return allTypeOfSport[row].rawValue
+            return TypeOfSport.allCases[row].rawValue
         case placePicker:
             return filteredPlaces[row].name
         case gameTypePicker:
-            return gameType[row].rawValue
+            return TypeOfGame.allCases[row].rawValue
         case firstParticipantPicker:
             if gameTypeTextField.text == TypeOfGame.team.rawValue {
                 return teams[row].name
             } else {
                 return athletes[row].lastName
             }
-            
         case secondParticipantPicker:
             if gameTypeTextField.text == TypeOfGame.team.rawValue {
                 return teams[row].name
@@ -412,48 +434,61 @@ extension EventCreatorVC: UITextFieldDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch pickerView {
-            
         case typeOfSportPicker:
-            let placeType: TypeOfSport = allTypeOfSport[row]
-            typeOfSportTextField.text = allTypeOfSport[row].rawValue
+            let placeType: TypeOfSport = TypeOfSport.allCases[row]
+            typeOfSportTextField.text = TypeOfSport.allCases[row].rawValue
             filteredPlaces = allPlces?.filter { $0.typeSport.contains(placeType) } ?? []
             placeTextField.text = ""
             placePicker.reloadAllComponents()
-            
         case placePicker:
             if filteredPlaces.isEmpty {
                 placeTextField.text = ""
             } else {
                 placeTextField.text = filteredPlaces[row].name
             }
-            
         case gameTypePicker:
-            gameTypeTextField.text = gameType[row].rawValue
+            gameTypeTextField.text = TypeOfGame.allCases[row].rawValue
             firstParticipantTextField.text = ""
             secondParticipantTextField.text = ""
             firstParticipantPicker.reloadAllComponents()
             secondParticipantPicker.reloadAllComponents()
-            
         case firstParticipantPicker:
             if gameTypeTextField.text == TypeOfGame.team.rawValue && !teams.isEmpty {
                 firstParticipantTextField.text = teams[row].name
+                eventFirstParticipant = teams.first(where: { $0.name == firstParticipantTextField.text } )
             } else if gameTypeTextField.text == TypeOfGame.double.rawValue && !athletes.isEmpty{
                 firstParticipantTextField.text = athletes[row].lastName
+                eventFirstParticipant = athletes.first(where: { $0.lastName == firstParticipantTextField.text } )
             }
-            
         case secondParticipantPicker:
             if gameTypeTextField.text == TypeOfGame.team.rawValue && !teams.isEmpty {
                 secondParticipantTextField.text = teams[row].name
+                eventSecondParticipant = teams.first(where: { $0.name == secondParticipantTextField.text } )
             } else if gameTypeTextField.text == TypeOfGame.double.rawValue && !athletes.isEmpty{
                 secondParticipantTextField.text = athletes[row].lastName
+                eventSecondParticipant = athletes.first(where: { $0.lastName == secondParticipantTextField.text } )
             }
-            
-        default:
-            return
+        default: return
         }
     }
 }
 
 extension EventCreatorVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @objc private func setImage() {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            eventImage = image
+            picker.dismiss(animated: true)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
 }

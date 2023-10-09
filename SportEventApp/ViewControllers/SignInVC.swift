@@ -26,6 +26,27 @@ class SignInVC: UIViewController {
         textField.resignFirstResponder()
         return true
     }
+    
+    func dismissKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(SignInVC.dismissKeyboardTouchOutside))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboardTouchOutside() {
+        view.endEditing(true)
+    }
+    
+    @objc private func tapSignIn() {
+        let login = userNameTextField.text ?? ""
+        let password = userPasswordTextField.text ?? ""
+        checkUser(login: login, password: password)
+    }
+    
+    @objc private func tapSignUp() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpStoryboard") as! SignUpVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SignInVC: UITextFieldDelegate {
@@ -198,27 +219,6 @@ extension SignInVC: UITextFieldDelegate {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(24)
         }
-    }
-    
-    func dismissKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(SignInVC.dismissKeyboardTouchOutside))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc private func dismissKeyboardTouchOutside() {
-        view.endEditing(true)
-    }
-    
-    @objc private func tapSignIn() {
-        let login = userNameTextField.text ?? ""
-        let password = userPasswordTextField.text ?? ""
-        checkUser(login: login, password: password)
-    }
-    
-    @objc private func tapSignUp() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signUpStoryboard") as! SignUpVC
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -10,4 +10,8 @@ import Foundation
 enum TypeOfGame: String {
     case double = "Doubles sport"
     case team = "Teams sport"
+    
+    static var allCases: [TypeOfGame] {
+        return [.double, .team]
+    }
 }
