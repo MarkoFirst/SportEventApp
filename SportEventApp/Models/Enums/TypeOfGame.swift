@@ -8,6 +8,6 @@
 import Foundation
 
 enum TypeOfGame: String {
-    case Doubles
-    case Teamgame
+    case double = "Doubles sport"
+    case team = "Teams sport"
 }
