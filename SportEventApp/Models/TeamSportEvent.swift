@@ -7,12 +7,13 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class TeamSportEvent: SportEvent {
-    var teams: [Team]
+    @Persisted var teams: List<Team>
     
-    init(teams: [Team], typeOfSport: TypeOfSport, title: String, description: String, date: Date, place: Place, currency: CurrencyList, iconName: String) {
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport, teams: List<Team>) {
+        self.init(title: title, desc: desc, date: date, place: place, currency: currency, iconName: iconName, typeOfSport: typeOfSport)
         self.teams = teams
-        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency, iconName: iconName)
     }
 }

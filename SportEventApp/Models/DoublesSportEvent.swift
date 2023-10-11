@@ -7,12 +7,13 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class DoublesSportEvent: SportEvent {
-    var athletes: [Athlete]
+    @Persisted var athletes: List<Athlete>
     
-    init(athletes: [Athlete], typeOfSport: TypeOfSport, title: String, description: String, date: Date, place: Place, currency: CurrencyList, iconName: String) {
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport, athletes: List<Athlete>) {
+        self.init(title: title, desc: desc, date: date, place: place, currency: currency, iconName: iconName, typeOfSport: typeOfSport)
         self.athletes = athletes
-        super.init(typeOfSport: typeOfSport, title: title, description: description, date: date, place: place, currency: currency, iconName: iconName)
     }
 }

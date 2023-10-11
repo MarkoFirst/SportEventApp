@@ -7,45 +7,48 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class Athlete: Participant {
-    var firstName: String
-    var lastName: String
-    var age: UInt
-    var typeOfSport: TypeOfSport
-    var gamesValue: UInt
-    var goalsValue: UInt?
-    var athleteTeam: Team?
-    var atheleBigImageName: String
+    @Persisted(primaryKey: true) var id: String
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var age: Int
+    @Persisted var typeOfSport: TypeOfSport.RawValue
+    @Persisted var gamesValue: Int
+    @Persisted var goalsValue: Int?
+    @Persisted var athleteTeam: Team?
+    @Persisted var atheleBigImageName: String
     var atheleBigImage: UIImage {
         return UIImage(named: atheleBigImageName) ?? UIImage()
     }
-    var athleteRole: String?
-    var allKicks: UInt
-    var shotOnTarget: UInt?
-    var goalsScored: UInt?
-    var foulsWon: UInt?
-    var foulsConceded: UInt?
-    var redCards: UInt?
-    var yellowCards: UInt?
-    var trophies: [Trophy]?
-    var teams: [AthleteTeams]?
-    var citizenship: CountryList
-    var birthplace: CountryList
-    var gender: GenderList
-    var sport: TypeOfSport
-    var number: UInt?
-    var iconName: String
+    @Persisted var athleteRole: String?
+    @Persisted var allKicks: Int
+    @Persisted var shotOnTarget: Int?
+    @Persisted var goalsScored: Int?
+    @Persisted var foulsWon: Int?
+    @Persisted var foulsConceded: Int?
+    @Persisted var redCards: Int?
+    @Persisted var yellowCards: Int?
+    @Persisted var trophies: List<Trophy>
+    @Persisted var teams: List<AthleteTeams>
+    @Persisted var citizenship: CountryList.RawValue
+    @Persisted var birthplace: CountryList.RawValue
+    @Persisted var gender: GenderList.RawValue
+    @Persisted var sport: TypeOfSport.RawValue
+    @Persisted var number: Int?
+    @Persisted var iconName: String
     var icon: UIImage? {
         return UIImage(named: iconName)
     }
     
-    init(firstName: String, lastName: String, age: UInt, typeOfSport: TypeOfSport, gamesValue: UInt, goalsValue: UInt?, athleteTeam: Team?, atheleBigImageName: String, athleteRole: String?, allKicks: UInt, shotOnTarget: UInt?, goalsScored: UInt?, foulsWon: UInt?, foulsConceded: UInt?, redCards: UInt?, yellowCards: UInt?, trophies: [Trophy]?, teams: [AthleteTeams]?, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: UInt?, iconName: String) {
-        
+    convenience init(firstName: String, lastName: String, age: Int, typeOfSport: TypeOfSport, gamesValue: Int, goalsValue: Int?, athleteTeam: Team?, atheleBigImageName: String, athleteRole: String?, allKicks: Int, shotOnTarget: Int?, goalsScored: Int?, foulsWon: Int?, foulsConceded: Int?, redCards: Int?, yellowCards: Int?, trophies: [Trophy]?, teams: [AthleteTeams]?, citizenship: CountryList, birthplace: CountryList, gender: GenderList, sport: TypeOfSport, number: Int?, iconName: String) {
+        self.init()
+        self.id = firstName + lastName + age.description
         self.firstName = firstName
         self.lastName = lastName
         self.age = age
-        self.typeOfSport = typeOfSport
+        self.typeOfSport = typeOfSport.rawValue
         self.gamesValue = gamesValue
         self.goalsValue = goalsValue ?? 0
         self.athleteTeam = athleteTeam
@@ -58,12 +61,12 @@ class Athlete: Participant {
         self.foulsConceded = foulsConceded ?? 0
         self.redCards = redCards ?? 0
         self.yellowCards = yellowCards ?? 0
-        self.trophies = trophies
-        self.teams = teams
-        self.citizenship = citizenship
-        self.birthplace = birthplace
-        self.gender = gender
-        self.sport = sport
+        self.trophies.append(objectsIn: trophies ?? [])
+        self.teams.append(objectsIn: teams ?? [])
+        self.citizenship = citizenship.rawValue
+        self.birthplace = birthplace.rawValue
+        self.gender = gender.rawValue
+        self.sport = sport.rawValue
         self.number = number
         self.iconName = iconName
     }
@@ -77,10 +80,10 @@ class Athlete: Participant {
     }
     
     func changeСitizenship(to newCitizenship: CountryList) {
-        self.citizenship = newCitizenship
+        self.citizenship = newCitizenship.rawValue
     }
     
-    func changeNumber(to newNumber: UInt) {
+    func changeNumber(to newNumber: Int) {
         self.number = newNumber
     }
 }

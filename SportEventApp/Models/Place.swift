@@ -6,29 +6,33 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Place {
-    var name: String
-    var type: PlacesType
-    var contry: CountryList
-    var maxSpectatorsCount: UInt
-    var typeSport: [TypeOfSport]
-    var priceFrom: Double
-    var priceTo: Double
-    var currency: CurrencyList
+class Place: Object {
+    @Persisted(primaryKey: true) var name: String
+    @Persisted var type: PlacesType.RawValue
+    @Persisted var contry: CountryList.RawValue
+    @Persisted var maxSpectatorsCount: Int
+    @Persisted var typeSport: List<String>
+    @Persisted var priceFrom: Double
+    @Persisted var priceTo: Double
+    @Persisted var currency: CurrencyList.RawValue
+    @Persisted var adress: String
     
-    init(name: String, type: PlacesType, contry: CountryList, maxSpectatorsCount: UInt, typeSport: [TypeOfSport], priceFrom: Double, priceTo: Double, currency: CurrencyList){
+    convenience init(name: String, type: PlacesType, contry: CountryList, maxSpectatorsCount: Int, typeSport: [String], priceFrom: Double, priceTo: Double, currency: CurrencyList, adress: String){
+        self.init()
         self.name = name
-        self.type = type
-        self.contry = contry
+        self.type = type.rawValue
+        self.contry = contry.rawValue
         self.maxSpectatorsCount = maxSpectatorsCount
-        self.typeSport = typeSport
+        self.typeSport.append(objectsIn: typeSport)
         self.priceFrom = priceFrom
         self.priceTo = priceTo
-        self.currency = currency
+        self.currency = currency.rawValue
+        self.adress = adress
     }
     
-    func addTypeSport(_ newTypeSport: TypeOfSport){
+    func addTypeSport(_ newTypeSport: TypeOfSport.RawValue){
         typeSport.append(newTypeSport)
     }
 }

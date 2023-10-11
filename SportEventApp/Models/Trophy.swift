@@ -7,16 +7,18 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class Trophy {
-    var name: String
-    var count: UInt
-    var iconName: String
-    var icon: UIImage? {
-        return UIImage(named: iconName)
-    }
+class Trophy: Object {
+    @Persisted var name: String
+    @Persisted var count: Int
+    @Persisted var iconName: String
+//    @Persisted icon: UIImage? {
+//        return UIImage(named: iconName)
+//    }
     
-    init(name: String, count: UInt, iconName: String) {
+    convenience init(name: String, count: Int, iconName: String) {
+        self.init()
         self.name = name
         self.count = count
         self.iconName = iconName

@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Participant {
-    
+class Participant: Object {
+    @Persisted private var some: String
 }

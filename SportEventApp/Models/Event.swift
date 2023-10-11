@@ -7,21 +7,24 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class Event {
-    var title: String
-    var description: String
-    var date: Date
-    var place: Place
-    var currency: CurrencyList
-    var iconName: String
+class Event: Object {
+    @Persisted(primaryKey: true) var id: String = UUID().uuidString
+    @Persisted var title: String = ""
+    @Persisted var desc: String = ""
+    @Persisted var date: Date = Date()
+    @Persisted var place: Place?
+    @Persisted var currency: CurrencyList.RawValue = ""
+    @Persisted var iconName: String = ""
     var image: UIImage? {
         return UIImage(named: iconName)
     }
     
-    init(title: String, description: String, date: Date, place: Place, currency: CurrencyList, iconName: String) {
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport.RawValue) {
+        self.init()
         self.title = title
-        self.description = description
+        self.desc = desc
         self.date = date
         self.place = place
         self.currency = currency
