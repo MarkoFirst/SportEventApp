@@ -11,28 +11,28 @@ import RealmSwift
 
 class SignUpVC: UIViewController {
     
-    @IBOutlet weak var fullnameTextView: UITextField!
-    @IBOutlet weak var emailTextView: UITextField!
-    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var fullnameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var textStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldSettings(fullnameTextView, UIImage(named: "personImage")!, placeholderText: "Full Name")
-        textFieldSettings(emailTextView, UIImage(named: "emailImage")!, placeholderText: "E-mail")
-        textFieldSettings(passwordTextView, UIImage(named: "passwordImage")!, placeholderText: "Password")
+        textFieldSettings(fullnameTF, UIImage(named: "personImage")!, placeholderText: "Full Name")
+        textFieldSettings(emailTF, UIImage(named: "emailImage")!, placeholderText: "E-mail")
+        textFieldSettings(passwordTF, UIImage(named: "passwordImage")!, placeholderText: "Password")
     }
-    
-    @IBAction func fullNameSettings(_ textField: UITextField) {
-         }
-     
+
+    @IBAction func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBAction func signUpBtnFunc(_ sender: UIButton) {
-        print(fullnameTextView.text as Any)
+        setupRealm()
     }
-    
     
     func textFieldSettings(_ textField: UITextField, _ image: UIImage, placeholderText: String) {
        //mainview setup
+        passwordTF.isSecureTextEntry = true
         textField.layer.borderColor = UIColor.gray.cgColor
         let mainViewPadding = UIView.init(frame: CGRect(x: 0, y: 0, width: 30, height: 0))
         textField.leftView = mainViewPadding
@@ -64,24 +64,29 @@ class SignUpVC: UIViewController {
 extension SignUpVC {
     func setupRealm() {
         let realm = try! Realm()
-        let settings = RealmSettings()
         
         do {
             try realm.write {
-                settings.fullname = fullnameTextView.text ?? ""
-                settings.email = emailTextView.text ?? ""
-                settings.password = passwordTextView.text ?? ""
+                let settings = RealmSettings()
+                settings.id = UUID().uuidString
+                settings.fullname = fullnameTF.text?.description ?? ""
+                settings.email = emailTF.text?.description ?? ""
+                settings.password = passwordTF.text?.description ?? ""
+                realm.add(settings)
             }
+            
         } catch {
             fatalError("ERROR")
         }
+        let objects = realm.objects(RealmSettings.self)
+        print(objects)
     }
 }
 class RealmSettings: Object {
     @Persisted dynamic var id = UUID().uuidString
-    @Persisted dynamic var fullname = ""
-    @Persisted dynamic var email = ""
-    @Persisted dynamic var password = ""
+    @Persisted dynamic var fullname: String
+    @Persisted dynamic var email: String
+    @Persisted dynamic var password: String
     
     override class func primaryKey() -> String? {
         return "id"

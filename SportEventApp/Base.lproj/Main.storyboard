@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xjp-cF-AiG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xjp-cF-AiG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -203,10 +203,10 @@ Timberwolves and th No. 1 pick in the
                                                     <rect key="frame" x="16" y="11" width="361" height="189"/>
                                                 </imageView>
                                                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-hR-0hL">
-                                                    <rect key="frame" x="36.000000000000007" y="121" width="104.66666666666669" height="38"/>
+                                                    <rect key="frame" x="36" y="121" width="91" height="38"/>
                                                     <color key="backgroundColor" red="0.50980395079999996" green="0.40392160420000001" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" title="🔘    Live">
+                                                    <buttonConfiguration key="configuration" style="filled" title="🔘 Live">
                                                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <color key="baseBackgroundColor" red="0.32156863810000003" green="0.40392160420000001" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
@@ -355,8 +355,54 @@ Timberwolves and th No. 1 pick in the
                                             <outlet property="sportTypeCV" destination="pCs-SJ-ufx" id="xK7-6F-bw4"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SeeAll" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeeAll" id="Ki5-XU-bDm">
+                                        <rect key="frame" x="0.0" y="370" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ki5-XU-bDm" id="Hbg-uH-No8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHt-Qg-o8Z">
+                                                    <rect key="frame" x="35.999999999999993" y="11.666666666666666" width="86.333333333333314" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62p-ij-CAK">
+                                                    <rect key="frame" x="301.33333333333331" y="7.6666666666666661" width="75.666666666666686" height="28.333333333333336"/>
+                                                    <color key="tintColor" red="0.50980395079999996" green="0.40392160420000001" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="See All &gt;">
+                                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                        <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="seeAllEvents:" destination="wG4-QV-3wb" eventType="touchUpInside" id="iYa-4w-OyH"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-o0-GK5">
+                                                    <rect key="frame" x="16" y="41.666666666666664" width="361" height="2"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="How-R8-aS0"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="pmv-o0-GK5" firstAttribute="leading" secondItem="Hbg-uH-No8" secondAttribute="leading" constant="16" id="0Mb-eh-8gB"/>
+                                                <constraint firstAttribute="bottom" secondItem="pmv-o0-GK5" secondAttribute="bottom" id="ADY-z0-vmY"/>
+                                                <constraint firstItem="62p-ij-CAK" firstAttribute="centerY" secondItem="Hbg-uH-No8" secondAttribute="centerY" id="JcB-SL-hFu"/>
+                                                <constraint firstItem="GHt-Qg-o8Z" firstAttribute="centerY" secondItem="Hbg-uH-No8" secondAttribute="centerY" id="M7C-cP-tJz"/>
+                                                <constraint firstAttribute="trailing" secondItem="pmv-o0-GK5" secondAttribute="trailing" constant="16" id="PVG-aU-2Dy"/>
+                                                <constraint firstItem="GHt-Qg-o8Z" firstAttribute="leading" secondItem="Hbg-uH-No8" secondAttribute="leadingMargin" constant="16" id="fdx-2u-IHU"/>
+                                                <constraint firstAttribute="trailing" secondItem="62p-ij-CAK" secondAttribute="trailing" constant="16" id="yuw-zJ-VBc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EventCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="206" id="jMh-7k-7qz" customClass="MainTableViewCell" customModule="SportEventApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="370" width="393" height="206"/>
+                                        <rect key="frame" x="0.0" y="413.66666793823242" width="393" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jMh-7k-7qz" id="KPb-Um-5sL">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="206"/>
@@ -596,9 +642,6 @@ Timberwolves and th No. 1 pick in the
                                                         <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="fullNameSettings:" destination="eeY-c6-a6u" eventType="editingDidEnd" id="YPo-kh-ONw"/>
-                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-Qn-uFL">
                                                 <rect key="frame" x="0.0" y="80" width="337" height="50"/>
@@ -709,6 +752,14 @@ Timberwolves and th No. 1 pick in the
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-Zs-Wfc">
+                                <rect key="frame" x="8" y="32" width="56" height="46"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="blackBack"/>
+                                <connections>
+                                    <action selector="back:" destination="eeY-c6-a6u" eventType="touchUpInside" id="6td-1H-cBL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s1e-vK-foA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -723,14 +774,16 @@ Timberwolves and th No. 1 pick in the
                             <constraint firstItem="1CU-y5-WYr" firstAttribute="leading" secondItem="s1e-vK-foA" secondAttribute="leading" id="b2n-JC-Vlv"/>
                             <constraint firstAttribute="bottom" secondItem="Vj4-rf-ZcM" secondAttribute="bottom" constant="-32" id="eH4-4V-6Fr"/>
                             <constraint firstItem="1CU-y5-WYr" firstAttribute="top" secondItem="Atj-TG-2wK" secondAttribute="top" id="hJQ-zO-aa7"/>
+                            <constraint firstItem="VAB-Zs-Wfc" firstAttribute="top" secondItem="Atj-TG-2wK" secondAttribute="top" constant="32" id="ifJ-Zb-KGF"/>
+                            <constraint firstItem="VAB-Zs-Wfc" firstAttribute="leading" secondItem="s1e-vK-foA" secondAttribute="leading" constant="8" id="ych-HO-H0W"/>
                             <constraint firstItem="Vj4-rf-ZcM" firstAttribute="leading" secondItem="s1e-vK-foA" secondAttribute="leading" id="znQ-6a-tan"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tjz-7K-rtX"/>
                     <connections>
-                        <outlet property="emailTextView" destination="byQ-Qn-uFL" id="tH3-un-wlm"/>
-                        <outlet property="fullnameTextView" destination="2G9-81-Hjj" id="mSd-cz-XcA"/>
-                        <outlet property="passwordTextView" destination="RJa-8N-LFf" id="Nh2-1I-aoO"/>
+                        <outlet property="emailTF" destination="byQ-Qn-uFL" id="tH3-un-wlm"/>
+                        <outlet property="fullnameTF" destination="2G9-81-Hjj" id="mSd-cz-XcA"/>
+                        <outlet property="passwordTF" destination="RJa-8N-LFf" id="Nh2-1I-aoO"/>
                         <outlet property="textStackView" destination="zgL-gb-F4z" id="jg7-MK-KvV"/>
                     </connections>
                 </viewController>
@@ -748,6 +801,7 @@ Timberwolves and th No. 1 pick in the
         <image name="back" width="32" height="32"/>
         <image name="basketballImage" width="96" height="96"/>
         <image name="bell" width="32" height="32"/>
+        <image name="blackBack" width="32" height="32"/>
         <image name="footballImage" width="96" height="96"/>
         <image name="mainImage" width="1200" height="750"/>
         <image name="search" width="32" height="32"/>

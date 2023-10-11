@@ -13,7 +13,6 @@ class MainTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         insideEventCell.register(UINib(nibName: "MainTableviewTableViewCell", bundle: nil), forCellReuseIdentifier: "sportEvent")
         insideEventCell.register(UINib(nibName: "SecondaryTableViewCell", bundle: nil), forCellReuseIdentifier: "secondaryEvent")
@@ -23,7 +22,6 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         insideEventCell.dataSource = self
         insideEventCell.delegate = self
-        // Configure the view for the selected state
     }
 
 }
@@ -59,15 +57,4 @@ extension MainTableViewCell: UITableViewDataSource, UITableViewDelegate {
         default: return 0
         }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        //let selectedRow = insideEventCell.cellForRow(at: indexPath)
-//        switch indexPath.item {
-//        case 0:
-//            if let destinationViewController = self.inputViewController?.storyboard?.instantiateViewController(withIdentifier: "DescriptionVC") as? DescriptionViewController {
-//                self.inputViewController?.navigationController?.pushViewController(destinationViewController, animated: true)}
-//        default: break
-//        }
-//    }
 }
