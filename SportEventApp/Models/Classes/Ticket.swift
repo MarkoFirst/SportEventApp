@@ -12,11 +12,11 @@ class Ticket: Event {
     var price: String
     let stadiumZone: StadiumZone
     
-    init(seatNumber: Int, price: String, stadiumZone: StadiumZone, title: String, description: String, date: String, place: Place, soldTickets: Int) {
+    init(seatNumber: Int, price: String, stadiumZone: StadiumZone, title: String, description: String, date: String, place: Place, soldTickets: Int, teams: [Team]?, pairs: [PairGames]?) {
         self.seatNumber = seatNumber
         self.price = price
         self.stadiumZone = stadiumZone
-        super.init(title: title, description: description, date: date, place: place, soldTickets: soldTickets)
+        super.init(title: title, description: description, date: date, place: place, soldTickets: soldTickets, teams: teams, pairs: pairs)
     }
     
     func changePrice(element: String) {
