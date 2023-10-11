@@ -108,25 +108,26 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             headerCell.headerTitleLabel.text = event?.title
             
-            if let eventDate = headerCell.headerDateLabel,
-               let startDate = event?.startDate {
+            if let startDate = event?.startDate,
+               let eventDateLabel = headerCell.headerDateLabel
+            {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "E, MMM d"
                 let dateString = dateFormatter.string(from: startDate)
-                eventDate.text = dateString
+                eventDateLabel.text = dateString
             } else {
                 headerCell.headerDateLabel?.text = "No Date"
             }
-
-                headerCell.headerSportLabel.text = "Basketball"
+            
+            headerCell.headerSportLabel.text = "Basketball"
             
             return headerCell
         case 1:
-            if let eventData = event?.eventCover,
-                let image = UIImage(data: eventData) {
+            if let eventCoverData = event?.eventCover,
+               let image = UIImage(data: eventCoverData) {
                 imageCell.headerImage.image = image
             } else {
-                imageCell.headerImage.image = UIImage(named: "mask") 
+                imageCell.headerImage.image = UIImage(named: "mask")
             }
             return imageCell
         case 2:
