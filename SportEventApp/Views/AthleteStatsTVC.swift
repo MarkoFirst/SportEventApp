@@ -374,7 +374,7 @@ extension AthleteStatsTVC {
         statsView.snp.makeConstraints { $0.edges.equalToSuperview().inset(12) }
     }
     
-    func percentImage(number: UInt, from: UInt) -> String {
+    func percentImage(number: Int, from: Int) -> String {
         
         switch Float(number) / Float(from) * 100 {
         case 0...12:

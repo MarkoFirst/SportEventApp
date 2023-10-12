@@ -12,8 +12,8 @@ import RealmSwift
 class TeamSportEvent: SportEvent {
     @Persisted var teams: List<Team>
     
-    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport, teams: List<Team>) {
-        self.init(title: title, desc: desc, date: date, place: place, currency: currency, iconName: iconName, typeOfSport: typeOfSport)
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, icon: Data, typeOfSport: TypeOfSport, teams: List<Team>) {
+        self.init(title: title, desc: desc, date: date, place: place, currency: currency, icon: icon, typeOfSport: typeOfSport)
         self.teams = teams
     }
 }

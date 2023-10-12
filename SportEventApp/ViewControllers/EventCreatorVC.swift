@@ -362,7 +362,9 @@ extension EventCreatorVC {
             event.typeOfSport = eventType?.rawValue ?? ""
             event.place = place
             event.currency = place?.currency ?? CurrencyList.UAH.rawValue
-            event.iconName = "nameeee"
+            if let eventImage_ = eventImage?.jpegData(compressionQuality: 0.3){
+                event.icon = eventImage_
+            }
             event.teams = teamsList
             
             addEvent(event: event)
@@ -380,7 +382,9 @@ extension EventCreatorVC {
             event.typeOfSport = eventType?.rawValue ?? ""
             event.place = place
             event.currency = place?.currency ?? CurrencyList.UAH.rawValue
-            event.iconName = "nameeee"
+            if let eventImage_ = eventImage?.jpegData(compressionQuality: 0.3){
+                event.icon = eventImage_
+            }
             event.athletes = athletesList
             
             addEvent(event: event)

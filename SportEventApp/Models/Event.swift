@@ -16,19 +16,19 @@ class Event: Object {
     @Persisted var date: Date = Date()
     @Persisted var place: Place?
     @Persisted var currency: CurrencyList.RawValue = ""
-    @Persisted var iconName: String = ""
-    var image: UIImage? {
-        return UIImage(named: iconName)
-    }
+    @Persisted var icon: Data?
+//    var image: UIImage? {
+//        return UIImage(named: iconName)
+//    }
     
-    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport.RawValue) {
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, icon: Data, typeOfSport: TypeOfSport.RawValue) {
         self.init()
         self.title = title
         self.desc = desc
         self.date = date
         self.place = place
         self.currency = currency
-        self.iconName = iconName
+        self.icon = icon
     }
     
     func dateFormatter() -> String {

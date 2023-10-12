@@ -73,9 +73,6 @@
                     <constraint firstItem="n4R-Pq-kbc" firstAttribute="leading" secondItem="Agb-Yc-mE3" secondAttribute="leading" id="mwm-fX-fS0"/>
                 </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="tapCreateEvent" destination="Dwv-9Z-y39" id="ztb-nR-LpB"/>
-            </connections>
             <point key="canvasLocation" x="339.69465648854958" y="37.323943661971832"/>
         </tableViewCell>
     </objects>

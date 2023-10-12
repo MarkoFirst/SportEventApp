@@ -13,9 +13,9 @@ class Trophy: Object {
     @Persisted var name: String
     @Persisted var count: Int
     @Persisted var iconName: String
-//    @Persisted icon: UIImage? {
-//        return UIImage(named: iconName)
-//    }
+    var icon: UIImage? {
+        return UIImage(named: iconName)
+    }
     
     convenience init(name: String, count: Int, iconName: String) {
         self.init()

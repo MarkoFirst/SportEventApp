@@ -221,7 +221,7 @@ extension AthleteLogoTVC {
         navigationController?.popViewController(animated: true)
     }
     
-    func setupAthleteLogoCell(age: UInt, games: UInt, goals: UInt) {
+    func setupAthleteLogoCell(age: Int, games: Int, goals: Int) {
         (athleteInfoStackView.arrangedSubviews[0].subviews.last as? UILabel)?.text = age.description
         (athleteInfoStackView.arrangedSubviews[1].subviews.last as? UILabel)?.text = games.description
         (athleteInfoStackView.arrangedSubviews[2].subviews.last as? UILabel)?.text = goals.description

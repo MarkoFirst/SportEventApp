@@ -12,7 +12,7 @@ import RealmSwift
 class SportEvent: Event {
     @Persisted var typeOfSport: TypeOfSport.RawValue = ""
     
-    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, iconName: String, typeOfSport: TypeOfSport) {
+    convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, icon: Data, typeOfSport: TypeOfSport) {
         self.init()
         self.typeOfSport = typeOfSport.rawValue
     }

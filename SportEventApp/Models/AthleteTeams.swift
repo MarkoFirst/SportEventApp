@@ -7,20 +7,25 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class AthleteTeams {
-    var team: String
-    var teamColor: UIColor?
-    var fromYearInTeam: UInt
-    var toYearInTeam: UInt
-    var iconName: String
+class AthleteTeams: Object {
+    @Persisted var team: String
+    @Persisted var teamColor: ColorsList.RawValue
+    @Persisted var fromYearInTeam: Int
+    @Persisted var toYearInTeam: Int
+    @Persisted var iconName: String
     var icon: UIImage? {
         return UIImage(named: iconName)
     }
-
-    init(team: String, teamColor: UIColor?, fromYearInTeam: UInt, toYearInTeam: UInt, iconName: String) {
+    var uiColor: UIColor? {
+        return ColorsList(rawValue: teamColor)?.uiColor
+    }
+    
+    convenience init(team: String, teamColor: ColorsList, fromYearInTeam: Int, toYearInTeam: Int, iconName: String) {
+        self.init()
         self.team = team
-        self.teamColor = teamColor
+        self.teamColor = teamColor.rawValue
         self.fromYearInTeam = fromYearInTeam
         self.toYearInTeam = toYearInTeam
         self.iconName = iconName

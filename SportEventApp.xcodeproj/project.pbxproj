@@ -265,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				776BAB662A9CD3D900BBC20D /* Enums */,
+				77A4696A2AA7C4F9008EE323 /* Participant.swift */,
 				776BAB7B2A9CD5FE00BBC20D /* Athlete.swift */,
 				776BAB7D2A9CD62400BBC20D /* Team.swift */,
 				776BAB7F2A9CD67700BBC20D /* Sport.swift */,
@@ -282,11 +283,10 @@
 				776BAB9B2A9CDFEF00BBC20D /* Event.swift */,
 				776BAB9D2A9CE00000BBC20D /* SportEvent.swift */,
 				776BAB9F2A9CE01700BBC20D /* DoublesSportEvent.swift */,
-				776BABA72A9CE09B00BBC20D /* Fan.swift */,
 				776BABA12A9CE02900BBC20D /* TeamSportEvent.swift */,
+				776BABA72A9CE09B00BBC20D /* Fan.swift */,
 				776BABA32A9CE04B00BBC20D /* Settings.swift */,
 				776BABA52A9CE06400BBC20D /* User.swift */,
-				77A4696A2AA7C4F9008EE323 /* Participant.swift */,
 				7799E9362AC8C59400F19B70 /* AthleteTeams.swift */,
 				77E536F12AC9E52700ACAB17 /* Trophy.swift */,
 				7700D97E2AD55F1900F05A4D /* RealmDB.swift */,

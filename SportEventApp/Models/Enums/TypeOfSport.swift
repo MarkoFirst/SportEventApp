@@ -17,7 +17,7 @@ enum TypeOfSport: String {
     case poker = "Poker"
     case fencing = "Fencing"
     case cybersport = "Cybersport"
-    case other
+    case other = "Other"
     
     static var allCases: [TypeOfSport] {
         return [.football, .basketball, .volleyball, .tennis, .pingpong, .chess, .poker, .fencing, .cybersport, .other]

@@ -66,6 +66,14 @@ class RealmDB {
         
         lazy var allAthletes = [djokovic, nadal, ronaldo]
         
+        //Events
+//        let firstEvent = TeamSportEvent(teams: [manCity, barcelona], typeOfSport: .football, title: "Battle at the Etihad: Man City Hosts Barcelona", description: "Get ready for an epic encounter as Manchester City and Barcelona, two football powerhouses, lock horns in a thrilling showdown. Witness top-class football, skillful plays, and intense competition in this highly anticipated match at the Etihad Stadium. Don't miss the chance to experience the magic on the pitch!", date: dateFirstEvent, place: campNou, currency: .EUR, iconName: "EventFirst")
+//
+//        let secondEvent = TeamSportEvent(teams: [psg, realMadrid], typeOfSport: .football, title: "Battle of Giants: PSG vs. Real Madrid Showdown", description: "Get ready for a football spectacle as Paris Saint-Germain and Real Madrid, two of the biggest names in European football, collide in a thrilling showdown. Join us for an unforgettable night of skill, passion, and drama as these football titans battle it out on the pitch. Don't miss a moment of the action!", date: dateSecondEvent, place: donbassArena, currency: .UAH, iconName: "EventSecond")
+//
+//        let thirdEvent = TeamSportEvent(teams: [navi, virtuspro], typeOfSport: .cybersport, title: "Legends Collide: Na'Vi vs. Virtus.pro in a Thrilling Encounter", description: "Legends of the esports world collide as Na'Vi and Virtus.pro face off in a match that promises to redefine competitive gaming. Experience the adrenaline, the precision, and the sheer excitement as these esports giants showcase their skills. Don't miss the chance to witness gaming greatness live!", date: dateThirdEvent, place: gameWeb, currency: .USD, iconName: "EventThird")
+//
+//        let fourthEvent = DoublesSportEvent(athletes: [djokovic, nadal], typeOfSport: .tennis, title: "Tennis Excellence: Djokovic and Nadal Face Off for Glory", description: "The net is set, and the stage is ready for a tennis showdown like no other. Djokovic and Nadal, two giants of the game, face off in a battle that will leave fans on the edge of their seats. Join us for a night of tennis brilliance, where skill, determination, and a quest for victory take center stage. This is tennis at its finest!", date: dateFourthEvent, place: arturAsheStadium, currency: .USD, iconName: "EventFourth")
         
         try! realm.write {
             realm.add(allPlaces, update: .modified)
