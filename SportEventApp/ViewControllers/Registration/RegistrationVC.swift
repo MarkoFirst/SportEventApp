@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 import CoreData
 
 class RegistrationVC: UIViewController {

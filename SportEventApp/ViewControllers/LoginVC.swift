@@ -8,7 +8,6 @@
 import Foundation
 import SnapKit
 import UIKit
-import RealmSwift
 import CoreData
 
 class LoginVC: UIViewController {
