@@ -6,24 +6,19 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AddEventsTableViewCell: UITableViewCell {
-    
+    var delegateItem: EventCoreData?
+        
     private var backgroundImage = UIImageView()
     private var eventName = UILabel()
     private var eventDescription = UILabel()
     private var eventDate = UILabel()
     private var firstTeamPlaying = UILabel()
     private var secondTeamPlaying = UILabel()
-    
-    var dataArray: [RealmEventsDataBase] = []
-    var data: RealmEventsDataBase?
-       
+           
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let realm = try! Realm()
-        dataArray = Array(realm.objects(RealmEventsDataBase.self))
         setupLayout()
     }
     
@@ -33,17 +28,16 @@ class AddEventsTableViewCell: UITableViewCell {
 }
 
 extension AddEventsTableViewCell {
-    func configureByRealm(with data: RealmEventsDataBase) {
-        self.data = data
-        eventName.text = data.eventName
-        eventDescription.text = data.eventDescription
-        guard let eventImageData = data.eventImageData else { return  }
+    func configureByCD(with data: EventCoreData?) {
+        self.delegateItem = data
+        eventName.text = data?.eventName
+        eventDescription.text = data?.eventDescription
+        guard let eventImageData = data?.eventImage else { return  }
         guard let image = UIImage(data: eventImageData) else { return print("Ошибка при загрузке изображения.")}
-        
         backgroundImage.image = image
-        eventDate.text = data.eventDate
-        firstTeamPlaying.text = data.firstTeamPlaying
-        secondTeamPlaying.text = data.secondTeamPlaying
+        eventDate.text = data?.date
+        firstTeamPlaying.text = data?.firtsTeam
+        secondTeamPlaying.text = data?.secondTeam
     }
     
     func setupLabel(label : UILabel!) {
@@ -54,12 +48,15 @@ extension AddEventsTableViewCell {
     }
     
     func setupLayout() {
+        contentView.backgroundColor = UIColor(red: 0, green: 0.14, blue: 0.25, alpha: 1)
         backgroundImage.contentMode = .scaleAspectFill
         
         contentView.addSubview(backgroundImage)
         
+        backgroundImage.clipsToBounds = true
+        backgroundImage.layer.cornerRadius = 10
         backgroundImage.snp.makeConstraints {
-            $0.edges.equalTo(contentView)
+            $0.edges.equalTo(contentView).inset(10)
             $0.height.lessThanOrEqualTo(300)
         }
         

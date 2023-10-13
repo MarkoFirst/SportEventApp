@@ -11,56 +11,64 @@ import SnapKit
 import Photos
 import CoreData
 
-class CreateEventByCoreDataViewController: AddEventViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
+class CreateEventByCoreDataViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let eventNameTF = UITextField()
     private let eventDescriptionTF = UITextField()
-    private let eventDate = UITextField()
+    private let eventDateTF = UITextField()
     private let date = UIDatePicker()
     private let eventImage = UIImageView()
     private let firstTeamPlayingInEvent = UITextField()
     private let secondTeamPlayingInEvent = UITextField()
-    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    private let itemOfCD = EventCoreData()
-
-    weak var delegate: AddEventViewController?
+    let context = CoreDataService().persistentContainer.viewContext
+    var delegateVC: AddEventViewController?
+    var delegate = [EventCoreData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
     }
 }
 
 //MARK: - Core Data Setup
     extension CreateEventByCoreDataViewController {
-        func getAllItems() {
+        func getAllEvents() {
             do {
-                let item = try? context?.fetch(EventCoreData.fetchRequest())
-            } 
-        }
-        
-        func createItem(eventName: String, eventDescription: String, firstTeam: String, secondTeam: String, eventDate: String) {
-            if let context = context {
-                let item = EventCoreData(context: context)
-                item.eventName = eventName
-                item.eventDescription = eventDescription
-                item.firtsTeam = firstTeam
-                item.secondTeam = secondTeam
-                item.date = eventDate
+                delegate = try context.fetch(EventCoreData.fetchRequest())
+                print("Loaded \(delegate.count) items")
+                delegateVC?.delegate = delegate
+            } catch {
                 
-                do {
-                    try? context.save()
-                }
+            }
         }
         
-        func deleteItem(item: EventCoreData) {
-            context?.delete(item)
-            
+        func createEvent() {
+            let item = EventCoreData(context: context)
+            item.eventName = eventNameTF.text
+            item.eventDescription = eventDescriptionTF.text
+            item.firtsTeam = firstTeamPlayingInEvent.text
+            item.secondTeam = secondTeamPlayingInEvent.text
+            item.date = eventDateTF.text
+            if let image = eventImage.image {
+                   if let imageData = image.pngData() {
+                       item.eventImage = imageData
+                   }
+               }
             do {
-               try? context?.save()
+                try context.save()
+            } catch {
+                print("Ошибка при сохранении данных: \(error)")
+            }
+            getAllEvents()
+            delegate.append(item)
+        }
+
+        func deleteEvent(item: EventCoreData) {
+            context.delete(item)
+            do {
+                try? context.save()
             }
         }
     }
-}
 
 //MARK: - Setup Layout
 extension CreateEventByCoreDataViewController {
@@ -129,7 +137,7 @@ extension CreateEventByCoreDataViewController {
             ("Event Description", eventDescriptionTF),
             ("Enter the name of 1st team", firstTeamPlayingInEvent),
             ("Enter the name of 2nd team", secondTeamPlayingInEvent),
-            ("Choose the date and time of event", eventDate)
+            ("Choose the date and time of event", eventDateTF)
         ]
         
         let eventStackView = UIStackView(arrangedSubviews: textFieldsArray.map ({ item in
@@ -157,8 +165,8 @@ extension CreateEventByCoreDataViewController {
             let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
             let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDate))
             toolbar.setItems([doneBtn, space, cancelBtn], animated: true)
-            eventDate.inputAccessoryView = toolbar
-            eventDate.inputView = date
+            eventDateTF.inputAccessoryView = toolbar
+            eventDateTF.inputView = date
             
             return textfield
         }))
@@ -188,15 +196,32 @@ extension CreateEventByCoreDataViewController {
     @objc private func doneDate() {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, h:mm a"
-        eventDate.text = formatter.string(from: date.date)
+        eventDateTF.text = formatter.string(from: date.date)
         view.endEditing(true)
     }
     
     @objc private func cancelDate() {
         view.endEditing(true)
     }
+    
     @objc private func addEvent() {
-        print("Event added")
+
+        createEvent()
+        let fetchRequest: NSFetchRequest<EventCoreData> = EventCoreData.fetchRequest()
+        do {
+            let events = try context.fetch(fetchRequest)
+            for event in events {
+                print("Event Name: \(event.eventName ?? "Unknown Name")")
+                print("Event Description: \(event.eventDescription ?? "No Description")")
+                print("1st team: \(event.firtsTeam ?? "No Description")")
+                print("2nd team: \(event.secondTeam ?? "No Description")")
+                print("Date \(event.date ?? "No Description")")
+                print("--------------------------------")
+            }
+        } catch {
+            print("Ошибка при загрузке данных: \(error)")
+        }
+        print(try! context.count(for: fetchRequest))
         dismiss(animated: true)
     }
     
@@ -230,12 +255,11 @@ extension CreateEventByCoreDataViewController {
             if let data = data {
                 guard let image = UIImage(data: data) else { return }
                 self.eventImage.image = image
-                self.itemOfCD.eventImage = data
-                //self.itemOfRealm.eventImageData = data
             }
         })
         dismiss(animated: true)
     }
 }
+
 
 

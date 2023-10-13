@@ -45,10 +45,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushToMainMenu(_ sender: UIButton) {
-        navigationController?.pushViewController(WelcomeVC(), animated: true)
+        navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
-   
+    @IBAction func pushToSignUpVC(_ sender: UIButton) {
+        navigationController?.pushViewController(RegistrationVC(), animated: true)
+    }
+    
 }
 
 

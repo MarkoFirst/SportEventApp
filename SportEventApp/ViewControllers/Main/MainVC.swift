@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SignInVC: UIViewController {
+class MainVC: UIViewController {
         
     @IBOutlet weak var signInTVC: UITableView!
     
@@ -20,7 +20,7 @@ class SignInVC: UIViewController {
 
 }
 
-extension SignInVC: UITableViewDelegate, UITableViewDataSource {
+extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         4
     }

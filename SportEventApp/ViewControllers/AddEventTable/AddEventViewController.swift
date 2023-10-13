@@ -6,24 +6,23 @@
 //
 
 import UIKit
-import RealmSwift
 import SnapKit
 import Photos
 
-class AddEventViewController: UIViewController {
-    
-    var dataArray: [RealmEventsDataBase] = [] {
+
+class AddEventViewController: UIViewController{
+    var delegate = [EventCoreData]() {
         didSet {
             mainEventTableView.reloadData()
         }
     }
-    private let mainEventTableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
-    private let realm = try! Realm()
-
+    let mainEventTableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+    let createEventCD = CreateEventByCoreDataViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataArray = Array(realm.objects(RealmEventsDataBase.self))
         setupLayout()
+        createEventCD.delegateVC = self
+        createEventCD.getAllEvents()
         mainEventTableView.dataSource = self
         mainEventTableView.delegate = self
     }
@@ -31,28 +30,25 @@ class AddEventViewController: UIViewController {
      
 extension AddEventViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        print(delegate.count)
+        return delegate.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainEventTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? AddEventsTableViewCell
-        let data = dataArray[indexPath.row]
-        cell?.configureByRealm(with: data)
+        let data = delegate[indexPath.row]
+        cell?.configureByCD(with: data)
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexPath in
             
-            let itemToDelete = self.dataArray[indexPath.row]
+            let itemToDelete = self.delegate[indexPath.row]
             do {
-                try self.realm.write {
-                    self.realm.delete(itemToDelete)
-                }
-            } catch {
-                print("Ошибка при удалении объекта из Realm: \(error)")
+                self.createEventCD.deleteEvent(item: itemToDelete)
             }
-            self.dataArray.remove(at: indexPath.row)
+            self.delegate.remove(at: indexPath.row)
         }
         return [deleteAction]
     }
@@ -86,8 +82,8 @@ extension AddEventViewController {
     }
     
     @objc private func presentAddVC() {
-        let vc = CreateEventByRealmVC()
-        vc.delegate = self
+        let vc = CreateEventByCoreDataViewController()
+        vc.delegateVC = self
         present(vc, animated: true)
     }
 }

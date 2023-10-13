@@ -8,4 +8,9 @@
         <attribute name="firtsTeam" optional="YES" attributeType="String"/>
         <attribute name="secondTeam" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="RegistrationCoreData" representedClassName="RegistrationCoreData" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+    </entity>
 </model>
