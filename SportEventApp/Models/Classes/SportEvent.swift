@@ -10,8 +10,8 @@ import Foundation
 class SportEvent: Event {
     let sportType: SportTypes
 
-    init(sportType: SportTypes, title: String, description: String, date: String, place: Place, soldTickets: Int) {
+    init(sportType: SportTypes, title: String, description: String, date: String, place: Place, soldTickets: Int, teams: [Team]?, pairs: [PairGames]?) {
         self.sportType = sportType
-        super.init(title: title, description: description, date: date, place: place, soldTickets: soldTickets)
+        super.init(title: title, description: description, date: date, place: place, soldTickets: soldTickets, teams: teams, pairs: pairs)
     }
 }

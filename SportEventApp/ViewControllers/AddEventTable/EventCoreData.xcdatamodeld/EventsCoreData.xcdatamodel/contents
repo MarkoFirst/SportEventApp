@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="EventCoreData" representedClassName="EventCoreData" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String"/>
+        <attribute name="eventImage" optional="YES" attributeType="Binary"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+        <attribute name="firtsTeam" optional="YES" attributeType="String"/>
+        <attribute name="secondTeam" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RegistrationCoreData" representedClassName="RegistrationCoreData" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+    </entity>
+</model>
