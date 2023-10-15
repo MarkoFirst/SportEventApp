@@ -22,6 +22,14 @@ extension EventCreatorVC: UITextFieldDelegate {
         backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         view.addSubview(backButton)
         
+        let defaulEventsButton = UIButton(type: .system)
+        defaulEventsButton.setTitle("Add 10 events", for: .normal)
+        defaulEventsButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        defaulEventsButton.semanticContentAttribute = .forceRightToLeft
+        defaulEventsButton.tintColor = .black
+        defaulEventsButton.addTarget(self, action: #selector(addDefaultEvents), for: .touchUpInside)
+        view.addSubview(defaulEventsButton)
+        
         let mainLabel = UILabel()
         mainLabel.text = "Create event"
         mainLabel.font = .boldSystemFont(ofSize: 32)
@@ -162,6 +170,11 @@ extension EventCreatorVC: UITextFieldDelegate {
         backButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             $0.leading.equalToSuperview().inset(20)
+        }
+        
+        defaulEventsButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
+            $0.trailing.equalToSuperview().inset(20)
         }
         
         mainLabel.snp.makeConstraints {

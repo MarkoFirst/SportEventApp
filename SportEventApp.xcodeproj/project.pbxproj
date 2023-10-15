@@ -181,11 +181,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		775308C62ADC6E6E00DE834B /* EventInfo */ = {
+			isa = PBXGroup;
+			children = (
+				77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */,
+				77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */,
+				77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */,
+				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
+				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
+				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
+			);
+			path = EventInfo;
+			sourceTree = "<group>";
+		};
 		776747582AA62123005725B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				779A7ABB2ADC3ECB006CC786 /* EventCreator */,
 				779A7AB92ADC3E1D006CC786 /* MainTable */,
+				775308C62ADC6E6E00DE834B /* EventInfo */,
+				779A7ABB2ADC3ECB006CC786 /* EventCreator */,
 				779A7ABA2ADC3E41006CC786 /* PlayerInfo */,
 			);
 			path = Views;
@@ -223,12 +237,6 @@
 				77A469742AA87C1C008EE323 /* EventTypeCVC.swift */,
 				77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */,
 				77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */,
-				77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */,
-				77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */,
-				77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */,
-				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
-				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
-				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
 			);
 			path = MainTable;
 			sourceTree = "<group>";
