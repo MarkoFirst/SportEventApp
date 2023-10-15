@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "bayernMunichFlag.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

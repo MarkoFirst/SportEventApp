@@ -12,4 +12,5 @@ import UIKit
 
 class EventsSectionCustomHeaderTVC: UITableViewCell {
     
+    @IBOutlet weak var addEvent: UIButton!
 }

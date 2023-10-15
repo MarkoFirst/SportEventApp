@@ -29,15 +29,15 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-9Z-y39">
-                                <rect key="frame" x="345.33333333333331" y="19" width="47.666666666666686" height="20"/>
+                                <rect key="frame" x="317.66666666666669" y="19" width="75.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ryU-HT-sJm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="See all">
+                                <state key="normal" title="Add event ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
                                         <hierarchicalColors>
                                             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color systemColor="secondaryLabelColor"/>
@@ -73,11 +73,14 @@
                     <constraint firstItem="n4R-Pq-kbc" firstAttribute="leading" secondItem="Agb-Yc-mE3" secondAttribute="leading" id="mwm-fX-fS0"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addEvent" destination="Dwv-9Z-y39" id="7P9-7m-594"/>
+            </connections>
             <point key="canvasLocation" x="339.69465648854958" y="37.323943661971832"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

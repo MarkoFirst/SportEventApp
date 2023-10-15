@@ -43,7 +43,7 @@ class RealmDB {
         lazy var ronaldoReal = AthleteTeams(team: "Real Madrid", teamColor: .orange, fromYearInTeam: 2009, toYearInTeam: 2018, iconName: "realTeamLogo")
         lazy var ronaldoJuventus = AthleteTeams(team: "Juventus", teamColor: .white, fromYearInTeam: 2018, toYearInTeam: 2023, iconName: "juventusFlag")
         
-        //Teams
+        //Football teams
         lazy var juventus = Team(name: "Juventus", createYear: 1897, coach: "Massimiliano Allegri", sport: .football, team: nil, country: .Italy, iconName: "juventusFlag")
         lazy var barcelona = Team(name: "Barcelona", createYear: 1899, coach: "Ronald Koeman", sport: .football, team: nil, country: .Spain, iconName: "barcelonaLogo")
         lazy var psg = Team(name: "Paris Saint-Germain", createYear: 1970, coach: "Mauricio Pochettino", sport: .football, team: nil, country: .France, iconName: "psgLogo")
@@ -57,7 +57,15 @@ class RealmDB {
         lazy var ajax = Team(name: "Ajax", createYear: 1900, coach: "Erik ten Hag", sport: .football, team: nil, country: .Netherlands, iconName: "ajaxFlag")
         lazy var borussiaDortmund = Team(name: "Borussia Dortmund", createYear: 1909, coach: "Marco Rose", sport: .football, team: nil, country: .Germany, iconName: "bvbFlag")
         
-        lazy var allTeams = [juventus, barcelona, psg, manCity, realMadrid, navi, virtuspro, liverpool, bayernMunich, acMilan, ajax, borussiaDortmund]
+        // Basketball teams
+        lazy var lakers = Team(name: "Los Angeles Lakers", createYear: 1947, coach: "Frank Vogel", sport: .basketball, team: nil, country: .UnitedStates, iconName: "lakersFlag")
+        lazy var celtics = Team(name: "Boston Celtics", createYear: 1946, coach: "Ime Udoka", sport: .basketball, team: nil, country: .UnitedStates, iconName: "celticsFlag")
+        lazy var warriors = Team(name: "Golden State Warriors", createYear: 1946, coach: "Steve Kerr", sport: .basketball, team: nil, country: .UnitedStates, iconName: "warriorsFlag")
+        lazy var bulls = Team(name: "Chicago Bulls", createYear: 1966, coach: "Billy Donovan", sport: .basketball, team: nil, country: .UnitedStates, iconName: "bullsFlag")
+        lazy var raptors = Team(name: "Toronto Raptors", createYear: 1995, coach: "Nick Nurse", sport: .basketball, team: nil, country: .Canada, iconName: "raptorsFlag")
+        lazy var spurs = Team(name: "San Antonio Spurs", createYear: 1967, coach: "Gregg Popovich", sport: .basketball, team: nil, country: .UnitedStates, iconName: "spursFlag")
+
+        lazy var allTeams = [juventus, barcelona, psg, manCity, realMadrid, navi, virtuspro, liverpool, bayernMunich, acMilan, ajax, borussiaDortmund, lakers, celtics, warriors, bulls, raptors, spurs]
         
         //Athletes
         lazy var djokovic = Athlete(firstName: "Novak", lastName: "Djokovic", age: 34, typeOfSport: .tennis, gamesValue: 18, goalsValue: 12, athleteTeam: nil, atheleBigImageName: "djokovicFlag", athleteRole: "TENNIS PLAYER", allKicks: 142, shotOnTarget: 92, goalsScored: 32, foulsWon: 25, foulsConceded: 8, redCards: 0, yellowCards: 2, trophies: nil, teams: nil, citizenship: .Serbia, birthplace: .Other, gender: .male, sport: .tennis, number: 1, iconName: "djokovicLogo")
@@ -67,7 +75,8 @@ class RealmDB {
         lazy var allAthletes = [djokovic, nadal, ronaldo]
         
         //Events
-//        let firstEvent = TeamSportEvent(teams: [manCity, barcelona], typeOfSport: .football, title: "Battle at the Etihad: Man City Hosts Barcelona", description: "Get ready for an epic encounter as Manchester City and Barcelona, two football powerhouses, lock horns in a thrilling showdown. Witness top-class football, skillful plays, and intense competition in this highly anticipated match at the Etihad Stadium. Don't miss the chance to experience the magic on the pitch!", date: dateFirstEvent, place: campNou, currency: .EUR, iconName: "EventFirst")
+//        lazy var event = TeamSportEvent(title: "Battle at the Etihad: Man City Hosts Barcelona", desc: "Get ready for an epic encounter as Manchester City and Barcelona, two football powerhouses, lock horns in a thrilling showdown. Witness top-class football, skillful plays, and intense competition in this highly anticipated match at the Etihad Stadium. Don't miss the chance to experience the magic on the pitch!", date:  Data(), place: donbassArena, currency: CurrencyList.UAH.rawValue, icon: <#T##Data#>, typeOfSport: .football, teams: [juventus, barcelona])
+//       lazy var firstEvent = TeamSportEvent(teams: [manCity, barcelona], typeOfSport: .football, title: "Battle at the Etihad: Man City Hosts Barcelona", description: "Get ready for an epic encounter as Manchester City and Barcelona, two football powerhouses, lock horns in a thrilling showdown. Witness top-class football, skillful plays, and intense competition in this highly anticipated match at the Etihad Stadium. Don't miss the chance to experience the magic on the pitch!", date: dateFirstEvent, place: campNou, currency: .EUR, iconName: "EventFirst")
 //
 //        let secondEvent = TeamSportEvent(teams: [psg, realMadrid], typeOfSport: .football, title: "Battle of Giants: PSG vs. Real Madrid Showdown", description: "Get ready for a football spectacle as Paris Saint-Germain and Real Madrid, two of the biggest names in European football, collide in a thrilling showdown. Join us for an unforgettable night of skill, passion, and drama as these football titans battle it out on the pitch. Don't miss a moment of the action!", date: dateSecondEvent, place: donbassArena, currency: .UAH, iconName: "EventSecond")
 //
@@ -80,6 +89,10 @@ class RealmDB {
             realm.add(allTeams, update: .modified)
             realm.add(allAthletes, update: .modified)
         }
+    }
+    
+    func createDefaultEvents(){
+        
     }
 }
 

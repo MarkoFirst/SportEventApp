@@ -64,6 +64,7 @@
 		7799E9392AC8F20400F19B70 /* CountryFlagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7799E9382AC8F20400F19B70 /* CountryFlagList.swift */; };
 		779A54022AAB685000099683 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 779A54012AAB685000099683 /* SnapKit */; };
 		779A54062AAB690E00099683 /* StartPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A54052AAB690E00099683 /* StartPageVC.swift */; };
+		779F7C522ADC40440041884B /* EventCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F7C512ADC40440041884B /* EventCreatorView.swift */; };
 		779FA2C82ABB8AA50027A86E /* PlayerInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */; };
 		77A4696B2AA7C4F9008EE323 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4696A2AA7C4F9008EE323 /* Participant.swift */; };
 		77A4696F2AA874A8008EE323 /* EventTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4696E2AA874A8008EE323 /* EventTypeTVC.swift */; };
@@ -143,6 +144,7 @@
 		7799E9362AC8C59400F19B70 /* AthleteTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteTeams.swift; sourceTree = "<group>"; };
 		7799E9382AC8F20400F19B70 /* CountryFlagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFlagList.swift; sourceTree = "<group>"; };
 		779A54052AAB690E00099683 /* StartPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageVC.swift; sourceTree = "<group>"; };
+		779F7C512ADC40440041884B /* EventCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreatorView.swift; sourceTree = "<group>"; };
 		779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoVC.swift; sourceTree = "<group>"; };
 		77A4696A2AA7C4F9008EE323 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		77A4696E2AA874A8008EE323 /* EventTypeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypeTVC.swift; sourceTree = "<group>"; };
@@ -182,29 +184,9 @@
 		776747582AA62123005725B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				776747592AA62184005725B3 /* LiveScoreTVC.xib */,
-				7767475B2AA62197005725B3 /* LiveScoreTVC.swift */,
-				774E1BB92AA6665700C72041 /* EventTVC.xib */,
-				774E1BBB2AA678C800C72041 /* EventTVC.swift */,
-				77A4696E2AA874A8008EE323 /* EventTypeTVC.swift */,
-				77A469702AA874D4008EE323 /* EventTypeTVC.xib */,
-				77A469722AA87B83008EE323 /* EventTypeCVC.xib */,
-				77A469742AA87C1C008EE323 /* EventTypeCVC.swift */,
-				77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */,
-				77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */,
-				77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */,
-				77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */,
-				77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */,
-				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
-				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
-				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
-				7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */,
-				7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */,
-				77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */,
-				77452C082AC09E4800D7F368 /* AthleteStatsTVC.swift */,
-				77FD21E72AC232DB0090799E /* TrophiesTVC.swift */,
-				77FD21E92AC241750090799E /* TrophiesCVC.swift */,
-				7799E92A2AC59A6500F19B70 /* HistoryTVC.swift */,
+				779A7ABB2ADC3ECB006CC786 /* EventCreator */,
+				779A7AB92ADC3E1D006CC786 /* MainTable */,
+				779A7ABA2ADC3E41006CC786 /* PlayerInfo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +208,51 @@
 				7700D9802AD5DEA700F05A4D /* ColorsList.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		779A7AB92ADC3E1D006CC786 /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				776747592AA62184005725B3 /* LiveScoreTVC.xib */,
+				7767475B2AA62197005725B3 /* LiveScoreTVC.swift */,
+				774E1BB92AA6665700C72041 /* EventTVC.xib */,
+				774E1BBB2AA678C800C72041 /* EventTVC.swift */,
+				77A4696E2AA874A8008EE323 /* EventTypeTVC.swift */,
+				77A469702AA874D4008EE323 /* EventTypeTVC.xib */,
+				77A469722AA87B83008EE323 /* EventTypeCVC.xib */,
+				77A469742AA87C1C008EE323 /* EventTypeCVC.swift */,
+				77053C502AA8F226008514D9 /* EventsSectionCustomHeaderTVC.xib */,
+				77053C522AA8F23C008514D9 /* EventsSectionCustomHeaderTVC.swift */,
+				77053C542AA938A2008514D9 /* EventInfoTitleTVC.swift */,
+				77053C562AA938B4008514D9 /* EventInfoTitleTVC.xib */,
+				77053C582AA942A3008514D9 /* EventInfoIconTVC.swift */,
+				77053C5A2AA942B0008514D9 /* EventInfoIconTVC.xib */,
+				77053C5C2AA948D7008514D9 /* EventInfoDescriptionCell.swift */,
+				77053C5E2AA948EA008514D9 /* EventInfoDescriptionCell.xib */,
+			);
+			path = MainTable;
+			sourceTree = "<group>";
+		};
+		779A7ABA2ADC3E41006CC786 /* PlayerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7773DC662ABE550600B926E8 /* AthleteLogoTVC.swift */,
+				7773DC6A2ABE581000B926E8 /* DiscussinTVC.swift */,
+				77B4B4812ABF60BE001D46C3 /* NewsTVC.swift */,
+				77452C082AC09E4800D7F368 /* AthleteStatsTVC.swift */,
+				77FD21E72AC232DB0090799E /* TrophiesTVC.swift */,
+				77FD21E92AC241750090799E /* TrophiesCVC.swift */,
+				7799E92A2AC59A6500F19B70 /* HistoryTVC.swift */,
+			);
+			path = PlayerInfo;
+			sourceTree = "<group>";
+		};
+		779A7ABB2ADC3ECB006CC786 /* EventCreator */ = {
+			isa = PBXGroup;
+			children = (
+				779F7C512ADC40440041884B /* EventCreatorView.swift */,
+			);
+			path = EventCreator;
 			sourceTree = "<group>";
 		};
 		8195CCB02A98FA5E000A917F = {
@@ -302,9 +329,9 @@
 				776747502AA515EA005725B3 /* SignUpVC.swift */,
 				776747542AA51BB6005725B3 /* MainTableVC.swift */,
 				776747562AA53053005725B3 /* EventInfoVC.swift */,
+				77E8FF4B2AD33E45005AFD69 /* EventCreatorVC.swift */,
 				779FA2C72ABB8AA50027A86E /* PlayerInfoVC.swift */,
 				8195CCC22A98FA5E000A917F /* Main.storyboard */,
-				77E8FF4B2AD33E45005AFD69 /* EventCreatorVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +428,7 @@
 			files = (
 				776BAB8C2A9CDF1800BBC20D /* Poker.swift in Sources */,
 				77FD21E82AC232DB0090799E /* TrophiesTVC.swift in Sources */,
+				779F7C522ADC40440041884B /* EventCreatorView.swift in Sources */,
 				776BAB882A9CD6DC00BBC20D /* Chess.swift in Sources */,
 				776BAB822A9CD69800BBC20D /* SingleSport.swift in Sources */,
 				7773DC672ABE550600B926E8 /* AthleteLogoTVC.swift in Sources */,

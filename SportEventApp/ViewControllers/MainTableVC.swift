@@ -14,6 +14,8 @@ class MainTableVC: UIViewController {
     
     var athlete: Athlete?
     var events: [Event]?
+    var teamSportEvent: [TeamSportEvent]?
+    var doubleSportEvent: [DoublesSportEvent]?
     
     private let liveScoreId = "liveScoreId"
     private let sportsTVCId = "sportsTVC"
@@ -22,24 +24,38 @@ class MainTableVC: UIViewController {
     private let eventTVCId = "eventTVCId"
     var filterTypes: [TypeOfSport] = []
     
-    @IBOutlet weak var tableViev: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViev.delegate = self
-        tableViev.dataSource = self
-        tableViev.register(UINib(nibName: "LiveScoreTVC", bundle: nil), forCellReuseIdentifier: liveScoreId)
-        tableViev.register(UINib(nibName: "EventTypeTVC", bundle: nil), forCellReuseIdentifier: eventTypeTVCId)
-        tableViev.register(UINib(nibName: "EventsSectionCustomHeaderTVC", bundle: nil), forCellReuseIdentifier: eventsHeaderTVCId)
-        tableViev.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: eventTVCId)
+        getData()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "LiveScoreTVC", bundle: nil), forCellReuseIdentifier: liveScoreId)
+        tableView.register(UINib(nibName: "EventTypeTVC", bundle: nil), forCellReuseIdentifier: eventTypeTVCId)
+        tableView.register(UINib(nibName: "EventsSectionCustomHeaderTVC", bundle: nil), forCellReuseIdentifier: eventsHeaderTVCId)
+        tableView.register(UINib(nibName: "EventTVC", bundle: nil), forCellReuseIdentifier: eventTVCId)
         
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        events = Array(realm.objects(TeamSportEvent.self))
+        
+        updateEventsList()
         athlete = realm.objects(Athlete.self).filter( {$0.firstName == "Cristiano"} ).first
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        
+        updateEventsList()
+        tableView.reloadData()
+    }
+    
+    private func updateEventsList() {
+        events = Array(realm.objects(DoublesSportEvent.self)) + Array(realm.objects(TeamSportEvent.self))
+        if let sortedEvents = events?.sorted(by: { $0.date < $1.date }){
+            events = sortedEvents
+        }
     }
     
     @IBAction func PlayerInfoBtn(_ sender: UIButton) {
@@ -48,6 +64,11 @@ class MainTableVC: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
             vc.athlete = athlete
         }
+    }
+    
+    private func getData() {
+        let realm = RealmDB()
+        realm.addData()
     }
 }
 
@@ -90,10 +111,10 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
             return eventTypeCollectionCell
             
         case 2:
+            eventSectionHeaderCell.addEvent.addTarget(self, action: #selector(tapAddEvent), for: .touchUpInside)
             return eventSectionHeaderCell
             
         case 3:
-            
             if let event = events?[indexPath.row] as? TeamSportEvent {
                 eventTVCCell.firstTeamOrAtheleName?.text = event.teams.first?.name
                 eventTVCCell.secondTeamOrAthleteName?.text = event.teams.last?.name
@@ -125,5 +146,10 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
             self.navigationController?.pushViewController(vc, animated: true)
             vc.event = events?[indexPath.row]
         }
+    }
+    
+    @objc func tapAddEvent(_ sender: UIButton) {
+        let vc = EventCreatorVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

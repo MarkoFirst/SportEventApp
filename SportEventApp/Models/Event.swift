@@ -17,9 +17,6 @@ class Event: Object {
     @Persisted var place: Place?
     @Persisted var currency: CurrencyList.RawValue = ""
     @Persisted var icon: Data?
-//    var image: UIImage? {
-//        return UIImage(named: iconName)
-//    }
     
     convenience init(title: String, desc: String, date: Date, place: Place?, currency: CurrencyList.RawValue, icon: Data, typeOfSport: TypeOfSport.RawValue) {
         self.init()
