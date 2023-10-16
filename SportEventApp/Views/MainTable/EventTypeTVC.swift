@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 @IBDesignable
 
 class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -16,10 +15,6 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     var filter: [TypeOfSport] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var eventType: [TypeOfSport] = [.football, .basketball, .volleyball, .tennis, .pingpong, .chess, .poker, .fencing, .cybersport]
-
-    var eventTypeIcon = ["footballIcon", "basketballIcon", "volleyballIcon", "tennisIcon", "pingpongIcon", "chessIcon",  "pokerIcon", "fencingIcon", "cybesportIcon"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,27 +26,23 @@ class EventTypeTVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventType.count
+        return TypeOfSport.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCellId", for: indexPath as IndexPath) as! EventTypeCVC
-        cell.typeEventIcon.image = UIImage(named: eventTypeIcon[indexPath.row]) ?? UIImage()
-        cell.labelCVC.text = eventType[indexPath.row].rawValue
+        cell.typeEventIcon.image = UIImage(named: TypeOfSport.allImages[indexPath.row]) ?? UIImage()
+        cell.labelCVC.text = TypeOfSport.allCases[indexPath.row].rawValue
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        filter.append(eventType[indexPath.row])
+        filter.append(TypeOfSport.allCases[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let deselectType = eventType[indexPath.row]
+        let deselectType = TypeOfSport.allCases[indexPath.row]
         filter.removeAll(where: ({$0 == deselectType}))
     }
 }
-    
-
-
-

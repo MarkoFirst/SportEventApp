@@ -65,15 +65,6 @@ class EventCreatorVC: UIViewController {
     @objc private func dismissKeyboardTouchOutside() {
         view.endEditing(true)
     }
-    
-    @objc func back(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-    }
-    @objc func addDefaultEvents(_ sender: UIButton) {
-        let realmDB = RealmDB()
-        realmDB.createDefaultEvents()
-    }
-    
 }
 
 extension EventCreatorVC {
@@ -85,6 +76,7 @@ extension EventCreatorVC {
         let typeOfSport = eventType?.rawValue ?? emptyLine
         let place = realm.objects(Place.self).filter( {$0.name == self.placeTF.text} ).first
         let gameType = gameTypeTF.text ?? emptyLine
+        
         var image: Data {
             if let eventImage_ = eventImage?.jpegData(compressionQuality: 0.3) {
                 return eventImage_
@@ -97,14 +89,14 @@ extension EventCreatorVC {
             showAlert(title: "Oops!", message: "Fill in all fields!")
             return
         }
-
+        
         switch [eventFirstParticipant, eventSecondParticipant] {
         case is [Team]:
             let firstTeam = realm.objects(Team.self).filter( {$0.name == self.firstParticipantTF.text} ).first
             let secondTeam = realm.objects(Team.self).filter( {$0.name == self.secondParticipantTF.text} ).first
             let teamsList = List<Team>()
             teamsList.append(objectsIn: [firstTeam, secondTeam].compactMap { $0 })
-
+            
             let event = TeamSportEvent()
             event.title = title
             event.desc = desc
@@ -114,15 +106,15 @@ extension EventCreatorVC {
             event.currency = place?.currency ?? CurrencyList.USD.rawValue
             event.icon = image
             event.teams = teamsList
-
+            
             addEvent(event: event)
-
+            
         case is [Athlete]:
             let firstAthlete = realm.objects(Athlete.self).filter( {$0.lastName == self.firstParticipantTF.text} ).first
             let secondAthlete = realm.objects(Athlete.self).filter( {$0.lastName == self.secondParticipantTF.text} ).first
             let athletesList = List<Athlete>()
             athletesList.append(objectsIn: [firstAthlete, secondAthlete].compactMap { $0 })
-
+            
             let event = DoublesSportEvent()
             event.title = title
             event.desc = desc
@@ -132,9 +124,9 @@ extension EventCreatorVC {
             event.currency = place?.currency ?? CurrencyList.USD.rawValue
             event.icon = image
             event.athletes = athletesList
-
+            
             addEvent(event: event)
-
+            
         default: return
         }
     }
@@ -142,7 +134,18 @@ extension EventCreatorVC {
     private func addEvent(event: Event) {
         try! realm.write {
             realm.add(event, update: .error)
+            showAlert(title: "Done!", message: "Event was created!")
         }
+    }
+    
+    @objc func back(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func addDefaultEvents(_ sender: UIButton) {
+        let realmDB = RealmDB()
+        realmDB.createDefaultEvents()
+        showAlert(title: "Done!", message: "10 events was created!")
     }
     
     private func showAlert(title: String, message: String) {

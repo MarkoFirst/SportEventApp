@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class MainTableVC: UIViewController {
+    
     let realm = try! Realm()
     
     var athlete: Athlete?
@@ -107,7 +108,6 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
             return liveScoreCell
             
         case 1:
-            tableView.layoutIfNeeded()
             return eventTypeCollectionCell
             
         case 2:
@@ -148,8 +148,30 @@ extension MainTableVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewD
         }
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if indexPath.section == 3 {
+            let swipe = UIContextualAction(style: .destructive, title: "Delete") { (action, view, success) in
+                guard let event = self.events?[indexPath.row] else { return }
+                self.deleteEvent(event: event, indexPath: indexPath)
+                success(true)
+            }
+            return UISwipeActionsConfiguration(actions: [swipe])
+        }
+        return UISwipeActionsConfiguration()
+    }
+    
     @objc func tapAddEvent(_ sender: UIButton) {
         let vc = EventCreatorVC()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func deleteEvent(event: Event, indexPath: IndexPath) {
+        try! realm.write {
+            realm.delete(event)
+        }
+        
+        events?.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

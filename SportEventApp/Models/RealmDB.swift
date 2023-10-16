@@ -73,7 +73,7 @@ class RealmDB {
     lazy var allAthletes = [djokovic, nadal, ronaldo]
     
     func addData() {
-                
+        
         try! realm.write {
             realm.add(allPlaces, update: .modified)
             realm.add(allTeams, update: .modified)
@@ -107,7 +107,7 @@ class RealmDB {
         createDefaultEvents(participants: [liverpool, barcelona], title: "Football Fiesta: Liverpool vs Barcelona", desc: "Join the football fiesta as Liverpool and Barcelona bring their A-game to the pitch. Expect a thrilling match full of goals, skillful plays, and intense competition. Get ready to cheer for your favorite team in this epic showdown at the Tottenham Stadium!", date: ninthEventDate, typeOfSport: .football, place: tottenhamStadium, image: UIImage(named: "eventDefaultImage")!.jpegData(compressionQuality: 0.3)!)
         createDefaultEvents(participants: [spurs, raptors], title: "NBA Showdown: San Antonio Spurs vs Toronto Raptors", desc: "Experience the excitement of NBA basketball as the San Antonio Spurs take on the Toronto Raptors. Watch as these two talented teams battle for supremacy on the court. Don't miss the fast-paced action, incredible dunks, and three-pointers at the Rotterdam Ahoy!", date: tenthEventDate, typeOfSport: .basketball, place: rotterdamAhoy, image: UIImage(named: "eventDefaultImage")!.jpegData(compressionQuality: 0.3)!)
     }
-
+    
     
     private func addEvent(event: Event) {
         try! realm.write {
@@ -115,7 +115,7 @@ class RealmDB {
         }
     }
     
-    func createDefaultEvents(participants: [Participant], title: String, desc: String, date: Date, typeOfSport: TypeOfSport, place: Place, image: Data?) {
+    private func createDefaultEvents(participants: [Participant], title: String, desc: String, date: Date, typeOfSport: TypeOfSport, place: Place, image: Data) {
         let place_ = realm.objects(Place.self).filter( {$0.name == place.name} ).first
         switch participants {
         case is [Team]:
@@ -127,7 +127,7 @@ class RealmDB {
             let second = realm.objects(Team.self).filter( {$0.name == secondTeam.name} ).first
             let teamsList = List<Team>()
             teamsList.append(objectsIn: [first!, second!])
-
+            
             let event = TeamSportEvent()
             event.title = title
             event.desc = desc
@@ -137,19 +137,20 @@ class RealmDB {
             event.currency = place_?.currency ?? CurrencyList.USD.rawValue
             event.icon = image
             event.teams = teamsList
-
+            
             addEvent(event: event)
-
+            
         case is [Athlete]:
             guard let firstAthlete = participants[0] as? Athlete,
                   let secondAthlete = participants[1] as? Athlete else {
                 return
             }
+            
             let first = realm.objects(Athlete.self).filter( {$0.lastName == firstAthlete.lastName} ).first
             let second = realm.objects(Athlete.self).filter( {$0.lastName == secondAthlete.lastName} ).first
             let athletesList = List<Athlete>()
             athletesList.append(objectsIn: [first!, second!])
-
+            
             let event = DoublesSportEvent()
             event.title = title
             event.desc = desc
@@ -159,9 +160,9 @@ class RealmDB {
             event.currency = place_?.currency ?? CurrencyList.USD.rawValue
             event.icon = image
             event.athletes = athletesList
-
+            
             addEvent(event: event)
-
+            
         default: return
         }
     }

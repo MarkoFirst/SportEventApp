@@ -9,46 +9,46 @@ import Foundation
 import UIKit
 
 class EventInfoVC: UIViewController {
-
+    
     var event: Event?
-
+    
     private let titleId = "titleId"
     private let iconId = "iconId"
     private let descriptionId = "descriptionId"
-
+    
     @IBOutlet weak var tableView: UITableView!
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "EventInfoTitleTVC", bundle: nil), forCellReuseIdentifier: titleId)
         tableView.register(UINib(nibName: "EventInfoIconTVC", bundle: nil), forCellReuseIdentifier: iconId)
         tableView.register(UINib(nibName: "EventInfoDescriptionCell", bundle: nil), forCellReuseIdentifier: descriptionId)
         navigationController?.navigationBar.isHidden = true
-
+        
         if let event_ = event { event = event_ }
     }
-
+    
     @IBAction func back(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
     @IBAction func PlayerInfoBtn(_ sender: UIButton) {
-
+        
     }
 }
 
 extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         switch section {
         case 0:
             return 1
@@ -60,15 +60,15 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let titleCell = tableView.dequeueReusableCell(withIdentifier: titleId, for: indexPath) as! EventInfoTitleTVC
         let iconCell = tableView.dequeueReusableCell(withIdentifier: iconId, for: indexPath) as! EventInfoIconTVC
         let descriptionCell = tableView.dequeueReusableCell(withIdentifier: descriptionId, for: indexPath) as! EventInfoDescriptionCell
-
+        
         switch indexPath.section {
-
+            
         case 0:
             titleCell.eventTitle.text = event?.title
             titleCell.eventDate.text = event?.dateFormatter()
@@ -77,9 +77,9 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
             } else if let event_ = event as? DoublesSportEvent {
                 titleCell.eventType.text = event_.typeOfSport
             }
-
+            
             return titleCell
-
+            
         case 1:
             if let imageData = event?.icon {
                 if let image = UIImage(data: imageData) {
@@ -87,11 +87,11 @@ extension EventInfoVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             return iconCell
-
+            
         case 2:
             descriptionCell.eventDescription.text = event?.desc
             return descriptionCell
-
+            
         default:
             return UITableViewCell()
         }

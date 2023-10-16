@@ -155,7 +155,7 @@ extension EventCreatorVC: UITextFieldDelegate {
             textField?.delegate = self
         }
         
-      [eventTitleLabel, eventDescriptionLabel, eventDateLabel, eventTypeOfSportLabel, eventPlaceLabel, gameTypeLabel, eventParticipantsLabel, vsLabel, eventImagesLabel].forEach { label in
+        [eventTitleLabel, eventDescriptionLabel, eventDateLabel, eventTypeOfSportLabel, eventPlaceLabel, gameTypeLabel, eventParticipantsLabel, vsLabel, eventImagesLabel].forEach { label in
             label.font = UIFont(name: "Helvetica", size: 20)
             label.textColor = .black
         }

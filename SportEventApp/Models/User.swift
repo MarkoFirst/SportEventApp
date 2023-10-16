@@ -15,7 +15,7 @@ class User: Object {
     @Persisted(primaryKey: true) var id: String = UUID().uuidString
     private var userSettings: Settings?
     var favoritesEvent: [Event] = []
-    var favoritesSport: [Sport] = []
+    var favoritesSport: [TypeOfSport] = []
     var favoritesTeam: [Team] = []
     var favoritesAthlete: [Athlete] = []
     
@@ -34,7 +34,7 @@ class User: Object {
         self.favoritesEvent.append(event)
     }
     
-    func addFavoriteSport(sport: Sport) {
+    func addFavoriteSport(sport: TypeOfSport) {
         self.favoritesSport.append(sport)
     }
     

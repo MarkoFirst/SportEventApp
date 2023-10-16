@@ -41,7 +41,7 @@ class Team: Participant {
     }
     
     func getAllAthlete() -> [String]{
-        return team.enumerated().map( { "\($1.firstName) \($1.lastName)"}) 
+        return team.enumerated().map( { "\($1.firstName) \($1.lastName)"})
         
     }
 }

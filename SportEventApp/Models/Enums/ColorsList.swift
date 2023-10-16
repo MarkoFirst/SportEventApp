@@ -23,17 +23,28 @@ enum ColorsList: String {
     
     var uiColor: UIColor {
         switch self {
-        case .red:      return UIColor.red
-        case .green:    return UIColor.green
-        case .blue:     return UIColor.blue
-        case .yellow:   return UIColor.yellow
-        case .orange:   return UIColor.orange
-        case .purple:   return UIColor.purple
-        case .brown:    return UIColor.brown
-        case .pink:     return UIColor.systemPink
-        case .gray:     return UIColor.gray
-        case .black:    return UIColor.black
-        case .white:    return UIColor.white
+        case .red:
+            return UIColor.red
+        case .green:
+            return UIColor.green
+        case .blue:
+            return UIColor.blue
+        case .yellow:
+            return UIColor.yellow
+        case .orange:
+            return UIColor.orange
+        case .purple:
+            return UIColor.purple
+        case .brown:
+            return UIColor.brown
+        case .pink:
+            return UIColor.systemPink
+        case .gray:
+            return UIColor.gray
+        case .black:
+            return UIColor.black
+        case .white:
+            return UIColor.white
         }
     }
 }

@@ -82,7 +82,7 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             athleteLogoCell.setupAthleteLogoCell(age: athlete?.age ?? 0, games: athlete?.gamesValue ?? 0, goals: athlete?.goalsValue ?? 0)
             athleteLogoCell.countryFlagLogo.image = UIImage(named: athlete?.citizenship ?? "")
             athleteLogoCell.playerNameLabel.text = athlete?.lastName
-            athleteLogoCell.athleteNumberLabel.text = athlete?.number?.description
+            athleteLogoCell.athleteNumberLabel.text = athlete?.number.description
             athleteLogoCell.teamFlagLogo.image = athlete?.athleteTeam?.icon
             athleteLogoCell.athleteRoleLabel.text = athlete?.athleteRole
             
@@ -103,12 +103,12 @@ extension PlayerInfoVC: UITableViewDelegate, UITableViewDataSource {
             athleteStatsCell.percentShotOnTarget.image = UIImage(named: athleteStatsCell.percentImage(number: athlete?.shotOnTarget ?? 0, from: athlete?.allKicks ?? 0))
             athleteStatsCell.percentGoalsScored.image = UIImage(named: athleteStatsCell.percentImage(number: athlete?.goalsScored ?? 0, from: athlete?.allKicks ?? 0))
             athleteStatsCell.kickStatsLabel.text = athlete?.allKicks.description
-            athleteStatsCell.shotsOnTarget.text = athlete?.shotOnTarget?.description
-            athleteStatsCell.goalsScored.text = athlete?.goalsScored?.description
-            athleteStatsCell.foulsWonLabel.text = athlete?.foulsWon?.description
-            athleteStatsCell.foulsConceded.text = athlete?.foulsConceded?.description
-            athleteStatsCell.yellowCardsValue.text = athlete?.yellowCards?.description
-            athleteStatsCell.redCardsValue.text = athlete?.redCards?.description
+            athleteStatsCell.shotsOnTarget.text = athlete?.shotOnTarget.description
+            athleteStatsCell.goalsScored.text = athlete?.goalsScored.description
+            athleteStatsCell.foulsWonLabel.text = athlete?.foulsWon.description
+            athleteStatsCell.foulsConceded.text = athlete?.foulsConceded.description
+            athleteStatsCell.yellowCardsValue.text = athlete?.yellowCards.description
+            athleteStatsCell.redCardsValue.text = athlete?.redCards.description
             
             return athleteStatsCell
             
